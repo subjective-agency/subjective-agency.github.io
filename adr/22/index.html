@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗸 ADR-22. TripleLang Composite Type - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗸 ADR-22. TripleLang Composite Type</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#django">Django</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#psycopg">psycopg</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#sqlalchemy-pydantic">SQLAlchemy + Pydantic</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>Due to tri-language nature of the project, where English, Russian and Ukrainian languages are treated as top-level citizens, a common pattern arouse in the database usage, where tables would have lang variants of entity names, either saved as text in different columns (like <code>fullname_en</code>, <code>fullname_ru</code>, <code>fullname_uk</code> in <code>people</code>), or in a JSONB column with <code>en</code>, <code>ru</code> and <code>uk</code> keys.</p>
+<h2 id="decision">Decision</h2>
+<p>Composite type with name <code>triple_lang</code> was created in December 2023:</p>
+<pre><code class="language-sql">create type triple_lang as
+(
+    en text,
+    ru text,
+    uk text
+);
+</code></pre>
+<p>Custom type required following adaptations in the code:</p>
+<h3 id="django">Django</h3>
+<p>Django handles composite type with a dedicated library <code>django-postgres-composite-types</code>. Given that it's installed and added to Django modules, following classes should be added to the code:</p>
+<pre><code>from postgres_composite_types import CompositeType
+
+# to models
+class TripleLang(CompositeType):
+    # https://github.com/danni/django-postgres-composite-types
+    &quot;&quot;&quot;Text value in 3 languages: en, uk, ru&quot;&quot;&quot;
+    en = models.CharField()
+    ru = models.CharField()
+    uk = models.CharField()
+
+    class Meta:
+        db_type = 'triple_lang'
+
+# to serializers
+class TripleLangSerializer(serializers.Serializer):
+en = serializers.CharField(allow_null=True)
+ru = serializers.CharField(allow_null=True)
+uk = serializers.CharField(allow_null=True)
+
+class Meta:
+    model = models.TripleLang
+    fields = ('en', 'ru', 'uk')
+</code></pre>
+<p>Then it can be used like so:</p>
+<pre><code class="language-python">class EnumsISCOIndex(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    created_at = models.DateTimeField(blank=True, null=True)
+    isco08 = models.ForeignKey(EnumsISCOTaxonomy, models.DO_NOTHING, blank=True, null=True)
+    name = TripleLang.Field(blank=True, null=True)
+    appended = models.BooleanField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'enums_isco08_index'
+</code></pre>
+<h3 id="psycopg">psycopg</h3>
+<p>With <code>psycopg</code> the only thing necessary is registration of the type after creating a connection object:</p>
+<pre><code class="language-python">from psycopg.types.composite import CompositeInfo, register_composite
+
+info = CompositeInfo.fetch(connection, &quot;triple_lang&quot;)
+register_composite(info, connection)
+</code></pre>
+<p>This functionality can be added to the connection creation procedure.</p>
+<h3 id="sqlalchemy-pydantic">SQLAlchemy + Pydantic</h3>
+<p>With the combination of <code>SQLAlchemy</code> and <code>pydantic</code>, extention package <code>sqlalchemy_utils</code> should be used to define <code>CompositeType</code> columns. Given a <code>pydantic</code> model</p>
+<pre><code class="language-python">from pydantic import BaseModel
+
+class TripleLang(BaseModel):
+    en: Optional[str]
+    ru: Optional[str]
+    uk: Optional[str]
+</code></pre>
+<p>A table with <code>triple_lang</code> fields can be defined like so:</p>
+<pre><code class="language-python">from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel, ConfigDict
+from sqlalchemy import Column, Integer, Text, DateTime, MetaData
+from sqlalchemy.orm import relationship
+from sqlalchemy_utils import CompositeType
+from wapaganda.database.models.base import Base, TripleLang
+
+class BundleTypeDB(Base):
+    metadata = MetaData(schema=&quot;enums&quot;)
+    __tablename__ = 'bundle_types'
+    __table_args__ = {'extend_existing': True}
+
+    id = Column(Integer, primary_key=True)
+    created_at = Column(DateTime)
+    code = Column(Text)
+    updated_on = Column(DateTime)
+    description = Column(CompositeType(name=&quot;triple_lang&quot;, columns=[Column(&quot;en&quot;, Text), Column(&quot;ru&quot;, Text), Column(&quot;uk&quot;, Text)]))
+
+    bundles = relationship(&quot;BundleDB&quot;, back_populates=&quot;bundle_type_&quot;)
+
+class BundleTypeDTO(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True)
+
+    # id: Optional[int] = None
+    created_at: datetime
+    code: str
+    updated_on: Optional[datetime]
+    description: TripleLang
+</code></pre>
+<p>With setup like this, on the app level, one needs to register custom types like so:</p>
+<pre><code class="language-python">from sqlalchemy_utils import register_composites
+from wapaganda.database.db_client import DBClient
+
+client = DBClient(driver='psycopg2')
+with client.get_connection() as conn:
+    register_composites(conn)
+</code></pre>
+<p>As of January 2024, <code>psycopg2</code> needs to be used for <code>CompositeType</code> class; newer <code>psycopg</code> isn't supported.</p>
+<h2 id="status">Status</h2>
+<p>Accepted</p>
+<h2 id="consequences">Consequences</h2>
+<p>Custom types can be tricky to use, which makes them a possible source of bugs. On the other hand, they enable more flexible work with the db.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

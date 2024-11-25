@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ontologies. Setting the stage - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Ontologies. Setting the stage</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#what-are-we-building">What are we building?</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#why-are-we-building-it">Why are we building it?</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#how-are-we-building-it">How are we building it?</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#who-is-building-it">Who is building it?</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#bias-awareness-notice">Bias awareness notice</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#who-cares">Who cares?</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="what-are-we-building">What are we building?</h2>
+<ul>
+<li>A set of interrelated ontologies and taxonomies that, taken together, describe the domain of <strong>propaganda</strong>; and</li>
+<li>A number of web applications, whose structure is tied to these ontologies, and whose content is focused on the Russian propaganda phenomena that stems from the Vladimir Putin's delusional view of the world, and the Russo-Ukrainian war he started on Feb 24, 2022.</li>
+</ul>
+<h2 id="why-are-we-building-it">Why are we building it?</h2>
+<p>The domain in question is highly versatile, with natural language playing a major role in it. There are hundreds of entities involved in the process, the relationships between which have to be mined and parsed. Moreover, the amount of data that needs to be processed is insurmountable without extra tricks in our sleeve. One such trick is machine learning (we already have 1 application and there will be more).</p>
+<p>But it's the semantic web technologies that would help us simplify the task of tieing all the different pieces together into a coherent web of knowledge that can be used to answer some interesting questions.</p>
+<h2 id="how-are-we-building-it">How are we building it?</h2>
+<p>The scope, structure, and content of the ontologies would be driven by the actual data that our software is expected to interact with: that is, entities and relationships between them would be defined against the mass of available Russian data. However, in order to introduce a sort of validation element into the process, these entities must be applied to at least 1 of the following:</p>
+<ul>
+<li>The propaganda phenomena of the Nazi Germany, 1923-1945.</li>
+<li>The Rwandan genocide of 1994 and its roots.</li>
+</ul>
+<p>The individual instances and other entities would be generated (and regularly updated) by mining a variety of structured and unstructured data sources.</p>
+<p>The mining would be made automatic to the furthest extent possible, but with a required human-based verification.</p>
+<p>Natural language processing and entity disambiguation would be an integral part of the flow.</p>
+<h2 id="who-is-building-it">Who is building it?</h2>
+<p>As of the moment of writing this, exactly 1 person is involved in the ontology development. The rest of the Wapaganda team is working mainly with the web application. People skillful in machine learning, natural language processing, etc. may still join the team at some point, but for now we are learning all these things ourselves in order to apply them.</p>
+<h3 id="bias-awareness-notice">Bias awareness notice</h3>
+<p>The first author of the project hasn't left Ukraine since the war started, and all the other team members have some ties to the situation in one way or another - that is to say, we all have skin in the game. This provides energy and vigor, which are crucial in achieving the goal, but also inevitably results in a certain bias. The nature of this bias is known to us, and we are taking extra measures to prevent it from effecting the quality of the models.</p>
+<h2 id="who-cares">Who cares?</h2>
+<p>Since one of the underlying drivers behind the entire project is the desire to understand, to make sense of what we are observing, everybody who experiences the same lack of clarity on the subject, may care. It is a firm conviction of the authors, that achieving the goals of the project would bring us slightly closer to understanding the process of human thinking in general, and of thinking aberrations, in particular.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

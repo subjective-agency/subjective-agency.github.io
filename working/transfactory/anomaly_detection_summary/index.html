@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transfactory Anomaly Detection Summary - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Transfactory Anomaly Detection Summary</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#silence-trimming">Silence Trimming</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#anomaly-detection-algorythm">Anomaly Detection Algorythm</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#anomalies-data-object">Anomalies data object</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#anomaly-stats">Anomaly Stats</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>Driven by the DVE-A-95, an update to the transfactory was introduced to address the issue on at least some of the relevant levels.</p>
+<h2 id="silence-trimming">Silence Trimming</h2>
+<p>First measure taken was addition of silence trimming process to the <code>transsuply</code> script, i.e. removal of leading and trailing silence. Trimming is done with <code>ffmpeg</code>, and extends script's runtime significantly (at least, 2x); at that silence trimming is actually required in minority of cases - but as far as I can tell, <code>ffmpeg</code> cannot simply detect if trimming is needed, but can only process the file using an internal algorythm, so the trimming happens in any case (producing a new copy of the file), but if the difference in duration between the original and trimmed versions is less than 1 second, original version is uploaded instead of the trimmed one. Trimmed version is then removed in any case, while the original version is moved to cold storage as per the usual flow.</p>
+<h2 id="anomaly-detection-algorythm">Anomaly Detection Algorythm</h2>
+<p>Anomaly detection is done over the array produced by the <code>shape_transcribed_lines_object</code> function, which is a part of the <code>transprocessor</code> flow - this flow is updated with anomaly detection functionality, so all the newly processed transcripts are analyzed right away.</p>
+<p>The algorythm consists of 2 parts, the 1st of which is covered by <code>detect_faulty_patches</code> function, and the 2nd - by <code>group_patches</code> function; umbrella function <code>detect_anomalies</code> joins them to produce the final anomaly status. All these can be found in the newly added <code>transfactory_common</code> base module, where some other functions were also moved, with corresponding code optimizations.</p>
+<p>The algorythm is applied to the standard <code>transprocessor</code> flow, as well as to the <code>recover_lines</code> flow.</p>
+<h3 id="anomalies-data-object">Anomalies data object</h3>
+<p>The algo produces a JSON object that must have at least 1 key, <code>anomalies</code>, which is a boolean - this would be the contents of either <code>anomalies_transcription</code> or <code>anomalies_translation</code> columns.</p>
+<p>If it's <code>False</code>, no other keys are expected, so the object is <code>{"anomalies": False}</code> - this is saved to indicate that the corresponding text array was, in fact, analyzed, and not forgotten.</p>
+<p>If it's <code>True</code>, 2 other keys are expected - <code>raw_faulty_patches</code>, which is a list of dicts produced by <code>detect_faulty_patches</code>, and <code>operational_timeframes</code>, which is a list of tuples, each consisting of 2 floats that indicate start and end time relative to the beginning of the corresponding audiofile, produced by <code>group_patches</code>.</p>
+<h2 id="anomaly-stats">Anomaly Stats</h2>
+<p>as of Sep 29, 2023</p>
+<table>
+<thead>
+<tr>
+<th>Records in <code>prabyss</code> table</th>
+<th>#</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total</td>
+<td>7035</td>
+</tr>
+<tr>
+<td>Analyzed transcriptions</td>
+<td>4839</td>
+</tr>
+<tr>
+<td>Analyzed translations</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>With anomalies in transcription</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>With anomalies in translation</td>
+<td>887</td>
+</tr>
+<tr>
+<td>With anomalies in both</td>
+<td>542</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration \&lt;= 1 min</td>
+<td>204/1024</td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration btw 1 min &amp; 5 min</td>
+<td>262/1024</td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration btw 5 min &amp; 10 min</td>
+<td>143/1024</td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration btw 10 min &amp; 30 min</td>
+<td>154/1024</td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration btw 30 min &amp; 60 min</td>
+<td>120/1024</td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration btw 60 min &amp; 120 min</td>
+<td>110/1024</td>
+</tr>
+<tr>
+<td>Transcription: total anomaly duration &gt; 120 min</td>
+<td>31/1024</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration \&lt;= 1 min</td>
+<td>273/887</td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration btw 1 min &amp; 5 min</td>
+<td>260/887</td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration btw 5 min &amp; 10 min</td>
+<td>133/887</td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration btw 10 min &amp; 30 min</td>
+<td>118/887</td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration btw 30 min &amp; 60 min</td>
+<td>60/887</td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration btw 60 min &amp; 120 min</td>
+<td>31/887</td>
+</tr>
+<tr>
+<td>Translation: total anomaly duration &gt; 120 min</td>
+<td>12/887</td>
+</tr>
+</tbody>
+</table>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

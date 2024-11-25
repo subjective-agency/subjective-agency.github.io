@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>People Bundles - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">People Bundles</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#subjective">Subjective</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#objective">Objective</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#expert">Expert</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#national">National</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>Bundles are custom groups of people. <strong>4 types</strong> of bundles are defined (<span style="color:dodgerblue;">as of November 27, 2022</span>).</p>
+<h2 id="subjective">Subjective</h2>
+<p>Subjective bundle is a virtual group where membership is defined by purely subjective speculations.</p>
+<ul>
+<li>Alias: <code>s</code></li>
+<li>Example: <code>{"en": "Mean Old Jerks Club", "ru": "Клуб старых злобных мудаков"}</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mean Old Jerks Club</td>
+<td>A person is aged, and behaves like a mean jerk</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Likely random people</td>
+<td>A person is probably not related to propagandistic activities</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Sociopaths</td>
+<td>A person has spoken at least once in favor of either public executions, mass executions or death squads, or have demonstrated sociopathic tendencies otherwise</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Opportunists</td>
+<td>A person is likely to not have solid convictions of their own</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objective">Objective</h2>
+<p>Objective bundle is a virtual group where membership could be defined via objectively existing features.</p>
+<ul>
+<li>Alias: <code>o</code></li>
+<li>Example: <code>{"en":"Solovyov pack","ru":"Соловьевская стая"}</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>53</td>
+<td>Own correspondents abroad</td>
+<td>A person works for a Russian media in the capacity of foreign correspondent</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Religious figure</td>
+<td>A person is a priest, a shaman, a mufti or some other kind of professional god servant</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Military correspondent</td>
+<td>A person is a correspondent (journalist) and has worked in the war zone is this capacity</td>
+</tr>
+<tr>
+<td>45</td>
+<td>International surveyors</td>
+<td>A person is a foreign national (towards Russia) and has participated in at least one RF electoral episode as a surveyor</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Diplomats</td>
+<td>A person has served as a professional diplomat</td>
+</tr>
+<tr>
+<td>25</td>
+<td><span style="background-color:mistyrose;">PhD</span></td>
+<td>A person has a doctorate</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Afghan veterans</td>
+<td>A person has participated in the Soviet-Afghan war 1980-1989</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Communists</td>
+<td>A person has expressed their allegiance to the idea of communism</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Influencers</td>
+<td>A person actively works towards gaining larger audience online</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Religious fanatics</td>
+<td>A person has expressed extreme ideas of religious essence</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Politicians</td>
+<td>A person has participated in formal political process</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Soldiers</td>
+<td>A person is a part of an army, with any kind of rank</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Solovyov pack</td>
+<td>A person has at least once appeared on air on Solovyov Live TV channel in the capacity of a host, or a reporter</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Cultural figure</td>
+<td>A person is a professional singer, writer, poet, performer, musician etc. and acquired some fame in that capacity</td>
+</tr>
+<tr>
+<td></td>
+<td>Nazi</td>
+<td>A person has expressed at least one of the following convictions:<br/>- that Russian nation is superior;<br/>- that Ukrainian nation is inferior;<br/>- that Ukrainian nation is not a nation (i.e. did not occur naturally but was somebody's project);<br/>- TBD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expert">Expert</h2>
+<p>Expert bundle is a virtual group where membership is defined by <em>claimed</em> expertise in any field of activity/knowledge.</p>
+<ul>
+<li>Alias: <code>e</code></li>
+<li>Example: <code>{"en":"Political science","ru":"Политология","uk":"Політологія"}</code></li>
+</ul>
+<h2 id="national">National</h2>
+<p>National bundle is a virtual group where membership is defined by either <span style="color:red;">[claimed | actual]</span> belonging to an ethnic group, <span style="color:red;">or citizenship</span>.</p>
+<ul>
+<li>Alias: <code>n</code></li>
+<li>Example: <code>{"en":"Ukrainians","ru":"Украинцы","uk":"Українці"}</code></li>
+</ul>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

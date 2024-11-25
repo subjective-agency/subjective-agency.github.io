@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗸 ADR-21. Data Provenance - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗸 ADR-21. Data Provenance</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#persistent-metadata">Persistent metadata</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#mechanism">Mechanism</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#insert-exceptions">INSERT Exceptions</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#closures">Closures</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#test-rows">Test rows</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>In the context of data management, provenance refers to the <strong>metadata that describes the origin and processing history of a dataset</strong>. It is helpful for establishing the reliability and trustworthiness of the data. This is something that should've been introduced from the beginning, but better late than never.</p>
+<h2 id="decision">Decision</h2>
+<h3 id="persistent-metadata">Persistent metadata</h3>
+<p>Table <code>provenance</code> was created in the <code>service</code> schema of the master DB with the following structure:</p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Data type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>uid</code></td>
+<td>UUID</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation</code></td>
+<td>TEXT</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tbl</code></td>
+<td>TEXT</td>
+<td></td>
+</tr>
+<tr>
+<td><code>schm</code></td>
+<td>TEXT</td>
+<td></td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td>TEXT</td>
+<td></td>
+</tr>
+<tr>
+<td><code>happenned_at</code></td>
+<td>TIMESTAMP</td>
+<td></td>
+</tr>
+<tr>
+<td><code>affected_row_id</code></td>
+<td>INTEGER</td>
+<td></td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>JSONB</td>
+<td>Relevant for updates only. Contains names of updated keys and their <strong>old</strong> value</td>
+</tr>
+<tr>
+<td><code>inserted</code></td>
+<td>TEXT[]</td>
+<td>Relevant for inserts only. Contains an array of non-null column names</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mechanism">Mechanism</h3>
+<p>To populate the <code>provenance</code> table automatically, the following generic trigger function was developed using PL/Python procedural language:</p>
+<pre><code class="language-sql">CREATE OR REPLACE FUNCTION trg_change()
+RETURNS TRIGGER AS $$
+    import json
+    operation = TD[&quot;event&quot;].lower()
+    old_rec = TD[&quot;old&quot;] if operation in(&quot;update&quot;, &quot;delete&quot;) else None
+    new_rec = TD[&quot;new&quot;] if operation in(&quot;update&quot;, &quot;insert&quot;) else None
+    tbl = TD[&quot;table_name&quot;]
+    sch = TD[&quot;table_schema&quot;]
+
+    current_data_q = plpy.prepare(&quot;SELECT current_user, current_timestamp;&quot;)
+    current_data = plpy.execute(current_data_q)
+    current_user, current_timestamp = current_data[0].values()
+
+    if operation == &quot;insert&quot;:
+        rec_id = new_rec.get(&quot;id&quot;) or new_rec.get(&quot;uid&quot;)
+        notnull = [k for k,v in new_rec.items() if v]
+        query = plpy.prepare(&quot;INSERT INTO service.provenance (operation, tbl, schm, agent, happenned_at, affected_row_id, inserted) VALUES($1, $2, $3, $4, $5, $6, $7)&quot;, [&quot;tbl_operation&quot;, &quot;text&quot;, &quot;text&quot;, &quot;text&quot;, &quot;timestamp&quot;, &quot;int&quot;, &quot;text[]&quot;])
+        plpy.execute(query, [operation, tbl, sch, current_user, current_timestamp, rec_id, notnull])
+    elif operation == &quot;update&quot;:
+        rec_id = new_rec.get(&quot;id&quot;) or new_rec.get(&quot;uid&quot;)
+        updated = dict()
+        for k, val in old_rec.items():
+            if new_rec[k] != val:
+                updated[k] = val
+        query = plpy.prepare(&quot;INSERT INTO service.provenance (operation, tbl, schm, agent, happenned_at, affected_row_id, updated) VALUES($1, $2, $3, $4, $5, $6, $7)&quot;, [&quot;tbl_operation&quot;, &quot;text&quot;, &quot;text&quot;, &quot;text&quot;, &quot;timestamp&quot;, &quot;int&quot;, &quot;jsonb&quot;])
+        plpy.execute(query, [operation, tbl, sch, current_user, current_timestamp, rec_id, json.dumps(updated)])
+    elif operation == &quot;delete&quot;:
+        rec_id = old_rec.get(&quot;id&quot;) or old_rec.get(&quot;uid&quot;)
+        query = plpy.prepare(&quot;INSERT INTO service.provenance (operation, tbl, schm, agent, happenned_at, affected_row_id) VALUES($1, $2, $3, $4, $5, $6)&quot;, [&quot;tbl_operation&quot;, &quot;text&quot;, &quot;text&quot;, &quot;text&quot;, &quot;timestamp&quot;, &quot;int&quot;])
+        plpy.execute(query, [operation, tbl, sch, current_user, current_timestamp, rec_id])
+$$ LANGUAGE plpython3u;
+</code></pre>
+<p>With this, any table that requires data provenance can be hooked up by creating a single trigger for it:</p>
+<pre><code class="language-sql">CREATE OR REPLACE TRIGGER trg_&lt;table_name&gt;
+AFTER UPDATE OR DELETE OR INSERT ON &lt;schema_name.table_name&gt;
+FOR EACH ROW
+EXECUTE FUNCTION trg_change();
+</code></pre>
+<p>And, as an additional safety mechanism, the following meta-trigger was set up, as well:</p>
+<pre><code class="language-sql">CREATE OR REPLACE TRIGGER trg_prov
+AFTER UPDATE OR DELETE ON service.provenance
+FOR EACH ROW
+EXECUTE FUNCTION trg_change();
+</code></pre>
+<p>Meaning, that if anybody would attempt to alter or remove a row from the <code>provenance</code> table, it would be registered in the <code>provenance</code> table via the usual flow. Note, that <code>insert</code> operation is omitted from this one. If added, it would create an infinite loop of database transactions.</p>
+<h3 id="insert-exceptions">INSERT Exceptions</h3>
+<p>There are other tables, for which <code>INSERT</code> operation is not registered in the <code>provenance</code> table: lists of media, such as <code>youtube_vids</code>, and data tables, such as <code>telegram_messages</code> - because inserts here are done by automated scripts which have their own logs and usually insert in bulk. Here's the full list of such tables:</p>
+<ul>
+<li>public: dentv_episodes, komso_episodes, ntv_episodes, rutube_vids, smotrim_episodes, text_media, youtube_vids</li>
+<li>data: printed_content, telegram_channel_stats, telegram_messages, transcribed_content, transcribed_content_translation_en, transcripts</li>
+<li>future: meduza_dow_stream, rodniki, e_mash_mapdata</li>
+<li>service: factory_jobs_run_details, media_segments_stats</li>
+<li>enums: orgs_taxonomy_closure, isco08_taxonomy_closure (see below)</li>
+</ul>
+<h3 id="closures">Closures</h3>
+<p>Relevant for tables whose names end with <code>_closure</code>.</p>
+<p>Closure tables don't have <code>id</code> columns, so the standard trigger won't work. Another version of the above trigger function was customized and saved under name <code>trg_change_closure</code>.  It is different in 2 respects:</p>
+<ol>
+<li>It doesn't have code for handling <code>INSERT</code> operations;</li>
+<li>For <code>update</code> operation, instead of updated columns, the entire <code>OLD</code> record is saved.</li>
+</ol>
+<h3 id="test-rows">Test rows</h3>
+<p>During the development of the flow, 5 rows were inserted into the <code>provenance</code> table that do not conform to the established standard:</p>
+<table>
+<thead>
+<tr>
+<th>uid</th>
+<th>reasoning</th>
+<th>what's wrong with it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>71a5cefc-d84b-469f-88bb-d4ed67b71835</td>
+<td>This is a genuine update made for testing purposes. Updated field: <code>known_for</code>. Previous value was <code>null</code></td>
+<td><code>user: postgres</code> - generic superuser should not be used for regular operations<br />` updated: null` - this record was inserted by an earlier version of the trigger function that didn't account for updated columns</td>
+</tr>
+<tr>
+<td>84942cc2-0bab-4fc8-847a-2bfdb4e892fa</td>
+<td>This is a genuine update made for testing purposes. Updated field: <code>known_for</code>. Previous value was <code>null</code></td>
+<td><code>user: postgres</code> - generic superuser should not be used for regular operations<br />` updated: null` - this record was inserted by an earlier version of the trigger function that didn't account for updated columns</td>
+</tr>
+<tr>
+<td>e742763a-dc19-45c0-b715-2323531eddc5</td>
+<td>This is a genuine update made for testing purposes. Updated field: <code>known_for</code>. Previous value was <code>null</code></td>
+<td><code>user: postgres</code> - generic superuser should not be used for regular operations</td>
+</tr>
+<tr>
+<td>a2f7165f-4a4a-4305-b6f7-78e0afd59c32</td>
+<td>This is a dummy update: a test record was inserted into the table <code>organizations</code> from under the <code>ata</code> user; the insert operation triggered creation of the provenance record.</td>
+<td>Was inserted purely for testing purposes</td>
+</tr>
+<tr>
+<td>6f4ae1a6-bb43-400c-840c-db02e711cf0e</td>
+<td>This is a dummy update, and refers to the removal of the test record inserted into the <code>organizations</code> table (see a2f7165f-4a4a-4305-b6f7-78e0afd59c32)</td>
+<td>Was inserted purely for testing purposes</td>
+</tr>
+</tbody>
+</table>
+<p>They were not removed, because nothing should be removed from the <code>provenance</code> table.</p>
+<h2 id="status">Status</h2>
+<p>The complete list of tables for which provenance will be enabled can be found in DVE-266 <a href="https://subjective.youtrack.cloud/issue/DVE-266/Set-up-provenance-triggers-for-all-relevant-tables-except-People">https://subjective.youtrack.cloud/issue/</a></p>
+<p>As of the moment of submitting this, triggers are set up for <code>people</code> and <code>organizations</code> tables in the <code>public</code> schema of the master DB.</p>
+<h2 id="consequences">Consequences</h2>
+<p>Provenance mechanism is for the people to trust the project data a little bit more.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

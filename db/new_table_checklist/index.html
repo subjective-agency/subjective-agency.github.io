@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>New Table Checklist - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">New Table Checklist</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#enabling-provenance">Enabling provenance</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#enabling-incremental-backup">Enabling incremental backup</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#additional-considerations">Additional Considerations</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>When adding a new table to the W database, one must consider, first, whether it is a central core table, or a sattelite table.</p>
+<p>Central core table is a table that stores data directly usable in the project one way or another. Most tables in the database belong to this group. Sattelite table contains secondary data, most often related to internal processes, such as maintaining jobs queue or storing quality control data.</p>
+<p>As a general rule, for central core, both <code>provenance</code> and <code>incremental backup</code> flows should be enabled, while for satellite tables, only <code>incremental backup</code> is required.</p>
+<p><code>incremental backup</code> flow operates on Pydantic/SQLAlchemy models, so adding such model for the table is critical.</p>
+<p>On the other hand, the Django-based web application only uses central core tables.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Central Core</th>
+<th>Satellite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable provenance</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>enable incremental backup</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><strong>Pydantic/SQLAlchemy model</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add SQLAlchemy model to <code>wapatools.bases.database.models</code></td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>update <code>wapatools.bases.incbackup_base.incbackup_db.py</code></td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>add Pydantic model (DTO) to <code>wapatools.bases.database.models</code></td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>update <code>wapatools.bases.incbackup_base.incbackup_dto.py</code></td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><strong>Django model</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add Django model to <code>core.models</code> (backend repo)</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enabling-provenance">Enabling provenance</h2>
+<p>Enabling <code>provenance</code> flow for a table, means creating for this table one of the following triggers:</p>
+<pre><code class="language-sql">-- applicable to most tables
+CREATE OR REPLACE TRIGGER trg_TABLE_NAME
+AFTER UPDATE OR DELETE OR INSERT ON SCHEMA_NAME.TABLE_NAME
+FOR EACH ROW
+EXECUTE FUNCTION trg_change();
+
+-- applicable to data-heavy tables where a lot of insert operation are expected to happen in automated fashion
+CREATE OR REPLACE TRIGGER trg_TABLE_NAME
+AFTER UPDATE OR DELETE ON SCHEMA_NAME.TABLE_NAME
+FOR EACH ROW
+EXECUTE FUNCTION trg_change();
+</code></pre>
+<p>Where <code>TABLE_NAME</code> and <code>SCHEMA_NAME</code> should be replaced with actual table and schema names.</p>
+<h2 id="enabling-incremental-backup">Enabling incremental backup</h2>
+<pre><code class="language-sql">CREATE OR REPLACE TRIGGER trg_backup_youtube_channels_stats
+AFTER UPDATE OR DELETE OR INSERT ON data.youtube_channels_stats
+FOR EACH ROW
+EXECUTE FUNCTION mark4backup();
+</code></pre>
+<h2 id="additional-considerations">Additional Considerations</h2>
+<p>If the table is expected to have translatable or transliteretable values, consider using custom <code>TripleLang</code> composite type. More details <a href="https://subjective.youtrack.cloud/articles/DVE-A-11/Database-Guide#triple-language-format">here</a>.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ADRs - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">ADRs</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#about-adrs">About ADRs</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#legend">Legend</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#accepted-active">Accepted &amp; Active</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#in-progress-under-revision-planned">In Progress | Under Revision | Planned</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#abandoned-rejected-deprecated">Abandoned | Rejected | Deprecated</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="about-adrs">About ADRs</h2>
+<p><strong>Architecture Decision Record</strong> is a document that describes a particular decision or solution related to the fundamental functionality of the product. Each such document must contain 4 sections:</p>
+<ol>
+<li>
+<p><strong>Context</strong>
+   In this section, describe the relevant circumstances, be they of technical or general nature, to answer the question why the change is/was necessary.</p>
+</li>
+<li>
+<p><strong>Decision</strong>
+   In this section, describe what was implemented, and how. Be as specific as possible: this should be a comprehesive statement of a technical solution.</p>
+</li>
+<li>
+<p><strong>Status</strong>
+   This should be just a single word or expression indicating current status of the document. Possible values: <code>accepted</code>, <code>in discussion</code>, <code>succeeded by</code>.</p>
+</li>
+<li>
+<p><strong>Consequences</strong>
+   In this section, describe briefly expected or actualized consequences of the decision. Negative consequences should be described in detail; if there are no negative ones, this should be mentioned.</p>
+</li>
+</ol>
+<p>Aside from this 4-section structure, the shape of the information remains up to the author.</p>
+<h2 id="legend">Legend</h2>
+<p>These symbols should be used in the title of an ADR document as a quick indication of its status.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>∞</td>
+<td>Cooking (in progress, in discussion)</td>
+</tr>
+<tr>
+<td>🗶≽</td>
+<td>Deprecated in favor of other ADR</td>
+</tr>
+<tr>
+<td>🗶</td>
+<td>Deprecated</td>
+</tr>
+<tr>
+<td>🗸</td>
+<td>Accepted (active)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="accepted-active">Accepted &amp; Active</h2>
+<ol>
+<li><a href="https://docs.subjective.agency/sUTXPEQFQL--kxzZREM4Ag">ADR-27</a> describes current structure of the project.</li>
+<li><a href="https://docs.subjective.agency/FsfiU5_XTwuAWmkCXINeIw">ADR-25</a> describes Infisical-based secrets management within the project.</li>
+<li><a href="https://docs.subjective.agency/60fogQNXQOmxkHjWx27xlA">ADR-10</a> describes the standard of personal images handling.</li>
+<li><a href="https://docs.subjective.agency/yn5DqY33Si6fMtFRxf-zvw">ADR-17</a> describes nuances of the ISCO-08 adoption.</li>
+<li><a href="https://docs.subjective.agency/ZXeHIQKwR7yQuga-G5whCg">ADR-19</a> describes nuances of a classification approach to organizations.</li>
+<li><a href="https://docs.subjective.agency/ey5oJkwZSdeYzzR3pCotbw">ADR-21</a> describes automatic provenance mechanism.</li>
+<li><a href="https://docs.subjective.agency/Gqzy5kUQSpai-WyxzgUJXA">ADR-22</a> describes implementation of the custom database type.</li>
+<li><a href="https://docs.subjective.agency/rzwk56myRL-0581EcEZHTQ">ADR-23</a> describes general approach to maintaining the project in 3 languages.</li>
+<li><a href="https://docs.subjective.agency/pULJlzUEQ5iUVYT6nCOLog">ADR-18</a> describes JavaScript coding standards.</li>
+<li><a href="https://docs.subjective.agency/5L0o2prCSWSZmn6yFnbv3w">ADR-30</a> describes approach and implementation of the website's <code>Theory</code> section.</li>
+<li><a href="https://docs.subjective.agency/vs4_TBUIRnO-fOII-pqPDA">ADR-24</a> addresses nuances of subprojects' dockerization in polylith architechture.</li>
+<li><a href="https://docs.subjective.agency/VxYhUuvmTsWGY16CCN_nhw">ADR-33</a> describes nuances of the private Docker repository setup.</li>
+</ol>
+<h2 id="in-progress-under-revision-planned">In Progress | Under Revision | Planned</h2>
+<ol>
+<li><a href="https://docs.subjective.agency/Z3mfU05vSRKZFfEAGNbDHg">ADR-20</a> describes technical details of the Ruskymir Creed implementation.</li>
+<li><a href="https://docs.subjective.agency/PtoKMfc9QISyk2DklGM8iA">ADR-7</a> ==would== describe detailed view for an instance of a media episode.</li>
+<li><a href="https://docs.subjective.agency/CIxHeRVpQ9OBoPUX4p235Q">ADR-8</a> ==would== describe the mechanism of automatic mark-up of transcribed texts.</li>
+<li><a href="https://docs.subjective.agency/s37n5fAVS5KhstdBN1v6wg">ADR-13</a> ==would== describe theory and reasoning for the general approach to media segments.</li>
+<li><a href="https://docs.subjective.agency/4AbM_9mQQYedERhUK68Pxg">ADR-14</a> describes approach to handling printed data, such as books and articles.</li>
+<li><a href="https://docs.subjective.agency/gPwZTErnTmeS3v6r6Eso8w">ADR-29</a> ==would== accumulate nuances related to non-DB data storage.</li>
+<li><a href="https://">ADR-31</a> ==would== describe centralized logging with Logfire.</li>
+<li><a href="https://">ADR-32</a> ==would== describe the set up and process for backing up the database with <code>pgbackrest</code>.</li>
+</ol>
+<h2 id="abandoned-rejected-deprecated">Abandoned | Rejected | Deprecated</h2>
+<ol>
+<li><a href="https://docs.subjective.agency/XO65nBWgSbe6JGSa5XnNaQ">ADR-28</a> describes the previous approach to backing up database, one based on JSON structured export.</li>
+<li><a href="https://docs.subjective.agency/At2nuPYNTs6iAr7yU8-a0w">ADR-1</a> describes the original set up of the project. Superceded with <strong>ADR-12</strong>.</li>
+<li><a href="https://docs.subjective.agency/DOXy1wXMSp6P4iZzFIL1Ng">ADR-12</a> describes 2nd stage in the project's evolution. Superceded with <strong>ADR-27</strong>.</li>
+<li><a href="https://docs.subjective.agency/_pj_azD_RxCjVY5sEY07Zg">ADR-5</a> Deprecated due to removal of MongoDB from the stack.</li>
+<li><a href="https://docs.subjective.agency/o1b3rxisT5-slyuMYZSBHQ">ADR-11</a> was about database summary stats. Rejected because not ADR material (moved elsewhere).</li>
+<li><a href="https://docs.subjective.agency/8ajaVdm5T1KI0e7FLRfTuA">ADR-15</a> was an attempt to collect common terms. Rejected because not ADR material (moved elsewhere).</li>
+<li><a href="https://docs.subjective.agency/3dxwc8UYSYKSqxTo1IYQHA">ADR-2</a> Used to describe how secrets are managed with the use of Doppler. Superceded with <strong>ADR-25</strong>.</li>
+<li><a href="https://docs.subjective.agency/XYJdze4eSb-FeyQ8Uddpkg">ADR-6</a> aimed to describe approach to transcripts, but got outdated before it was finished. Superceded with <strong>ADR-26</strong>.</li>
+<li><a href="https://docs.subjective.agency/6kH6ZWrMR6mZcznwi8jGlA">ADR-3</a> attempted to impose a desired git flow on the project. Rejected.</li>
+<li><a href="https://docs.subjective.agency/rH20jq9OQUGeRne_KLf3ag">ADR-9</a> aimed to describe localization approach, but got outdated before it was finished. Superceded with <strong>ADR-23</strong>.</li>
+<li><a href="https://docs.subjective.agency/m1lF9S1sRYWzqqCpykB2zQ">ADR-4</a> describes the web project's Django-based REST API. This was deprecated in favor of the new FastAPI-based backend.</li>
+<li><a href="https://docs.subjective.agency/Cpzf3s_BQZaT4sTjOsBpsA">ADR-16</a> would've described the point and approach behind the public <code>Theory</code> section, but got outdated before it was finished. Superceded with <strong>ADR-30</strong>.</li>
+<li>ADR-26 was dedicated to <strong>Transfactory</strong> application before Application registry was created.</li>
+<li>ADR-36 was dedicated to <strong>Periodicals</strong> application before Application registry was created.</li>
+<li>ADR-37 was dedicated to <strong>Tgram</strong> application before Application registry was created.</li>
+<li>ADR-38 was dedicated to <strong>Ave Media</strong> application before Application registry was created.</li>
+</ol>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

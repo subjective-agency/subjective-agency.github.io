@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗸 ADR-17. Taxonomies. ISCO-08 - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗸 ADR-17. Taxonomies. ISCO-08</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>As the project aims to ground its methods and approaches in existing and accepted practices, it makes sense to adopt some relevant taxonomies that have been developed by the world community. The first of these would be <a href="https://ilostat.ilo.org/resources/concepts-and-definitions/classification-occupation/">ISCO-08</a> taxonomy that provides a hierarchical description of occupations and professions.</p>
+<p>ISCO-08 was adopted in 2008; it replaced ISCO-88, the previous version. ISCO-08 is currently under revision, with the updated version to be released some time between 2028 and 2030. It is maintained by the ILO (International Labor Organization).</p>
+<p>ISCO standard is based on the concept of <em>skill</em>, which is numerical and can be between 1 (lowest) and 4 (highest). ISCO-08 is composed of 10 major groups, 43 sub-major groups, 130 minor groups and 436 unit groups, i.e. has 4 levels in the hierarchy (note: the hierarchy levels DO NOT correspond directly to the skill levels).</p>
+<p>Each group in the hierarchy is indicated with an ISCO code. Code for major groups is 1 digit (i.e. 0 through 9), for sub-major groups - 2 digits, for minor groups - 3 digits, and for unit groups - 4 digits.</p>
+<p>For example, here's a part from the beginning of the hierarchy:</p>
+<pre><code class="language-text">1   Managers
+
+11  Chief Executives, Senior Officials and Legislators
+111 Legislators and Senior Officials
+1111    Legislators
+1112    Senior Government Officials
+1113    Traditional Chiefs and Heads of Villages
+1114    Senior Officials of Special-interest Organizations
+112 Managing Directors and Chief Executives
+1120    Managing Directors and Chief Executives
+</code></pre>
+<p><code>Managers</code> is a major (aka, root) group indicated with <code>1</code>, <code>Chief Executives, Senior Officials and Legislators</code> is a sub-major group indicated with <code>11</code>, <code>Legislators and Senior Officials</code> and <code>Managing Directors and Chief Executives</code> are minor groups (<code>111</code> and <code>112</code> respectively), and all the rest are unit groups, indicated with 4-digit codes.</p>
+<p>A few things to note:</p>
+<ul>
+<li>Terms could be identical. The idea is that every branch must end with a unit group, so in the case when there is no way to determine subcategories, like with <code>112</code>, the unit group code will have <code>0</code> at the end and the term will be the same as with the parent category;</li>
+<li>Codes also start with <code>0</code>, so when processing, they should be always treated as strings, not numbers. FYI, category <code>0</code> is about <code>Armed Forces Occupations</code>.</li>
+</ul>
+<h2 id="decision">Decision</h2>
+<p>In order to use the taxonomy efficiently, it should be stored in the database. There are several approaches to this: adjacency list model, path enumeration model, nested set model, and closure table model.</p>
+<p><strong>Closure table model</strong> was selected for the project. This approach involves the use of an additional table to represent the relationships between nodes in the hierarchy. The closure table captures all the ancestor-descendant relationships between nodes, allowing for efficient querying and traversal of the hierarchy.</p>
+<p>Here's how it works:</p>
+<ol>
+<li>Main table: The main table represents the nodes in the hierarchy. It contains the primary key column and other attributes related to each node.</li>
+<li>Closure table: The closure table is an auxiliary table that stores the ancestor-descendant relationships between nodes. It consists of two columns, usually named <code>ancestor</code> and <code>descendant</code>, which are foreign keys referencing the primary key of the main table.</li>
+</ol>
+<hr />
+<p>For the ISCO-08 taxonomy, the following tables were created in the <code>enums</code> schema:</p>
+<ul>
+<li><code>isco08_taxonomy</code> - main table that contains term names, definitions and other attributes;</li>
+<li><code>isco08_taxonomy_closure</code> - closure table with all the relationships. It has 2 columns, <code>ancestor</code> and <code>descendant</code>, which combination serves as the primary key (i.e. must be unique);</li>
+<li><code>isco08_index</code> - a list of \~7,000 professions with assigned category codes. This table is intended for reference, when defining a patient's position in an organization.</li>
+</ul>
+<p>In addition, table <code>org_roles</code> in the same schema will be maintained for professions outside the taxonomy/index.</p>
+<p>Table <code>people_in_orgs</code> of the <code>public</code> schema would undergo following updates:</p>
+<ul>
+<li>existing column <code>role</code> is to be deprecated once the processing of existing data is finished;</li>
+<li>new column is added <code>role_category</code> that points to <code>enums.isco08_taxonomy</code>;</li>
+<li>new column is added <code>role_ref1</code> that points to <code>enums.isco08_index</code>;</li>
+<li>new column is added <code>role_ref2</code> that points to <code>enums.org_roles</code>;</li>
+<li>new column is added <code>role_details</code> (JSONB) with content being a dictionary with keys <code>of</code>, <code>for</code>, <code>at</code>, <code>from</code>, <code>with</code>, etc. (all optional), each of which, in its turn, holds a triple-lang structure (<code>{"en": "", "ru": "", "uk": ""}</code>). Example:</li>
+</ul>
+<p><code>json
+  {"at": {"en": "world history department", "ru": "факультет мировой истории", "uk": "факультет світової історії"}</code></p>
+<p>The algorithm for populating the closure table would be saved in the <code>wapatools</code> repository (<code>development/onto/isco08.py</code>).</p>
+<h2 id="status">Status</h2>
+<p>In progress.</p>
+<h2 id="consequences">Consequences</h2>
+<p>The flow for adding a person-to-organization relationship becomes somewhat more complicated, since it requires identification of the profession code. To simplify this, a SQL function <code>search_in_isco8_index</code> was implemented that allows full text search on the <code>isco_08_index</code> table returning <code>term_id</code> (i.e. category ID in <code>isco_08_taxonomy</code>), <code>index_id</code> (i.e. ID of the profession in <code>isco_08_index</code>), as well as codes and definitions for reference.</p>
+<p>Existing reference (content of the <code>role</code> column) is to be reworked into the updated format (in progress).</p>
+<p>Taxonomy terms should be translated into Russian and Ukrainian.</p>
+<p>In the long term, rooting in the existing taxonomies elaborated this deeply, would bring a little more order to the data, allowing to query it more efficiently.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

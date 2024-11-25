@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Social Blade Addition - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Social Blade Addition</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#relevant-sections">Relevant sections</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#approximate-flow">Approximate Flow</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#observations">Observations</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#to-do">To do</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#upd1">UPD1</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#upd2">UPD2</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>SocialBlade is a platform collecting statistics on various media platforms, including Youtube. SocialBlade data would compliment the youtube stats data we have currently. SocialBlade data is NOT free, so related flow should be designed to draw maximum value from what we get.</p>
+<p>Attached is a standard result you'd get if you spend 1 credit on a channel. Historical data is available for additional creds.</p>
+<h2 id="relevant-sections">Relevant sections</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Datatype</th>
+<th>Notes</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>info -&gt; access -&gt; expires_at</td>
+<td>Datetime</td>
+<td>Service item that should be used to manage how a channel data would be updated further</td>
+<td></td>
+</tr>
+<tr>
+<td>data -&gt; id</td>
+<td>JSON[TEXT]</td>
+<td>Data item that should be parsed and saved once</td>
+<td>youtube_channels</td>
+</tr>
+<tr>
+<td>data -&gt; general -&gt; created_at</td>
+<td>Datetime</td>
+<td>Data item that should be parsed and saved once. Only needed for unresolved channels</td>
+<td>youtube_channels</td>
+</tr>
+<tr>
+<td>data -&gt; general -&gt; geo</td>
+<td>JSON[TEXT]</td>
+<td>Data item that should be parsed and saved once</td>
+<td>youtube_channels</td>
+</tr>
+<tr>
+<td>data -&gt; general -&gt; branding -&gt; social</td>
+<td>JSON[TEXT]</td>
+<td>Should be re-checked on every request.</td>
+<td>youtube_channels</td>
+</tr>
+<tr>
+<td>~~statistics -&gt; total~~</td>
+<td>JSON[TEXT/INT]</td>
+<td>Contains 3 keys - uploads, subscribers and views with values current as of the moment of request.<br/><br/>Values for subs and views are the same as the most recent <code>daily</code> values.<br/>Value for current number of uploaded vids can be procured from Youtube API for free.</td>
+<td>nowhere</td>
+</tr>
+<tr>
+<td>statistics -&gt; growth</td>
+<td>JSON[TEXT/INT]</td>
+<td>It's not exactly clear what these numbers signify. Growth over the first year of existence? What's the deal with the negative values?<br/>TBD</td>
+<td></td>
+</tr>
+<tr>
+<td>ranks</td>
+<td>JSON[TEXT/INT]</td>
+<td>Data is relevant as of the moment of request. Not included in daily</td>
+<td></td>
+</tr>
+<tr>
+<td>daily</td>
+<td>JSON[TEXT/INT]</td>
+<td>With 1 credit we get number of subs and views over previous 30 days</td>
+<td>youtube_stats</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Reconciliation required for stats data currently stored in <code>youtube_vids</code>. It gets fetched via Youtube API, and contains numbers for views, comments and likes on specific videos (as of the moment of request).</li>
+<li>Stats data stored in <code>youtube_channels</code> should be the most current, and should be updated from <code>youtube_stats</code> table data.</li>
+</ul>
+<h2 id="approximate-flow">Approximate Flow</h2>
+<ol>
+<li>Fetch a channel from the database.</li>
+<li>Get max amount of historical data on this channel.</li>
+<li>Parse and save the data to the database. We would get:</li>
+<li><code>expires_at</code> date;</li>
+<li><code>general</code> information that we only need once;</li>
+<li>related <code>social</code> network accounts;</li>
+<li><code>growth</code> data;</li>
+<li><code>ranks</code> data relevant as of the moment of request;</li>
+<li>complete set of <code>daily</code> data up to the date of request.</li>
+<li>If a channel is defunct, this is the end of it.</li>
+<li>If a channel is not defunct:</li>
+<li>Set new value for <code>expires_at</code> date (TBD)</li>
+<li>Fetch updates on this channel until <code>expires_at</code> date comes. With every response we would get:<ul>
+<li>related <code>social</code> network accounts (possible update);</li>
+<li><code>growth</code> data; (possible update?) (to be saved?)</li>
+<li><code>ranks</code> data relevant as of the moment of request; (to be saved)</li>
+<li><code>daily</code> data for previous 30 days (items not in db to be saved)</li>
+</ul>
+</li>
+<li>Put channel on pause for 30 days. At this point we have:<ul>
+<li>most current list of related <code>social</code> accounts;</li>
+<li><code>ranks</code> data for the recent 30 days;</li>
+<li><code>growth</code> data for the recent 30 days;</li>
+<li>entire set of <code>daily</code> data up until current date.</li>
+</ul>
+</li>
+<li>After 30 days, spend 1 credit on this channel to fetch the standart amount of data. We would get:<ul>
+<li>related <code>social</code> network accounts (possible update);</li>
+<li><code>growth</code> data; (possible update?) (to be saved?)</li>
+<li><code>ranks</code> data relevant as of the moment of request; (to be saved)</li>
+<li><code>daily</code> data for previous 30 days (to be saved).</li>
+</ul>
+</li>
+<li>Put channel on pause for 30 days. At this point we have:<ul>
+<li>most current list of related <code>social</code> accounts;</li>
+<li><code>ranks</code> data for 60 days in total: 30 days of the 1st iteration, and 30 more of the 2nd iteration;</li>
+<li><code>growth</code> data for 60 days; (...)</li>
+<li>entire set of <code>daily</code> data up until current date.</li>
+</ul>
+</li>
+<li>Rinse and repeat.</li>
+</ol>
+<h2 id="observations">Observations</h2>
+<ul>
+<li>We would have consistent and steady set of <code>daily</code> data with no gaps.</li>
+<li>We would have inconsistent set of <code>ranks</code> data - 30 days stretches with 30 days gaps in between.</li>
+<li>Value of <code>growth</code> data is dubious at the moment.</li>
+</ul>
+<h2 id="to-do">To do</h2>
+<ul>
+<li>Find a place for <code>expires_at</code> timestamp;</li>
+<li>Create a table for storing <code>daily</code> data. Possibly, store <code>ranks</code> (and <code>growth</code>?) data in the same table;</li>
+<li>Decide what to do with videos-level stats;</li>
+<li>Set up a trigger to update <code>youtube_channels</code> table with most current views, subs etc.</li>
+</ul>
+<h2 id="upd1">UPD1</h2>
+<p>After reviewing the video https://www.youtube.com/watch?v=LihUTkSMRFw found by @saszko, it became clear to me that the actual flow should be as follows:</p>
+<pre><code>Get a channel from database;
+Consider channel's creation date.
+    If creation_date is less than 700 days ago, do nothing.
+    If creation_date is more than 700 days ago, spend 3 credits to retrieve max amount of historical data from SocialBlade.
+Put the channel up for update via the compare flow (TBD)
+
+if channel is defunct - one time;
+if channel is not defunct - continuously on schedule;
+</code></pre>
+<p>The compare flow would be based on the info from the aforementioned video, and would involve using playwright for access to https://socialblade.com/youtube/compare page (it returns 503 to requests ). Example compare URL is https://socialblade.com/youtube/compare/UCBMXxadAHZl9FOGhMeR_ptg/UCKgdkhHgBQrwWY_PVGxMH9Q, where pieces after compare/ are identifiers of Youtube channels. With this tool, you can retrieve up to 3 channels at a time.</p>
+<p>Retrieval algorythm is approximately as follows:</p>
+<pre><code>Get 3 target channels from the database accounting for 1) if the channel is defunct; 2) when was it last updated.
+Shape compare URL.
+Use playwright to visit the URL and retrieve page's source code
+Parse the source code to retrieve 5 relevant raw strings corresponding to 5 sections returned by the compare module.
+Parse raw strings into proper data structures
+Persist only new items to the database.
+</code></pre>
+<h2 id="upd2">UPD2</h2>
+<p>With the compare flow, only 2 sections (raw strings) are relevant:</p>
+<pre><code>document.getElementById('subscribersYTDYGraph')
+document.getElementById('videoviewsYTDYGraph')
+</code></pre>
+<p>Of the other 4, dailysubscribersYTDYGraph and dailyvideoviewsYTDYGraph represent a diff between days, which we can calculate ourselves; and futuresubsYTDYGraph and futureviewsYTDYGraph are projections based on unknown algorythm, which makes them rather useless.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

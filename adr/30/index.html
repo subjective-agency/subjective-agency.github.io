@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗸 ADR-30. Theory - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗸 ADR-30. Theory</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#memos">Memos</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#adding-new-memo">Adding New Memo</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#secondary-tables-and-synchronization-flow">Secondary Tables and Synchronization Flow</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>Website's ==Theory== section is intended to serve as a window into the supporting materials related to the purpose of the project. These are: current-time articles and blog posts written by either friends of Ukraine or relatively objective observers (subtype <code>companions</code>); a special tiny collection of particularly enlightening texts written by the Russian propaganda actors (subtype <code>copium</code>); my own theoretical reasonings (subtype <code>core</code>); and a multitude of notes on various research subjects, from the so-called geopolitics to linguistic nuances of Russian language.</p>
+<p>The initial body of <em>companion</em> and <em>copium</em> texts was translated from Russian into English for the ==Dum Vita Est== blog, and, in April 2023, translated from Russian into Ukrainian using <code>openai/gpt-3.5</code>.</p>
+<h2 id="decision">Decision</h2>
+<h3 id="memos">Memos</h3>
+<p><a href="https://www.usememos.com/">Memos</a> is a self-hosted application for taking notes. What makes this particular app suitable for the purpose of the W project are the following nuances:</p>
+<ul>
+<li>Memos supports storing notes in the PostgreSQL database;</li>
+<li>App's system of tags is sufficiently intricate, and supports nested tags;</li>
+<li>There is a feature allowing to link notes with each other. </li>
+</ul>
+<p>As such, Memos provides a convenient interface for adding new notes.</p>
+<h4 id="technical-details">Technical Details</h4>
+<p>As of mid August 2024, Memos instance is set up on a Hetzner server. HTTPS domain is https://memos.subjective.agency (reverse proxied with Caddy). Dedicated postgres database was created on Dev instance. This database is managed by the Memos application and should not be tempered with manually.</p>
+<h3 id="adding-new-memo">Adding New Memo</h3>
+<p>Most of the metadata is added to the note in the <a href="https://www.ssw.com.au/rules/best-practices-for-frontmatter-in-markdown/">frontematter</a> component, which must always come first. It is followed by the note's content, and then, at the end, exactly 1 line of tags.</p>
+<h4 id="frontmatter">Frontmatter</h4>
+<p>Frontmatter is designated with <code>---</code> before and after a number of YAML-formatter key-value pairs, and must always come as the first component on the canvas. </p>
+<p>Depending on whether a note is a full-fledged article, or just a remark, there could be different amount of metadata. Generally speaking, <code>author</code> and <code>urls</code> should be definitely preserved, plus anything else that makes sense in context.</p>
+<p>With smaller notes, definitely set <code>sequence</code> if note is a start of a new sequence.</p>
+<p>With larger articles, following keys are requred:</p>
+<ul>
+<li><code>author</code></li>
+<li><code>subtype</code>. This could be one of: <code>companion</code>, <code>core</code> or <code>copium</code>.</li>
+<li><code>excerpt</code>. Short summary of / intro into the article.</li>
+<li><code>date_published</code></li>
+<li><code>url</code> (if singular) or <code>urls</code>. In the latter case, the value must be surrounded with square brackets <code>[]</code>, have each URL inside wrapped in single quotes <code>'</code>, and use coma <code>,</code> as a delimiter.</li>
+<li><code>translated_to_en</code> | <code>translated_to_uk</code> | <code>translated_to_ru</code>: a JSON structure with keys <code>i</code> (for <em>intelligence</em>, could be <code>h</code> (human) or <code>a</code>), and <code>author</code>. Example: <code>{"i": "h", "author": "shoomow"}</code></li>
+</ul>
+<h4 id="content">Content</h4>
+<ul>
+<li>Must be clean markdown.</li>
+</ul>
+<h4 id="tags">Tags</h4>
+<ul>
+<li>Tags must be put on the last line of the note, and must all be on one line.</li>
+<li>Tags must be separated with spaces. </li>
+<li>Tags can be multilevel, in which case levels must be separated with forward slash <code>/</code> and no spaces.</li>
+<li>Every singular tag must be preceded with <code>#</code>; with multilevel tags, only the root must have <code>#</code>.</li>
+<li>If a tags has to be more than 1 word, words within tags must be separated with underscore <code>_</code>.</li>
+</ul>
+<p>Example:</p>
+<pre><code>#research/geopolitics #mackinder #book/democratic_ideals_and_reality
+</code></pre>
+<p>:::info
+In case a newly saved memo is a part of a sequence (e.g. yet another observation taken in the course of reading a book), once it has been added, find the previous note of this sequence, and add the link to the new note to it. This is how the sequences are maintained.
+:::</p>
+<h3 id="secondary-tables-and-synchronization-flow">Secondary Tables and Synchronization Flow</h3>
+<h4 id="database">Database</h4>
+<p>Two of the original Memos tables are mirrored to the primary database via <code>foreign tables</code> mechanism. They can be found in the <code>service</code> schema, under names <code>memo</code> and <code>memo_relation</code>.</p>
+<p>Before the data can be served to the final user, it needs to be processed. For this purpose, following secondary tables were set up:</p>
+<ul>
+<li><code>public.theory2</code>. Primary content (notes) is stored here.</li>
+<li><code>service.theory_tags</code>. Tags. Includes 1-to-many <code>parent</code> relationship.</li>
+<li><code>service.theory_tags_mapping</code>. Mapping between notes (<code>theory2</code>) and tags (<code>theory_tags</code>).</li>
+<li><code>service.theory_sequences</code>. Sequences.</li>
+<li><code>service.theory_sequence_mapping</code> Mapping between notes and sequences. Includes <code>spot_in_sequence</code> to be explicit about the order of notes.</li>
+<li><code>enums.theory_types</code></li>
+</ul>
+<h4 id="synchronization">Synchronization</h4>
+<p>Synchronization is set up as 2 routes in the FastAPI web application (under <code>theory</code> tag): <code>theory/sync</code> and <code>theory/update_sequences</code>. Both are background processes to be run at schedule.</p>
+<p>The primary <code>sync</code> process collects new <code>memos</code>, uses python markdown libraries to properly parse it, and converts it into a DB object (<code>theory2</code>). </p>
+<p><code>Frontmatter</code> fields listed explicitly in <a href="https://docs.subjective.agency/#Frontmatter">this section</a> would be parsed into proper columns, everything else would be merged into a JSON structure and saved in <code>additional</code> field, with the exception of <code>sequence</code> tag, which indicates first note in a new sequence, --- in this case, a new <code>sequence</code> object would be created.</p>
+<p>Tags would be parsed; they will be mapped to the note, and all new ones would be inserted into the <code>theory_tags</code> table. </p>
+<p>The secondary sync process (<code>update_sequences</code>) iterates over the known sequences (i.e. present in the <code>theory_sequences</code> table), finds an <code>edge</code> note, and checks if there is a previously non-existent relationship there.</p>
+<h2 id="status">Status</h2>
+<p>Active</p>
+<h2 id="consequences">Consequences</h2>
+<p>The new setup required significant refactoring of the frontend.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

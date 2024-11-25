@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transfactory Anomaly Study Summary - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Transfactory Anomaly Study Summary</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#study">Study</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#repeat-lines">Repeat lines</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#possible-causes">Possible causes</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#resolution-and-remaining-issues">Resolution and Remaining Issues</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#next-steps">Next steps</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>Transfactory is the app to process audio files into text using OpenAI's Whisper. Occasionally, the produced result (<code>.srt</code> files generated by Whisper and, subsequently, text array saved to the database) would contain <code>anomalies</code>, which (in most cases) are patches of some repeat line that go on consecutively for some time.</p>
+<h2 id="study">Study</h2>
+<p>A study was undertaken, to figure out possible causes of these anomalies, and ways to handle them. Study includes 15 specific usecases described in more detail here: DVE-A-94. Each usecase is a media episode where either trascription, or translation, or both contained at least 1 anomaly (identified manually). Some of the files from the test set did not contain anomalies.</p>
+<h3 id="repeat-lines">Repeat lines</h3>
+<ul>
+<li>In half of the studied cases, repeat line was something that actually was (or, at least, may have been) said;</li>
+<li>Some cases that may not be anomalies are template phrases, such as <code>ТОРЖЕСТВЕННАЯ МУЗЫКА</code>, <code>ГОВОРИТ НА ИНОСТРАННОМ ЯЗЫКЕ</code>, <code>МУЗЫКАЛЬНАЯ ЗАСТАВКА</code> etc.</li>
+<li>Quite a lot of cases were lines that never occurred in the audio in question, or never could have occurred, for example, <code>TASTY DIALOGUE WITH ELENA BAZHENOVA</code> , <code>Редактор субтитров А.Синецкая Корректор А.Егорова</code>, <code>Редактор субтитров А.Егорова</code> , <code>Корректор А.Егорова</code> etc. My guess is that things containing these lines were used as source material for Whisper (<a href="https://www.youtube.com/@bazhenova/">https://www.youtube.com/@bazhenova/</a>), and, possibly, contained leading silence or some other artifacts.</li>
+</ul>
+<h3 id="possible-causes">Possible causes</h3>
+<p>Some possible causes are:</p>
+<ul>
+<li>prolonged silence, especially leading silence;</li>
+<li>prolonged non-verbal stretches (music, background noise);</li>
+<li>a system event occurring outside of the transfactory process but one that causes a video memory consumption spike;</li>
+<li>TBD.</li>
+</ul>
+<h2 id="resolution-and-remaining-issues">Resolution and Remaining Issues</h2>
+<p>To detect anomalies, a Python function was developed, and then applied to the available usecases. Of the 15 usecases 7 can be considered <code>fully resolved</code> after this, i.e. analysis of both translation and transcription produced correct and expected output.</p>
+<p>The rest have certain issues that can be grouped like so:</p>
+<ul>
+<li>There is actually a single long patch, but the output is a list of consecutive (and overlapping) patches that cover the same (correct) range. Text items were tested to be identical, so the reason for this split remains unclear.</li>
+<li>Relevant usecases: #2, #8, #13<ul>
+<li>With usecase #13, the cause of the split is different case of the strings which are otherwise identical</li>
+</ul>
+</li>
+<li>Possible solutions:<ul>
+<li>Post-hoc merging of produced patches into one patch;</li>
+<li>TBD</li>
+</ul>
+</li>
+<li>Instead of 1 line being repeated, it's a block of 4 lines.</li>
+<li>Relevant usecases: #5</li>
+<li>Possible solutions:<ul>
+<li>In addition to the repeat lines, there is another pattern related to anomalies: while normally transcribed lines have highly variable duration (difference between start and end time) that rarely repeats from one line to another, the lines in the faulty patches have relatively uniform duration of 28-30 seconds.</li>
+</ul>
+</li>
+<li>The algorythm correctly produces several patches (because repeat line is different), but some of them are so close to each other that it would make sense to merge them.</li>
+<li>Relevant usecases: #6, #9, #12</li>
+<li>Possible solutions:<ul>
+<li>Post-hoc merging of produced patches into one patch, or several non-consecutive patches;</li>
+</ul>
+</li>
+<li>Anomaly is a just 1 random line in the middle of otherwise proper array</li>
+<li>Relevant usecases: #14</li>
+<li>Possible solutions:<ul>
+<li>WTFK</li>
+</ul>
+</li>
+</ul>
+<h2 id="next-steps">Next steps</h2>
+<p>What happens once an anomaly is identified in a given factory job? Suggested flow:</p>
+<ul>
+<li>Drop faulty lines from the database</li>
+<li>Locate original audio file</li>
+<li>Cut out fragment(s) corresponding to anomaly's parameters</li>
+<li>Create transfactory job for each such fragment, accounting for initial job parameters.</li>
+<li>When the re-work job is complete, analyze the result</li>
+<li>try to detect anomaly, if found, compare to the original anomaly's content - if the same happens again, that should mean something</li>
+<li>if no new anomaly occurs, i.e. produced lines are valid, they need to be inserted into the database. This is also a challenge, since a different number of lines is to be expected - that is, <code>int_sequence</code> will be a mismatch, and would need to be reconciled.</li>
+</ul>
+<p>Alternatively, the episode could be re-processed in full. Upside: no issues with <code>int_sequence</code>. Downside: resources are wasted on processing what was already processed successfully (and might still fail the 2nd time around, btw, there's no guarantee against that); we discard totally proper lines that may have been transcribed better the 1st time.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

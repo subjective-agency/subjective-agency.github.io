@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Installing Postgres Server - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Installing Postgres Server</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#vps-server-setup">VPS Server Setup</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#connect-ubuntu-repo-with-postgres">Connect Ubuntu repo with Postgres</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#give-access-to-postgres">Give access to Postgres</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#open-firewall-port">Open firewall port</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#restore-current-snapshot-of-the-database">Restore current snapshot of the database</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#new1">New1</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="vps-server-setup">VPS Server Setup</h2>
+<h3 id="connect-ubuntu-repo-with-postgres">Connect Ubuntu repo with Postgres</h3>
+<p>Add the PostgreSQL repository to your Ubuntu server's sources list. Update version as appropriate</p>
+<pre><code class="language-bash">echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main&quot; | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt -y update &amp;&amp; sudo apt -y upgrade
+sudo apt -y install postgresql-16 postgresql-contrib-16 postgresql-client-16 postgresql-common
+sudo systemctl status postgresql
+sudo systemctl start postgresql
+</code></pre>
+<h3 id="give-access-to-postgres">Give access to Postgres</h3>
+<h3 id="open-firewall-port">Open firewall port</h3>
+<p>Enable the firewall, unless already done</p>
+<p><code>sudo ufw enable</code></p>
+<p>Open the Postgres port for incoming connections</p>
+<p><code>sudo ufw allow 5432/tcp</code></p>
+<p><code>sudo ufw allow 5432/udp</code></p>
+<p>Check the status of the firewall</p>
+<p><code>sudo ufw status</code></p>
+<h3 id="restore-current-snapshot-of-the-database">Restore current snapshot of the database</h3>
+<ul>
+<li>Using <a href="https://subjective.youtrack.cloud/articles/DVE-A-10/Snaplet-101">Snaplet</a> create a snapshot of the Production database
+  <code>snaplet snapshot capture</code></li>
+<li>Restore snapshot on the 2nd server
+  <code>snaplet snapshot restore</code></li>
+</ul>
+<h2 id="new1">New1</h2>
+<p>This document is the collection of steps required to install Postgres server on Ubuntu machine.</p>
+<p><a href="https://www.postgresql.org/download/linux/ubuntu/">https://www.postgresql.org/download/linux/ubuntu/</a></p>
+<ul>
+<li><code>sudo apt install postgresql</code></li>
+<li><code>sudo apt install -y postgresql-common
+  sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh</code></li>
+<li>sudo sh -c 'echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.pgp] <a href="https://apt.postgresql.org/pub/repos/apt">https://apt.postgresql.org/pub/repos/apt</a> $(lsb_release -cs)-pgdg main" &gt; /etc/apt/sources.lis</li>
+</ul>
+<p>t.d/pgdg.list'
+* sudo install -d /usr/share/postgresql-common/pgdg</p>
+<p>echo "deb <a href="http://apt.postgresql.org/pub/repos/apt/">http://apt.postgresql.org/pub/repos/apt/</a> $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list</p>
+<p>wget -O - <a href="https://www.postgresql.org/media/keys/ACCC4CF8.asc">https://www.postgresql.org/media/keys/ACCC4CF8.asc</a> | sudo apt-key add -</p>
+<p>sudo apt -y install postgresql-16 postgresql-contrib-16 postgresql-client-16 postgresql-common
+* sudo systemctl start postgresql</p>
+<p>pg_ctl -D /usr/local/pgsql/data initdb</p>
+<p>psql -U postgres</p>
+<p>pg_ctl</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

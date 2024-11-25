@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗸 ADR-25. Secrets Management with Infisical - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗸 ADR-25. Secrets Management with Infisical</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#setup">Setup</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>This document succeeds and replaces ADR-2. It describes the integration of self-hosted <a href="https://infisical.com/docs/self-hosting/overview">Infisical</a> instance as the primary tool for communicating sensitive data to the applications.</p>
+<h2 id="decision">Decision</h2>
+<p>Infisical is a feature-rich open-source secrets management platform with well-detailed documentation.</p>
+<p>Wapaganda instance is hosted on a Hetzner server with <code>docker compose</code>. It is accessible on port <code>50789</code> at <code>principal</code>'s IP address; its HTTPS host is https://asdfghjkl.subjective.agency (reverse proxied with Caddy). </p>
+<p>Normally, Infisical's docker compose stack includes 4 services: <code>infisical</code> itself, <code>redis</code>, <code>postgres</code> and <code>db-migration</code>, where <code>db-migration</code> starts with all the rest, and exits once done migrating. In W setup, <code>postgres</code> service is disabled; instead, a dedicated <code>infisical</code> database is set up on the production instance.</p>
+<h3 id="setup">Setup</h3>
+<p>Each application that requires secrets injection has a <code>project</code> in Infisical. Every project can have multiple environments, but the simplest setup is to have a single <code>dev</code> environment with all secrets required for an app.</p>
+<h4 id="railway-integration">Railway integration</h4>
+<p>Infisical has native support for Railway. To set it up,</p>
+<ol>
+<li>Go to Railway, and obtain a new API key. Name it the same as the application.</li>
+<li>Go to Infisical -&gt; a project you're setting up -&gt; <code>Integrations</code>. Find <code>Railway</code>, click on it, and submit the new API key.</li>
+<li>In the pop-up, select appropriate environments on both sides. Make sure environments are aligned: you want to connect Prod to Prod, and Dev to Dev.</li>
+</ol>
+<p>Once the integration is saved, you should see a bunch of secrets in Railway, in the service's <code>Shared Secrets</code> section.</p>
+<p>Railway integration means, you don't need to add <code>infisical run --</code> to the start command.</p>
+<h4 id="docker-apps">Docker apps</h4>
+<p>With non-Railway docker-based applications, integration is enabled with the following procedure:</p>
+<ol>
+<li><code>Dockerfile</code> for the application must include instruction for installation of Infisical CLI. For example, here's the corresponding line from the backup service's file (that also installs PostgreSQL and a bunch of other stuff):</li>
+</ol>
+<p><code>dockerfile
+   RUN apt-get update &amp;&amp; apt-get install -y bash curl tar coreutils postgresql-client &amp;&amp; curl -1sLf \
+   'https://dl.cloudsmith.io/public/infisical/infisical-cli/setup.deb.sh' | bash \
+   &amp;&amp; apt-get update &amp;&amp; apt-get install -y infisical</code>
+2. Application's start command, whether in <code>Dockerfile</code> or in <code>docker-compose.yml</code> must be modified to start with <code>infisical run --</code> like so:</p>
+<p><code>infisical run -- python backup/core.py</code>
+3. In order to the application to connect with Infisical, it needs 2 things: address of the host (since we're self-hosting) and a token. You can generate token for a project in the ==Access Control== tab. These 2 values must be saved in <code>.env</code> file in the same folder where you have app's primary <code>docker compose</code> file. </p>
+<h4 id="local-apps">Local apps</h4>
+<p>If a locally-running application needs to be integrated with Infisical, you must have the CLI installed in the corresponding system; and launch the app in the previously described manner, by prefixing the start command with <code>infisical run --</code>.</p>
+<p>Instead of tokens, you authorize the application by explicitly logging in (run <code>infisical login</code> and follow the flow). This login is persisted for some period of time (about a week), after which you'd have to re-login. </p>
+<p>:::danger
+It has been noticed that if a Redis container exits for whatever reason, Infisical instance won't be operational, but instead of failing, it would be urging you to re-login.
+:::</p>
+<h2 id="status">Status</h2>
+<p>Active</p>
+<h2 id="consequences">Consequences</h2>
+<p>Some refactoring was necessary, otherwise, it works better than Doppler.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

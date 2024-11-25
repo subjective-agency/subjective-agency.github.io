@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>∞ ADR-13. Media Segments Primer - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">∞ ADR-13. Media Segments Primer</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#entities">Entities</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#services">Services</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#interface-enabled-entrypoints">Interface-Enabled Entrypoints</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#status">Status</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#consequences">Consequences</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>Parent to <a href="articles/DVE-A-27/ADR-6-Transcripts">DVE-A-27: 🗸 ADR-6: Transcripts</a>, <a href="articles/DVE-A-29/ADR-7-Media-Episodes-Interface">DVE-A-29: ∞ ADR-7: Media Episodes Interface</a>, <a href="articles/DVE-A-30/ADR-8-Transcript-Mark-Up">DVE-A-30: ∞ ADR-8: Transcript Mark-Up</a></p>
+<h1 id="context">Context</h1>
+<p>The domain of media activity covers numerous media platforms, each of which has its own specific peculiarities and context and requires a custom approach. This document describes a working model that encapsulates all relevant nuances of the terrain.</p>
+<h1 id="decision">Decision</h1>
+<h2 id="entities">Entities</h2>
+<h3 id="media-platforms">Media Platforms</h3>
+<p>Media platform is an online service that allows a subset of its users to publish media items such as videos or audios for public access.</p>
+<p>In the database, platforms are represented with <code>enums.media_platforms</code> table.</p>
+<h3 id="media-targets">Media Targets</h3>
+<p>Media target, in the context of the system, is a generic term for a platform-dependent account entity, such as <code>channel</code> on YouTube, RuTube etc., or <code>brand</code> on Smotrim.ru.</p>
+<p>In the database, targets are represented with platform-dependent tables:</p>
+<ul>
+<li>youtube_channels</li>
+<li>smotrim_brands</li>
+<li><em>rutube_channels</em></li>
+<li><em>komso_categories</em></li>
+<li><em>ntv_categories</em></li>
+<li><em>dentv_categories</em></li>
+</ul>
+<h3 id="media-episodes">Media Episodes</h3>
+<p>Media episode is a specific media item, such as video, published on a media platform, under a media target, for public access.</p>
+<p>In the database, media episodes are collected into platform-specific tables:</p>
+<ul>
+<li>youtube_vids</li>
+<li>smotrim_episodes</li>
+<li>komso_episodes</li>
+<li>ntv_episodes</li>
+<li>dentv_episodes</li>
+<li>rutube_vids</li>
+</ul>
+<p>Media episode is connected to a target in corresponding table via a foreign key.</p>
+<h3 id="media-segments">Media Segments</h3>
+<p>Platforms, targets and episodes are organized into a set of similarly structured hierarchies. Media segment is a distinct series of media episodes that could be published across multiple platforms and targets while retaining sequence within the series. Since numerous platforms and targets could be involved, the implementation provides a layer of abstraction on top of that set, allowing cross-platform matching.</p>
+<p>In the database, media segments are collected in <code>media_segments</code> table, and connect to the platform hierarchies on the episode level via <code>segment_id</code> attribute.</p>
+<p>There are several distinct types of media segments:</p>
+<ul>
+<li><code>named</code> is the most common type, and represents a sequence of episodes intentionally designed to be a part of it.</li>
+<li><code>composite</code> type represents a situation, when a segment is published across a number of targets, usually on a single platform, and usually territory-specific.</li>
+<li><code>personal</code> is person-specific catch-all segment that encapsulates all media episodes that could be tied to a specific author and don't belong to any of the named segments.</li>
+<li><code>complex</code> is expected to be tangled with a number of other segments.</li>
+</ul>
+<h3 id="media-episodes-clusters">Media Episodes Clusters</h3>
+<p>Clusters are another layer of abstraction required to account for duplicates accross platforms/targets without dismissing them. We don't want to dismiss them because, in the context of the project, duplicates (provided they weren't a result of our internal system's malfunction) still work to increase the propaganda coverage.</p>
+<p>In the database, clusters of media episodes are collected in <code>media_episodes_clusters</code> table, and connect  to the platform hierarchies on the episode level via <code>cluster_id</code> attribute.</p>
+<p>When first added, a media episode is not assigned to any cluster (i.e. has <code>cluster_id</code> attribute = null). If it is determined to be relevant, new entry is added to the <code>service.clustering</code> table, which serves as a job queue for the clustering service.</p>
+<h2 id="services">Services</h2>
+<h3 id="update-service">Update Service</h3>
+<ul>
+<li><code>Media segment</code> serves as a starting point. Its database representation is loaded with <code>MediaSegmentService</code> class, which fetches all relevant <code>platform_links</code> (i.e. <code>MediaSegmentOnPlatform</code> objects, many-to-many mapping between <code>segments</code> and <code>targets</code>), iterates over them and shapes a list of <code>targets</code>, i.e. subclass instances of <code>MediaPlatformService</code>.</li>
+<li>The list of <code>targets</code> is iterated over, calling on each <code>fetch_and_parse_updates</code> method that would apply target-specific logic to collect the updates.</li>
+<li>After collecting updates, a new record is created in <code>service.media_queue</code> table with <code>job_type</code> set to <code>update</code>.</li>
+<li>By default, all new items are persisted with <code>cluster_id</code> set to <code>null</code> and <code>relevance_status_id</code> set to <code>2</code> (<code>undefined</code>), in order for respective services to pick them up for resolution.</li>
+<li>If the type of <code>segment</code> is <code>complex</code>, then <code>segment_id</code> attribute will be nullified. These episodes would later be resolved with segment detection service.</li>
+</ul>
+<h3 id="clustering-service">Clustering Service</h3>
+<ul>
+<li>Clustering service picks up records from the <code>service.media_queue</code> table with <code>job_type</code> = <code>clustering</code>, and collects existing media clusters into <code>scope</code> parameter.</li>
+<li>Then relevant episode is compared to each item in the scope.</li>
+<li>If no match is detected, the service creates new <code>cluster</code>. </li>
+<li>If one match is found, episode's <code>cluster_id</code> is updated correspondingly. </li>
+<li>If more than one match is found, a new record is created in <code>service.media_conflicts</code> table, with information about the episode and all matching clusters.</li>
+</ul>
+<h4 id="matching">Matching</h4>
+<p>Matching takes into account <code>title</code>, <code>description</code> (if present) and <code>duration</code> (if present). </p>
+<h3 id="stats-collection-service">Stats Collection Service</h3>
+<p>TBD</p>
+<h3 id="media-queue-service">Media Queue Service</h3>
+<p>Queue service is meant to create media jobs (records in <code>service.media_queue</code> table) where they cannot be created in a simpler way, and specifically for:</p>
+<ul>
+<li>Clustering service;</li>
+<li>Relevance service;</li>
+<li>Initial jobs for update service: in the regular flow, new jobs are schedule by the update service itself, but when a new segment is added, they need to be inserted into that flow.</li>
+</ul>
+<h3 id="relevance-service">Relevance Service</h3>
+<p>TBD</p>
+<h3 id="segment-detection-service">Segment Detection Service</h3>
+<p>TBD</p>
+<h2 id="interface-enabled-entrypoints">Interface-Enabled Entrypoints</h2>
+<p>There are several points in this system where the need for manual intervention is inescapeable.</p>
+<ul>
+<li>The clustering process may produce conflicting matching results;</li>
+<li>Segments may not be linked to any of the targets / A target may not be assigned to any of the segments.</li>
+<li>Items may have been clustered together that aren't actually related;</li>
+<li>...</li>
+</ul>
+<p>For these, UI-enabled routes should be developed in the <code>ave_media</code> application, that would allow resolution of those issues.</p>
+<h2 id="status">Status</h2>
+<p>Cooking</p>
+<h2 id="consequences">Consequences</h2>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

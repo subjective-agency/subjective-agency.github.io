@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗸 ADR-28. Backup Service - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗸 ADR-28. Backup Service</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#application">Application</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#modes">Modes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#arguments">Arguments</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#flow">Flow</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#storage">Storage</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#logging">Logging</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>The W project is build around a database, so backing up data is crucial. The core of the application was built by <a href="https://subjective.youtrack.cloud/users/atatatko">Yurii Cherkasov</a> in the <code>wapaganda_backend</code> repository in 2022-2023, including the principal functionality for export into JSON files, resuming, and batching. This document describes how that code was modified and adapted to be run in automated fashion.</p>
+<h2 id="decision">Decision</h2>
+<h3 id="application">Application</h3>
+<p>The application uses <code>sqlmodel</code> database models to communicate with the database and serialize data. At the start of the process, all relevant models are loaded and collected into a list. Each table is queried for number of rows to export first, which decides the export strategy (in one go, or in batches). Then data is dumped into JSON file(s). Once all the tables are exported, the data is archived and compressed; a schema file (generated by <code>dbmate</code> outside of the scope of this application) and database config files are also added to the archive, which is then uploaded to 2 destinations, in-company Minio server, and Backblaze storage. The outcome of the process is communicated to the application owner via Telegram.</p>
+<h3 id="modes">Modes</h3>
+<p>Two modes are available for use: <code>full</code> and <code>incremental</code>.</p>
+<h4 id="full-mode">Full mode</h4>
+<p>In full mode, the application queries the tables directly without any additional logic. Default batch size is 100K records.</p>
+<h4 id="incremental-mode">Incremental mode</h4>
+<p>In incremental mode, the application operates via the <code>volatility</code> table, which serves as a temporary storage for new and updated rows. Each database table, for which backup has been enabled, has a set of triggers associated with it, including one that adds new records to <code>volatility</code> every time a row is added to that table, updated or removed. The removed records also have a JSON payload containing all non-null values of the removed row.</p>
+<p>The application queries the <code>volatility</code> table for the rows of the target table. If none are found, the target is skipped. If records are found, they get processed in the following manner:</p>
+<ul>
+<li>Removed records are separated, and later dumped into a file with <code>_deleted</code> suffix.</li>
+<li>Non-removed records are analyzed to get a unique set. This is a bottleneck: large amount of records may take a long time to parse through.</li>
+</ul>
+<p>Once the set of records to be exported is defined, their tables are queried using explicit lists of the record IDs. This is the reason why default batch size in incremental mode is 50K (there is a limit on the Postgres side on how many such IDs you can send in a query).</p>
+<p><strong>Note:</strong> by default, table <code>telegram_messages</code> is excluded from incremental backup because it seems to hang the entire process.</p>
+<h3 id="arguments">Arguments</h3>
+<p>The application accepts 3 arguments:</p>
+<ul>
+<li><code>mode</code> defines which backup mode to use;</li>
+<li><code>export_dir</code> allows user to set the directory for exported files;</li>
+<li><code>exclude</code> allows user to exclude certain tables from backup. It's a list of schema-qualified strigyfied table names, for example, <code>["data.telegram_messages","data.text_media"]</code>.</li>
+</ul>
+<p>These arguments can be supplied to the app directly in <code>docker-compose.yaml</code> file used to launch it, or in the <code>.env</code> file indicated there.</p>
+<h3 id="flow">Flow</h3>
+<p>The app is built as a Docker image, and it meant to be launched with context-specific <code>docker-compose.yaml</code> files.</p>
+<p>Application relies on the following:</p>
+<ul>
+<li>a schema file has been produced by <code>dbmate</code> in the recent days, and saved to a particular directory;</li>
+<li>database configuration files can be located.</li>
+</ul>
+<p>The application is scheduled to run:</p>
+<ul>
+<li>in <code>full</code> mode: once a week, ETC nighttime;</li>
+<li>in <code>incremental</code> mode: once a day, ETC nighttime, except for the day when full dump is done.</li>
+</ul>
+<h3 id="storage">Storage</h3>
+<p>The archive produced by the export is then uploaded to the storage:</p>
+<ul>
+<li>Minio storage located on the same server as the database;</li>
+<li>Backblaze cloud storage.</li>
+</ul>
+<h3 id="logging">Logging</h3>
+<p>The application logs to a dedicated <code>backup</code> project on Logfire.</p>
+<h2 id="status">Status</h2>
+<p>Active</p>
+<h2 id="consequences">Consequences</h2>
+<p>Data is safe and consistent.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

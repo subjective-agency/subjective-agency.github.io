@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>ARR-4: Tgram - Wapaganda Project Docs</title>
+<style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+<link href="assets/landing-favicon.png" rel="icon" type="image/x-icon"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/responsivity.css" rel="stylesheet"/>
+<script src="../../search/main.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/b57355f8ac.js"></script>
+<script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+<link href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css" id="altmetric-embed-css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="background">
+<div id="background-gradient"></div>
+<content id="content">
+<header id="article-header">
+<a href="../.." id="return-home">
+<i alt="⇦" class="fa fa-arrow-left"></i> Home
+    </a>
+<h1 id="title">ARR-4: Tgram</h1>
+</header>
+<main id="page">
+<nav class="vertical" id="toc">
+<ul>
+<li class="nav-item">
+<a href="#arr-4-tgram">ARR-4: Tgram</a>
+<ul>
+<li class="nav-subitem">
+<a href="#general">General</a>
+</li>
+<li class="nav-subitem">
+<a href="#code">Code</a>
+</li>
+<li class="nav-subitem">
+<a href="#entities">Entities</a>
+</li>
+<li class="nav-subitem">
+<a href="#flow-diagram">Flow Diagram</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<h1 id="arr-4-tgram">ARR-4: Tgram</h1>
+<h2 id="general">General</h2>
+<p><strong>Tgram</strong> application periodically scans a collection of Tg channels for updates and persists them to the database. Secondary function of the app is resolution of new channels.</p>
+<h3 id="resolving-empty-channels">Resolving empty channels</h3>
+<p>Normally, new channels are added to the database with just <code>handle</code> attribute, and therefore require fetching additional data from TelegramAPI and Telemetr.</p>
+<p>:::info
+Telemetr is a platform that collects Telegram channels' statistics. Their API allows for a limited number of requests over a month (1000), which is more than sufficient for resolution, but not enough for consistent data collection.
+:::</p>
+<p>The process of channel resolution first queries TelegramAPI for channel's details, and also collects channel's first published message (which is usually a technical message about channel creation). Then Telemetr API is queried; the data is combined into a db object and persisted <em>with a quirk</em>.</p>
+<p>:::warning
+The <em>quirk</em> has to do with Telemetr IDs and inconsistencies in how they are stored in the db. This is mainly a historical artifact that would be fully deprecated in one of future versions. It doesn't effect the flow. See the <code>fetch</code> part of the flow diagram below.
+:::</p>
+<h3 id="scanning-for-updates">Scanning for updates</h3>
+<p>Scanning process get the least updated channel from the db, and fetches 200 messages using Telegram API counting from the max known message id for this channel. Then messages are filtered, converted and persisted; channel params are updated correspondingly.</p>
+<h3 id="known-issues-and-limitations">Known issues and limitations</h3>
+<p>Telegram imposes limits on the API usage, which are dynamic and not strictly predictable. In practice, you get a <code>FLOODWAIT</code> exception after making a certain number of requests over a certain period of time. The exception would contain the amount of seconds you need to wait before making another request - this can be used to put the app to sleep until then.</p>
+<h2 id="code">Code</h2>
+<p>TBD</p>
+<h2 id="entities">Entities</h2>
+<p>TBD</p>
+<h2 id="flow-diagram">Flow Diagram</h2>
+<div class="mermaid">flowchart TD
+    subgraph floodwait [FLOODWAIT]
+        flood0(Elevate FloodWait exception)
+        flood1(Set 'endpoint_disabled' to TRUE)
+        flood2(Read number of seconds from the exception meta)
+        flood3(Run 're_enable_endpoint_after_delay')
+        enable_endpoints(Set 'endpoint_disabled' to FALSE)
+        wait(Wait amount of time required by Telegram API)
+        flood0 --&gt; flood1 --&gt; flood2 --&gt; flood3 --&gt; wait --&gt; enable_endpoints
+    end
+    subgraph init [Initialize service]
+    direction LR
+        step21(Create Pyrogram client)
+        step22(Create database client)
+        step23(Start the Telegram service)
+        step21 --- step22 --- step23
+    end
+    subgraph process [ ]
+        step31(Fetch most outdated channel from DB)
+        step32(Read ID of the latest channel message, or set to 1)
+        step33(Define range of messages IDs to fetch)
+        step34(Use Telegram API to fetch the messages)
+        step35(Filter out messages with 'empty' = True)
+        step36(Parse the messages into db objects)
+        step37(Save the orig ID of the most recent of the new messages)
+
+        step31 --&gt; step32 --&gt; step33 --&gt; step34 --&gt; step35 --&gt; step36 --&gt; step37
+    end
+    subgraph resolve [ ]
+        step41(Fetch unresolved channel from DB)
+        step42(Fetch channel data from Telegram API)
+        step43(Fetch channel's 1st message from Telegram API)
+        step44(Query Telemetr for channel data)
+        step45(Create instance of TgChannelResolve)
+        step46(Set status DEFUNCT on all channels with this TelemetrID)
+        step47(Update record with this handle and status ACTIVE with data collected)
+        subgraph fetch_channel_data [ ]
+            step42 --- step43 --- step44
+        end
+        step41 --&gt; fetch_channel_data --&gt; step45 --&gt; step46 --&gt; step47
+    end
+    subgraph persist [ ]
+        persist1(Persist the messages)
+        persist2(Update channel with 'last_scanned_on' and 'last_known_msg_id')
+        persist1 --- persist2
+    end
+
+trigger_update(Trigger update endpoint)
+trigger_resolve(Trigger resolve endpoint)
+check_disabled(Read 'endpoint_disabled')
+no_updates(Update channel with 'last_scanned_on')
+mark_dead(Mark channel as dead)
+resolved(Consider channel to be resolved)
+
+trigger_update --&gt; check_disabled -- wait if needed --&gt; init -- Run update --&gt; process
+process -- Updates not found --&gt; no_updates
+process -- Updates found --&gt; persist
+process -- UsernameInvalid\nUsernameNotOccupied --&gt; mark_dead
+process --&gt; floodwait
+
+trigger_resolve --&gt; check_disabled
+init -- Run resolve --&gt; resolve --&gt; resolved
+resolve -- UsernameInvalid\nUsernameNotOccupied --&gt; mark_dead
+resolve --&gt; floodwait
+
+</div>
+<nav id="page-controls">
+<a href="#content" id="return-top">
+<i alt="⇧" class="fa fa-arrow-up"></i> Return to top
+      </a>
+</nav>
+</main>
+</content>
+<footer id="footer">
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+<script src="../../search/main.js"></script>
+</footer>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Additional Schemas - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Additional Schemas</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#service">Service</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#future">Future</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#data">Data</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#using-tables-in-alternative-schemas">Using Tables in Alternative Schemas</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#moving-table-to-another-schema">Moving table to another schema</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#connecting-with-and-without-schema-indication">Connecting with and without schema indication</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>All the tables actively used in the project belong to the <code>public</code> schema. To support storage of additional data that might be useful in the future for the current project, or a related one, two additional schemas were created: <code>future</code> and <code>service</code>.</p>
+<h2 id="service">Service</h2>
+<p><code>service</code> schema is meant to contain additional data that is not explicitly related to the project but is required for some related purpose. Contains following tables:</p>
+<ul>
+<li><code>first_name_trans_conventions</code>
+  Technical table, listing conventions for translating Russian/Ukrainian names into English. This is to avoid having 'Maksim' and 'Maxim' as this could lead to duplicates.</li>
+<li><code>prabyss</code>. Used in the DVE-A-40.</li>
+</ul>
+<h2 id="future">Future</h2>
+<p><code>future</code> schema contains a number of tables that may become a part of the current project in the future, or may span out a separate project. As of the time of creation, the following tables were attributed to the <code>future</code> schema:</p>
+<ul>
+<li><code>meduza_dow_stream</code> 
+  Contains parsed messages of the Meduza daily text streams on the ongoing events. <em>Parsed</em> here means that empty/technical messages are filtered out, and the data format is standardized, but the content is not verified for relevance. Most recently updated on May 2, 2023, with data up to May 1, 2023.</li>
+<li>Tables related to Ukraine's geography:
+  This cluster of tables contains all Ukraine's administrative units as per the 2019 administrative reform. Most of the data is taken from <a href="https://zakon.rada.gov.ua/rada/show/v0290914-20#Text">https://zakon.rada.gov.ua/rada/show/v0290914-20#Text</a> (the most recent version of the list dated December 16, 2021). Whenever possible locations were matched against the Nova Poshta database (it uses the old administrative system and doesn't have the occupied localities), from which lat, lon, indexes and russian versions of names were taken. Approximately 2/3 of all localities (\~19K/29K) were resolved.</li>
+<li><code>ua_regions</code> Regions, plus Crimea, Kyiv and Sevastopol.</li>
+<li><code>ua_regions_districts</code> Districts make up regions.</li>
+<li><code>ua_district_hromadas</code> Territorial units (громади) make up regional districts.</li>
+<li><code>ua_localities</code> Localities are cities, villages, etc.</li>
+<li><code>ua_localities_districts</code> Some localities are further divided into districts.</li>
+<li><code>ua_locality_types</code> table contains types of localities, which is used in <code>ua_localities</code> table.</li>
+<li><code>modrf_briefings</code>
+  <span style="background-color:mistyrose;">outdated</span> Data on the MOD RF briefings has been collected from various sources, including Telegram, VK and YouTube. Some of the data is cleaned and JSONified, but only to a certain point.</li>
+<li><code>tryvoga_alerts</code>
+  <span style="background-color:mistyrose;">outdated</span> Data on the air-raid alerts in localities of Ukraine. Obtained by parsing Telegram channel.</li>
+</ul>
+<h2 id="data">Data</h2>
+<p><code>data</code> schema contains data-heavy entities, namely:</p>
+<ul>
+<li><code>telegram_messages</code>. Related to <code>telegram_channels</code> in <code>public</code> schema. Contains posts published in <code>relevant</code> telegram channels. Constitutes \~90% of the DB size.</li>
+<li><code>telegram_channels_stats</code></li>
+<li><code>printed_content</code>. Related to <code>printed</code> in <code>public</code> schema. Contains chapters of books, articles, blog posts.</li>
+<li><code>transcripts</code> &amp; <code>transcribed_content</code>. Table <code>transcripts</code> contains basic info on the transcribing jobs completed by <code>transfactory</code> (related to various tables in <code>public</code> such as <code>smotrim_episodes</code>). Table <code>transcribed_content</code> contains lines from the resulting <code>srt</code> files processed into convenient format (related to <code>transcripts</code>)</li>
+</ul>
+<h2 id="using-tables-in-alternative-schemas">Using Tables in Alternative Schemas</h2>
+<p>To allow using an additional schema called <code>schemaname</code>, the following steps must be complete:</p>
+<ol>
+<li>
+<p>Create schema <code>schemaname</code>;</p>
+</li>
+<li>
+<p>Add <code>schemaname</code> to <code>Exposed schemas</code> and <code>Extra search paths</code> fields in <code>Settings</code> → <code>API</code> (dashboard);</p>
+</li>
+<li>
+<p>Run these 2 queries:</p>
+</li>
+</ol>
+<p><code>sql
+   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA schemaname TO postgres, authenticated, service_role, dashboard_user;
+   GRANT USAGE ON SCHEMA schemaname TO postgres, authenticated, service_role, dashboard_user;</code></p>
+<p>When these are done, <code>schemaname</code> can be used in the following manner.</p>
+<h2 id="moving-table-to-another-schema">Moving table to another schema</h2>
+<pre><code class="language-sql">alter table tablename set schema schemaname;
+</code></pre>
+<h2 id="connecting-with-and-without-schema-indication">Connecting with and without schema indication</h2>
+<p>This is a regular connection function, which will use <code>public</code> schema by default.</p>
+<pre><code>def connect_supabase(url = os.getenv(&quot;SUPABASE_URL&quot;), key = os.getenv(&quot;SUPABASE_KEY&quot;)):
+    return supabase.create_client(url, key, options)
+</code></pre>
+<p>This is a version of the same function with an additional argument <code>schema</code> that defaults to <code>public</code>.</p>
+<pre><code>def connect_supabase(url = os.getenv(&quot;SUPABASE_URL&quot;), key = os.getenv(&quot;SUPABASE_KEY&quot;), schema = &quot;public&quot;):
+    from supabase.lib.client_options import ClientOptions
+    options = ClientOptions()
+    options.schema = schema
+    return supabase.create_client(url, key, options)
+</code></pre>
+<p>Use it like so (given that credentials exist as environment variables):</p>
+<pre><code class="language-python">connect = connect_supabase(schema=&quot;schemaname&quot;)
+</code></pre>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

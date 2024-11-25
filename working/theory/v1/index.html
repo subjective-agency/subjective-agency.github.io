@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Theory v1 - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Theory v1</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+</ul>
+
+</nav>
+    <p>The core of the <code>Theory</code> section should be composed of a small body of original texts:</p>
+<ul>
+<li>The Copium Theory of Propaganda  <a href="https://shoomow.info/?p=2069&amp;preview=true">https://shoomow.info/?p=2069&amp;preview=true</a> (unfinished)</li>
+<li>Russian Corral In the Universal Informational Golfstream <a href="https://shoomow.info/?p=1555&amp;lang=en">https://shoomow.info/?p=1555&amp;lang=en</a></li>
+<li>Geopolitical Disease &amp; The Ruskymir Variation <a href="https://shoomow.info/?p=748&amp;lang=en">https://shoomow.info/?p=748&amp;lang=en</a></li>
+<li>Why the Russian Evidence For Biolabs in Ukraine is Hot Garbage <a href="https://shoomow.info/?p=411&amp;lang=en">https://shoomow.info/?p=411&amp;lang=en</a></li>
+<li>Why Russian Referendums Cannot Be Taken Seriously <a href="https://shoomow.info/?p=2046&amp;lang=en">https://shoomow.info/?p=2046&amp;lang=en</a></li>
+<li><span style="color:darkorange;">TODO: Verify</span> Assumption of Continuity <a href="https://shoomow.info/?p=1773&amp;lang=en">https://shoomow.info/?p=1773&amp;lang=en</a></li>
+</ul>
+<p>All primary original texts should be located on the root level of the section (i.e. be children of <code>Theory</code>).</p>
+<hr />
+<p>Additionally, <code>Companion texts</code> subsection is required, to include various texts by other authors that illustrate or illuminate various points made in the originals. Possible companion texts are (list is not exhaustive):</p>
+<ul>
+<li>Childhood Songs (Leonid Kaganov on March 31, 2022) <a href="https://shoomow.info/?p=97&amp;lang=en">https://shoomow.info/?p=97&amp;lang=en</a></li>
+<li>Putin’s Reich and Its Prospects (Dima Gubin, April 4, 2022) <a href="https://shoomow.info/?p=170&amp;lang=en">https://shoomow.info/?p=170&amp;lang=en</a></li>
+<li>I Don’t Want to Believe This (Dmitry Glukhovsky, April 9, 2022) <a href="https://shoomow.info/?p=274&amp;lang=en">https://shoomow.info/?p=274&amp;lang=en</a></li>
+<li>Russian Guilt (Vladimir Pastukhov, April 14, 2022) <a href="https://shoomow.info/?p=366&amp;lang=en">https://shoomow.info/?p=366&amp;lang=en</a></li>
+<li>From Bandera to “Azov”: Answers to the Questions About Ukrainian Nationalism (Konstantin Skorkin, April 17, 2022) <a href="https://shoomow.info/?p=564&amp;lang=en">https://shoomow.info/?p=564&amp;lang=en</a></li>
+<li>Geopolitics Is the Dehumanization Of the World (Maksim Trudolyubov, April 19, 2022) <a href="https://shoomow.info/?p=664&amp;lang=en">https://shoomow.info/?p=664&amp;lang=en</a></li>
+<li>Putin vs. Hitler: The Difference (Dmitry Chernyshev, April 21, 2022) <a href="https://shoomow.info/?p=810&amp;lang=en">https://shoomow.info/?p=810&amp;lang=en</a></li>
+<li>Motherland or Truth? (Dima Gubin, April 18, 2022) <a href="https://shoomow.info/?p=682&amp;lang=en">https://shoomow.info/?p=682&amp;lang=en</a></li>
+<li>What Made the Propaganda Possible (Andrey Pertsev, April 2022) <a href="https://shoomow.info/?p=375&amp;lang=en">https://shoomow.info/?p=375&amp;lang=en</a></li>
+<li>Enter the Gloom, Find People In There: Why Do Russians Support the War? (Shura Burtin, April 24, 2022) <a href="https://shoomow.info/?p=924&amp;lang=en">https://shoomow.info/?p=924&amp;lang=en</a></li>
+<li>Zigzags of Journalism: How a Small Smolensk Periodical Became the Bullhorne of the War Party With a Million+ Audience (“Mozhem obyasnit”, April 11, 2022) <a href="https://shoomow.info/?p=670&amp;lang=en">https://shoomow.info/?p=670&amp;lang=en</a></li>
+<li>The Cult of Victory (Alexey Roschin, April 24, 2022) <a href="https://shoomow.info/?p=1102&amp;lang=en">https://shoomow.info/?p=1102&amp;lang=en</a></li>
+<li>Solovyov At The Crossroads (Alexey Roschin, April 28, 2022) <a href="https://shoomow.info/?p=1201&amp;lang=en">https://shoomow.info/?p=1201&amp;lang=en</a></li>
+<li>The Fate of Germans: No Fame, No Heroes (Alexey Roschin, May 4, 2022) <a href="https://shoomow.info/?p=1373&amp;lang=en">https://shoomow.info/?p=1373&amp;lang=en</a></li>
+<li>Russian Hysteria (Vladimir Pastukhov, May 4, 2022) <a href="https://shoomow.info/?p=1342&amp;lang=en">https://shoomow.info/?p=1342&amp;lang=en</a></li>
+<li>What is Propaganda and How it Works (Dmitry Sidorov, May 3, 2022) <a href="https://shoomow.info/?p=1336&amp;lang=en">https://shoomow.info/?p=1336&amp;lang=en</a></li>
+<li>A Little About Sergey Mardan (Alexey Roschin) <a href="https://shoomow.info/?p=1798&amp;lang=en">https://shoomow.info/?p=1798&amp;lang=en</a></li>
+<li>The Kissinger Suggestion (Vladimir Pastukhov, May 26, 2022) <a href="https://shoomow.info/?p=1815&amp;lang=en">https://shoomow.info/?p=1815&amp;lang=en</a></li>
+<li>10 причин, почему человек в обществе – не клетка в организме <a href="https://scinquisitor.livejournal.com/208371.html">https://scinquisitor.livejournal.com/208371.html</a></li>
+</ul>
+<hr />
+<p>Finally, another subsection (name TBD) is required to hold texts written by patients that are also relevant to the <code>Theory</code>. Possible such texts are:</p>
+<ul>
+<li>What Russia Must Do With Ukraine (T. Sergeytsev, April 3, 2022) <a href="https://shoomow.info/?p=144&amp;lang=en">https://shoomow.info/?p=144&amp;lang=en</a></li>
+<li>The Coming of Russia and the New World (P. Akopov, February 26, 2022) <a href="https://shoomow.info/?p=172&amp;lang=en">https://shoomow.info/?p=172&amp;lang=en</a></li>
+<li>What Russia is Fighting For in Ukraine (V. Nikiforova, April 6, 2022) <a href="https://shoomow.info/?p=281&amp;lang=en">https://shoomow.info/?p=281&amp;lang=en</a></li>
+<li>Putin About “Special Operation” (April 12, 2022) <a href="https://shoomow.info/?p=329&amp;lang=en">https://shoomow.info/?p=329&amp;lang=en</a></li>
+<li>The Kind of Ukraine We Don’t Need (T. Sergeytsev, April 10, 2021) <a href="https://shoomow.info/?p=251&amp;lang=en">https://shoomow.info/?p=251&amp;lang=en</a></li>
+<li>Joint Press Conference of A. Lukashenko &amp; V. Putin on April 12, 2022 [Transcript] <a href="https://shoomow.info/?p=788&amp;lang=en">https://shoomow.info/?p=788&amp;lang=en</a></li>
+<li>Putin’s Direct Speech With Commentary <a href="https://shoomow.info/?p=1558&amp;preview=true">https://shoomow.info/?p=1558&amp;preview=true</a></li>
+<li>Russian Propaganda Snapshot: March 1, 2022 <a href="https://shoomow.info/?p=2031&amp;lang=en">https://shoomow.info/?p=2031&amp;lang=en</a></li>
+<li>Russian Propaganda Snapshot: April 2, 2022 <a href="https://shoomow.info/?p=2038&amp;lang=en">https://shoomow.info/?p=2038&amp;lang=en</a></li>
+<li>Vladimir Ovchinsky On Death Penalty In USA <a href="https://shoomow.info/?p=2095&amp;lang=en">https://shoomow.info/?p=2095&amp;lang=en</a></li>
+</ul>
+<p>All texts must have versions in English and Russian, or English and Ukrainian, or all three languages.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

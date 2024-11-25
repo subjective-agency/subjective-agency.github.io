@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Active Initiatives. General Data - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Active Initiatives. General Data</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#primary-goal">Primary goal</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#progress-log">Progress Log</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#feb-1-2023">Feb 1, 2023</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#march-19-2023">March 19, 2023</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#july-2-2023">July 2, 2023</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#november-25-2023">November 25, 2023</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#left-to-do">Left to do</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p><code>General Data</code> refers to a range of flows and processes around adding new personalities and other information to the database</p>
+<h2 id="primary-goal">Primary goal</h2>
+<p>Formalization of process, reduction of manual parts, more automation.</p>
+<h2 id="progress-log">Progress Log</h2>
+<h3 id="feb-1-2023">Feb 1, 2023</h3>
+<ul>
+<li>Repository <code>wapaganda_tools</code> was compiled to have all the relevant scripts in one place.</li>
+<li><code>update-smotrim</code> and <code>update-youtube</code> flows were developed, along with <code>transcript</code>, <code>pickle-backup</code>, <code>insert relationships</code>, <code>add person with photo</code>, and <code>upsert photo</code> flows to handle recurring tasks.</li>
+<li>Already existing <code>telegram-messages</code>, <code>telegram-stats</code> <code>resolve telegram</code> and <code>resolve youtube</code> flows were improved and updated.</li>
+<li>In addition, scripts for downloading media data from <code>smotrim</code> and <code>youtube</code> were added, too.</li>
+<li>Tools were isolated into 2 modules, <code>utils</code> and <code>common</code>, each with a number of submodules for various tasks.</li>
+<li>Every function producing a list of anything was supplemented with a decorator <code>pickle-backup</code>, which is a part of the flow of the same name.</li>
+<li>All relevant scripts were updated to write logs.</li>
+</ul>
+<h3 id="march-19-2023">March 19, 2023</h3>
+<ul>
+<li>GitHub organization was created, and 3 repositories were moved there, including <code>wapaganda_tools</code></li>
+<li>@atatatko's scripts were added to the <code>utils</code> module;</li>
+<li>Internal modules were re-organized and functions were documented;</li>
+<li>Flow for adding new patients was improved to work over a list of new objects;</li>
+<li><code>komso</code> episodes are now taken from the komsomolka website, which offers better structure and higher bandwidth;</li>
+<li>Many new smotrim segments were added, including purely audio-based;</li>
+<li>Youtube update flow was improved to start with segments;</li>
+<li>Download scripts were generally improved;</li>
+<li><code>sql</code> folder was created to store SQL code for functions, views and certain other actions.</li>
+</ul>
+<h3 id="july-2-2023">July 2, 2023</h3>
+<ul>
+<li><a href="https://subjective.youtrack.cloud/users/atatatko">Yurii Cherkasov</a> 's <code>log_helper</code> was fully integrated into the codebase;</li>
+<li>Full text search in the DB was implemented with <code>pgroonga</code> against multiple tables, including <code>people</code>, <code>ogranizations</code>, etc;</li>
+<li><strong>Theory</strong> module was added, including corresponding section on the website, DB infrastructure, and Python scripts for adding and resolving new texts, taking into advantage newly developed OOP web parsing module;</li>
+<li><code>Edit markdown</code> flow was implemented to retrieve texts stored in the DB and upload the updated version;</li>
+<li>Scripts, <code>lookup_data</code>, <code>lookup_image</code> and <code>lookup_org_data</code> were implemented to retrieve corresponding info and display it for informational purposes;</li>
+<li>The script for retrieval and update of Meduza's daily news stream was developed;</li>
+<li>Supabase API was completely removed from the codebase (99%). Instead, the code now relies on more generic <code>psycopg</code>, <code>requests</code> and <code>requests_html</code> libraries;</li>
+<li>New media flows were added, for <strong>DenTV</strong>, <strong>NTV</strong> and <strong>Rodniki</strong>;</li>
+<li>Existing media flows were refactored and improved;</li>
+<li>OpenAI API was partially integrated into the code, for purposes of text translation. More purposes should be identified;</li>
+<li>An algorithm for initial parsing/treatment of EPUB book files was developed;</li>
+<li>Development of the ontology for the project has begun, which includes adoption of the existing tech stack and data storage to the OWL framework, creation and elaboration of classes, relationships etc., as well as inclusion of existing ontologies and taxonomies.</li>
+<li>ISCO08  taxonomy (professions) was saved to the database, with a view on setting strict order to the <code>patient</code>-to-<code>organization</code> relationship.</li>
+</ul>
+<h3 id="november-25-2023">November 25, 2023</h3>
+<ul>
+<li>Database was moved off Supabase to standalone server for good. A few things fell off during the transition, and were all fixed.</li>
+<li>A flow for text sources was developed with the use of <code>factory</code> programming pattern. Still WIP.</li>
+<li>Lookup scripts were all integrated into one CLI tool.</li>
+<li>Logging was improved in a number of way, including structured logging, context-manager based logging, and saving logs into the dedicated db.</li>
+<li>Railway DB instance was set up and "migrated to" with the use of Snaplet.</li>
+<li>Screenshot-monitor script was set up to automatically parse certain data from captured screenshots.</li>
+<li>Windmill was introduced into the tool-stack to handle internal flows and apps.</li>
+<li>Databases were created for logging (<code>logs</code>), to support the tool framework (<code>tool_framework</code>), and for experimenting (<code>unrelated</code>)</li>
+</ul>
+<h2 id="left-to-do">Left to do</h2>
+<ul>
+<li>[ ] Add all currently unintegrated text sources.</li>
+<li>[ ] Finalize auto translation flow.</li>
+<li>[ ] Work on the books-related scripts.</li>
+<li>[ ] Work with RUCR and other ontologies.</li>
+</ul>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

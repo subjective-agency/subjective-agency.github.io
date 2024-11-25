@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>ARR-2: Periodicals - Wapaganda Project Docs</title>
+<style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+<link href="assets/landing-favicon.png" rel="icon" type="image/x-icon"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/responsivity.css" rel="stylesheet"/>
+<script src="../../search/main.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/b57355f8ac.js"></script>
+<script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+<link href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css" id="altmetric-embed-css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="background">
+<div id="background-gradient"></div>
+<content id="content">
+<header id="article-header">
+<a href="../.." id="return-home">
+<i alt="⇦" class="fa fa-arrow-left"></i> Home
+    </a>
+<h1 id="title">ARR-2: Periodicals</h1>
+</header>
+<main id="page">
+<nav class="vertical" id="toc">
+<ul>
+<li class="nav-item">
+<a href="#arr-2-periodicals">ARR-2: Periodicals</a>
+<ul>
+<li class="nav-subitem">
+<a href="#general">General</a>
+</li>
+<li class="nav-subitem">
+<a href="#code">Code</a>
+</li>
+<li class="nav-subitem">
+<a href="#entities-websites">Entities -- Websites</a>
+</li>
+<li class="nav-subitem">
+<a href="#flow-diagram">Flow Diagram</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<h1 id="arr-2-periodicals">ARR-2: Periodicals</h1>
+<h2 id="general">General</h2>
+<p>Periodicals is a data collector application that specifically targets websites of news outlets like newspapers, magazines, etc.</p>
+<p>The application operates over <code>Website</code>s (represented by <code>websites</code> table in the DB), referred to as <code>sources</code> in the application.</p>
+<p>There are 2 major parts to the flow: Fetcher and Scanner. Both are implemented as base classes from which source-specific child classes derive. In this context, adding a new source would mean defining both <code>scanner</code> and <code>fetcher</code> implementations with source-specific details.</p>
+<h2 id="code">Code</h2>
+<p>TBD</p>
+<h2 id="entities-websites">Entities -- Websites</h2>
+<p>TBD</p>
+<h2 id="flow-diagram">Flow Diagram</h2>
+<h3 id="scanner">Scanner</h3>
+<p>Scanner is responsible for collecting new items from 'category' pages. </p>
+<div class="mermaid">flowchart TD
+    subgraph init_update [Init scanner]
+    direction TB
+        get_target(Fetch source to scan)
+        get_latest(Fetch source's latest item)
+        get_target --&gt; get_latest --&gt; create_scanner
+    end
+    subgraph create_scanner [Invoke factory to create the scanner]
+    direction LR
+        assign_source(Assign source)
+        assign_latest(Assign latest)
+        selector(Disassemble selector)
+        assign_source --&gt; assign_latest --&gt; selector
+    end
+    subgraph parse_upd [Extract]
+        get_title(Title)
+        get_excerpt(Excerpt)
+        get_date(Publish date)
+        get_author(Authors data)
+        get_url(URL)
+        get_additional(Additional data)
+        get_title --- get_excerpt --- get_date --- get_author --- get_url --- get_additional
+    end
+    subgraph persist_upd [Check and persist]
+        check_item(Check for presence in the DB)
+        add_item(Add to the database)
+        check_item -- if not present --&gt; add_item
+    end
+    subgraph run_upd [Run Update]
+    direction TB
+        fetch_via_http(Fetch new items via HTTP)
+        extract_items(Extract items from HTTP content)
+        fetch_via_api(Fetch new items via API)
+        dedupe(Drop duplicates from final list)
+
+        fetch_via_http --&gt; extract_items -- each item --&gt; parse_upd
+        fetch_via_api -- each item --&gt; parse_upd
+        parse_upd --&gt; dedupe -- for each item --&gt; persist_upd
+    end
+
+call_update(Trigger 'update' endpoint) --&gt; init_update --&gt; run_upd --&gt; commit(Commit updates to the database)
+</div>
+<h3 id="fetcher">Fetcher</h3>
+<p>Fetcher is responsible for getting content of relevant articles (which is missing from the 'category' pages most of the time).</p>
+<div class="mermaid">flowchart TD
+    subgraph create_fetcher [Invoke factory to create the fetcher]
+    direction LR
+        assign_page(Assing page)
+    end
+    subgraph init_fetch [Init fetcher]
+    direction LR
+        get_page(Get page for update)
+    end
+    subgraph parse_page [Extract]
+    direction TB
+        merge_vals(Combine new and old values)
+        get_title(Title) --&gt; merge_vals
+        get_img(First image) --&gt; merge_vals
+        get_date(Publish date) --&gt; merge_vals
+        get_author(Authors data) --&gt; merge_vals
+        get_excerpt(Excerpt) --&gt; merge_vals
+        get_url(URL) --&gt; merge_vals
+        get_additional(Additional data) --&gt; merge_vals
+    end
+    subgraph resolve_page [ ]
+        fetch_httpx(Niquests)
+        fetch_pl(Playwright)
+        extract_content(Extract content)
+        fetch_httpx --&gt; extract_content --&gt; parse_page
+        fetch_pl --&gt; extract_content
+    end
+
+
+call_fetch(Trigger 'fetch' endpoint) --&gt; init_fetch --&gt; create_fetcher --&gt; resolve_page --&gt; commit(Commit updates to the database)
+
+</div>
+<nav id="page-controls">
+<a href="#content" id="return-top">
+<i alt="⇧" class="fa fa-arrow-up"></i> Return to top
+      </a>
+</nav>
+</main>
+</content>
+<footer id="footer">
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+<script src="../../search/main.js"></script>
+</footer>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

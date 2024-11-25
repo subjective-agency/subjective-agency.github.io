@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>General Guide - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">General Guide</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#basics">Basics</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#extensions">Extensions</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#documentation-as-comments">Documentation As Comments</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#full-text-search-v2">Full-text search v2</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#triple-language-format">Triple language format</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#database-queue">Database Queue</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#secondary-databases">Secondary databases</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#foreign-tables">Foreign Tables</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#installation">Installation</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#database">Database</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#updating-db-ssl-certificate">Updating DB SSL certificate</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#pgroonga">pgroonga</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#pg_cron">pg_cron</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#pg_prewarm">pg_prewarm</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#plpython3u">plpython3u</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="basics">Basics</h2>
+<p>The master database of the Wapaganda project is ==<strong>PostgreSQL</strong>==. Current version: ==<strong>16</strong>==.</p>
+<h2 id="extensions">Extensions</h2>
+<p>The following extensions are installed:</p>
+<ul>
+<li><a href="https://pgroonga.github.io">pgroonga</a>. Support for full-text search, based on the <a href="https://pgroonga.github.io">Groonga project</a>.</li>
+<li><a href="https://github.com/citusdata/pg_cron">pg_cron</a>. Running scheduled jobs inside the DB</li>
+<li>pg_prewarm. Not really used. Supposed to speed up the db.</li>
+<li>plpgsql. Procedural language. Previously, default PL for complex functions.</li>
+<li>plpython3u. Procedural language. Current default PL for complex functions.</li>
+<li><a href="https://www.postgresql.org/docs/current/postgres-fdw.html">postgres_fdw</a>. Foreign wrapper allowing inter-database operations.</li>
+</ul>
+<p>See below for installation details.</p>
+<h2 id="documentation-as-comments">Documentation As Comments</h2>
+<p>Documentation on the database is maintained in the form of comments to the tables and fields. All relevant and non-obvious columns were commented on. General DB flow now includes writing a comment on any such relevant column when adding it.</p>
+<p>Comments can be added in a <a href="https://www.postgresql.org/docs/15/sql-comment.html">standard PostgreSQL fashion</a>.</p>
+<p>Comments can be retrieved by running a stored function <code>get_column_comment(table_name text, table_column text)</code>.</p>
+<hr />
+<h2 id="full-text-search-v2">Full-text search v2</h2>
+<p>Full-text search is implemented on the database directly using <code>pgroonga</code> extension. <code>pgroonga</code> indices were created for the following tables:</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Fields</th>
+<th>Index name</th>
+<th>Search func</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>people</code></td>
+<td><code>fullname</code></td>
+<td><code>pgroonga_people_fullname</code></td>
+<td>- <code>search_in_people_skim</code><br />- <code>search_in_people</code></td>
+</tr>
+<tr>
+<td><code>public.organizations</code></td>
+<td><code>name</code>, <code>short_name</code></td>
+<td><code>pgroonga_orgs_name_shortname</code></td>
+<td>- <code>search_in_orgs</code></td>
+</tr>
+<tr>
+<td><code>public.youtube_vids</code></td>
+<td><code>title</code>, <code>description</code></td>
+<td><code>pgroonga_youtube_vids_title_desc_index</code></td>
+<td><code>search_in_youtube_vids</code></td>
+</tr>
+<tr>
+<td><code>public.komso_episodes</code></td>
+<td><code>title</code>, <code>description</code></td>
+<td><code>pgroonga_komso_vids_title_desc_index</code></td>
+<td><code>search_in_komso_episodes</code></td>
+</tr>
+<tr>
+<td><code>public.ntv_episodes</code></td>
+<td><code>title</code>, <code>description</code></td>
+<td><code>pgroonga_ntv_episodes_title_desc_index</code></td>
+<td><code>search_in_ntv_episodes</code></td>
+</tr>
+<tr>
+<td><code>public.smotrim_episodes</code></td>
+<td><code>title</code>, <code>description</code></td>
+<td><code>pgroonga_smotrim_episodes_title_desc_index</code></td>
+<td><code>search_in_smotrim_episodes</code></td>
+</tr>
+<tr>
+<td><code>data.transcribed_content</code></td>
+<td><code>content</code></td>
+<td><code>pgroonga_transcribed_content_index</code></td>
+<td><code>search_in_transcribed</code></td>
+</tr>
+<tr>
+<td><code>data.printed_content</code></td>
+<td><code>raw_content</code></td>
+<td><code>pgroonga_printed_content_index</code></td>
+<td><code>search_in_printed</code></td>
+</tr>
+<tr>
+<td><code>data.text_media</code></td>
+<td><code>title</code>, <code>excerpt</code><br /> <code>author_data</code><br /> <code>content</code></td>
+<td><code>pgroonga_text_media_title_excerpt_index</code><br /> <code>pgroonga_text_media_author_data_index</code><br /> <code>pgroonga_text_media_content_index</code></td>
+<td><code>search_in_text_media</code></td>
+</tr>
+<tr>
+<td><code>enums.isco08_taxonomy</code></td>
+<td><code>term</code></td>
+<td><code>pgroonga_isco08_taxonomy_term_index</code></td>
+<td><code>search_in_isco8</code></td>
+</tr>
+<tr>
+<td><code>enums.isco08_index</code></td>
+<td><code>name</code></td>
+<td><code>pgroonga_isco08_index_name_index</code></td>
+<td><code>search_in_isco8_index</code></td>
+</tr>
+<tr>
+<td><code>enums.orgs_taxonomy</code></td>
+<td><code>term</code></td>
+<td><code>pgroonga_orgs_taxonomy_term_index</code></td>
+<td><code>search_in_orgs_taxonomy</code></td>
+</tr>
+<tr>
+<td><code>enums.rucr_taxonomy</code></td>
+<td><code>content</code></td>
+<td><code>pgroonga_rucr_taxonomy_content_index</code></td>
+<td><code>search_in_rucr_taxonomy</code></td>
+</tr>
+<tr>
+<td><code>data.telegram_messages</code></td>
+<td><code>content</code></td>
+<td><code>pgroonga_telegram_messages_content</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Each of the search functions takes a <em>string</em> as the only argument, and returns a <em>table</em> with results. Naming policy: every <code>pgroonga</code> index name must start with word <code>pgroonga</code></li>
+<li>An index can be created with the following query:</li>
+</ul>
+<p><code>sql
+  create index pgroonga_table_name_index on table_name using pgroonga(column1, column2);</code>
+* Existing indices could be viewed by running the following query:</p>
+<p><code>sql
+  SELECT indexname, tablename
+  FROM pg_indexes
+  WHERE indexname LIKE 'pgroonga%'
+  ORDER BY tablename, indexname;</code></p>
+<hr />
+<h2 id="triple-language-format">Triple language format</h2>
+<p>Used to refer to dictionary (aka JSON)-like format with set keys <code>en</code>, <code>ru</code> and <code>uk</code> until it was converted into a costom composite type saved under name <code>triple_lang</code> in December 2023:</p>
+<pre><code class="language-sql">create type triple_lang as
+(
+    en text,
+    ru text,
+    uk text
+);
+</code></pre>
+<p>Custom type required some adaptations to the codebase. ==TBD==</p>
+<hr />
+<h2 id="database-queue">Database Queue</h2>
+<p>Queuing mechanism was established as a way of resolving <code>telegram_messages</code> pgroonga index. It allows running heavy queries in the background, independent of any client applications.</p>
+<ul>
+<li>Table <code>job_queue</code> was created in schema <code>service</code> with following columns:</li>
+<li><code>id</code></li>
+<li><code>command</code> : SQL command to run</li>
+<li><code>status</code> : current job's status - one of <code>queued</code>, <code>processing</code>, <code>completed</code> or <code>failed</code></li>
+<li><code>added_on</code></li>
+<li><code>started_on</code></li>
+<li><code>finished_on</code></li>
+<li><code>failed_on</code></li>
+<li><code>fail_details</code> - text of the error</li>
+<li>Function <code>enqueue_job(command_text::TEXT)</code> was created to add jobs to the table</li>
+</ul>
+<p><code>sql
+  SELECT enqueue_job('INSERT INTO some_table (column1, column2) VALUES(value1, value2)')</code>
+* Function <code>process_job()</code> was created with <code>plpython3u</code> to dequeue a job and process it, changing <code>status</code> along the way.
+* A cron job was scheduled with <code>pg_cron</code> to run <code>process_job()</code> every hour.</p>
+<hr />
+<h2 id="secondary-databases">Secondary databases</h2>
+<p>The following secondary databases are maintained on the same instance as <code>wapadb</code>:</p>
+<ul>
+<li><code>meta</code> is for storing important secondary data, specifically, <code>logs</code> and <code>provenance</code> records.</li>
+<li>==DEPRECATED==<code>logs</code> table in <code>public</code> schema is for saving potentially important logs from all related applications. <ul>
+<li><code>logs</code> contains log data, including the timestamp (<code>emitted_at</code>), <code>log_level</code>, <code>log_message</code>, <code>application</code> from where the log message originates, and <code>context_data</code> with additional information as the case may be.</li>
+</ul>
+</li>
+<li><code>provenance</code> table in <code>public</code> schema is for storing data generated by the <code>provenance</code> flow. .<ul>
+<li>to enable saving <code>wapadb</code>'s tables' data, a foreign table was created that mirrors the <code>meta.provenance</code> in <code>service</code> schema.</li>
+</ul>
+</li>
+<li><code>windmill</code> holds data of the Windmill app. The schema and content are maintained by Windmill;</li>
+</ul>
+<hr />
+<h2 id="foreign-tables">Foreign Tables</h2>
+<p>By default, Postgres does not allow inter-database communication, but it can be enabled with foreign wrappers.</p>
+<p>To make it so that <code>meta</code> and <code>wapadb</code> databases could exchange data, <code>postgres_fwd</code> extention was installed. Here's the general flow for this:</p>
+<pre><code class="language-sql">-- install extention
+CREATE EXTENTION postgres_fwd;
+-- create server
+CREATE SERVER meta_server FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'localhost', port '6002', dbname 'meta');
+-- create user mapping
+CREATE USER MAPPIN FOR warp SERVER meta_server OPTIONS (user 'warp', password 'long_and_windy_password');
+-- given that a table to be mirrored already exists
+IMPORT FOREIGN SCHEMA source_schema_ie_public LIMIT TO (target_table1) FROM SERVER meta_server INTO target_schema_ie_service;
+-- sequence for the foreign table might not get created automatically, so
+CREATE SEQUENCE target_schema_ie_service_target_table1_sequence_id START 1;
+</code></pre>
+<p>After this you can work with <code>target_schema_ie_service.target_table1</code> as if it was a regular table.</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<h3 id="database">Database</h3>
+<p>==TBD==</p>
+<h3 id="updating-db-ssl-certificate">Updating DB SSL certificate</h3>
+<p>==TBD==</p>
+<pre><code class="language-bash">openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem
+</code></pre>
+<h3 id="pgroonga">pgroonga</h3>
+<p><a href="https://pgroonga.github.io/install/">Starting page</a> on the installation in general. For installing on Ubuntu-based service, follow <code>How to install for the official PostgreSQL</code> section on <a href="https://pgroonga.github.io/install/ubuntu.html">this page</a>. Copy of the instruction:</p>
+<pre><code class="language-bash">$ sudo apt install -y software-properties-common
+$ sudo add-apt-repository -y universe
+$ sudo add-apt-repository -y ppa:groonga/ppa
+$ sudo apt install -y wget lsb-release
+$ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main&quot; | sudo tee /etc/apt/sources.list.d/pgdg.list
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ sudo apt update
+$ sudo apt install -y -V postgresql-15-pgdg-pgroonga # update to actual version of Postgres
+</code></pre>
+<pre><code class="language-sql">CREATE EXTENSION pgroonga;
+</code></pre>
+<h3 id="pg_cron">pg_cron</h3>
+<p><a href="https://github.com/citusdata/pg_cron">Official page</a>.</p>
+<pre><code class="language-bash">sudo apt-get -y install postgresql-15-cron # update to actual version of Postgres
+</code></pre>
+<p>Update DB configuration (<code>postgresql.conf</code>):</p>
+<pre><code class="language-editorconfig">shared_preload_libraries = 'pg_cron'
+cron.database_name = 'postgres' # set to actual name of the db
+cron.timezone = 'PRC' # optionally set the TZ
+</code></pre>
+<pre><code class="language-sql">CREATE EXTENSION pg_cron
+</code></pre>
+<h3 id="pg_prewarm">pg_prewarm</h3>
+<p>TBD</p>
+<h3 id="plpython3u">plpython3u</h3>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install postgresql-server-dev-all
+sudo apt-get install python3 python3-dev
+sudo apt-get install postgresql-plpython3
+</code></pre>
+<pre><code class="language-sql">CREATE EXTENSION plpython3u;
+</code></pre>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

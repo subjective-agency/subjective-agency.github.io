@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🗶≽ ADR-16. Theory - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">🗶≽ ADR-16. Theory</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#decision">Decision</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#status">Status</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#consequences">Consequences</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>All the textual items relevant for the W project can be put into one of the following categories:</p>
+<ol>
+<li><code>core</code> : Texts written specifically for the W project, or for the Dum Vita Est blog, its predecessor. Most of these describe various aspects of the <code>Copium Theory of Propaganda</code>.</li>
+<li><code>companions</code> : Texts written by independent authors that contribute to the elucidation and research of propaganda in general, of Russian propaganda instance, or other things related in any way to the subject area of the W project.</li>
+<li><code>copium</code> : Texts written by Russian propagandists that shed light on their line of thinking.</li>
+</ol>
+<h2 id="decision">Decision</h2>
+<p>In the context of the W project, <code>theory</code> is a special section that consists of 3 <strong>text</strong> collections named <code>core</code>, <code>companions</code> and <code>copium</code>. <code>Theory</code> is a top-level navigation target on the W website, alongside <code>people</code>, <code>organizations</code> and <code>media segments</code>.</p>
+<p>The initial body of <code>companion</code> and <code>copium</code> texts was translated from Russian into English for the <code>Dum Vita Est</code> blog, and, in April 2023, translated from Russian into Ukrainian using <code>openai/gpt-3.5</code>.</p>
+<p>Going forward, translations from one language to another should be delegated entirely to AI, with human responsible for 1) selecting translation targets and preparing prompts; and 2) editing and verifying the AI-generated output.</p>
+<p>Both content and metadata for all the theory items are stored in the <code>theory</code> table (<code>public</code> schema), with the following structure:</p>
+<pre><code class="language-json">{
+  &quot;title&quot;: {
+    &quot;en&quot;: &quot;&quot;,
+    &quot;ru&quot;: &quot;&quot;,
+    &quot;uk&quot;: &quot;&quot;
+  },
+  &quot;type&quot;: &quot;&quot;,
+  &quot;excerpt&quot;: {
+    &quot;en&quot;: &quot;&quot;,
+    &quot;ru&quot;: &quot;&quot;,
+    &quot;uk&quot;: &quot;&quot;
+  },
+  &quot;images&quot;: [],
+  &quot;content&quot; : {
+    &quot;en&quot;: {
+      &quot;translated_by&quot;:  {&quot;i&quot;:  &quot;&quot;, &quot;author&quot;:  &quot;&quot;},
+      &quot;markdown&quot;:  &quot;&quot;,
+      &quot;edit_history&quot;: [{&quot;who&quot;:  &quot;&quot;, &quot;when&quot;:  &quot;&quot;}]
+    },
+    &quot;ru&quot;: {&quot;markdown&quot;:  &quot;&quot;},
+    &quot;uk&quot;: {
+      &quot;translated_by&quot;:  {&quot;i&quot;:  &quot;&quot;, &quot;author&quot;:  &quot;&quot;},
+      &quot;markdown&quot;:  &quot;&quot;,
+      &quot;edit_history&quot;: [{&quot;who&quot;:  &quot;&quot;, &quot;when&quot;:  &quot;&quot;}]
+    }
+  },
+  &quot;original_content_metadata&quot;: [
+    {&quot;date_published&quot;: &quot;&quot;,&quot;url&quot;: &quot;&quot;, &quot;author&quot;:  &quot;&quot;}
+  ]
+}
+</code></pre>
+<ul>
+<li><code>type</code> is a string, one of <code>core</code>, <code>copium</code>, <code>companion</code>, <code>system</code>;</li>
+<li><code>system</code> is a set of auxiliary articles, including <ul>
+<li>FAQ, </li>
+<li>About Page, and </li>
+<li>Glossary.</li>
+</ul>
+</li>
+<li><code>title</code> and <code>excerpt</code> are triple-lang JSONBs with keys containing plain text;</li>
+<li><code>images</code> is a list of URLs by the look of <code>https://svfizyfozagyqkkjzqdc.supabase.co/storage/v1/object/public/photos/theory/default/default-thumb.png</code></li>
+<li><code>original_content_metadata</code> is a list of JSONBs, each element containing at least keys</li>
+<li><code>date_published</code></li>
+<li><code>author</code>, and</li>
+<li><code>url</code> where possible;</li>
+<li><code>content</code> is a triple-lang JSONB with keys containing dictionaries. If a lang key refers to the original text, it contains only <code>markdown</code> key; otherwise, it also contains <code>translated_by</code> and <code>edit_history</code> keys.</li>
+<li><code>markdown</code> contains complete text of the item in Markdown format;</li>
+<li>
+<p><code>translated_by</code> is a dictionary with 2 required keys:</p>
+<ul>
+<li><code>i</code> stands for <code>intelligence</code> and can be either <code>a</code> (<code>artificial</code>) or <code>h</code> (<code>human</code>);</li>
+<li><code>author</code> contains original name of the author or reference to the AI;</li>
+</ul>
+<p>If this key is absent, this is an original (unless something went terribly wrong).
+  * <code>edit_history</code> is meant to serve as a minimalistic edit log. It's a list of dictionaries with (preliminary) two required keys:
+* <code>who</code> contains name of the editor;
+* <code>when</code> - date of the edit.</p>
+<p>If this key is absent, the text was not edited.
+If this key is present but <code>translated_by</code> key is absent, something went wrong.</p>
+</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Cooking.</p>
+<h2 id="consequences">Consequences</h2>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

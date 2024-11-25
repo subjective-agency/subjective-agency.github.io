@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ontologies, Classes & Semantic Web - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Ontologies, Classes & Semantic Web</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#what-is-an-ontology-and-why-do-we-need-one">What is an ontology and why do we need one?</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#resourses">Resourses</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>This document is supposed to serve as a basic informational resource on things related to the ontology-building effort.</p>
+<h2 id="what-is-an-ontology-and-why-do-we-need-one">What is an ontology and why do we need one?</h2>
+<p>In the context of computer science and information science, an ontology is a formal representation of knowledge that defines the concepts, entities, relationships, and properties within a particular domain. It provides a structured and organized way to describe and model a specific domain by defining the classes, attributes, and interrelationships of the entities or concepts within that domain.</p>
+<p>In the case of Wapaganda, the domain in question is the propagandistic activity of the current Russian state, and top-level classes are:</p>
+<ul>
+<li>Organization</li>
+<li>Person</li>
+<li>Group</li>
+<li>MediaSegment</li>
+</ul>
+<p>Attributes and relationships for <code>organization</code>, <code>person</code> and <code>group</code> should be adopted from FOAF, where all of these entities have the same parent - <code>agent</code>. Basic terms and attributes should be adopted from DC and, possibly, other existing vocabularies </p>
+<p>On the other hand, <code>MediaSegments</code> do not seem to have any kind of vocabulary developed, so this would be the primary direction of the ontology effort.</p>
+<p>The resulting ontology must serve as the basis for classes and attributes created in the Python code. With library <code>owlready2</code> it is possible to link an ontology and a python module so that they compliment each other.</p>
+<h2 id="resourses">Resourses</h2>
+<ul>
+<li>FOAF (Friend-of-a-Friend) <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a></li>
+<li>DC (Dublin Core) <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/</a></li>
+<li>SIOC (Semantically Interlinked Online Communities) <a href="http://rdfs.org/sioc/spec/">http://rdfs.org/sioc/spec/</a></li>
+<li><a href="https://schema.org/docs/schemas.html">https://schema.org/docs/schemas.html</a></li>
+<li><a href="https://lov.linkeddata.es/dataset/lov/vocabs">https://lov.linkeddata.es/dataset/lov/vocabs</a></li>
+<li><a href="https://www.w3.org/TR/powder-primer/">https://www.w3.org/TR/powder-primer/</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc3987.txt">https://www.ietf.org/rfc/rfc3987.txt</a></li>
+<li><a href="https://www.w3.org/TR/rdf11-primer/">https://www.w3.org/TR/rdf11-primer/</a></li>
+<li><a href="https://www.w3.org/TR/2004/REC-owl-guide-20040210/">https://www.w3.org/TR/2004/REC-owl-guide-20040210/</a></li>
+<li><a href="https://www.w3.org/TR/2004/REC-owl-semantics-20040210/">https://www.w3.org/TR/2004/REC-owl-semantics-20040210/</a></li>
+<li><a href="https://www.w3.org/2002/03/tutorials.html">https://www.w3.org/2002/03/tutorials.html</a></li>
+<li><a href="https://protegeproject.github.io/protege/">https://protegeproject.github.io/protege/</a></li>
+<li><a href="https://www.w3.org/2001/sw/SW-FAQ">https://www.w3.org/2001/sw/SW-FAQ</a></li>
+<li></li>
+</ul>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

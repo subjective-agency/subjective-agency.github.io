@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transfactory Node Requirements and Setup - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Transfactory Node Requirements and Setup</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#overview">Overview</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#transfactory-node-minimal-requirements">Transfactory node minimal requirements</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#setting-up-transfactory-node-on-windows-machine">Setting up transfactory node on Windows machine</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#preconditions">Preconditions</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#steps">Steps</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>OUTDATED</p>
+<h2 id="overview">Overview</h2>
+<p>Transfactory is a distributed application aimed at transforming audio into text using OpenAI's Whisper.</p>
+<p>Infrastructure-wise, it consists of 2 main entities: 1) a single Supply &amp; Processing Station (SPS), and 2) a number of Transfactory Nodes (TN), that communicate between themselves using a Postgres database. TNs perform the transcribing tasks, and SPS supplies them with new jobs and processes what's been done.</p>
+<h2 id="transfactory-node-minimal-requirements">Transfactory node minimal requirements</h2>
+<p>Transcribing is a very resource-demanding process as it is, and using Whisper's <code>large</code> model (default standard) makes it even more so. Below is the approximate minimally acceptable configuration.</p>
+<ol>
+<li>GPU (Graphics card): NVIDIA-based with at least 12 GB of memory and non-limited processing speed. Model line RTX 4070 would do well, for example.</li>
+<li>Watch out for cards that are manufactured with processing speed limitation: if they can't be used by virtual currency miners, they can't be used for machine learning, either;</li>
+<li>The amount of memory lesser than 12 GB won't allow us to use <code>large</code> Whisper model, and this is problematic not only because smaller models provide lesser quality, but also because in this case we would need to differentiate and account for the model used, and this is an unwanted spike in complexity.</li>
+<li>If you have a PC with a minimally viable GPU (or a better one), then you probably don't need any more instructions. If you're assembling a new PC, use the GPU as a starting point in some online PC-constructor (take  <a href="https://pcbuilder.net/list/">https://pcbuilder.net/list/</a> as a generic example, and keep in mind that localized variants are usually better).</li>
+</ol>
+<h2 id="setting-up-transfactory-node-on-windows-machine">Setting up transfactory node on Windows machine</h2>
+<p>This process is kinda tricky, so it's advisable to follow the following steps in the order they are provided: any digression may lead to unwanted complications. Windows 10 or 11 is assumed.</p>
+<h3 id="preconditions">Preconditions</h3>
+<ul>
+<li>An existing <code>Poetry</code>-based project</li>
+<li><code>whisper</code>, <code>torch</code>, <code>torchaudio</code>, <code>torchvision</code> are not installed. If they are, it's better to remove them.</li>
+</ul>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>
+<p>Add <code>llvmlite</code> as explicit dependency. It's a package required by <code>pytorch</code>; when installing just the torch, it may try to use a version of this library that would cause failure. As of writing this, version <code>0.40.1</code> was most recent;</p>
+</li>
+<li>
+<p>Add <code>numba</code> as explicit dependency. Same story as with <code>llvmlite</code>. As of writing this, version <code>0.57.1</code> was the most recent;</p>
+</li>
+<li>
+<p>Add <code>koila</code> as a dependency. This is a thin wrapper over torch that resolves some of its common issues.</p>
+</li>
+<li>
+<p>Add <code>poethepoet</code> as a dependency. This is a task-runner for <code>Poetry</code> that can be used for many things, but here it will be used to install CUDA-based version of <code>pytorch</code>;</p>
+</li>
+<li>
+<p>Add <code>openai-whisper</code> package as a dependency using <code>https://github.com/openai/whisper.git</code>. If <code>llvmlite</code> and <code>numba</code> were pre-installed successfully, this is likely to go without hiccup;</p>
+</li>
+<li>
+<p>Add following section to <code>pyproject.toml</code>:</p>
+<p><code>[tool.poe.tasks]
+force-cuda = "python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118"
+force-cuda-out = "python -m pip uninstall torch torchvision torchaudio"</code></p>
+<p>This adds 2 <code>Poe</code> tasks. Unlike regular dependencies, <code>Poe</code> tasks are always installed (ran) manually.</p>
+</li>
+<li>
+<p>Run the <code>uninstall</code> task with the following:</p>
+<p><code>poetry run poe force-cuda-out</code></p>
+<p>This would uninstall torch family if they are present in the system. If they aren't, no harm will be done.</p>
+</li>
+<li>
+<p>Then run the <code>install</code> task:</p>
+<p><code>poetry run poe force-cuda</code></p>
+<p>This would install the version of the torch family referenced in the <code>--index-url</code>. <code>Cu118</code> (i.e. v. 11.8) was the most recent version as of writing this.
+This workaround with <code>poe</code> is required because <code>Poetry</code>  can only deal with the default index (PyPI), and has not way of dealing with alternative ones.</p>
+</li>
+<li>
+<p>To make sure <code>torch</code> can be properly used, open a console, import <code>whisper</code> and run one of the following commands:</p>
+<ol>
+<li><code>whisper.torch.cuda.is_available()</code>. <code>True</code> is good.</li>
+<li><code>whisper.torch.version.cuda</code>. CUDA version (<code>11.8</code> in this case) is good.</li>
+<li><code>whisper.torch.version.__version__</code>. This prints out the version of <code>torch</code> used; the one including something like <code>+cu118</code> is good.</li>
+</ol>
+</li>
+<li>
+<p>Finally, in the main script, when using <code>whisper</code> or <code>torch</code>, wrap them into <code>lazy()</code> method of the <code>koila</code> library. In case of <code>whisper</code> it looks like this:</p>
+<p>```
+from koila import lazy</p>
+<p>model = lazy(whisper.load_model(name="medium", device="cuda", download_root="D:/openai"), batch=0)
+```</p>
+<p>This should resolve the infamous <code>CUDA out of memory</code> error (more details <a href="https://github.com/rentruewang/koila/tree/main">here</a>) If you're still getting the error while using <code>lazy()</code> method, you probably don't have enough memory (for example, this still occurs when trying to load <code>large</code> model with only 8 GB of memory in the system).</p>
+</li>
+</ol>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

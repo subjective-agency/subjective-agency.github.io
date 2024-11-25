@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>psycopg In a Gist - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">psycopg In a Gist</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#installation">Installation</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usage">Usage</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#caveats">Caveats</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#types-adaptation">Types Adaptation</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#sql-query-composition">SQL Query Composition</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#copy">Copy</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p><code>psycopg</code> is an advanced Python adapter/connector for PostgreSQL databases. The library is at v3, but goes without a version in the name, i.e. simply <code>psycopg</code>, as opposed to <code>psycopg2</code>, which is a previous generation. The documentation can be found on a <a href="https://www.psycopg.org/psycopg3/docs">dedicated website</a>, and is relatively full.</p>
+<h2 id="installation">Installation</h2>
+<p><a href="https://www.psycopg.org/psycopg3/docs/basic/install.html">Installation</a> is more or less straightforward:</p>
+<pre><code>poetry add psycopg[binary]
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>Main objects are <code>connection</code> and <code>cursor</code>.</p>
+<p>You would usually create a <code>connection</code>, and then a <code>cursor</code> that you'd use to perform transactions. In the previous version of the library, <code>cursor</code> was the primary object you dealt with. With the new version, you don't need to create a cursor (though you still can), because <code>connection</code> object has the same <code>execute</code> method, which creates a <code>cursor</code> object implicitly when called.</p>
+<p>The library is rather versatile, and allows various approaches:</p>
+<ul>
+<li>you can use main objects as context managers;</li>
+<li>there is an async version for every function;</li>
+<li>the format of the return result can be customized with <code>row_factories</code>;</li>
+<li>To get dictionaries, pass <code>row_factory=psycopg.rows.dict_row</code> when creating connection;</li>
+<li>you can configure your own types if you need to.</li>
+</ul>
+<h3 id="caveats">Caveats</h3>
+<blockquote>
+<p>Psycopg has a behaviour that may seem surprising compared to <strong>psql</strong>\: by default, any database operation will start a new transaction. As a consequence, changes made by any cursor of the connection will not be visible until <a href="https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection.commit" title="psycopg.Connection.commit"><code>Connection.commit()</code></a> is called, and will be discarded by <a href="https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection.rollback" title="psycopg.Connection.rollback"><code>Connection.rollback()</code></a>. The following operation on the same connection will start a new transaction.</p>
+<p>If a database operation fails, the server will refuse further commands, until a <code>rollback()</code> is called.</p>
+</blockquote>
+<p>This can be circumvented by setting <code>autocommit = True</code> when creating connection, or using <a href="https://www.psycopg.org/psycopg3/docs/basic/transactions.html#transaction-contexts">transaction context</a>.</p>
+<p>To access table in a schema other than <code>public</code>, use construct <code>sql.Identifier("schema_name", "table_name")</code>.</p>
+<h3 id="types-adaptation">Types Adaptation</h3>
+<ul>
+<li>With <code>boolean</code>s, <code>numeric</code>s, <code>string</code>s, <code>uuid</code>s or <code>binary</code> types are converted automatically and predictably;</li>
+<li>With <code>date</code>s <code>datetime</code>s etc, it should be <code>datetime</code> objects on Python side;</li>
+<li>With <code>json</code>, standard serializers are used by default, but it can be customized;</li>
+</ul>
+<h3 id="sql-query-composition">SQL Query Composition</h3>
+<p>Simple queries can be passed as regular strings, but it is advisable to default to the <em>safe</em> way by using the <code>sql</code> module of the library (mostly, to establish a habit, since more complex types require it anyway). A few examples:</p>
+<pre><code class="language-python">from psycopg import sql
+
+select_all = sql.SQL(&quot;SELECT * FROM {tbl};&quot;).format(tbl=sql.Identifier(&quot;people&quot;))
+req = connect.execute(select_all )
+
+one_field = sql.SQL(&quot;SELECT {id} FROM {tbl};&quot;).format(tbl=sql.Identifier(&quot;people&quot;), id=sql.Identifier(&quot;id&quot;))
+req = connect.execute(one_field )
+
+several_fields_w_condition = sql.SQL(&quot;SELECT {fields} from {tbl} WHERE {condition_field} = 'complete';&quot;).format(
+    tbl=sql.Identifier(&quot;prabyss&quot;),
+    fields=sql.SQL(&quot;,&quot;).join([sql.Identifier(&quot;id&quot;), sql.Identifier(&quot;title&quot;)]),
+    condition_field=sql.Identifier(&quot;status&quot;)
+)
+req = connect.execute(several_fields_w_condition)
+
+select_key_of_jsonb_column = sql.SQL(&quot;SELECT {fld} FROM {tbl} WHERE {fld2} = %s&quot;).format(
+    fld=sql.SQL(&quot;jsonb_extract_path({content, 'en', 'markdown'})&quot;),
+    tbl=sql.Identifier(&quot;theory&quot;),
+    fld2=sql.Identifier(&quot;id&quot;)
+)
+req = connect.execute(select_key_of_jsonb_column , (record_id,)).fetchone()
+
+update_key_in_jsonb_column = sql.SQL(&quot;UPDATE {tbl} SET {fld} = {jset} WHERE {fld2} = %s&quot;).format(
+    fld=sql.Identifier(&quot;content&quot;),
+    tbl=sql.Identifier(&quot;theory&quot;),
+    fld2=sql.Identifier('id'),
+    jset=sql.SQL(&quot;jsonb_set({fld}, '{pth}', %s)&quot;).format(fld=sql.Identifier(&quot;content&quot;), pth = sql.SQL('{en}'))
+)
+connect.execute(update_key_in_jsonb_column , (json.dumps({&quot;markdown&quot;: new_version}), record_id))
+</code></pre>
+<p>A few things to notice:</p>
+<ul>
+<li>There are several different objects used in query composition, the most common of which are <code>Identifier</code> and <code>SQL</code>. Use first to point to columns and tables; second - to wrap all other portions of the query;</li>
+<li>Curly brackets are used for variable placeholders. This is similar to how <code>f-strings</code> are formed in Python, and this similarity may be confusing. The rule of thumb would be to assume that <code>f-strings</code> cannot be used at all when shaping queries, even though in pieces of SQL that do not contain variable placeholders, they are still possible.</li>
+<li>A special <code>%s</code> placeholder is used to point at values. At execution stage, values must be passed in an iterable (even if there's just one): <code>(record_id,)</code> and not simply <code>record_id</code>.</li>
+<li>It is possible to use named placeholders, i.e. <code>%(title)s</code>, in which case, the iterable must be a dictionary where keys correspond to the names of placeholders.</li>
+</ul>
+<h2 id="copy">Copy</h2>
+<p>For massive inserts, <code>copy</code> operation <a href="https://www.psycopg.org/psycopg3/docs/basic/copy.html#copy">is preferable</a>. Below is an example of inserting objects from a Python iterable <code>parsed_records</code>, which is a list of dictionaries:</p>
+<pre><code class="language-python">from psycopg import sql
+from wapaganda.database.core2 import create_connection
+
+parsed_records = [...] # this list of full of dictionaries
+connect = create_connection()
+cur = connect.cursor()
+
+upload_query = sql.SQL(&quot;COPY {tbl} ({fields}) FROM STDIN&quot;).format(
+    tbl=sql.Identifier(&quot;schema&quot;, &quot;table_in_schema&quot;),
+    fields=sql.SQL(&quot;,&quot;).join([sql.Identifier(x) for x in parsed_records[0].keys()])
+)
+
+with cur.copy(upload_query) as copy:
+    for rec in parsed_records:
+        copy.write_row(list(rec.values()))        
+</code></pre>
+<p>Things to notice:</p>
+<ul>
+<li><code>create_connection</code> function returns <code>connection</code> object with proper auth elements;</li>
+<li><code>copy</code> operation is performed on the <code>cursor</code> object, not the <code>connection</code> object;</li>
+<li>list comprehension is applied to the 1st record in the list to obtain field names. Note: this requires for the <code>parsed_records</code> list to contain at least one record, i.e. the query has to be declared <em>after</em> you collected the data;</li>
+<li>when using dictionaries, pass <code>.values()</code> to <code>write_row()</code> method and don't forget to convert it into <code>list</code>.</li>
+</ul>
+<p><code>copy</code> can be used for other things, such as loading data from a CSV file, or copying data between tables. Consult <a href="https://www.postgresql.org/docs/current/sql-copy.html">Postgres documentation</a> for full functionality.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

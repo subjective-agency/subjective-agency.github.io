@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RFC-7. Media Episodes Attribution Problem - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">RFC-7. Media Episodes Attribution Problem</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#context">Context</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#media-episode-structure">Media Episode Structure</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#attribution">Attribution</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="context">Context</h2>
+<p>Currently, DVE-A-56, DVE-A-29 and DVE-A-30 (all unfinished) describe the approach to <code>media segment</code> - <code>media episode</code> relationship. Due to the complexity of the real-life picture, though, this description ignores certain important nuances. This document offers a detalization on the <code>media episode</code> entity, and describes the problem of attributing a <code>media episode</code> to a <code>media segment</code>.</p>
+<h2 id="media-episode-structure">Media Episode Structure</h2>
+<p>Every <code>media episode</code> consits of a number of  <code>scenes</code> (at least 1).</p>
+<p>A <code>scene</code> has 2 boolean attributes:</p>
+<ol>
+<li><code>irl</code> indicates if the <code>scene</code> happened offline (<code>True</code>) or via some virtual means of communication;</li>
+<li><code>quicky</code> indicates if the <code>scene</code> is supplementary (and short; example: Golovanov's Time within Polny contact and Mardan segments).</li>
+</ol>
+<p>Furthermore, a <code>scene</code> can be 1 of the following types/subtypes (<code>host2guest</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Subtype</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>many2many</code></td>
+<td><code>circle wank</code></td>
+<td>Вечер с Владимиром Соловьевым, Кто Против</td>
+</tr>
+<tr>
+<td><code>many2many</code></td>
+<td><code>group</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>one2zero</code></td>
+<td><code>wank-off</code></td>
+<td>Any lecture, any scene with just the host</td>
+</tr>
+<tr>
+<td><code>one2one</code></td>
+<td><code>boning</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>one2many</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>two2zero</code></td>
+<td><code>mutual wank</code></td>
+<td>Михеев Говорит</td>
+</tr>
+<tr>
+<td><code>two2one</code></td>
+<td><code>threeway</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="attribution">Attribution</h2>
+<p>The attribution problem arises from the recently introduced <code>synthetic</code> segment type, which is tied to a special organization type <code>personal brand</code> (id 35). <code>Synthetic</code> segment is meant to serve as a container that holds media episodes produced by sources with low consistency &amp; recognition rate (mostly, YouTube channels with random selection of content) but that can be tied to an influencer patient, such as Andrey Fursov or Aleksandr Artamonov. </p>
+<p>In effect, this means, for example, that the numerous YouTube videos in which Andrey Fursov took part, (almost) regardless of which YouTube channel they were published on, should be identified as episodes of the <code>Andrey Fursov (WYT)</code> segment, which belongs to <code>Andrey Fursov</code> personal brand organization. </p>
+<p>The <code>Andrey Fursov</code> personal brand organization is also tied to <code>Andrey Fursov (DayTV)</code> segment, which is a collection of Fursov's appearances on specifically DayTV. DayTV is a media outlet whose content can be obtained from several sources, including YouTube, which makes this whole thing a bit more confusing.</p>
+<p>The other major type of <code>media segment</code> is <code>named</code> segment - this is BesogonTV, Metametrica, Empatiya Manuchi, Polny Kontact, etc. Confusion intensifies when you consider Andrey Fursov's appearances on such <code>named</code> segments. For example, he gave several interviews to Metametrica - do these episodes belong to <code>Metametrica</code> segment, or <code>Andrey Fursov</code> segment?</p>
+<p>Furthermore, Metametrica is organized and hosted by 2 people (Danyuk and Egorchenkov), both of whom are influencers in their own right - so, maybe these episodes should be attributed to their respective <code>personal brand</code>-related segments?</p>
+<p>One solution could be to allow an episode to have multiple segment-relationships, i.e. Fursov's Metametrica interviews would be tied to Metametrica segment, as well as <code>personal brand</code>-related segments of all the participants. This could get out of hand, if there many.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

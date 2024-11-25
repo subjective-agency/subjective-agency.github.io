@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RUCR Intro Description - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">RUCR Intro Description</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#ruskymir-creed-rucr">Ruskymir Creed (RUCR)</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How it works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#wip">WIP</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#_1">Кредо русского мира (РУКР)</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#_2">Как это работает</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#_3">Работа продолжается</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#_4">Кредо руського миру (РУКР)</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#_5">Як це працює</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#_6">Робота продовжується</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h2 id="ruskymir-creed-rucr">Ruskymir Creed (RUCR)</h2>
+<p>What you can see here is a model of concepts and ideas commonly re-used by the Russian propaganda on the daily basis. It is currently comprised of {number_of_concepts} concepts (or tropes, as we call them) touching on all kinds of topics, from abortions to moon landing, but mainly concerned with diminishing and lying about Ukraine and its people.</p>
+<p>These are the ideas you'd hear if you were to turn on any today's Russian media outlet, apart from the exiled political opposition and those that focus on entertainment exclusively - although, this last category is far from innocent, as more and more singers, poets and producers turn to suck from the perennial tit of the state.</p>
+<p>You will notice that some of them would explicitly contradict others - this is normal, because it reflects the actual state of affairs, where people with, sometimes, diametrically opposing views unite in the blind adoration of Vladimir Putin's activities, jokes and speeches.</p>
+<p>If you're wondering, how exactly is this even possible, - this entire project is dedicated to finding the answer to this question. We believe that RUCR is a step in the direction of it.</p>
+<h3 id="how-it-works">How it works</h3>
+<p>RUCR is based on the Simple Knowledge Organization System (SKOS), which is a standard developed by World Wide Web Consortium (also known as W3C) in &gt;&gt;&gt;&gt; mainly for representing existing systems of knowledge (such as library catalogs) in digital format.</p>
+<p>What's important to know, is that it defines 2 kinds of relations: the <code>broader</code> - <code>narrower</code> kind is hierarchical and says that a certain idea is <em>broader</em> or <em>narrower</em> in relation to another certain idea; and <code>related</code> kind says that two ideas are connected in a non-hierarchical way. For example, the idea that <code>homosexuality is a sin</code> is <em>narrower</em> to the idea that <code>homosexuality is wrong</code>; and that latter one is <code>related</code> to the idea that <code>liberal values were made up as a tool for disrupting nations from within</code>.</p>
+<p>Arrows on the diagram represent <code>broader</code> / <code>narrower</code> relationships, with the arrowhead pointing to the <em>broader</em> term. Representing <code>related</code> relations is under development.</p>
+<p>Two large circles contain the 15 core ideas: they are considered such because themselves they cannot be broken down any further (well, kind of - see the WIP note below). One of the circles contains anti-Ukrainian collection, the other - everything else. This layout is quite arbitrary, that is - dictated by aesthetics mostly; however the defined relations are solid.</p>
+<h3 id="wip">WIP</h3>
+<p>RUCR is not a finished work: some concepts may not have been identified yet, others are yet to arise - this terrain is complex and fluid, and capturing and analyzing it takes time and work. If you feel like you can help us move things forward, send us a letter.</p>
+<h2 id="_1">Кредо русского мира (РУКР)</h2>
+<p>То, что вы найдете здесь представляет собой модель концепций и идей, которые регулярно используются российской пропагандой. На данный момент она состоит из {number_of_concepts} концепций (или, как мы их называем, тропов), затрагивающих самые разные темы, от абортов до посадки на Луну, но в основном направленных на принижение Украины, и ложь о ее народе.</p>
+<p>Это те идеи, которые вы услышите, если включите любое современное российское СМИ, за исключением разве что политической оппозиции в изгнании, и тех, которые ориентированы исключительно на развлечения - впрочем, эту последнюю категорию тоже сложно назвать чистой, ведь все больше и больше певцов, поэтов, продюсеров и т.п. стараются приникнуть к непересыхающей государственной груди.</p>
+<p>Вы заметите, что некоторые из них очевидно противоречат другим - это нормально, посольку отражает реальное положение вещей, где люди с порой диаметрально противоположными взглядами сливаются в слепом обожании решений, шуток и цитат Владимира Путина.</p>
+<p>Если вы задаетесь вопросом, как это вообще возможно, - что ж, наш проект посвящен поиску ответа на этот вопрос целиком и полностью. Мы считаем, что РУКР - это шаг в правильном направлении.</p>
+<h3 id="_2">Как это работает</h3>
+<p>РУКР основан на стандарте под названием Simple Knowledge Organization System (SKOS), который был разработан World Wide Web Consortium (также известным как W3C) в основном для репрезентации уже сложившихся систем знаний (таких как библиотечные каталоги) в цифровом формате.</p>
+<p>Здесь важно знать, что SKOS определяет 2 типа отношений: <code>broader</code> (более широкий) - <code>narrower</code> (более узкий) - это иерархический тип, который устанавливает, что некая идея <em>более общая</em> или <em>более специфическая</em> по отношению к некоторой другой идее; и <code>related</code> устанавливает не-иерархическую связь между концептами. Например, идея, что <code>гомосексуализм - это грех</code>, <em>уже</em> по отношению к идее, что <code>гомосексуализм - это плохо</code>, которая в свою очередь <code>связана</code> с идеей, что <code>либеральные ценности были изобретены в качестве инструмент для разрушения наций изнутри</code>.</p>
+<p>Связи на диаграмме представляют отношения <code>шире</code> / <code>уже</code>, причем стрелка указывает на более <em>широкий</em> термин. Репрезентация <code>related</code> отношений пока что в разработке.</p>
+<p>Два больших круга содержат 15 корневых идей: мы считаем их таковыми, потому что в отношении них дальнейшая детализация затруднительна (однако см. примечание ниже). Один из них содержит коллекцию антиукраинских идей, другой - все прочее. Такая структура вполне произвольна, то есть, продиктовано преимущественно эстетикой; однако те отношения, которые определены между концептами, - в порядке.</p>
+<h3 id="_3">Работа продолжается</h3>
+<p>РУКР не является завершенным проектом: какие-то идеи возможно еще идентифицированы, другим еще предстоит проявиться - это территория сложная и изменчивая, сбор и анализ информации требуют времени и труда. Если вы думаете, что можете помочь нам продвинуться дальше, напишите нам письмо.</p>
+<h2 id="_4">Кредо руського миру (РУКР)</h2>
+<p>Те, що ви тут бачите, є моделлю концепцій та ідей, які російська пропаганда використовує постійно. Наразі вона складається з {number_of_concepts} концепцій (або тропів, як ми їх називаємо), які стосуються всіляких тем, від абортів до приземлення на місяць, але головним чином спрямовані на применшення та брехню про Україну та її людей.</p>
+<p>Це ті ідеї, які ви почуєте, якщо ввімкнете будь-який сучасний російський медіа-ресурс, за винятком політичної опозиції у вигнанні, та тих, що зосереджуються винятково на розвагах - хоча ця остання категорія теж далека не безвинна, оскільки все більше співаків, поетів та продюсерів обирають намагаються припасти до непересихаючих державних грудей.</p>
+<p>Ви помітите, що деякі з них вочевидь суперечать іншим - це нормально, оскільки відображає реальний стан речей, коли люди, з іноді діаметрально протилежними поглядами, об'єднуються в сліпому захопленні рішеннями, діяльністью, жартами та цитатами Володимира Путіна.</p>
+<p>Якщо ви цікавитесь, як це взагалі можливо, - весь наш проект присвячено пошуку відповіді на це питання. Ми вважаємо, що РУКР - це крок у цьому напрямку.</p>
+<h3 id="_5">Як це працює</h3>
+<p>РУКР базується на стандарті під назвою Simple Knowledge Organization System (SKOS), який був розроблен World Wide Web Consortium (відомим як W3C) в &gt;&gt;&gt;&gt; головним чином для репрезентації існуючих систем знань (таких як бібліотечні каталоги) в цифровому форматі.</p>
+<p>Важливо знати, що вона визначає 2 типи відносин: <code>broader</code> (ширше) - <code>narrower</code> (вужче) - це ієрархічний тип, який встановлює, що певна ідея є <em>більш загальною</em> або <em>більш специфічною</em> відносно іншої певної ідеї; а <code>related</code> встановлю не-ієрархічний зв'язок між двома ідеями. Наприклад, ідея, що <code>гомосексуалізм є гріхом</code>, є <em>вужчою</em> за ідею, що <code>гомосексуалізм це погано</code>, а ця остання, в свою чергу,<code>пов'язана</code> з ідеєю, що <code>ліберальні цінності були вигадані як інструмент для руйнування націй зсередини</code>.</p>
+<p>Стрілки на діаграмі представляють відносини <code>ширше</code> / <code>вужче</code>, та вказують на <em>ширший</em> термін. Репрезентація <code>пов'язаних</code> відносин наразі у розробці.</p>
+<p>Два великих кола містять 15 корінних ідей: ми вважаємо їх такими, тому що з них складно вивести концепти ще більш загальні (але див. нижче). Одне з кіл містить колекцію антиукраїнських ідей, друге - все інше. Ця структура досить довільна, тобто  продиктована переважно естетикою; однак визначені нами відносини є обґрунтованими.</p>
+<h3 id="_6">Робота продовжується</h3>
+<p>РУКР не є довершеною роботою: деякі концепції ще, можливо, не виявлені, інші тільки мають з'явитися - ця область складна і дуже швидкоплинна; її вивчення та аналіз займають час і потребують праці. Якщо ви відчуваєте, що можете допомогти нам просувати це все вперед, надішліть нам листа.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

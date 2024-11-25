@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transfactory Anomaly Usecases - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Transfactory Anomaly Usecases</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#usecase-1">Usecase 1</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-2">Usecase 2</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_1">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-3">Usecase 3</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_2">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-4">Usecase 4</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_3">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-5">Usecase 5</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_4">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-6">Usecase 6</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_5">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-7">Usecase 7</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_6">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-8">Usecase 8</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_7">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-9">Usecase 9</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_8">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-10">Usecase 10</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_9">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-11">Usecase 11</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_10">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-12">Usecase 12</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_11">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-13">Usecase 13</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_12">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-14">Usecase 14</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_13">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#usecase-15">Usecase 15</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#detection-status_14">Detection status</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>This document lists some specific usecase when the transfactory's main process goes wrong, producing <code>anomalies</code>. As a rule, such anomalies take the form of some line that gets repeated over and over again. The cause of such incidents is unclear.</p>
+<h2 id="usecase-1">Usecase 1</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>amerikantsy-podtyorlis-gensekom-oon-efir-ot-20072023-2651641-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td>7070</td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td>6899</td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>1587</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-295</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>673</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-673</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: problematic line is <code>Субтитры предоставлены А.Синецкая Корректор А.Егорова</code>; it appears under <code>int_sequence</code>s 1, 2-295 out of total 1587.</p>
+<p>With translation: problematic line is <code>TASTY DIALOGUE WITH ELENA BAZHENOVA</code>; it appears under 1 and goes to the end.</p>
+<h3 id="detection-status">Detection status</h3>
+<p>With transcription: Faulty patch identified correctly, but starting with #3 due to theshold settings.</p>
+<p>With translation: Faulty patch of the entire length of file identified correctly</p>
+<h2 id="usecase-2">Usecase 2</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>amerikantsev-ustraivaet-zatyagivanie-konflikta-efir-ot-26052023-2621753-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td>7055</td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td>6892</td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>243</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-243</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>2197</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved </span>\~ TODO: Fix unsolicited patch split</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: problematic line is <code>РАЗГОВОР ПО-НЕМЕЦКИ</code> occasionally followed by <code>АПЛОДИСМЕНТЫ</code>; it appears at the beginning at goes till the end (1-243).</p>
+<h3 id="detection-status_1">Detection status</h3>
+<p>With transcription: Faulty patch identified overall correcly, but split into 5 different patches for unclear reason. Some of the patches are overlapping.</p>
+<p>With translation:</p>
+<h2 id="usecase-3">Usecase 3</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>Rossiya_Ukraina--Tochka-nevozvrata-i-Kaska-s-pechalnym-kontsomDmDzhangirov-v-pryamom-efire-rqbW-bH4FgA-20220203.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td>5145</td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>294</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>86-294</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>2381</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: problematic line is <code>да, да, да, да, да, да, да, да, да, да, да, да, да, да,</code>, which start occurring after line 85 <code>чтоб ее туда внесли, и то, что, да, да, да, да, да, да,</code>, presumable, also failed one, and goes to the end.</p>
+<h3 id="detection-status_2">Detection status</h3>
+<p>With transcription: Faulty patch identified correctly</p>
+<p>With translation: Lack of anomaly identified correctly</p>
+<h2 id="usecase-4">Usecase 4</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>gde-prokhodit-peredovaya-efir-ot-04062023-2626712-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>3140</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>2021-3140</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>3415</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1347-1429</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>какие театры были,</code></p>
+<p>With translation: <code>Day Z</code>,</p>
+<h3 id="detection-status_3">Detection status</h3>
+<p>With transcription: Known faulty patch was identified correcly. Another was identified between #358 and #413.</p>
+<p>With translation: First faulty patch between #1347 and #1429 identified correcly. Second patch was identified between #2819 and #2919.</p>
+<h2 id="usecase-5">Usecase 5</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>briks-trevozhit-zapadnyy-mir-efir-ot-28062023-2640212-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>2163</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>2398</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>776-895</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved</span>\: TODO: special usecase with the repeat block instead of repeat line</td>
+</tr>
+</tbody>
+</table>
+<p>With translation: <code>We will continue after the news</code> over 4 lines.</p>
+<h3 id="detection-status_4">Detection status</h3>
+<p>With transcription: A previously unidentified batch was identified between #12 and #24</p>
+<p>With translation: A small, previously unidentified faulty patch between #58 and #77, was identified. However, the main case was not identified, because it's not a single line being repeated, but a set of 4 lines.</p>
+<h2 id="usecase-6">Usecase 6</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>bronepoezd-tovarishcha-kim-chen-yna-efir-ot-17092023-2683340-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>1943</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-321</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>2296</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved</span>; TODO: merge consecutive batches, including with small intervals in between them</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Волголайфзет</code>, <code>Максим Лаврухин</code> and a few others</p>
+<h3 id="detection-status_5">Detection status</h3>
+<p>With transcription: Faulty patch identified almost correctly: range is fine but some lines in between are lost.</p>
+<p>With translation: Previously unidentified patch identified between #1264 and #1274</p>
+<h2 id="usecase-7">Usecase 7</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>burning-man-pochemu-tysyachi-lyudey-zastryali-v-pustyne-efir-ot-04092023-2676965-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>1112</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>972-1112</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>3056</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>ПЕСНЯ НА НЕМЕЦКОМ ЯЗЫКЕ</code></p>
+<h3 id="detection-status_6">Detection status</h3>
+<p>With transcription: faulty patch identified correctly</p>
+<p>With translation: lack of anomaly identified correctly</p>
+<h2 id="usecase-8">Usecase 8</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>chelovek-z-ya-ne-uznal-stranu_14129.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>489</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-60</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>1296</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>816-1296</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved </span>\~ TODO: Fix unsolicited patch split</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Мастер-класс,</code></p>
+<p>With translation: <code>I</code></p>
+<h3 id="detection-status_7">Detection status</h3>
+<p>With transcription: Faulty patch identified correcly</p>
+<p>With translation:  Faulty patch identified overall correcly, but split into 6 different batches for unclear reason. Some of the batches are overlapping.</p>
+<h2 id="usecase-9">Usecase 9</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>efir-ot-03042023-2591188-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>4303</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1068-1796, 3741-3768 (...)</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>4994</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>497-543?, 4854-4994</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved</span>; TODO: merge consecutive batches, including with small intervals in between them</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Я думаю, что это очень важно.</code>, <code>Подписывайтесь на телеграм-канал Анны.</code>, <code>8 часов 8 минут.</code>, <code>9arenko.</code> ; <code>...</code></p>
+<p>With translation: <code>To be continued...</code>?, <code>Do not hurry, when you can not hurry.</code>, <code>He got it.</code></p>
+<h3 id="detection-status_8">Detection status</h3>
+<p>With transcription: 7 fault patches were identified: 1068-1095, 1094-1121, 1120-1179, 1778-1793, 2240-2276, 2343-2364, 3739-3768, 3785-3803, all seem to be correct</p>
+<p>With translation: 7 faulty patches were identified: 476-492, 495-543, 2048-2097, 2105-2115, 2575-2585, 3164-3207, 4852-4869, 4871-4993, all seem to be correct.</p>
+<h2 id="usecase-10">Usecase 10</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>novaya-os-zla-i-skuchnyy-evroparlament-efir-ot-14092023-2682103-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>279</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>4-14, 106-279</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>1408</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-5</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Врачебная помощь раненым бойцам силами медицинских взводов.</code>, <code>КОНЕЦ</code></p>
+<p>With translation: <code>TASTY DIALOGUE WITH ELENA BAZHENOVA</code></p>
+<h3 id="detection-status_9">Detection status</h3>
+<p>With transcription: Both known faulty patches identified correctly.</p>
+<p>With translation: Known faulty patch not identified due to theshold settings; another batch identified between #258 and #276</p>
+<h2 id="usecase-11">Usecase 11</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>esli-bpla-zapushcheny-s-territorii-rossii-est-kogo-polovit-efir-ot-300523-2623654-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>856</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-131, 215-856</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>2907</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-8</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Корректор А.Кулакова</code>, <code>Редактор субтитров А.Синецкая Корректор А.Егорова</code>, <code>Железная логика</code></p>
+<p>With translation: <code>TASTY DIALOGUE WITH ELENA BAZHENOVA</code></p>
+<h3 id="detection-status_10">Detection status</h3>
+<p>With transcription: First fault patch identified correctly with start at #4, with first 3 lines being also a repeat, but not identified due to threshold settings. Second fault patch identified correcly.</p>
+<p>With translation: Faulty patch not identified due to threshold settings.</p>
+<h2 id="usecase-12">Usecase 12</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>esli-pashinyan-otdast-karabakh-to-otvetstvennost-budet-na-bryussele-efir-ot-25052023-2621029-na_en.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>1620</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-168, 1071-1165</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>1718</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-28, 780-826</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved</span>; TODO: merge consecutive batches, including with small intervals in between them</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Редактор субтитров А.Синецкая Корректор А.Егорова</code>, <code>Редактор субтитров А.Егорова</code> , <code>Корректор А.Егорова</code>, <code>Здравствуйте, товарищи гвардейцы!</code>, <code>Железная Логика</code>, <code>ТОРЖЕСТВЕННАЯ МУЗЫКА</code>, <code>ГОВОРИТ НА ИНОСТРАННОМ ЯЗЫКЕ</code>, <code>МУЗЫКАЛЬНАЯ ЗАСТАВКА</code></p>
+<p>With translation: <code>TASTY DIALOGUE WITH ELENA BAZHENOVA</code>, <code>We are proud of you!</code></p>
+<h3 id="detection-status_11">Detection status</h3>
+<p>With transcription: First 2 consecutive faulty patches (up to #163) identified almost correctly: there is a small gap in between, and a few lines are not counted at the end of the 2nd patch due to threshold being set to 10. Second 2 consecutive faulty patches (between #1092 and #1165) identified almost correctly: a few lines at the beggining of the 1st are not counted due to the threshold settings.</p>
+<p>With translation: Both known faulty patches identified correctly; in addition, another patch identifed between #778 and #826</p>
+<h2 id="usecase-13">Usecase 13</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>genotsid-v-otnoshenii-sovetskogo-naroda-efir-ot-23032023-2585101-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>528</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-528</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>1896</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved</span>; TODO: take case into account?</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>ЖЕЛЕЗНАЯ ЛОГИКА</code></p>
+<h3 id="detection-status_12">Detection status</h3>
+<p>With transcription: Two consecutive faulty patches were identified, first starting with #3 due to threshold settings, second ending at #527. Batches split is due to different case of the repeat line.</p>
+<p>With translation: Lack of anomaly identified correcly.</p>
+<h2 id="usecase-14">Usecase 14</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>triumfalnaya-pobeda-edinoy-rossii-efir-ot-11092023-2680088-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>1316</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-134, 320 (нет)</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>4397</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:moccasin;">Partially resolved</span>; TODO: do something with the solitary line</td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>ПОДПИСЫВАЮЩИЕСЯ ТЕЛЕФОННЫЕ СИГНАЛИЗАЦИИ</code>, <code>ПОДПИСЫВАЮЩИЕ СИГНАЛИЗАЦИИ</code></p>
+<h3 id="detection-status_13">Detection status</h3>
+<p>With transcription: 2 consecutive faulty patches identified correctly (up to #134). Single faulty item (#320) not identified</p>
+<p>With translation: Lack of anomaly identified correctly</p>
+<h2 id="usecase-15">Usecase 15</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prabyss path</td>
+<td><code>vsyo-vertitsya-vokrug-rossii-efir-ot-11092023-2679995-na.mp3</code></td>
+</tr>
+<tr>
+<td>prabyss_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcript_id</td>
+<td></td>
+</tr>
+<tr>
+<td>transcribed lines</td>
+<td>2023</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-99</td>
+</tr>
+<tr>
+<td>translated lines</td>
+<td>717</td>
+</tr>
+<tr>
+<td>failed transcribed lines</td>
+<td>1-717</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><span style="background-color:palegreen;">Fully resolved</span></td>
+</tr>
+</tbody>
+</table>
+<p>With transcription: <code>Редактор субтитров А.Синецкая Корректор А.Егорова</code>, <code>Корректор А.Кулакова</code>, <code>А.Кулакова</code>, <code>Более!</code>, <code>Быстрее!</code></p>
+<p>With translation: <code>TASTY DIALOGUE WITH ELENA BAZHENOVA</code></p>
+<h3 id="detection-status_14">Detection status</h3>
+<p>With transcription: 4 faulty patches identified: 2-26 + 3-99; 581-593, 1052-1113, all seem to be correct</p>
+<p>With translation: Faulty patch identified correctly</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

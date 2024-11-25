@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>ARR-3: Transfactory - Wapaganda Project Docs</title>
+<style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+<link href="assets/landing-favicon.png" rel="icon" type="image/x-icon"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/responsivity.css" rel="stylesheet"/>
+<script src="../../search/main.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/b57355f8ac.js"></script>
+<script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+<link href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css" id="altmetric-embed-css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="background">
+<div id="background-gradient"></div>
+<content id="content">
+<header id="article-header">
+<a href="../.." id="return-home">
+<i alt="⇦" class="fa fa-arrow-left"></i> Home
+    </a>
+<h1 id="title">ARR-3: Transfactory</h1>
+</header>
+<main id="page">
+<nav class="vertical" id="toc">
+<ul>
+<li class="nav-item">
+<a href="#arr-3-transfactory">ARR-3: Transfactory</a>
+<ul>
+<li class="nav-subitem">
+<a href="#general">General</a>
+</li>
+<li class="nav-subitem">
+<a href="#code">Code</a>
+</li>
+<li class="nav-subitem">
+<a href="#entities">Entities</a>
+</li>
+<li class="nav-subitem">
+<a href="#flow-diagram">Flow Diagram</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<h1 id="arr-3-transfactory">ARR-3: Transfactory</h1>
+<h2 id="general">General</h2>
+<p>Transfactory is an app that transforms massive amounts of video/audio files into text using OpenAI's Whisper. It operates in conjunction with Transsuply around a special database table which serves as a queue: the supply app adds new jobs to it for the factory to pick up.</p>
+<p>The necessity for update is due to change in the principal alogrithm: where the old one used official Whisper model with no optimization, the new one uses WhisperX, a highly optimized version that offers a significant increase in processing speed, as well as improved output.</p>
+<h2 id="code">Code</h2>
+<p>TBD</p>
+<h2 id="entities">Entities</h2>
+<p>TBD</p>
+<h2 id="flow-diagram">Flow Diagram</h2>
+<div class="mermaid">flowchart TB
+    classDef exit_red fill:#cd0d3b
+    subgraph check_lines [Check for existing lines]
+        check_transcribed(Check if transcription exists)
+        set_need_transcription(Set 'need_transcription' to False)
+        check_translated(Check if translation exists)
+        set_need_translation(Set 'need_translation' to False)
+        check_transcribed -- if exists --&gt; set_need_transcription
+        check_translated -- if exists --&gt; set_need_translation
+    end
+
+    subgraph assign_transcript [Get &amp; assign transcript]
+    direction TB
+        check_existence(Check if Transcript for 'path' already exists)
+        get_transcript(Get existing transcript)
+        create_transcript&gt;Create new transcript]
+        assign_transcript_id(Assing transcript ID)
+
+        check_existence -- if found --&gt; get_transcript --&gt; assign_transcript_id
+        check_existence -- if not found --&gt; create_transcript --&gt; assign_transcript_id
+    end
+
+    subgraph assign_initial [ ]
+        assign_db_session(Assign Database session)
+        assign_machine_id(Assign machine ID)
+        assign_trans_settings(Assign transcription settings)
+        assign_storage_client(Assign storage client)
+        assign_auth_settings(Assign internal auth settings)
+        assign_db_session --- assign_machine_id --- assign_trans_settings --- assign_storage_client --- assign_auth_settings
+    end
+
+    subgraph assign_new_job [ ]
+        new_job(Get new job from PRABYSS table)
+        exit_after_new_job(Exit)
+        set_in_progress&gt;Set job's status to 'in progress']
+
+        new_job -- if none found --&gt; exit_after_new_job:::exit_red
+        new_job -- if found --&gt; set_in_progress
+    end
+
+    subgraph init_service [Init]
+    direction TB
+        get_machine(Fetch additional Machine's params from DB)
+        hardware_settings(Extract settings related to hardware)
+        decide_translation(Make decision if translation is needed)
+        create_stats(Create FactoryJob object to hold job's stats)
+        exit_on_lines_check(Exit)
+        create_engine(Create WhisperX engine)
+
+        assign_initial --&gt; get_machine --&gt; hardware_settings --&gt; create_engine
+        assign_initial --&gt; assign_new_job --&gt; decide_translation --&gt; create_stats --&gt; assign_transcript --&gt; check_lines --&gt; create_engine
+        check_lines -- if both transcription\nand translation exist --&gt; exit_on_lines_check:::exit_red
+    end
+
+    subgraph perform_whisper_job [ ]
+    direction TB
+        load_model(Load model)
+        load_audio(Load audio)
+        run_task(Produce raw Whisper result)
+        align_result(Perform alignment)
+        diarize_result(Diarize result)
+        cleanup_resources(Unload resources and clear the memory)
+        collect_timestamps(Collect timestamps)
+        return_result(Return diarized result and timestamps)
+
+        load_model --&gt; load_audio --&gt; run_task --&gt; align_result --&gt; diarize_result --&gt; cleanup_resources --&gt; collect_timestamps --&gt; return_result
+    end
+
+    subgraph handle_job [ ]
+    direction TB
+        collect_stats(Collect stats)
+        shape_lines(Convert raw output into DB objects)
+        persist_lines&gt;Add converted lines to DB session]
+        scan_anomalies(Scan output for anomalies)
+        persist_anomalies&gt;Add anomalies to DB session]
+
+        perform_whisper_job --&gt; collect_stats --&gt; shape_lines --&gt; persist_lines --&gt; scan_anomalies -- if any found --&gt; persist_anomalies
+    end
+
+    subgraph verify_job_success [ ]
+    direction TB
+        check_(Verify job success)
+        verify_only_transcribed(Check just transcription)
+        verify_transcribed_and_translated(Check transcription and translation)
+        check_ -- if lang = en --&gt; verify_only_transcribed
+        check_ -- if lang != en --&gt; verify_transcribed_and_translated
+    end
+
+    subgraph handle_voiceprints [Handle voiceprints]
+    direction TB
+        ensure_auth(Ensure auth token exists and is valid)
+        extract_raw_speakers(Collect unique speakers from transcription output)
+        extract_speaker_audio(Extract 60 seconds of voice material)
+        make_voiceprint_request&gt;Make request to voiceprint endpoint]
+
+        extract_raw_speakers -- for each --&gt; extract_speaker_audio --&gt; make_voiceprint_request
+        ensure_auth --- make_voiceprint_request
+    end
+
+    subgraph run [Run]
+    direction TB
+        handle_translation(Handle translation)
+        handle_transcription(Handle transcription)
+        download_audio(Download audio file)
+        measure_file_size(Measure file size)
+        local_cleanup(Do local cleanup)
+        drop_from_remote(Remove audio from remote storage)
+        set_job_completed&gt;Add job to DB session with status 'completed']
+        add_stats_db&gt;Add stats object to DB session]
+        persist_to_db&gt;Persist everything to the database]
+        exit_if_no_lines(Exit)
+        exit_after_verify(Exit)
+
+        download_audio -.- measure_file_size
+        download_audio -- if need_transcription = True --&gt; handle_transcription -- if need_translation = True --&gt; handle_translation --&gt; local_cleanup --&gt; verify_job_success -- Success --&gt; handle_voiceprints --&gt; set_job_completed --&gt; add_stats_db --&gt; persist_to_db --&gt; drop_from_remote
+        handle_transcription -.- handle_job
+        handle_translation -.- handle_job
+        handle_job -- if no lines produced --&gt; exit_if_no_lines:::exit_red
+        verify_job_success -- Failure --&gt; exit_after_verify:::exit_red
+
+    end
+
+init_service --&gt; run
+</div>
+<nav id="page-controls">
+<a href="#content" id="return-top">
+<i alt="⇧" class="fa fa-arrow-up"></i> Return to top
+      </a>
+</nav>
+</main>
+</content>
+<footer id="footer">
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+<script src="../../search/main.js"></script>
+</footer>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

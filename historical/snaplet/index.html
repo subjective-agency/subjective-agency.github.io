@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Snaplet 101 - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Snaplet 101</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#setting-up">Setting Up</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#prerequisites">Prerequisites</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#process">Process</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#using-snaplet">Using Snaplet</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#to-create-a-snapshot">To create a snapshot</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#to-restore-a-snapshot">To restore a snapshot</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#change-schema-after-restoring-a-snapshot">Change schema after restoring a snapshot</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#other-commands">Other commands</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p><a href="https://app.snaplet.dev">Snaplet</a> is a tool for creating and using database snapshots for development purposes.</p>
+<h2 id="setting-up">Setting Up</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ol>
+<li>Two Postgres instances, one of which is the <code>production</code> database, and the other is <code>development</code> database (empty);</li>
+<li>A read-only role in the production Postgres project;</li>
+<li>Superuser access to the development DB Postgres project;
+   <code>ALTER USER postgres WITH superuser;</code></li>
+<li>Connection strings from both DBs (use read-only role for the <code>production</code> one).</li>
+<li>Snaplet requires PSQL to be installed</li>
+<li>Windows: <code>choco install psql</code></li>
+<li>MacOS: <code>brew install libpq</code></li>
+<li>Linux: <code>apt install postgresql-client</code></li>
+<li>PSQL <code>bin</code> directory should be accessible through the <code>PATH</code></li>
+<li>Windows: <code>set PATH=%PATH%;"%LOCALAPPDATA%\Programs\pgAdmin 4\v6\runtime"</code></li>
+<li>MacOS: <code>export PATH="/usr/local/opt/libpq/bin:$PATH"</code></li>
+</ol>
+<h3 id="process">Process</h3>
+<ol>
+<li>
+<p>Go to <a href="https://www.snaplet.dev/">https://www.snaplet.dev/</a>, log into the account; set up the team and project. Use <code>CONNECTION_STRING</code> for the production database and establish a connection.</p>
+</li>
+<li>
+<p>In the 2nd step exclude schemas that you don't want to save; then follow through and make sure the process finishes without issues.</p>
+</li>
+<li>
+<p>Install Snaplet CLI with <code>curl -sL https://app.snaplet.dev/get-cli/ | bash</code>
+   <em>To use on Windows, you have two options: install WSL and an appropriate Linux distribution (for example, canonical Ubuntu 20.04.5) or use Bash which comes with any Windows Git distribution.</em></p>
+</li>
+<li>
+<p>In the terminal, navigate to your project's local directory and run</p>
+</li>
+</ol>
+<p><code>bash
+   snaplet config setup</code></p>
+<ol>
+<li>
+<p>Enter the <code>CONNECTION_STRING</code> for the development database connection string when prompted (it also can be found in the Supabase Dev panel: <span style="color:dodgerblue;">Project Settings -&gt; Database Settings -&gt; Connections String -&gt; URI</span>). This command creates a <code>.snaplet</code> directory and the configuration files used by the CLI</p>
+</li>
+<li>
+<p>Later, during making changes to the development database, you may want to switch between the development and production URL. The safest option to do that is through pre-configured Doppler secrets. Use <code>SNAPLET_SOURCE_DATABASE_URL</code>for creating the snapshot, and <code>SNAPLET_DATABASE_URL</code> for restoring one. We'll be using exactly this method below.</p>
+</li>
+</ol>
+<p><img alt="" src="doppler-screenshots.png" />{width=70%}</p>
+<h2 id="using-snaplet">Using Snaplet</h2>
+<h3 id="to-create-a-snapshot">To create a snapshot</h3>
+<p><a href="https://docs.snaplet.dev/references/cli-commands#capture">Documentation</a></p>
+<p>We assume, all requirements are met, including the <code>SNAPLET_SOURCE_DATABASE_URL</code> secret in Doppler. To access the secret from the production environment, you should use the <code>Snaplet prod</code> Service token. You generate the token once, and keep it in a password manager. More about Sevice Tokens see in a <a href="https://subjective.youtrack.cloud/articles/DVE-A-5/Doppler-Railway#Run-Doppler-on-a-server">related article</a> or a Doppler official <a href="https://docs.doppler.com/docs/service-tokens">documentation</a></p>
+<pre><code class="language-bash"># Prevent command with Service Token being recorded in bash history
+export HISTIGNORE='doppler run*'
+doppler run --token='dp.st.prd.xxxx' -- snaplet snapshot capture
+</code></pre>
+<p>Snapshots are automatically stored in <code>$HOME/.snaplet/snapshots</code>, but you can specify a path:</p>
+<pre><code class="language-bash">doppler run --token='dp.st.prd.xxxx' -- snaplet snapshot capture /path/to/stored-snapshot
+</code></pre>
+<h3 id="to-restore-a-snapshot">To restore a snapshot</h3>
+<p>You restore the snapshot with another simple command</p>
+<pre><code class="language-bash">snaplet snapshot restore
+</code></pre>
+<p>For snapshot restoring, you should write some permissions to a target database.</p>
+<p>Make sure you don't write into a production database!</p>
+<p>Even  though, multiple measures were taken to prevent it:</p>
+<ul>
+<li>Secret <code>SNAPLET_DATABASE_URL</code> in a production Doppler configuration deliberately left empty. There's a zero chance we will use Snaplet to overwrite the Production database.</li>
+<li>If we restore the snapshot through the CI script <code>tools/snapshot_tool.py</code>, it prevents restoring the database if the URL looks like the Production</li>
+</ul>
+<pre><code class="language-bash"># Prevent command with Service Token being recorded in bash history
+export HISTIGNORE='doppler run*'
+doppler run --token='dp.st.dev.xxxx' -- snaplet snapshot restore
+</code></pre>
+<h3 id="change-schema-after-restoring-a-snapshot">Change schema after restoring a snapshot</h3>
+<p>After restoring the snapshot, it usually overwrites all tables except Database Schema. This prevents accessing the restored database through PostgREST or API with HTTP Error 401. In order to fix it, we must run the PSQL script <code>tools/schema_permission.sql</code> in a newly created database. This should fix the access rights and restore the schema.</p>
+<h3 id="other-commands">Other commands</h3>
+<p>To list existing snapshots</p>
+<pre><code class="language-bash">snaplet snapshot list
+</code></pre>
+<p>To list existing configs</p>
+<pre><code class="language-bash">snaplet config list
+</code></pre>
+<p>To save config locally</p>
+<pre><code class="language-bash">snaplet config pull
+</code></pre>
+<p>More CLI commands are <a href="https://docs.snaplet.dev/references/cli-commands">here</a>.</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

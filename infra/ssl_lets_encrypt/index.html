@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SSL with Let's Encrypt! - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">SSL with Let's Encrypt!</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#install-certbot-if-not-yet-installed">Install certbot if not yet installed</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#generate-certificate-for-serversubjectiveagency">Generate certificate for server.subjective.agency</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#check-the-generated-certs">Check the generated certs</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#setup-renewal-hook">Setup renewal hook</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#check-the-certs-are-in-place">Check the certs are in-place!</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#automate-with-cron">Automate with cron</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p><span style="background-color:green;"><em>For info about database SSL see</em> </span><span style="background-color:green;"><em><a href="https://subjective.youtrack.cloud/articles/DVE-A-11/Database-Guide#updating-db-ssl-certificate">here</a></em></span><span style="background-color:palegreen;"><em>.</em></span></p>
+<p>It's possible to get SSL certificate for free using Let's Encrypt CA.</p>
+<p>Limitations: Paid certificates offer enhanced encryption levels over free options such as Let’s Encrypt and provide additional features such as extended validation (EV), wildcard support, and site seals to prove authenticity.</p>
+<h3 id="install-certbot-if-not-yet-installed">Install <code>certbot</code> if not yet installed</h3>
+<pre><code class="language-bash">apt install letsencrypt
+</code></pre>
+<h3 id="generate-certificate-for-serversubjectiveagency">Generate certificate for <code>server.subjective.agency</code></h3>
+<pre><code class="language-bash">certbot certonly --standalone -d server.subjective.agency
+</code></pre>
+<h3 id="check-the-generated-certs">Check the generated certs</h3>
+<pre><code class="language-bash">certbot certificates
+</code></pre>
+<pre><code class="language-bash">Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: server.subjective.agency
+    Serial Number: 494d1e4555cb861b59d48512b2b81394bbc
+    Key Type: RSA
+    Domains: server.subjective.agency
+    Expiry Date: 2024-04-12 19:35:08+00:00 (VALID: 87 days)
+    Certificate Path: /etc/letsencrypt/live/server.subjective.agency/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/server.subjective.agency/privkey.pem
+</code></pre>
+<p>You can copy / add your certificates anywhere they're needed. But we have to automate it, right?</p>
+<p>Let's encrypt infrastructure comes with renewal hooks allowing certs and keys be deployed anywhere.</p>
+<h3 id="setup-renewal-hook">Setup renewal hook</h3>
+<pre><code class="language-bash">vim /etc/letsencrypt/renewal-hooks/deploy/minio
+
+# Copy or symlink the renewed certificates to Minio accessible directory
+cp /etc/letsencrypt/live/server.subjective.agency/fullchain.pem ~minio-user/.minio/certs/public.crt
+cp /etc/letsencrypt/live/server.subjective.agency/privkey.pem ~minio-user/.minio/certs/private.key
+chown -R minio-user:minio-user ~minio-user/.minio/certs
+chmod 400 ~minio-user/.minio/certs/private.key
+</code></pre>
+<p>And now after renewal minio will get the new certificates automatically.</p>
+<h3 id="check-the-certs-are-in-place">Check the certs are in-place!</h3>
+<pre><code class="language-bash">cd /etc/letsencrypt/renewal-hooks/deploy/minio 
+ls -al  ~minio-user/.minio/certs
+</code></pre>
+<pre><code class="language-bash">total 36
+drwxrwxr-x 3 minio-user minio-user 4096 Jan 15 22:15 .
+drwxrwxr-x 4 minio-user minio-user 4096 Oct 15 21:40 ..
+drwx------ 2 minio-user minio-user 4096 Oct 12 09:58 CAs
+-r-------- 1 minio-user minio-user 1704 Jan 15 22:15 private.key
+-rw-r--r-- 1 minio-user minio-user 5538 Jan 15 22:15 public.crt
+</code></pre>
+<h3 id="automate-with-cron">Automate with cron</h3>
+<p>We cannot keep in mind all the certs dates, so we force-update our cert every 2 months let's say on day 15:</p>
+<pre><code class="language-bash">crontab -e
+</code></pre>
+<pre><code class="language-bash"># m h  dom mon dow   command
+0 0 15 */2 * certbot renew --force-renew
+</code></pre>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

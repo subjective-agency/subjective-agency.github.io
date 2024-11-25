@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Polylith Project Structure - Wapaganda Project Docs</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/responsivity.css" rel="stylesheet">  
+    <script src="../../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+  </head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+  <header id="article-header">
+    <a href=../.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Polylith Project Structure</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#steps-taken">Steps taken</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#using-polylith-plugin">Using polylith plugin</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+<li class="nav-item">
+<a href="#final-notes">Final notes</a>
+    
+    <ul>
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <p>This document is to describe the process of switching <code>wapaganda_tools</code> project to the Polylith structure.</p>
+<p>Useful links:</p>
+<ul>
+<li><a href="https://davidvujic.blogspot.com/2022/08/a-simple-scalable-python-project.html">https://davidvujic.blogspot.com/2022/08/a-simple-scalable-python-project.html</a></li>
+<li><a href="https://davidvujic.github.io/python-polylith-docs/">https://davidvujic.github.io/python-polylith-docs/</a></li>
+<li><a href="https://github.com/DavidVujic/python-polylith">https://github.com/DavidVujic/python-polylith</a></li>
+<li><a href="https://github.com/DavidVujic/python-polylith-example">https://github.com/DavidVujic/python-polylith-example</a></li>
+<li><a href="https://github.com/ttamg/python-polylith-microservices-example">https://github.com/ttamg/python-polylith-microservices-example</a></li>
+<li><a href="https://davidvujic.github.io/python-polylith-docs/migrating/">https://davidvujic.github.io/python-polylith-docs/migrating/</a></li>
+<li><a href="https://python-poetry.org/docs/plugins/">https://python-poetry.org/docs/plugins/</a></li>
+<li><a href="https://github.com/subjective-agency/wapatools">https://github.com/subjective-agency/wapatools</a></li>
+</ul>
+<hr />
+<h2 id="steps-taken">Steps taken</h2>
+<p>These Poetry plugins need to be installed:</p>
+<pre><code>poetry self add poetry-multiproject-plugin
+poetry self add poetry-polylith-plugin
+</code></pre>
+<ol>
+<li>
+<p>Create a new project with Poetry as dependency manager.</p>
+</li>
+<li>
+<p>Initialize git and Poetry</p>
+<p><code>git init
+poetry init</code></p>
+</li>
+<li>
+<p>Create a workspace, with a basic Polylith folder structure</p>
+<p><code>poetry poly create workspace --name wapaganda --theme loose</code></p>
+<p>This operation creates file <code>workspace.toml</code> with workspace settings. If section <code>test</code> is enabled, a folder with the same name would be created in the root mirroring the repo structure.</p>
+</li>
+<li>
+<p>Create a virtual environment</p>
+<p><code>powershell
+poetry install</code></p>
+</li>
+<li>
+<p>Create new <code>project</code></p>
+<p><code>powershell
+poetry poly create project --name wapatools</code></p>
+</li>
+<li>
+<p>Create <code>bases</code> and <code>components</code> for each module in the old repository:</p>
+<p><code>powershell
+poetry poly create base --name database
+...
+poetry poly create component --name transfactory
+...</code></p>
+<p>The concept of <code>bases</code> / <code>components</code> / <code>projects</code> does not align perfectly with the structure by which the old repo was organized. For started, I decided to migrate contents of the <code>scripts</code> folder as <code>bases</code> and contents of the <code>src</code> folder as <code>components</code>, all assigned to the single <code>project</code>. However, it would probably make sense to split functionality down into different <code>projects</code>, which would require moving things around.</p>
+</li>
+<li>
+<p>The operation above boils down to creating the respective element's folder structure, as well as <code>_init_</code> file and <code>core.py</code> file (which is a conventional (but not mandatory) way of code organization). Once it's in place, files could be copied over from the old repo.
+    <img alt="" src="image1.png" />{width=253px}</p>
+</li>
+<li>
+<p>Organize <code>pyproject.toml</code> files.
+    One of the nuances of this approach, is that <code>pyproject</code> file is required not only on the root level, covering the whole package, but also on the <code>project</code> level. This means, that every project <code>folder</code> must contain its own <code>pyproject.toml</code> with appropriate dependencies.</p>
+<ol>
+<li>Repo-level file should contain following elements:</li>
+</ol>
+<p>```
+   [tool.poetry]
+   packages = [
+       {include = "wapaganda/api", from = "bases"},
+       ...
+       {include = "wapaganda/umisc", from = "components"},
+   ]</p>
+<p>[tool.poetry.dependencies]
+   {copy over all the dependencies from the old repo}
+   ```</p>
+<ol>
+<li><code>project</code>-level file should contain following elements:</li>
+</ol>
+<p>```
+   [tool.poetry]
+   packages = [
+       {include = "wapaganda/core", from = "../../bases"},
+       ...
+       {include = "wapaganda/upload", from = "../../components"}
+   ]
+   {note the path in the 'from' element}
+   {ideally, only part of the repo dependencies should be listed for a project}</p>
+<p>[tool.poetry.plugins."poetry.application.plugin"]
+   poetry-polylith-plugin = "polylith.poetry_plugin:PolylithPlugin"</p>
+<p>[tool.poetry.dependencies]
+   {copy over all the dependencies relevant for the project}
+   ```</p>
+</li>
+<li>
+<p><code>__init__.py</code>
+    This file is required for each <code>component</code> and each <code>base</code>. By default, the structure of <code>__init__.py</code> looks like this:</p>
+<p>```
+from wapaganda.base_or_component_name import core</p>
+<p><strong>all</strong> = ["core"]
+```</p>
+<p>This structure assumes the existence of file <code>core.py</code> and imports it as a whole. Alternatively, certain elements could be imported like so:</p>
+<p>```
+from wapaganda.database.connection import connect_supabase</p>
+<p><strong>all</strong> = ["connect_supabase"]
+```</p>
+<p>It is not strictly necessary to put this in order for all the components right away.</p>
+</li>
+<li>
+<p>This whole thing won't work until you run the following commands:</p>
+<ol>
+<li>Since the dependencies were not introduced in the natural way:</li>
+</ol>
+<p><code>poetry lock</code></p>
+<p>This would write or update <code>poetry.lock</code> file.</p>
+<ol>
+<li>The same should be done to the <code>project</code>-level file:</li>
+</ol>
+<p><code>poetry lock --directory projects/wapatools</code></p>
+<ol>
+<li><code>poetry install</code></li>
+</ol>
+<p>This would install the dependencies, and it would install the internal module (<code>wapatools</code> in this case), which will finally unlock the usage. Something like this should be the final output line:</p>
+<p><code>Installing the current project: wapatools (0.1.0)</code></p>
+</li>
+</ol>
+<hr />
+<h2 id="using-polylith-plugin">Using <code>polylith</code> plugin</h2>
+<p>Once the above steps are complete, the plugin could be used like so:</p>
+<ul>
+<li><code>poetry poly info</code></li>
+</ul>
+<p>Returns workspace summary that looks like this:
+  <img alt="" src="image2.png" />
+* <code>poetry poly libs</code></p>
+<p>Returns summary of libraries in use that looks like this:
+  <img alt="" src="image.png" />{width=70%}
+* <code>poetry poly diff</code></p>
+<p>Returns the difference between current state and latest stable point (not sure if this is git-based or what)
+* <code>poetry poly check</code></p>
+<p>Checks the validity of the structure (I think) - basically, a boolean derivation of the <code>poetry poly libs</code> command.</p>
+<h2 id="final-notes">Final notes</h2>
+<ul>
+<li>I tested imports of internal modules on the <code>connection</code> func, and it worked just fine. Other modules should have <code>__init__</code> files properly structured.</li>
+<li>All in all the experience is surprisingly positive. Of course, I had some confusion, like with all things newly learned, but it was quite easy to figure things out after all. Some time was surely spent on this, but it was comparatively small.</li>
+<li>In the future the structure should be further refined: some scripts would probably have to be moved from <code>bases</code> to <code>components</code> and vice versa. It would definitely make sense to split this whole thing into multiple projects, not just one. I have a feeling that this structure suits this repo extremely well.</li>
+</ul>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>
