@@ -1,181 +1,485 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>New Table Checklist - Wapaganda Project Docs</title>
-    <style>
-      /* load heading font */
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>New Table Checklist - Wapaganda Project Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
 
-      /* load body font */
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
 
-      /* load mono font */
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
-
-      /* load emoji font */
-      @font-face {
-        font-family: "Noto Color Emoji";
-        src: url('../../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
-        font-weight: 400;
-      }
-  
-      :root {
-        /* colors */
-        --primary: #05b2dc;
-        --secondary: #ef9B0f;
-        --tertiary: #ef3e36;
-        /* shades */
-        --base: #ffffff;
-        --mantle: #f5f4f5;
-        --crust: #d4d2d5;
-        --overlay: #aBaBaE;
-        --footer: #000000cc;
-        /* text */
-        --text: #343233;
-        --hltext: #ffffff;
-        color: var(--text);
-        /* background-specific text */
-        --primary-text: var(--hltext);
-        --secondary-text: var(--hltext);
-        --tertiary-text: var(--hltext);
-        --base-text: var(--text);
-        --mantle-text: var(--text);
-        --crust-text: var(--text);
-        --overlay-text: var(--hltext);
-        --footer-text: var(--hltext);
-        /* fonts */
-        --heading: Poppins, Noto Color Emoji;
-        --body: Noto Sans, Noto Color Emoji;
-        --mono: JetBrains Mono, Noto Color Emoji;
-        font-family: var(--body); 
-      }
-      /* dark mode */
-      @media (prefers-color-scheme: dark) {
-        :root {
-          /* colors */
-          --primary: #05b2dc;
-          --secondary: #ef9B0f;
-          --tertiary: #ef3e36;
-          /* shades */
-          --base: #343233;
-          --mantle: #373536;
-          --crust: #3E3C3D;
-          --overlay: #646461;
-          --footer: #00000022;
-          /* text */
-          --text: #ffffff;
-          --hltext: #343233;
-          color: var(--text);
-          /* background-specific text */
-          --primary-text: var(--text);
-          --secondary-text: var(--text);
-          --tertiary-text: var(--text);
-          --base-text: var(--text);
-          --mantle-text: var(--text);
-          --crust-text: var(--text);
-          --overlay-text: var(--hltext);
-          --footer-text: var(--text);
-        }
-      }
-      /* style settings */
-      header#header {
-        grid-template-columns: 8rem auto 8rem;
-      }
-      body#background {
-        background: fixed center/cover var(--base);
+    
+    
+      
+    
+    
+      
         
         
-      }
-      #background-gradient {
-        background: linear-gradient(
-          45deg, 
-          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
-        );
-      }
-      content#content {
-        padding: 0 3rem;
-        background: color-mix(in srgb, var(--base) 0%, transparent);
-        border-left: none;
-        border-right: none;
-      }
-      #avatar {
-        
-        border-radius: 1rem;
-        
-      }
-      footer#footer a {
-        color: #ef9B0f;
-      }
-      footer#footer a:hover {
-        color: #ef3e36;
-      }
-    </style>
-    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
-    <link href="../../css/style.css" rel="stylesheet">
-    <link href="../../css/responsivity.css" rel="stylesheet">  
-    <script src="../../search/main.js"></script>
-    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
-    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
-    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
   </head>
-
-<body id="background">
-  <div id="background-gradient"></div>
-  <content id="content">
   
-  <header id="article-header">
-    <a href=../.. id="return-home">
-        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enabling-provenance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
     </a>
-    <h1 id="title">New Table Checklist</h1>
-</header>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wapaganda Project Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              New Table Checklist
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
   
-  <main id="page">
-    <nav class="vertical" id="toc">
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-<ul>
 
-<li class="nav-item">
-<a href="#enabling-provenance">Enabling provenance</a>
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wapaganda Project Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
-    <ul>
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
-    </ul>
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADRs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infrastructure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    New Table Checklist
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    New Table Checklist
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling provenance
+    </span>
+  </a>
+  
 </li>
-
-<li class="nav-item">
-<a href="#enabling-incremental-backup">Enabling incremental backup</a>
-    
-    <ul>
-    
-    </ul>
-    
+      
+        <li class="md-nav__item">
+  <a href="#enabling-incremental-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling incremental backup
+    </span>
+  </a>
+  
 </li>
-
-<li class="nav-item">
-<a href="#additional-considerations">Additional Considerations</a>
-    
-    <ul>
-    
-    </ul>
-    
+      
+        <li class="md-nav__item">
+  <a href="#additional-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Considerations
+    </span>
+  </a>
+  
 </li>
-
-</ul>
-
+      
+    </ul>
+  
 </nav>
-    <p>When adding a new table to the W database, one must consider, first, whether it is a central core table, or a sattelite table.</p>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling provenance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-incremental-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling incremental backup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>New Table Checklist</h1>
+
+<p>When adding a new table to the W database, one must consider, first, whether it is a central core table, or a sattelite table.</p>
 <p>Central core table is a table that stores data directly usable in the project one way or another. Most tables in the database belong to this group. Sattelite table contains secondary data, most often related to internal processes, such as maintaining jobs queue or storing quality control data.</p>
 <p>As a general rule, for central core, both <code>provenance</code> and <code>incremental backup</code> flows should be enabled, while for satellite tables, only <code>incremental backup</code> is required.</p>
 <p><code>incremental backup</code> flow operates on Pydantic/SQLAlchemy models, so adding such model for the table is critical.</p>
@@ -259,34 +563,60 @@ EXECUTE FUNCTION mark4backup();
 </code></pre>
 <h2 id="additional-considerations">Additional Considerations</h2>
 <p>If the table is expected to have translatable or transliteretable values, consider using custom <code>TripleLang</code> composite type. More details <a href="https://subjective.youtrack.cloud/articles/DVE-A-11/Database-Guide#triple-language-format">here</a>.</p>
-    <nav id="page-controls">
-      <a href="#content" id="return-top">
-        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
-      </a>
-    </nav>
-  </main>
-  </content>
-  <footer id="footer">
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-
-<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="../../search/main.js"></script>
-
-  </footer>
-</body>
-
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
 </html>
