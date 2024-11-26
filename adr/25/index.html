@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -613,7 +613,7 @@
 2. Application's start command, whether in <code>Dockerfile</code> or in <code>docker-compose.yml</code> must be modified to start with <code>infisical run --</code> like so:</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>infisical run -- python backup/core.py
 </span></code></pre></div>
-3. In order to the application to connect with Infisical, it needs 2 things: address of the host (since we're self-hosting) and a token. You can generate token for a project in the ==Access Control== tab. These 2 values must be saved in <code>.env</code> file in the same folder where you have app's primary <code>docker compose</code> file. </p>
+3. In order to the application to connect with Infisical, it needs 2 things: address of the host (since we're self-hosting) and a token. You can generate token for a project in the <mark>Access Control</mark> tab. These 2 values must be saved in <code>.env</code> file in the same folder where you have app's primary <code>docker compose</code> file. </p>
 <h4 id="local-apps">Local apps</h4>
 <p>If a locally-running application needs to be integrated with Infisical, you must have the CLI installed in the corresponding system; and launch the app in the previously described manner, by prefixing the start command with <code>infisical run --</code>.</p>
 <p>Instead of tokens, you authorize the application by explicitly logging in (run <code>infisical login</code> and follow the flow). This login is persisted for some period of time (about a week), after which you'd have to re-login. </p>

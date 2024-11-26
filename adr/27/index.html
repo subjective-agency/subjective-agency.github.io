@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -656,7 +656,7 @@ Previous version of the system is described in <a href="https://docs.subjective.
 <p>There are several external tables synchronized to the database, all of them in <code>service</code> schema:</p>
 <ul>
 <li><code>provenance</code>. Primary table for the data provenance mechanism. See <a href="https://docs.subjective.agency/ey5oJkwZSdeYzzR3pCotbw">ADR-21</a> for details;</li>
-<li>~~<code>logs</code>~~. The log system that required this table was deprecated in favor of Logfire. See <a href="https://docs.subjective.agency/ZnqjIut4Q2aALn8ZAdraug">ADR-31</a> for details;</li>
+<li><del><code>logs</code></del>. The log system that required this table was deprecated in favor of Logfire. See <a href="https://docs.subjective.agency/ZnqjIut4Q2aALn8ZAdraug">ADR-31</a> for details;</li>
 <li><code>memo</code> and <code>memo_relation</code> are required to support the <code>theory</code> subsystem. See <a href="https://docs.subjective.agency/5L0o2prCSWSZmn6yFnbv3w">ADR-30</a> for details.</li>
 </ul>
 <p>Custom <code>TripleLang</code> type was created for the project. See <a href="https://docs.subjective.agency/Gqzy5kUQSpai-WyxzgUJXA">ADR-22</a> for details.</p>
@@ -681,7 +681,7 @@ Previous version of the system is described in <a href="https://docs.subjective.
 <li><strong>Authentik</strong>. Used for authentication and authorization in other tools.</li>
 <li><strong>Memos</strong>. Notes-taking application. Used in the <code>theory</code> flow. </li>
 <li><strong>HedgeDoc</strong>. Hosts documentation of the project.</li>
-<li><strong>~~Youtrack~~</strong>. Used to be a ticket-tracker of the project, where also documentation was stored. Docs were moved away to HedgeDoc. Ticket-tracker has not been restored for now, for lack of need.</li>
+<li><strong><del>Youtrack</del></strong>. Used to be a ticket-tracker of the project, where also documentation was stored. Docs were moved away to HedgeDoc. Ticket-tracker has not been restored for now, for lack of need.</li>
 <li><strong>Bytebase</strong>. Operational interface on top of the databases. Allows to explore the database via a rather convenient interface, as well as to run update and insert queries of all kinds: either in admin mode, or through a ticket-creation flow.</li>
 <li>Ofelia. TBD</li>
 <li>dbmate. TBD</li>
@@ -712,7 +712,7 @@ Previous version of the system is described in <a href="https://docs.subjective.
 <li>FastAPI-based backend, and </li>
 <li>React-based frontend </li>
 </ul>
-<p>Together they constitue ==Web== internal application. </p>
+<p>Together they constitue <mark>Web</mark> internal application. </p>
 <p>Railway is also used for test deployment of new internal applications.</p>
 <h2 id="status">Status</h2>
 <p>Active</p>

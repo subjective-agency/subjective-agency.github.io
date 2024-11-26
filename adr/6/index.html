@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -573,7 +573,7 @@
 <p>One of the W's most important parts has to do with the various media segments (i.e. talk shows, streams, YouTube videos etc.). Until recently, the main focus in this area was on indicating participants, which is just barely enough to make it useful.</p>
 <p>Transcripts - <em>text representation of the specific episodes of the relevant media segments</em> - make it significantly more useful. With <a href="https://github.com/openai/whisper">whisper</a>, an open-source, free-to-use software doing speech recognition of high quality, it is possible to produce transcripts for every relevant media episode in (semi-)automated fashion.</p>
 <p>Whisper is a machine-learning tool that uses pre-compiled downloadable models (<code>tiny</code> → <code>small</code> → <code>medium</code> → <code>large</code>). The choice of model effects 2 things: <strong>processing time</strong> and <strong>result quality</strong>.</p>
-<p>The quality of the output is pretty great even with <code>medium</code> model (\~95%), and <code>large</code> model does an almost perfect job (\~99%). Processing time is approximately 3x and 10x on the media duration, respectively. These figures are not exact measurements, but rather a subjective estimation. Processing time is measured on a relatively advanced but still <a href="https://subjective.youtrack.cloud/articles/DVE-A-7/Original-Setup">a regular PC</a>.</p>
+<p>The quality of the output is pretty great even with <code>medium</code> model (~95%), and <code>large</code> model does an almost perfect job (~99%). Processing time is approximately 3x and 10x on the media duration, respectively. These figures are not exact measurements, but rather a subjective estimation. Processing time is measured on a relatively advanced but still <a href="https://subjective.youtrack.cloud/articles/DVE-A-7/Original-Setup">a regular PC</a>.</p>
 <p>Whisper produces 3 text files: <code>.txt</code>, <code>.str</code>, and <code>.vtt</code>. The <code>.vtt</code>, while could contain additional metadata (such as chapters), in this particular case does not contain anything but timestamps, which makes it no different from the <code>.srt</code> version. <code>.txt</code> can be easily generated from <code>.srt</code>, so essentially only the <code>srt</code> file should be saved.</p>
 <h2 id="decision">Decision</h2>
 <p>The following structure is implemented around the transcript manufacturing process.</p>

@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -568,7 +568,7 @@
 <li><code>meduza_dow_stream</code> 
   Contains parsed messages of the Meduza daily text streams on the ongoing events. <em>Parsed</em> here means that empty/technical messages are filtered out, and the data format is standardized, but the content is not verified for relevance. Most recently updated on May 2, 2023, with data up to May 1, 2023.</li>
 <li>Tables related to Ukraine's geography:
-  This cluster of tables contains all Ukraine's administrative units as per the 2019 administrative reform. Most of the data is taken from <a href="https://zakon.rada.gov.ua/rada/show/v0290914-20#Text">https://zakon.rada.gov.ua/rada/show/v0290914-20#Text</a> (the most recent version of the list dated December 16, 2021). Whenever possible locations were matched against the Nova Poshta database (it uses the old administrative system and doesn't have the occupied localities), from which lat, lon, indexes and russian versions of names were taken. Approximately 2/3 of all localities (\~19K/29K) were resolved.</li>
+  This cluster of tables contains all Ukraine's administrative units as per the 2019 administrative reform. Most of the data is taken from <a href="https://zakon.rada.gov.ua/rada/show/v0290914-20#Text">https://zakon.rada.gov.ua/rada/show/v0290914-20#Text</a> (the most recent version of the list dated December 16, 2021). Whenever possible locations were matched against the Nova Poshta database (it uses the old administrative system and doesn't have the occupied localities), from which lat, lon, indexes and russian versions of names were taken. Approximately 2/3 of all localities (~19K/29K) were resolved.</li>
 <li><code>ua_regions</code> Regions, plus Crimea, Kyiv and Sevastopol.</li>
 <li><code>ua_regions_districts</code> Districts make up regions.</li>
 <li><code>ua_district_hromadas</code> Territorial units (громади) make up regional districts.</li>
@@ -583,7 +583,7 @@
 <h2 id="data">Data</h2>
 <p><code>data</code> schema contains data-heavy entities, namely:</p>
 <ul>
-<li><code>telegram_messages</code>. Related to <code>telegram_channels</code> in <code>public</code> schema. Contains posts published in <code>relevant</code> telegram channels. Constitutes \~90% of the DB size.</li>
+<li><code>telegram_messages</code>. Related to <code>telegram_channels</code> in <code>public</code> schema. Contains posts published in <code>relevant</code> telegram channels. Constitutes ~90% of the DB size.</li>
 <li><code>telegram_channels_stats</code></li>
 <li><code>printed_content</code>. Related to <code>printed</code> in <code>public</code> schema. Contains chapters of books, articles, blog posts.</li>
 <li><code>transcripts</code> &amp; <code>transcribed_content</code>. Table <code>transcripts</code> contains basic info on the transcribing jobs completed by <code>transfactory</code> (related to various tables in <code>public</code> such as <code>smotrim_episodes</code>). Table <code>transcribed_content</code> contains lines from the resulting <code>srt</code> files processed into convenient format (related to <code>transcripts</code>)</li>

@@ -38,8 +38,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -830,7 +830,7 @@
   <h1>General Guide</h1>
 
 <h2 id="basics">Basics</h2>
-<p>The master database of the Wapaganda project is ==<strong>PostgreSQL</strong>==. Current version: ==<strong>16</strong>==.</p>
+<p>The master database of the Wapaganda project is <mark><strong>PostgreSQL</strong></mark>. Current version: <mark><strong>16</strong></mark>.</p>
 <h2 id="extensions">Extensions</h2>
 <p>The following extensions are installed:</p>
 <ul>
@@ -967,7 +967,7 @@
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">uk</span><span class="w"> </span><span class="nb">text</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">);</span>
 </span></code></pre></div>
-<p>Custom type required some adaptations to the codebase. ==TBD==</p>
+<p>Custom type required some adaptations to the codebase. <mark>TBD</mark></p>
 <hr />
 <h2 id="database-queue">Database Queue</h2>
 <p>Queuing mechanism was established as a way of resolving <code>telegram_messages</code> pgroonga index. It allows running heavy queries in the background, independent of any client applications.</p>
@@ -992,7 +992,7 @@
 <p>The following secondary databases are maintained on the same instance as <code>wapadb</code>:</p>
 <ul>
 <li><code>meta</code> is for storing important secondary data, specifically, <code>logs</code> and <code>provenance</code> records.</li>
-<li>==DEPRECATED==<code>logs</code> table in <code>public</code> schema is for saving potentially important logs from all related applications. <ul>
+<li><mark>DEPRECATED</mark><code>logs</code> table in <code>public</code> schema is for saving potentially important logs from all related applications. <ul>
 <li><code>logs</code> contains log data, including the timestamp (<code>emitted_at</code>), <code>log_level</code>, <code>log_message</code>, <code>application</code> from where the log message originates, and <code>context_data</code> with additional information as the case may be.</li>
 </ul>
 </li>
@@ -1021,9 +1021,9 @@
 <hr />
 <h2 id="installation">Installation</h2>
 <h3 id="database">Database</h3>
-<p>==TBD==</p>
+<p><mark>TBD</mark></p>
 <h3 id="updating-db-ssl-certificate">Updating DB SSL certificate</h3>
-<p>==TBD==</p>
+<p><mark>TBD</mark></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-nodes<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-keyout<span class="w"> </span>/etc/ssl/private/ssl-cert-snakeoil.key<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/ssl-cert-snakeoil.pem
 </span></code></pre></div>
 <h3 id="pgroonga">pgroonga</h3>

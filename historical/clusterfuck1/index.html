@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -541,7 +541,7 @@
 <p>On Monday, December 18, 2023 I started a major refactoring work on the database (TODO: some references). The day before, on Dec 17, 2023, a backup of data was created by @atatatko on my request. The refactoring progressed quite well, although not without bumps and obstacles. Part of refactoring involved updates to the largest table we have, <code>telegram_messages</code>, in particular - fixing an error with missing subtype, and optimizing <code>content</code> field by dropping unnecessary data. Since the latter operation had to be performed on every record in the table, and the process was taking rather long due to its size, a function was developed to perform the necessary processing with PL\Python and then scheduled to run every 30 seconds, multiple times.</p>
 <h2 id="event">Event</h2>
 <p>At a certain point, I had 100 of these crawlers updating <code>telegram_messages</code>. Then, in a moment of madness, I decided that the type of field for <code>telegram_channel_id</code> just has to be <code>bigint</code> instead of some measly <code>integer</code>. Launching this update led to a deadlock and inevitable corruption of the index associated with the <code>content</code> field, and to the database going unresponsive.</p>
-<p>I tried restarting the service, but discovered that the main drive is all out of space, which was not normal, given the size of the database at the time at around 45Gb (the drive is \~150Gb). I lockated the directory that occupied the most space; it was Postgres' data directory. In the second moment of madness, I removed everything from it indiscriminately.</p>
+<p>I tried restarting the service, but discovered that the main drive is all out of space, which was not normal, given the size of the database at the time at around 45Gb (the drive is ~150Gb). I lockated the directory that occupied the most space; it was Postgres' data directory. In the second moment of madness, I removed everything from it indiscriminately.</p>
 <p>This went down at about 16:00 Kyiv time.</p>
 <h2 id="damage-control-discoveries">Damage Control &amp; Discoveries</h2>
 <p>The data was removed in a particularly nasty way, as it not only led to the loss of data, but made the database unaccessible via regular means. It was still possible to connect to it directly with <code>sudo -u postgres psql</code> This is how I discovered that only <code>wapadb</code> database was killed, while the secondary databases ( <code>logs</code>, <code>windmill</code>) were pretty much intact. I exported data from all their tables from within <code>psql</code>. </p>

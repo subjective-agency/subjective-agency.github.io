@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -496,7 +496,7 @@
 <p>It is more than possible to use DockerHub for exchanging Docker images, but it doesn't feel secure, since the data can be, in theory, available to random people, even if the repo is private. On the other hand, setting up private registry is as simple as running a regular docker <code>compose</code> application. </p>
 <h1 id="decision">Decision</h1>
 <ul>
-<li>Registry was set up on the ==Horsey== server at port 50000, and secured behind HTTPS at <code>registry.subjective.agency</code>. </li>
+<li>Registry was set up on the <mark>Horsey</mark> server at port 50000, and secured behind HTTPS at <code>registry.subjective.agency</code>. </li>
 </ul>
 <p>:::info
 Without a dedicated domain for the registry, one would have to add its address to <code>insecure-registries</code> key in <code>/etc/docker/daemon.json</code>, but because the registry is accessible via https, there is no need.
@@ -516,7 +516,7 @@ Without a dedicated domain for the registry, one would have to add its address t
 <li><a href="https://docs.subjective.agency/iMkbRlcATaeGRStT50Z0kQ">Private Docker Registry Auth</a></li>
 </ul>
 <h1 id="status">Status</h1>
-<p>==Active==</p>
+<p><mark>Active</mark></p>
 <h1 id="consequences">Consequences</h1>
 <p>Only a few minor things need to change when using private registry; namely, you need to indicate the domain when pushing and pulling; and you need to authorize with the repository in order to work with it.</p>
 

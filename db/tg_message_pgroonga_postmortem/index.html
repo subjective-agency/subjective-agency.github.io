@@ -34,8 +34,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parkinsans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Parkinsans";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -487,7 +487,7 @@
 
   <h1>Telegram Message pgroonga Index Postmortem</h1>
 
-<p>Table <code>telegram_messages</code> in <code>data</code> schema has been an issue due to its size (\~11M records and \~14Gb of disk space). For a long time, creating <code>pgroonga</code> index on the <code>content</code> column was impossible due to Supabase limitations. However, the task proved non-trivial even with those limitations removed.</p>
+<p>Table <code>telegram_messages</code> in <code>data</code> schema has been an issue due to its size (~11M records and ~14Gb of disk space). For a long time, creating <code>pgroonga</code> index on the <code>content</code> column was impossible due to Supabase limitations. However, the task proved non-trivial even with those limitations removed.</p>
 <ol>
 <li>Attempt to create the index on the existing data failed (see DVE-264 for details)</li>
 <li>Unsuccessful solutions :</li>
@@ -497,8 +497,8 @@
    As a result, data moved to the temp table was lost. Luckily, we have it backed up.
 3. Data was restored from backup into a regular table mimicing the original structure of <code>telegram_messages</code>. After that, I attempted to move it in batches. The process was very-very slow, so it promted me to introduce <a href="https://subjective.youtrack.cloud/articles/DVE-A-11/Database-Guide#database-queue">queueing functionality</a> so that this process can take place directly on the server in automatic fashion.
 4. In the middle of one of the jobs, an unrelated request to <code>search_in_people_skim</code> stored function with empty input cause the database to panic and restart. This led to corruption of the <code>pgroonga</code> index.
-5. By that point, \~2M records were already copied over. I created a new index (took \~15 minutes) and dropped the old one (client hang on this operation, but the index was indeed removed).
-6. Copying operation resumed after this, turned out to have much faster pace: less than 24 hours later \~80-85% of the data was already moved, while the first 15-20% took several days.</p>
+5. By that point, ~2M records were already copied over. I created a new index (took ~15 minutes) and dropped the old one (client hang on this operation, but the index was indeed removed).
+6. Copying operation resumed after this, turned out to have much faster pace: less than 24 hours later ~80-85% of the data was already moved, while the first 15-20% took several days.</p>
 
 
 
