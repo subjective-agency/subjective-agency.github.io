@@ -70,9 +70,7 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
@@ -123,11 +121,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -153,6 +158,103 @@
       
         
           
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../apps/" class="md-tabs__link">
+        
+  
+    
+  
+  Applications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
+        
+  
+    
+  
+  ADRs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+    
+  
+  Infrastructure
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../db/" class="md-tabs__link">
+          
+  
+    
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -166,8 +268,10 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
@@ -268,6 +372,17 @@
   
     
     
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -427,45 +542,47 @@
 <hr />
 <h2 id="steps-taken">Steps taken</h2>
 <p>These Poetry plugins need to be installed:</p>
-<pre><code>poetry self add poetry-multiproject-plugin
-poetry self add poetry-polylith-plugin
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>poetry self add poetry-multiproject-plugin
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>poetry self add poetry-polylith-plugin
+</span></code></pre></div>
 <ol>
 <li>
 <p>Create a new project with Poetry as dependency manager.</p>
 </li>
 <li>
 <p>Initialize git and Poetry</p>
-<p><code>git init
-poetry init</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git init
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>poetry init
+</span></code></pre></div>
 </li>
 <li>
 <p>Create a workspace, with a basic Polylith folder structure</p>
-<p><code>poetry poly create workspace --name wapaganda --theme loose</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry poly create workspace --name wapaganda --theme loose
+</span></code></pre></div>
 <p>This operation creates file <code>workspace.toml</code> with workspace settings. If section <code>test</code> is enabled, a folder with the same name would be created in the root mirroring the repo structure.</p>
 </li>
 <li>
 <p>Create a virtual environment</p>
-<p><code>powershell
-poetry install</code></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">poetry</span> <span class="n">install</span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Create new <code>project</code></p>
-<p><code>powershell
-poetry poly create project --name wapatools</code></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">poetry</span> <span class="n">poly</span> <span class="n">create</span> <span class="n">project</span> <span class="p">-</span><span class="n">-name</span> <span class="n">wapatools</span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Create <code>bases</code> and <code>components</code> for each module in the old repository:</p>
-<p><code>powershell
-poetry poly create base --name database
-...
-poetry poly create component --name transfactory
-...</code></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">poetry</span> <span class="n">poly</span> <span class="n">create</span> <span class="n">base</span> <span class="p">-</span><span class="n">-name</span> <span class="n">database</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">...</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">poetry</span> <span class="n">poly</span> <span class="n">create</span> <span class="n">component</span> <span class="p">-</span><span class="n">-name</span> <span class="n">transfactory</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">...</span>
+</span></code></pre></div>
 <p>The concept of <code>bases</code> / <code>components</code> / <code>projects</code> does not align perfectly with the structure by which the old repo was organized. For started, I decided to migrate contents of the <code>scripts</code> folder as <code>bases</code> and contents of the <code>src</code> folder as <code>components</code>, all assigned to the single <code>project</code>. However, it would probably make sense to split functionality down into different <code>projects</code>, which would require moving things around.</p>
 </li>
 <li>
 <p>The operation above boils down to creating the respective element's folder structure, as well as <code>_init_</code> file and <code>core.py</code> file (which is a conventional (but not mandatory) way of code organization). Once it's in place, files could be copied over from the old repo.
-    <img alt="" src="image1.png" />{width=253px}</p>
+    <img alt="" src="image1.png" width="253px" /></p>
 </li>
 <li>
 <p>Organize <code>pyproject.toml</code> files.
@@ -473,46 +590,47 @@ poetry poly create component --name transfactory
 <ol>
 <li>Repo-level file should contain following elements:</li>
 </ol>
-<p>```
-   [tool.poetry]
-   packages = [
-       {include = "wapaganda/api", from = "bases"},
-       ...
-       {include = "wapaganda/umisc", from = "components"},
-   ]</p>
-<p>[tool.poetry.dependencies]
-   {copy over all the dependencies from the old repo}
-   ```</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[tool.poetry]
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>packages = [
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    {include = &quot;wapaganda/api&quot;, from = &quot;bases&quot;},
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ...
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    {include = &quot;wapaganda/umisc&quot;, from = &quot;components&quot;},
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>]
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>[tool.poetry.dependencies]
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>{copy over all the dependencies from the old repo}
+</span></code></pre></div>
 <ol>
 <li><code>project</code>-level file should contain following elements:</li>
 </ol>
-<p>```
-   [tool.poetry]
-   packages = [
-       {include = "wapaganda/core", from = "../../bases"},
-       ...
-       {include = "wapaganda/upload", from = "../../components"}
-   ]
-   {note the path in the 'from' element}
-   {ideally, only part of the repo dependencies should be listed for a project}</p>
-<p>[tool.poetry.plugins."poetry.application.plugin"]
-   poetry-polylith-plugin = "polylith.poetry_plugin:PolylithPlugin"</p>
-<p>[tool.poetry.dependencies]
-   {copy over all the dependencies relevant for the project}
-   ```</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[tool.poetry]
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>packages = [
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    {include = &quot;wapaganda/core&quot;, from = &quot;../../bases&quot;},
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    ...
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    {include = &quot;wapaganda/upload&quot;, from = &quot;../../components&quot;}
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>]
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>{note the path in the &#39;from&#39; element}
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>{ideally, only part of the repo dependencies should be listed for a project}
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>[tool.poetry.plugins.&quot;poetry.application.plugin&quot;]
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>poetry-polylith-plugin = &quot;polylith.poetry_plugin:PolylithPlugin&quot;
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>[tool.poetry.dependencies]
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>{copy over all the dependencies relevant for the project}
+</span></code></pre></div>
 </li>
 <li>
 <p><code>__init__.py</code>
     This file is required for each <code>component</code> and each <code>base</code>. By default, the structure of <code>__init__.py</code> looks like this:</p>
-<p>```
-from wapaganda.base_or_component_name import core</p>
-<p><strong>all</strong> = ["core"]
-```</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>from wapaganda.base_or_component_name import core
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>__all__ = [&quot;core&quot;]
+</span></code></pre></div>
 <p>This structure assumes the existence of file <code>core.py</code> and imports it as a whole. Alternatively, certain elements could be imported like so:</p>
-<p>```
-from wapaganda.database.connection import connect_supabase</p>
-<p><strong>all</strong> = ["connect_supabase"]
-```</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>from wapaganda.database.connection import connect_supabase
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>__all__ = [&quot;connect_supabase&quot;]
+</span></code></pre></div>
 <p>It is not strictly necessary to put this in order for all the components right away.</p>
 </li>
 <li>
@@ -520,17 +638,20 @@ from wapaganda.database.connection import connect_supabase</p>
 <ol>
 <li>Since the dependencies were not introduced in the natural way:</li>
 </ol>
-<p><code>poetry lock</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry lock
+</span></code></pre></div>
 <p>This would write or update <code>poetry.lock</code> file.</p>
 <ol>
 <li>The same should be done to the <code>project</code>-level file:</li>
 </ol>
-<p><code>poetry lock --directory projects/wapatools</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry lock --directory projects/wapatools
+</span></code></pre></div>
 <ol>
-<li><code>poetry install</code></li>
+<li><code>poetry install
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>This would install the dependencies, and it would install the internal module (`wapatools` in this case), which will finally unlock the usage. Something like this should be the final output line:
+</span></code></pre></div>
+   Installing the current project: wapatools (0.1.0)</code></li>
 </ol>
-<p>This would install the dependencies, and it would install the internal module (<code>wapatools</code> in this case), which will finally unlock the usage. Something like this should be the final output line:</p>
-<p><code>Installing the current project: wapatools (0.1.0)</code></p>
 </li>
 </ol>
 <hr />
@@ -543,7 +664,7 @@ from wapaganda.database.connection import connect_supabase</p>
   <img alt="" src="image2.png" />
 * <code>poetry poly libs</code></p>
 <p>Returns summary of libraries in use that looks like this:
-  <img alt="" src="image.png" />{width=70%}
+  <img alt="" src="image.png" width="70%" />
 * <code>poetry poly diff</code></p>
 <p>Returns the difference between current state and latest stable point (not sure if this is git-based or what)
 * <code>poetry poly check</code></p>
@@ -577,9 +698,17 @@ from wapaganda.database.connection import connect_supabase</p>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -603,7 +732,7 @@ from wapaganda.database.connection import connect_supabase</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
