@@ -10,19 +10,17 @@
       
       
       
-        <link rel="next" href="apps/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Wapaganda Project Docs</title>
+        <title>🗸 ADR-25. Secrets Management with Infisical - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wapaganda-documentation-base" class="md-skip">
+        <a href="#context" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              🗸 ADR-25. Secrets Management with Infisical
             
           </span>
         </div>
@@ -168,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="apps/" class="md-tabs__link">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -206,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -242,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -277,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -292,30 +288,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,35 +300,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apps/" class="md-nav__link">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +476,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -539,9 +484,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#railway-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Railway integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker apps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local apps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
     </span>
   </a>
   
@@ -562,20 +582,57 @@
                   
 
 
-<h1 id="wapaganda-documentation-base">Wapaganda Documentation Base</h1>
-<h2 id="project-layout">Project layout</h2>
-<ul>
-<li><a href="architecture/">Architecture Decision Records</a></li>
-<li><a href="apps/">Application Registry</a></li>
-<li><a href="infra/">Infrastructure</a></li>
-<li><a href="db/">Database</a></li>
-</ul>
+  <h1>🗸 ADR-25. Secrets Management with Infisical</h1>
+
+<h2 id="context">Context</h2>
+<p>This document succeeds and replaces ADR-2. It describes the integration of self-hosted <a href="https://infisical.com/docs/self-hosting/overview">Infisical</a> instance as the primary tool for communicating sensitive data to the applications.</p>
+<h2 id="decision">Decision</h2>
+<p>Infisical is a feature-rich open-source secrets management platform with well-detailed documentation.</p>
+<p>Wapaganda instance is hosted on a Hetzner server with <code>docker compose</code>. It is accessible on port <code>50789</code> at <code>principal</code>'s IP address; its HTTPS host is https://asdfghjkl.subjective.agency (reverse proxied with Caddy). </p>
+<p>Normally, Infisical's docker compose stack includes 4 services: <code>infisical</code> itself, <code>redis</code>, <code>postgres</code> and <code>db-migration</code>, where <code>db-migration</code> starts with all the rest, and exits once done migrating. In W setup, <code>postgres</code> service is disabled; instead, a dedicated <code>infisical</code> database is set up on the production instance.</p>
+<h3 id="setup">Setup</h3>
+<p>Each application that requires secrets injection has a <code>project</code> in Infisical. Every project can have multiple environments, but the simplest setup is to have a single <code>dev</code> environment with all secrets required for an app.</p>
+<h4 id="railway-integration">Railway integration</h4>
+<p>Infisical has native support for Railway. To set it up,</p>
+<ol>
+<li>Go to Railway, and obtain a new API key. Name it the same as the application.</li>
+<li>Go to Infisical -&gt; a project you're setting up -&gt; <code>Integrations</code>. Find <code>Railway</code>, click on it, and submit the new API key.</li>
+<li>In the pop-up, select appropriate environments on both sides. Make sure environments are aligned: you want to connect Prod to Prod, and Dev to Dev.</li>
+</ol>
+<p>Once the integration is saved, you should see a bunch of secrets in Railway, in the service's <code>Shared Secrets</code> section.</p>
+<p>Railway integration means, you don't need to add <code>infisical run --</code> to the start command.</p>
+<h4 id="docker-apps">Docker apps</h4>
+<p>With non-Railway docker-based applications, integration is enabled with the following procedure:</p>
+<ol>
+<li><code>Dockerfile</code> for the application must include instruction for installation of Infisical CLI. For example, here's the corresponding line from the backup service's file (that also installs PostgreSQL and a bunch of other stuff):</li>
+</ol>
+<p><div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>bash<span class="w"> </span>curl<span class="w"> </span>tar<span class="w"> </span>coreutils<span class="w"> </span>postgresql-client<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-1sLf<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">&#39;https://dl.cloudsmith.io/public/infisical/infisical-cli/setup.deb.sh&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>infisical
+</span></code></pre></div>
+2. Application's start command, whether in <code>Dockerfile</code> or in <code>docker-compose.yml</code> must be modified to start with <code>infisical run --</code> like so:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>infisical run -- python backup/core.py
+</span></code></pre></div>
+3. In order to the application to connect with Infisical, it needs 2 things: address of the host (since we're self-hosting) and a token. You can generate token for a project in the <mark>Access Control</mark> tab. These 2 values must be saved in <code>.env</code> file in the same folder where you have app's primary <code>docker compose</code> file. </p>
+<h4 id="local-apps">Local apps</h4>
+<p>If a locally-running application needs to be integrated with Infisical, you must have the CLI installed in the corresponding system; and launch the app in the previously described manner, by prefixing the start command with <code>infisical run --</code>.</p>
+<p>Instead of tokens, you authorize the application by explicitly logging in (run <code>infisical login</code> and follow the flow). This login is persisted for some period of time (about a week), after which you'd have to re-login. </p>
+<p>:::danger
+It has been noticed that if a Redis container exits for whatever reason, Infisical instance won't be operational, but instead of failing, it would be urging you to re-login.
+:::</p>
+<h2 id="status">Status</h2>
+<p>Active</p>
+<h2 id="consequences">Consequences</h2>
+<p>Some refactoring was necessary, otherwise, it works better than Doppler.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -601,28 +658,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="apps/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -646,10 +681,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

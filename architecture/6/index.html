@@ -10,19 +10,17 @@
       
       
       
-        <link rel="next" href="apps/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Wapaganda Project Docs</title>
+        <title>🗶≽ ADR-6. Transcripts - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wapaganda-documentation-base" class="md-skip">
+        <a href="#context" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              🗶≽ ADR-6. Transcripts
             
           </span>
         </div>
@@ -168,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="apps/" class="md-tabs__link">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -206,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -242,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -277,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -292,30 +288,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,35 +300,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apps/" class="md-nav__link">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +476,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -539,9 +484,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transcript-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transcript Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auxiliary database
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequence
     </span>
   </a>
   
@@ -562,20 +567,59 @@
                   
 
 
-<h1 id="wapaganda-documentation-base">Wapaganda Documentation Base</h1>
-<h2 id="project-layout">Project layout</h2>
+  <h1>🗶≽ ADR-6. Transcripts</h1>
+
+<h2 id="context">Context</h2>
+<p>One of the W's most important parts has to do with the various media segments (i.e. talk shows, streams, YouTube videos etc.). Until recently, the main focus in this area was on indicating participants, which is just barely enough to make it useful.</p>
+<p>Transcripts - <em>text representation of the specific episodes of the relevant media segments</em> - make it significantly more useful. With <a href="https://github.com/openai/whisper">whisper</a>, an open-source, free-to-use software doing speech recognition of high quality, it is possible to produce transcripts for every relevant media episode in (semi-)automated fashion.</p>
+<p>Whisper is a machine-learning tool that uses pre-compiled downloadable models (<code>tiny</code> → <code>small</code> → <code>medium</code> → <code>large</code>). The choice of model effects 2 things: <strong>processing time</strong> and <strong>result quality</strong>.</p>
+<p>The quality of the output is pretty great even with <code>medium</code> model (~95%), and <code>large</code> model does an almost perfect job (~99%). Processing time is approximately 3x and 10x on the media duration, respectively. These figures are not exact measurements, but rather a subjective estimation. Processing time is measured on a relatively advanced but still <a href="https://subjective.youtrack.cloud/articles/DVE-A-7/Original-Setup">a regular PC</a>.</p>
+<p>Whisper produces 3 text files: <code>.txt</code>, <code>.str</code>, and <code>.vtt</code>. The <code>.vtt</code>, while could contain additional metadata (such as chapters), in this particular case does not contain anything but timestamps, which makes it no different from the <code>.srt</code> version. <code>.txt</code> can be easily generated from <code>.srt</code>, so essentially only the <code>srt</code> file should be saved.</p>
+<h2 id="decision">Decision</h2>
+<p>The following structure is implemented around the transcript manufacturing process.</p>
+<h3 id="transcript-flow">Transcript Flow</h3>
+<p>Transcript flow consists of 4 inter-related scripts:</p>
 <ul>
-<li><a href="architecture/">Architecture Decision Records</a></li>
-<li><a href="apps/">Application Registry</a></li>
-<li><a href="infra/">Infrastructure</a></li>
-<li><a href="db/">Database</a></li>
+<li><a href="https://github.com/neledov/autobox/blob/main/transfactory.py">transfactory</a>, which produces transcripts from audio files;</li>
+<li><a href="https://github.com/betterthanever2/wapaganda_tools/blob/master/trans/transsuply.py">transsuply</a>, which sees to it that there were always enough files for processing;</li>
+<li><a href="https://github.com/betterthanever2/wapaganda_tools/blob/master/trans/transprocessor.py">transprocessor</a>, which downloads the <code>factory</code>'s output and saves it to final storage ;</li>
+<li><a href="https://github.com/betterthanever2/wapaganda_tools/blob/master/trans/transcleanup.py">transcleanup</a>, which removes processed audio and text files.</li>
 </ul>
+<p>The flow is described in more detail in DVE-A-40.</p>
+<h3 id="storage">Storage</h3>
+<p>The following storage units are used for temporary and permanent storage:</p>
+<ul>
+<li><strong>MongoDB</strong> (cluster <code>wapaless</code>, collection <code>transcripts</code>) that contains objects of the structure:</li>
+</ul>
+<p><div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;supa_table&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="w"> </span><span class="s2">&quot;{segment_name}_vids&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;supa_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">i</span><span class="kc">nt</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;whisper_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">dic</span><span class="kc">t</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">i</span><span class="kc">nt</span><span class="p">},</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">seco</span><span class="kc">n</span><span class="err">ds</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="w"> </span><span class="s2">&quot;full_text&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">&quot;srt&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">dic</span><span class="kc">t</span><span class="w"> </span><span class="p">{</span><span class="err">(</span><span class="s2">&quot;chunk_start_time-chunk_end_time&quot;</span><span class="err">)</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chunk_text&quot;</span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
+* <span style="background-color:mistyrose;"></span>Supabase storage, bucket <code>prabyss</code>. Used for temporary storage of audio files and resulting <code>.srt</code> files
+* Supabase storage, bucket <code>back-backups</code>. Used to store all the backups (not just transcripts) as <code>pickle</code> objects.</p>
+<h3 id="auxiliary-database">Auxiliary database</h3>
+<ul>
+<li>Supabase DB, schema <code>service</code>, table <code>prabyss</code>. Used to store information on the media episodes to be transcribed, as well as a data exchange point between different parts of the transcript flow.</li>
+</ul>
+<p>Additional technical information can be found <a href="https://subjective.youtrack.cloud/articles/DVE-A-26/RFC-2-Transcripts">here</a> and <a href="https://subjective.youtrack.cloud/articles/DVE-A-22/Supabase-Storage">here</a>.</p>
+<h2 id="status">Status</h2>
+<p>Accepted</p>
+<h2 id="consequence">Consequence</h2>
+<p>This infrastructure is relatively strict and predictable, but also adjustable. In the near future, it would allow an easier implementation of full text search over the large amounts of text. In the more distant future, it would also allow NLP-based analysis and/or translation into English.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -601,28 +645,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="apps/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -646,10 +668,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

@@ -10,19 +10,17 @@
       
       
       
-        <link rel="next" href="apps/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Wapaganda Project Docs</title>
+        <title>∞ ADR-20. Ruskymir Creed [RUCR] - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wapaganda-documentation-base" class="md-skip">
+        <a href="#context" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              ∞ ADR-20. Ruskymir Creed [RUCR]
             
           </span>
         </div>
@@ -168,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="apps/" class="md-tabs__link">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -206,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -242,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -277,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -292,30 +288,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,35 +300,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apps/" class="md-nav__link">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +476,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -539,9 +484,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skos" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      XML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#owlready2" class="md-nav__link">
+    <span class="md-ellipsis">
+      owlready2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
     </span>
   </a>
   
@@ -562,20 +576,42 @@
                   
 
 
-<h1 id="wapaganda-documentation-base">Wapaganda Documentation Base</h1>
-<h2 id="project-layout">Project layout</h2>
+  <h1>∞ ADR-20. Ruskymir Creed [RUCR]</h1>
+
+<h2 id="context">Context</h2>
+<p>Russian propaganda scene is pretty diverse, with several thousand individuals commenting the everchanging stream of events in a variety of voices and accents, offering all kinds of emotional and intellectual fillers to the audience - yet, a closer examination shows that the entirety of its content can be reduced to several hundred rather specific ideas (or, concepts, as they would be called here) that are repeated in various forms and combinations over and over again.</p>
+<p>At the same time, the project requires a structure against which the body of accumulated text could be analyzed. The main idea here is that since every <em>media fragment</em> (appearance on a talk-show, a published article, etc.) <em>contributes</em> to at least one of these concepts (usually, more than one), we can map existing (proven) contributions to known concepts. And, because we treat these concepts as first-grade citizens in the system, we can develop them further, providing extensive definitions and notes, as well as numerical measure of harm.</p>
+<h2 id="decision">Decision</h2>
+<p>RUCR, aka Ruskymir Creed, is an attempt to exhaustively list all these concepts, and to define possible relationships between them.</p>
+<h3 id="skos">SKOS</h3>
+<p>RUCR from the start was being developed with the SKOS framework in mind. SKOS (<a href="https://www.w3.org/TR/skos-reference/">Simple Knowledge Organization System</a>) is an OWL-based <em>data model for sharing and linking knowledge organization systems via the Web</em>; it's been a W3 Consortium recommendation for quite a while now. For the purposes of this document, let it be known that SKOS works with entities such as <code>Concept</code>, <code>ConceptScheme</code> and <code>Collection</code>, and 2 major types of relationships between them: the hierarchical is defined with <code>broader</code>, <code>narrower</code>, <code>broaderTransitive</code> and <code>narrowerTransitive</code> properties; the 2nd kind is defined with a symmetric <code>related</code> property.</p>
+<h3 id="xml">XML</h3>
+<p>However, the initial take on it was made using a visualization tool <a href="https://app.diagrams.net">https://app.diagrams.net</a>, which allows, on the one hand, creation of nicely looking diagrams, and, on the other, saving those diagrams in XML format. A special flow was developed around these XML diagrams, allowing automatic generation of RU and UK versions from the EN version. These diagrams would then be presented for public access on the project's website.</p>
+<p>The initial versions of the diagrams offer a limited visualizations experience, in the sense that only <em>primary</em> <code>broader-narrower</code> relationships are shown, to avoid visual clutter.</p>
+<h3 id="database">Database</h3>
+<p>Table <code>rucr_taxonomy</code> was created in the <code>enums</code> schema to provide persistent storage. Each concept has 3 lang-based content versions, set of tags (correspond to <code>Collection</code>s in SKOS), <code>xml_id</code> and <code>xml_data</code> for tying DB entities to XML entities, and <code>status</code>, which is <code>verified</code> for all proper concepts.</p>
+<h3 id="owlready2">owlready2</h3>
+<p><code>owlready2</code> is a Python library that allows working with OWL ontologies.</p>
+<p>General SKOS entities and properties are defined in the <code>skos_general.py</code> script as Python classes inheriting from either <code>Thing</code> or <code>Property</code> base class, and defining a relationship to a corresponding SKOS entity (SKOS itself is loaded and attached to the primary ontology as <code>imported</code>). Names of some classes are altered (with respect to original SKOS) to better reflect the nuances of the relationship, specifically, <code>broader</code> is defined as <code>HasBroader</code>, <code>narrower</code> - as <code>HasNarrower</code>, <code>related</code> - as <code>IsRelatedTo</code> and so on.</p>
+<p>RUCR concepts are explicitly listed in the <code>rucr_skos.py</code> file with the following basic structure:</p>
 <ul>
-<li><a href="architecture/">Architecture Decision Records</a></li>
-<li><a href="apps/">Application Registry</a></li>
-<li><a href="infra/">Infrastructure</a></li>
-<li><a href="db/">Database</a></li>
+<li><code>Collections</code> are defined at the top; </li>
+<li>then follow <code>top</code> concepts; </li>
+<li>then the rest of the concepts. Primary <code>broaderTransitive</code> relationships (they are used instead of simple <code>broader</code> everywhere) are defined immediately after the concept declaration, which forces their order to some degree. </li>
+<li>At the bottom, <code>related</code> connections are defined in the same order concepts are defined above.</li>
 </ul>
+<h2 id="status">Status</h2>
+<p>In progress</p>
+<h2 id="consequences">Consequences</h2>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -601,28 +637,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="apps/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -646,10 +660,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

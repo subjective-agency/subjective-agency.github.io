@@ -10,19 +10,17 @@
       
       
       
-        <link rel="next" href="apps/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Wapaganda Project Docs</title>
+        <title>🗸 ADR-24. Polylith Projects & Dockerization - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wapaganda-documentation-base" class="md-skip">
+        <a href="#context" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              🗸 ADR-24. Polylith Projects & Dockerization
             
           </span>
         </div>
@@ -168,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="apps/" class="md-tabs__link">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -206,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -242,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -277,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -292,30 +288,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,35 +300,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apps/" class="md-nav__link">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +476,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -539,9 +484,108 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-build-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Build Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Build Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#self-hosted-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self-Hosted with docker compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-railway" class="md-nav__link">
+    <span class="md-ellipsis">
+      On Railway
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
     </span>
   </a>
   
@@ -562,20 +606,95 @@
                   
 
 
-<h1 id="wapaganda-documentation-base">Wapaganda Documentation Base</h1>
-<h2 id="project-layout">Project layout</h2>
+  <h1>🗸 ADR-24. Polylith Projects & Dockerization</h1>
+
+<h2 id="context">Context</h2>
+<p>Primary project's repository, <code>wapatools</code>, is a shared monorepo that follows the polylith structure. This structure is not directly consistent with the Docker approach, and requires certain additional steps.</p>
+<h2 id="decision">Decision</h2>
+<p>Services in the W ecosystem can be run either on <mark>Railway</mark>, or on our own infrastructure. Railway's upside is simplicity and reliability; its downside is only the cost.</p>
+<h3 id="general-build-procedure">General Build Procedure</h3>
+<p>A shell-script can be used to perform all actions necessary. Approximate procedure includes the following steps:</p>
+<ol>
+<li>Define paths to the files required for the project (healthcheck script, log config etc.);</li>
+<li>Drop old <code>wheel</code> file if it exists;</li>
+<li>Copy files to the project's directory (<code>projects/{project_name}</code>);</li>
+<li>Run <code>poetry build-project</code> command from the project directory.
+   This would create <code>dist</code> folder in the projects' directory with files that can be used to install the project, including a new <code>wheel</code> file;</li>
+<li>Get the name of the new <code>wheel</code> file;</li>
+<li>Modify <code>Dockerfile</code> with the new <code>wheel</code>'s name.
+   This solution relies on that the name of the <code>wheel</code> file is located on a specific line in the Dockerfile;</li>
+</ol>
+<p>:::warning
+   With services that are supposed to run on <strong>Railway</strong>, the process stops here. Railway can build their own docker images, thank you very much.
+   :::</p>
+<p>:::info
+   The rest of the steps are only required for services that are supposed to run on our own infrastructure.
+   :::
+7. Build Docker image;
+8. Tag new image;
+9. Push new image to Docker Hub or private repository.</p>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>:::info
+Dockerfile is almost the same for both deployment cases. The 2 main differences are:</p>
 <ul>
-<li><a href="architecture/">Architecture Decision Records</a></li>
-<li><a href="apps/">Application Registry</a></li>
-<li><a href="infra/">Infrastructure</a></li>
-<li><a href="db/">Database</a></li>
+<li>You should install Infisical CLI in non-Railway Dockerfile;</li>
+<li>When copying wheel file, in Railway one should start in the repository's root, and in self-hosted case - in the project's root.
+:::</li>
 </ul>
+<p>Project's Dockerfile must be composed with these things in mind:</p>
+<ul>
+<li>Index of the line on which the name of the <code>wheel</code> is defined must be aligned with the builder. If using a template, no changes are necessary;</li>
+<li>Final image must include Infisical CLI for any application that requires supply of secrets;</li>
+<li>When using multistage builds, watch out for what components should be copied to the final image. This depends on what exactly was installed;</li>
+<li>As a rule, last line in the Dockerfile switches work directory to where the main executable is located;</li>
+<li>As a rule, Dockerfile doesn't include a <code>CMD</code> or <code>entrypoint</code> command, mainly because it would be overridden in the <code>compose</code> file anyway.</li>
+</ul>
+<h3 id="deployment">Deployment</h3>
+<h4 id="self-hosted-with-docker-compose">Self-Hosted with <code>docker compose</code></h4>
+<p><code>compose.yml</code> or <code>docker-compose.yml</code> file is used to launch the service which may be a single container or multiple.</p>
+<ul>
+<li>Main container's <code>command</code> must start with <code>infisical run --</code> followed by the path to Python's interpreter + service executable;</li>
+<li><code>env_file</code> must be supplied with Infisical's <code>server address</code> and <code>access token</code>.</li>
+</ul>
+<h4 id="on-railway">On Railway</h4>
+<ol>
+<li>Make sure the corresponding Infisical project has secret named <code>RAILWAY_DOCKERFILE_PATH</code> set to <code>/projects/{project}/Dockerfile</code>, given that the name of the Dockerfile is not modified.</li>
+<li>Create a new project on Railway.<ul>
+<li>Set <code>source repo</code> to <code>https://github.com/subjective-agency/wapatools</code></li>
+<li>Select <code>development</code> branch or whatever may be the case.</li>
+<li>In the <code>build</code> section, set <code>Watch Paths</code> to <code>projects/{project_name}</code>.</li>
+<li>In the <code>deploy</code> section, set <code>Custom Start Command</code> to <code>python {primary_component_name}/core.py</code></li>
+<li>Set <code>Region</code> to anywhere in Europe, <code>Runtime</code> to <code>V2</code>, and <code>Replicas</code> to 1.
+:::warning
+At this point Railway would likely attempt to deploy, but fail for lack of secrets.
+:::</li>
+</ul>
+</li>
+<li>Set up integration with Infisical, then re-deploy.</li>
+</ol>
+<h3 id="development-flow">Development Flow</h3>
+<p>Suppose, in the course of development, you finished an important update to the app, and now want to deploy a new version. Here are the steps for this:</p>
+<ol>
+<li>Commit changes with a meaningful message, as usual.</li>
+<li>Go to <code>projects/{project_name}/pyproject.toml</code> and bump up the version.</li>
+<li>Run <code>builder</code> shell script for the application.</li>
+<li>Commit artifacts created by this, with message <code>{project_name}-{version}</code>, for example, <code>ave-media-0.2.1.8</code>.</li>
+<li>Push these 2 commits to the remote origin.</li>
+</ol>
+<p>At this point, Railway would detect updates in the <code>project</code> directory, and initiate a new build &amp; deploy.</p>
+<h2 id="status">Status</h2>
+<p>Active</p>
+<h2 id="consequences">Consequences</h2>
+<p>Setting up a consistent flow around apps dockerization opens a straight path to running apps in our infrastructure, or on Railway.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -601,28 +720,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="apps/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -646,10 +743,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

@@ -10,19 +10,17 @@
       
       
       
-        <link rel="next" href="apps/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Wapaganda Project Docs</title>
+        <title>∞ ADR-27. Wapaganda Structure [3] - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wapaganda-documentation-base" class="md-skip">
+        <a href="#context" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              ∞ ADR-27. Wapaganda Structure [3]
             
           </span>
         </div>
@@ -168,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="apps/" class="md-tabs__link">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -206,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -242,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -277,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -292,30 +288,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,35 +300,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apps/" class="md-nav__link">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +476,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -539,9 +484,129 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git repositories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supporting-applications-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supporting Applications &amp; Integrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network &amp; Hosting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network & Hosting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hetzner-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hetzner Principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hetzner-horsey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hetzner Horsey
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#railway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Railway
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
     </span>
   </a>
   
@@ -562,20 +627,105 @@
                   
 
 
-<h1 id="wapaganda-documentation-base">Wapaganda Documentation Base</h1>
-<h2 id="project-layout">Project layout</h2>
+  <h1>∞ ADR-27. Wapaganda Structure [3]</h1>
+
+<h2 id="context">Context</h2>
+<p>:::info
+Previous version of the system is described in <a href="https://docs.subjective.agency/DOXy1wXMSp6P4iZzFIL1Ng">ADR-12</a>.
+:::</p>
+<p>This document describes the structure of the W project.</p>
+<h2 id="decision">Decision</h2>
+<h3 id="diagram">Diagram</h3>
+<p>TBD</p>
+<h3 id="git-repositories">Git repositories</h3>
+<p>All repositories here are hosted under Subjective Agency organization on GitHub.</p>
 <ul>
-<li><a href="architecture/">Architecture Decision Records</a></li>
-<li><a href="apps/">Application Registry</a></li>
-<li><a href="infra/">Infrastructure</a></li>
-<li><a href="db/">Database</a></li>
+<li><code>wapatools</code>. Primary repository, home for all applications except <code>web</code>.</li>
+<li><code>wapaganda_frontend</code>. React-based frontend for the <code>web</code> application.</li>
+<li><code>whisperX</code>. Fork required in order for WhisperX to run properly (support for <code>transfactory</code> application).</li>
 </ul>
+<h3 id="database">Database</h3>
+<p>There are 2 PostgreSQL instances set up for the project on different servers, <code>prod</code> and <code>dev</code>.</p>
+<p>Production database has tables distributed across following schemas:</p>
+<ul>
+<li>public;</li>
+<li>service;</li>
+<li>enums;</li>
+<li>data.</li>
+</ul>
+<p>There are several external tables synchronized to the database, all of them in <code>service</code> schema:</p>
+<ul>
+<li><code>provenance</code>. Primary table for the data provenance mechanism. See <a href="https://docs.subjective.agency/ey5oJkwZSdeYzzR3pCotbw">ADR-21</a> for details;</li>
+<li><del><code>logs</code></del>. The log system that required this table was deprecated in favor of Logfire. See <a href="https://docs.subjective.agency/ZnqjIut4Q2aALn8ZAdraug">ADR-31</a> for details;</li>
+<li><code>memo</code> and <code>memo_relation</code> are required to support the <code>theory</code> subsystem. See <a href="https://docs.subjective.agency/5L0o2prCSWSZmn6yFnbv3w">ADR-30</a> for details.</li>
+</ul>
+<p>Custom <code>TripleLang</code> type was created for the project. See <a href="https://docs.subjective.agency/Gqzy5kUQSpai-WyxzgUJXA">ADR-22</a> for details.</p>
+<p>Dev database is maintained in sync with the prod with the help of Snaplet. See [ADR-32] for details.</p>
+<h3 id="internal-applications">Internal Applications</h3>
+<p>All internal applications are Docker-based. Latest version of images can be found in our private repository at <code>registry.subjective.agency</code>.</p>
+<ul>
+<li><strong>Backup</strong>. Regularly exports project's database to JSON files. Works in 2 modes: incremental creates daily dumps of only new or updated rows; full creates weekly dumps of all relevant tables.</li>
+<li><strong>Transfactory</strong>. Takes audiofiles as input and returns structured text (and metadata) as output.</li>
+<li><strong>Transsuply</strong>. Pre-processing and registration of new jobs for Transfactory. TBD.</li>
+<li><strong>Periodicals</strong>. Scans text-based media, news agencies etc for relevant updates, and collects them. TBD</li>
+<li><strong>Ave Media</strong>. Scans audio and video-based media such as Smotrim.ru, Youtube.com etc. for relevant updates, and collects them. TBD</li>
+<li><strong>Tgram</strong>. Scans target Telegram channels using official API, and collects data and statistics. TBD</li>
+<li><strong>Printed</strong>. TBD</li>
+<li><strong>Web</strong>. Provides a public view on the existing data.</li>
+<li><strong>Entry Bot</strong>. Telegram bot that serves as input channel for new data.</li>
+<li><strong>SyncManager</strong>. General-purpose application for misc backgrounds sync tasks, and handles requests forwarded from the <strong>Entry Bot</strong>.</li>
+</ul>
+<h3 id="supporting-applications-integrations">Supporting Applications &amp; Integrations</h3>
+<ul>
+<li><strong>Infisical</strong>. Used to communicate secrets to applications. See <a href="https://docs.subjective.agency/FsfiU5_XTwuAWmkCXINeIw">ADR-25</a> for details.</li>
+<li><strong>Authentik</strong>. Used for authentication and authorization in other tools.</li>
+<li><strong>Memos</strong>. Notes-taking application. Used in the <code>theory</code> flow. </li>
+<li><strong>HedgeDoc</strong>. Hosts documentation of the project.</li>
+<li><strong><del>Youtrack</del></strong>. Used to be a ticket-tracker of the project, where also documentation was stored. Docs were moved away to HedgeDoc. Ticket-tracker has not been restored for now, for lack of need.</li>
+<li><strong>Bytebase</strong>. Operational interface on top of the databases. Allows to explore the database via a rather convenient interface, as well as to run update and insert queries of all kinds: either in admin mode, or through a ticket-creation flow.</li>
+<li>Ofelia. TBD</li>
+<li>dbmate. TBD</li>
+</ul>
+<h3 id="network-hosting">Network &amp; Hosting</h3>
+<p>Domain <code>subjective.agency</code> is hosted on <code>domain.com</code> and managed via Cloudflare. Mailservice is managed via <code>namecheap.com</code>. Secondary domain <code>subjective.place</code> is hosted directly on Cloudflare.</p>
+<h4 id="hetzner-principal">Hetzner Principal</h4>
+<p><strong>Hetzner Principal</strong> server hosts:</p>
+<ul>
+<li>dev database,</li>
+<li>Infisical,</li>
+<li>Authentik,</li>
+<li>Hedgedoc,</li>
+<li>Bytebase,</li>
+<li>Memos.</li>
+</ul>
+<h4 id="hetzner-horsey">Hetzner Horsey</h4>
+<p><strong>Hetzner Horsey</strong> server hosts:</p>
+<ul>
+<li>production database, </li>
+<li>Caddy as reverse proxy server, </li>
+<li>Garage-operated storage (100 Gb), and </li>
+<li>all the internal applications, except <code>Web</code>.</li>
+</ul>
+<h4 id="railway">Railway</h4>
+<p><strong>Railway</strong> hosts:</p>
+<ul>
+<li>FastAPI-based backend, and </li>
+<li>React-based frontend </li>
+</ul>
+<p>Together they constitue <mark>Web</mark> internal application. </p>
+<p>Railway is also used for test deployment of new internal applications.</p>
+<h2 id="status">Status</h2>
+<p>Active</p>
+<h2 id="consequences">Consequences</h2>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -601,28 +751,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="apps/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -646,10 +774,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

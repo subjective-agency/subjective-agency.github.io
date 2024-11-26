@@ -10,19 +10,17 @@
       
       
       
-        <link rel="next" href="apps/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Wapaganda Project Docs</title>
+        <title>🗸 ADR-17. Taxonomies. ISCO-08 - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wapaganda-documentation-base" class="md-skip">
+        <a href="#context" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              🗸 ADR-17. Taxonomies. ISCO-08
             
           </span>
         </div>
@@ -168,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="apps/" class="md-tabs__link">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -206,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -242,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -277,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -292,30 +288,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,35 +300,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apps/" class="md-nav__link">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +476,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -539,9 +484,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
     </span>
   </a>
   
@@ -562,20 +534,74 @@
                   
 
 
-<h1 id="wapaganda-documentation-base">Wapaganda Documentation Base</h1>
-<h2 id="project-layout">Project layout</h2>
+  <h1>🗸 ADR-17. Taxonomies. ISCO-08</h1>
+
+<h2 id="context">Context</h2>
+<p>As the project aims to ground its methods and approaches in existing and accepted practices, it makes sense to adopt some relevant taxonomies that have been developed by the world community. The first of these would be <a href="https://ilostat.ilo.org/resources/concepts-and-definitions/classification-occupation/">ISCO-08</a> taxonomy that provides a hierarchical description of occupations and professions.</p>
+<p>ISCO-08 was adopted in 2008; it replaced ISCO-88, the previous version. ISCO-08 is currently under revision, with the updated version to be released some time between 2028 and 2030. It is maintained by the ILO (International Labor Organization).</p>
+<p>ISCO standard is based on the concept of <em>skill</em>, which is numerical and can be between 1 (lowest) and 4 (highest). ISCO-08 is composed of 10 major groups, 43 sub-major groups, 130 minor groups and 436 unit groups, i.e. has 4 levels in the hierarchy (note: the hierarchy levels DO NOT correspond directly to the skill levels).</p>
+<p>Each group in the hierarchy is indicated with an ISCO code. Code for major groups is 1 digit (i.e. 0 through 9), for sub-major groups - 2 digits, for minor groups - 3 digits, and for unit groups - 4 digits.</p>
+<p>For example, here's a part from the beginning of the hierarchy:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1   Managers
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>11  Chief Executives, Senior Officials and Legislators
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>111 Legislators and Senior Officials
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>1111    Legislators
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>1112    Senior Government Officials
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>1113    Traditional Chiefs and Heads of Villages
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>1114    Senior Officials of Special-interest Organizations
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>112 Managing Directors and Chief Executives
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>1120    Managing Directors and Chief Executives
+</span></code></pre></div>
+<p><code>Managers</code> is a major (aka, root) group indicated with <code>1</code>, <code>Chief Executives, Senior Officials and Legislators</code> is a sub-major group indicated with <code>11</code>, <code>Legislators and Senior Officials</code> and <code>Managing Directors and Chief Executives</code> are minor groups (<code>111</code> and <code>112</code> respectively), and all the rest are unit groups, indicated with 4-digit codes.</p>
+<p>A few things to note:</p>
 <ul>
-<li><a href="architecture/">Architecture Decision Records</a></li>
-<li><a href="apps/">Application Registry</a></li>
-<li><a href="infra/">Infrastructure</a></li>
-<li><a href="db/">Database</a></li>
+<li>Terms could be identical. The idea is that every branch must end with a unit group, so in the case when there is no way to determine subcategories, like with <code>112</code>, the unit group code will have <code>0</code> at the end and the term will be the same as with the parent category;</li>
+<li>Codes also start with <code>0</code>, so when processing, they should be always treated as strings, not numbers. FYI, category <code>0</code> is about <code>Armed Forces Occupations</code>.</li>
 </ul>
+<h2 id="decision">Decision</h2>
+<p>In order to use the taxonomy efficiently, it should be stored in the database. There are several approaches to this: adjacency list model, path enumeration model, nested set model, and closure table model.</p>
+<p><strong>Closure table model</strong> was selected for the project. This approach involves the use of an additional table to represent the relationships between nodes in the hierarchy. The closure table captures all the ancestor-descendant relationships between nodes, allowing for efficient querying and traversal of the hierarchy.</p>
+<p>Here's how it works:</p>
+<ol>
+<li>Main table: The main table represents the nodes in the hierarchy. It contains the primary key column and other attributes related to each node.</li>
+<li>Closure table: The closure table is an auxiliary table that stores the ancestor-descendant relationships between nodes. It consists of two columns, usually named <code>ancestor</code> and <code>descendant</code>, which are foreign keys referencing the primary key of the main table.</li>
+</ol>
+<hr />
+<p>For the ISCO-08 taxonomy, the following tables were created in the <code>enums</code> schema:</p>
+<ul>
+<li><code>isco08_taxonomy</code> - main table that contains term names, definitions and other attributes;</li>
+<li><code>isco08_taxonomy_closure</code> - closure table with all the relationships. It has 2 columns, <code>ancestor</code> and <code>descendant</code>, which combination serves as the primary key (i.e. must be unique);</li>
+<li><code>isco08_index</code> - a list of ~7,000 professions with assigned category codes. This table is intended for reference, when defining a patient's position in an organization.</li>
+</ul>
+<p>In addition, table <code>org_roles</code> in the same schema will be maintained for professions outside the taxonomy/index.</p>
+<p>Table <code>people_in_orgs</code> of the <code>public</code> schema would undergo following updates:</p>
+<ul>
+<li>existing column <code>role</code> is to be deprecated once the processing of existing data is finished;</li>
+<li>new column is added <code>role_category</code> that points to <code>enums.isco08_taxonomy</code>;</li>
+<li>new column is added <code>role_ref1</code> that points to <code>enums.isco08_index</code>;</li>
+<li>new column is added <code>role_ref2</code> that points to <code>enums.org_roles</code>;</li>
+<li>new column is added <code>role_details</code> (JSONB) with content being a dictionary with keys <code>of</code>, <code>for</code>, <code>at</code>, <code>from</code>, <code>with</code>, etc. (all optional), each of which, in its turn, holds a triple-lang structure (<code>{"en": "", "ru": "", "uk": ""}</code>). Example:</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="nt">&quot;at&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;world history department&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;факультет мировой истории&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;uk&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;факультет світової історії&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<p>The algorithm for populating the closure table would be saved in the <code>wapatools</code> repository (<code>development/onto/isco08.py</code>).</p>
+<h2 id="status">Status</h2>
+<p>In progress.</p>
+<h2 id="consequences">Consequences</h2>
+<p>The flow for adding a person-to-organization relationship becomes somewhat more complicated, since it requires identification of the profession code. To simplify this, a SQL function <code>search_in_isco8_index</code> was implemented that allows full text search on the <code>isco_08_index</code> table returning <code>term_id</code> (i.e. category ID in <code>isco_08_taxonomy</code>), <code>index_id</code> (i.e. ID of the profession in <code>isco_08_index</code>), as well as codes and definitions for reference.</p>
+<p>Existing reference (content of the <code>role</code> column) is to be reworked into the updated format (in progress).</p>
+<p>Taxonomy terms should be translated into Russian and Ukrainian.</p>
+<p>In the long term, rooting in the existing taxonomies elaborated this deeply, would bring a little more order to the data, allowing to query it more efficiently.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -601,28 +627,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="apps/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -646,10 +650,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
