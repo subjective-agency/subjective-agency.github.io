@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enabling-provenance" class="md-skip">
+        <a href="#new-table-checklist" class="md-skip">
           Skip to content
         </a>
       
@@ -453,6 +453,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -481,12 +483,23 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#enabling-provenance" class="md-nav__link">
@@ -498,18 +511,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-incremental-backup" class="md-nav__link">
+  <a href="#creating-indexes" class="md-nav__link">
     <span class="md-ellipsis">
-      Enabling incremental backup
+      Creating Indexes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-considerations" class="md-nav__link">
+  <a href="#additional-checks" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Considerations
+      Additional Checks
     </span>
   </a>
   
@@ -548,12 +561,23 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#enabling-provenance" class="md-nav__link">
@@ -565,18 +589,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-incremental-backup" class="md-nav__link">
+  <a href="#creating-indexes" class="md-nav__link">
     <span class="md-ellipsis">
-      Enabling incremental backup
+      Creating Indexes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-considerations" class="md-nav__link">
+  <a href="#additional-checks" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Considerations
+      Additional Checks
     </span>
   </a>
   
@@ -597,69 +621,39 @@
                   
 
 
-  <h1>New Table Checklist</h1>
-
-<p>When adding a new table to the W database, one must consider, first, whether it is a central core table, or a sattelite table.</p>
-<p>Central core table is a table that stores data directly usable in the project one way or another. Most tables in the database belong to this group. Sattelite table contains secondary data, most often related to internal processes, such as maintaining jobs queue or storing quality control data.</p>
-<p>As a general rule, for central core, both <code>provenance</code> and <code>incremental backup</code> flows should be enabled, while for satellite tables, only <code>incremental backup</code> is required.</p>
-<p><code>incremental backup</code> flow operates on Pydantic/SQLAlchemy models, so adding such model for the table is critical.</p>
-<p>On the other hand, the Django-based web application only uses central core tables.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Central Core</th>
-<th>Satellite</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable provenance</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-<tr>
-<td>enable incremental backup</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td><strong>Pydantic/SQLAlchemy model</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>add SQLAlchemy model to <code>wapatools.bases.database.models</code></td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>update <code>wapatools.bases.incbackup_base.incbackup_db.py</code></td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>add Pydantic model (DTO) to <code>wapatools.bases.database.models</code></td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>update <code>wapatools.bases.incbackup_base.incbackup_dto.py</code></td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td><strong>Django model</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>add Django model to <code>core.models</code> (backend repo)</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-</tbody>
-</table>
+<h1 id="new-table-checklist">New Table Checklist</h1>
+<p>When adding a new table to the W database, one must consider, first, whether it is a <strong>central core</strong> table, or a <strong>satellite</strong> table.</p>
+<div class="admonition note">
+<p class="admonition-title"> </p>
+</div>
+<p>​   <strong>Central core</strong> table is a table that stores data directly usable in the project one way or another. Most tables in the database belong to this group. <strong>Satellite</strong> table contains secondary data, most often related to internal processes, such as maintaining jobs queue or storing quality control information.</p>
+<h2 id="steps">Steps</h2>
+<ul>
+<li>Before creating table in the db, create a SQLModel in the repository - this would allow you to contemplate on the table structure without committing changes to the db until it's finalized.</li>
+<li>Before creating table in the db, make sure table contains common fields, as is relevant for each specific case:</li>
+<li><code>added_at</code> -- for a timestamp indicating moment of creating this record.</li>
+<li><code>updated_on</code> -- for a timestamp indicating the most recent moment this record was updated.</li>
+<li><code>aired_on</code> -- <mark>Media-episode tables only</mark> for a timestamp when a media episode was published to the platform.</li>
+<li><code>was_downloaded</code> -- <mark>Media-episode tables only</mark> for a boolean indicating if the media item represented by this record was downloaded.</li>
+<li><code>media_segment_id</code> -- <mark>Media-episode tables only</mark> foreign key to <code>public.media_segments</code>.</li>
+<li><code>cluster_id</code> -- <mark>Media-episode tables only</mark> foreign key to <code>data.media_episodes_clusters</code>.</li>
+<li><code>relevance_status</code> -- ENUM type indicating relevance of this record to the project's essence.</li>
+<li><code>is_defunct</code> -- boolean type to indicate whether or not entity represented by this record is still active.</li>
+<li>...</li>
+<li>When creating table in the db</li>
+<li>Make sure to use <code>TEXT</code> and not <code>VARCHAR</code></li>
+<li>Use <code>SERIAL</code> IDs as primary keys where possible; composite keys if needed. Use UUIDs only as a last resort.</li>
+<li>If the table is expected to have translatable or transliteretable values, use <code>TripleLang</code> composite type for them. More details <a href="../">here</a>.</li>
+<li>
+<p>...</p>
+</li>
+<li>
+<p>Create additional indexes for fields that must be unique and/or fields that you expect to query often.</p>
+</li>
+<li>If you expect to be doing full-text search against the table, create <code>pgroonga</code> index in addition to indexes in the step above.</li>
+<li>After creation, enable <strong>provenance mechanism</strong>. As a general rule, you want it enabled for a central core table, but not for a satellite table.</li>
+<li>Make sure all relevant db roles can query and/or update the table.</li>
+</ul>
 <h2 id="enabling-provenance">Enabling provenance</h2>
 <p>Enabling <code>provenance</code> flow for a table, means creating for this table one of the following triggers:</p>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- applicable to most tables</span>
@@ -674,15 +668,11 @@
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">EXECUTE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">trg_change</span><span class="p">();</span>
 </span></code></pre></div>
-<p>Where <code>TABLE_NAME</code> and <code>SCHEMA_NAME</code> should be replaced with actual table and schema names.</p>
-<h2 id="enabling-incremental-backup">Enabling incremental backup</h2>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">trg_backup_youtube_channels_stats</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">AFTER</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">data</span><span class="p">.</span><span class="n">youtube_channels_stats</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">EXECUTE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">mark4backup</span><span class="p">();</span>
-</span></code></pre></div>
-<h2 id="additional-considerations">Additional Considerations</h2>
-<p>If the table is expected to have translatable or transliteretable values, consider using custom <code>TripleLang</code> composite type. More details <a href="https://subjective.youtrack.cloud/articles/DVE-A-11/Database-Guide#triple-language-format">here</a>.</p>
+<p>where <code>TABLE_NAME</code> and <code>SCHEMA_NAME</code> should be replaced with actual table and schema names.</p>
+<h2 id="creating-indexes">Creating Indexes</h2>
+<p>TBD</p>
+<h2 id="additional-checks">Additional Checks</h2>
+<p>TBD</p>
 
 
 

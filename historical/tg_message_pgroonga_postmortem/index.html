@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -56,6 +56,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#telegram-message-pgroonga-index-postmortem" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -233,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -412,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -433,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,6 +476,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -485,8 +492,7 @@
                   
 
 
-  <h1>Telegram Message pgroonga Index Postmortem</h1>
-
+<h1 id="telegram-message-pgroonga-index-postmortem">Telegram Message pgroonga Index Postmortem</h1>
 <p>Table <code>telegram_messages</code> in <code>data</code> schema has been an issue due to its size (~11M records and ~14Gb of disk space). For a long time, creating <code>pgroonga</code> index on the <code>content</code> column was impossible due to Supabase limitations. However, the task proved non-trivial even with those limitations removed.</p>
 <ol>
 <li>Attempt to create the index on the existing data failed (see DVE-264 for details)</li>
@@ -495,7 +501,7 @@
 <p>Create temp table, move all the data there, create index on empty or almost empty table, move data back.
    Reason for failure: All steps except for the last one went just fine, however moving the data onto the indexed table turned out to be extremely slow, and because the process was initiated for the entire data set from a local client, it failed when the client stopped working (for unrelated reasons).
    As a result, data moved to the temp table was lost. Luckily, we have it backed up.
-3. Data was restored from backup into a regular table mimicing the original structure of <code>telegram_messages</code>. After that, I attempted to move it in batches. The process was very-very slow, so it promted me to introduce <a href="https://subjective.youtrack.cloud/articles/DVE-A-11/Database-Guide#database-queue">queueing functionality</a> so that this process can take place directly on the server in automatic fashion.
+3. Data was restored from backup into a regular table mimicing the original structure of <code>telegram_messages</code>. After that, I attempted to move it in batches. The process was very-very slow, so it promted me to introduce [queueing functionality] so that this process can take place directly on the server in automatic fashion.
 4. In the middle of one of the jobs, an unrelated request to <code>search_in_people_skim</code> stored function with empty input cause the database to panic and restart. This led to corruption of the <code>pgroonga</code> index.
 5. By that point, ~2M records were already copied over. I created a new index (took ~15 minutes) and dropped the old one (client hang on this operation, but the index was indeed removed).
 6. Copying operation resumed after this, turned out to have much faster pace: less than 24 hours later ~80-85% of the data was already moved, while the first 15-20% took several days.</p>

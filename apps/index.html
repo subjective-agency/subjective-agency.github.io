@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -595,13 +595,15 @@
 <p>Application Registry Record is a document that describes an application that constitutes a part of a larger project. Each such document must contain 4 sections:</p>
 <ol>
 <li><strong>General</strong>
-In this section, describe general purpose and point of the application. This is a place to share broader context if necessary.</li>
+  In this section, describe general purpose and point of the application. This is a place to share broader context if necessary.</li>
 <li><strong>Code</strong>
-In this section, describe relevant repositories/modules, any nuances related to the code implementation.</li>
+  In this section, describe relevant repositories/modules, any nuances related to the code implementation.</li>
 <li><strong>Entities</strong>
-In this section, describe what entities are involved, and how they are connected.</li>
+  In this section, describe what entities are involved, and how they are connected.</li>
 <li><strong>Flow Diagram</strong>
-In this section, put flow diagram that describes how the application works. It could be an image, but recommended approach is Mermaid, where either <code>flow</code> or <code>block</code> diagram types could be used. (Note that <code>block</code> type is in beta, and isn't supported on some platforms)</li>
+  In this section, put flow diagram that describes how the application works. It could be an image, but recommended approach is Mermaid, where either <code>flow</code> or <code>block</code> diagram types could be used. (Note that <code>block</code> type is in beta, and isn't supported on some platforms)</li>
+<li><strong>History</strong>
+  This optional section is reserved for any notes that make sense in context but aren't necessarily relevant anymore.</li>
 </ol>
 <h2 id="applications">Applications</h2>
 <ul>
@@ -609,8 +611,10 @@ In this section, put flow diagram that describes how the application works. It c
 <li><a href="2/">ARR-2: Periodicals</a></li>
 <li><a href="3/">ARR-3: Transfactory</a></li>
 <li><a href="4/">ARR-4: Tgram</a></li>
-<li>Web</li>
-<li>Database Search</li>
+<li>Web<ul>
+<li>Database Search </li>
+</ul>
+</li>
 <li>SyncManager<ul>
 <li>Relevance service</li>
 <li>Queue service</li>

@@ -16,7 +16,7 @@
     
     
       
-        <title>🗸 ADR-19. Taxonomies. Organization Types - Wapaganda Project Docs</title>
+        <title>🗸 ADR-31. Logging with Logfire - Wapaganda Project Docs</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-31-logging-with-logfire" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🗸 ADR-19. Taxonomies. Organization Types
+              🗸 ADR-31. Logging with Logfire
             
           </span>
         </div>
@@ -476,6 +476,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -534,37 +536,36 @@
                   
 
 
-  <h1>🗸 ADR-19. Taxonomies. Organization Types</h1>
-
+<h1 id="adr-31-logging-with-logfire">🗸 ADR-31. Logging with Logfire</h1>
 <h2 id="context">Context</h2>
-<p><code>Organization</code> is one of the major entities of the project. The initial way of clustering the organizations on record was implemented with the <code>organization_type</code> table, which included 33 types derived from available data. This, of course, soon proved to be suboptimal, as it wasn't properly reflecting the actual situation.</p>
+<p>Historically, logging application events and sharing them among the team members has been a challenge. Logfire, which is created and maintained by the team behind Pydantic, makes this whole ordeal a breeze.</p>
 <h2 id="decision">Decision</h2>
-<p>It was decided to create a proper taxonomy following the closure pattern, for which purpose tables <code>org_taxonomy</code> and <code>orgs_taxonomy_closure</code> were created in <code>enums</code> schema.</p>
-<p>The new taxonomy is based on the ISIC Rev. 4 (<a href="https://ilostat.ilo.org/resources/concepts-and-definitions/classification-economic-activities/">International Standard Industrial Classification of All Economic Activities</a>), with economic activities converted into organization types, and some important missing ones added, - such as <code>criminal</code> or <code>military</code> organizations. Overall, 297 types are identified as of October 10, 2023.</p>
-<p>The overall structure is hierarchical with following nuances:</p>
+<p>Logfire allows for very versatile setup. Normally, a standalone application would require a dedicated <code>project</code> in Logfire, but in certain cases multiple applications can write to the same project.</p>
+<ol>
+<li>Create new project via Logfire web UI</li>
+<li>Go to Settings and generate a new <code>write token</code>. </li>
+<li>Save the token as <code>LOGFIRE_TOKEN</code> in the corresponding Infisical project (should already be created by then).</li>
+</ol>
+<p>Optionally, alerts can be configured in the corresponding section of the Logfire project.</p>
+<p>In Python code logs are recorded via the <code>logfire</code> library, which, in its basic functions, serves as an almost complete drop-in replacement for Python's standard logging -- just replace <code>logging.info</code> with <code>logfire.info</code> etc, and you're good to go. The only exception here is <code>warning</code> which is shortened to <code>warn</code> with Logfire.</p>
+<p>In addition, Logfire offers a number of additional features:</p>
 <ul>
-<li>Top-level types are as abstract as possible. The <code>term</code> includes word <code>organizations</code>, for example, <code>Advertising and market research organizations</code> or <code>Delivery organizations</code>.</li>
-<li>Type's place in the hierarchy is reflected in the length of the code, adding 2 characters per level. In effect, top-level concepts have the shortest codes ( <code>A1</code>, <code>D5</code>, etc), where the letter comes from the type's name, and digit is a consequtive number of top-level types for that letter. Subsequent levels are coded with digits only.</li>
-<li><em>This implies a restriction on the number of top-level types that could be added - no more than 9 per letter. Admittedly, this is quite a lot (top-level types are hard to miss, and max we have currently is <code>S7</code>, with the other letter being significantly less occupied), but this is still a drawback.</em></li>
-<li>There is a special top-level catch-all category, <code>Other organizations</code> with code <code>O0</code> and no subtypes.</li>
-<li>Every level starting with 2nd may optionally have an <code>Other</code> category, which should be indicated with <code>00</code> level code. For example, <code>Criminal organizations</code> type has code <code>C2</code> with a number of subtypes ( <code>Gangs</code> is <code>C201</code>, etc.) and a dedicated catch-all type <code>Other criminal organizations</code> with code <code>C200</code>.</li>
-<li>Initial placement of types/subtypes is largely alphabetical, but the new ones should be added strictly at the end of a relevant category with no regard for the alphabet.</li>
-<li>Codes can be used to figure out the relationships between types, but <code>closure</code> table provides a better way of doing it. Consult DVE-A-78 for information on how to work with closure tables.</li>
+<li>you can organize logs into <code>spans</code> (custom groups) for better visibility;</li>
+<li>you can configure the app to write into different environments;</li>
+<li>you can scrub sensitive information;</li>
+<li>you can track system metrics, or create custom metrics;</li>
+<li>you can <code>instrument</code> various integrations, like <code>requests</code>, <code>httpx</code>, <code>sqlalchem</code> etc. (should be installed explicitly)</li>
 </ul>
-<p>New types should not be added into the <code>taxonomy</code> table manually, because closure relationships won't be registered then. Use script <code>orgs_taxonomy_append</code> in the <code>taxo</code> module of <code>wapatools</code> repo to do it properly.</p>
 <h2 id="status">Status</h2>
-<p>Accepted</p>
+<p>At the moment, Logfire only supports Python applications, but it is based on OpenTelemetry, which means it can be, with some tweaks, enabled for JavaScript applications, too.</p>
 <h2 id="consequences">Consequences</h2>
-<p>The described approach provides a better way of handling different kinds of organizations than the previous one, but it's far from perfect. This should be revisited in the future, preferrably with a team of people.</p>
+<p>Very neat, informative and accessible logs.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

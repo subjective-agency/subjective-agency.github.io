@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#service" class="md-skip">
+        <a href="#additional-schemas" class="md-skip">
           Skip to content
         </a>
       
@@ -476,6 +476,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -517,9 +519,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Using Tables in Alternative Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#moving-table-to-another-schema" class="md-nav__link">
     <span class="md-ellipsis">
       Moving table to another schema
@@ -527,13 +530,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-with-and-without-schema-indication" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#querying-data-in-other-schemas" class="md-nav__link">
     <span class="md-ellipsis">
-      Connecting with and without schema indication
+      Querying data in other schemas
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -552,33 +560,32 @@
                   
 
 
-  <h1>Additional Schemas</h1>
-
-<p>All the tables actively used in the project belong to the <code>public</code> schema. To support storage of additional data that might be useful in the future for the current project, or a related one, two additional schemas were created: <code>future</code> and <code>service</code>.</p>
-<h2 id="service">Service</h2>
-<p><code>service</code> schema is meant to contain additional data that is not explicitly related to the project but is required for some related purpose. Contains following tables:</p>
+<h1 id="additional-schemas">Additional Schemas</h1>
+<p>All the tables actively used in the project belong to the <code>public</code> schema. To support storage of additional data that might be useful in the future for the current project, or a related one, a number of additional schemas were created: </p>
 <ul>
-<li><code>first_name_trans_conventions</code>
-  Technical table, listing conventions for translating Russian/Ukrainian names into English. This is to avoid having 'Maksim' and 'Maxim' as this could lead to duplicates.</li>
-<li><code>prabyss</code>. Used in the DVE-A-40.</li>
+<li><code>future</code> </li>
+<li><code>service</code></li>
+<li><code>data</code></li>
+<li><code>enums</code></li>
+<li><code>auth</code></li>
+<li><code>inferred</code></li>
+</ul>
+<h2 id="service">Service</h2>
+<p><code>service</code> schema is meant to contain additional data that is not explicitly related to the project but is required for some related purpose. Notable tables include:</p>
+<ul>
+<li><code>prabyss</code>. </li>
+<li>TBD</li>
 </ul>
 <h2 id="future">Future</h2>
 <p><code>future</code> schema contains a number of tables that may become a part of the current project in the future, or may span out a separate project. As of the time of creation, the following tables were attributed to the <code>future</code> schema:</p>
 <ul>
 <li><code>meduza_dow_stream</code> 
   Contains parsed messages of the Meduza daily text streams on the ongoing events. <em>Parsed</em> here means that empty/technical messages are filtered out, and the data format is standardized, but the content is not verified for relevance. Most recently updated on May 2, 2023, with data up to May 1, 2023.</li>
-<li>Tables related to Ukraine's geography:
-  This cluster of tables contains all Ukraine's administrative units as per the 2019 administrative reform. Most of the data is taken from <a href="https://zakon.rada.gov.ua/rada/show/v0290914-20#Text">https://zakon.rada.gov.ua/rada/show/v0290914-20#Text</a> (the most recent version of the list dated December 16, 2021). Whenever possible locations were matched against the Nova Poshta database (it uses the old administrative system and doesn't have the occupied localities), from which lat, lon, indexes and russian versions of names were taken. Approximately 2/3 of all localities (~19K/29K) were resolved.</li>
-<li><code>ua_regions</code> Regions, plus Crimea, Kyiv and Sevastopol.</li>
-<li><code>ua_regions_districts</code> Districts make up regions.</li>
-<li><code>ua_district_hromadas</code> Territorial units (громади) make up regional districts.</li>
-<li><code>ua_localities</code> Localities are cities, villages, etc.</li>
-<li><code>ua_localities_districts</code> Some localities are further divided into districts.</li>
-<li><code>ua_locality_types</code> table contains types of localities, which is used in <code>ua_localities</code> table.</li>
 <li><code>modrf_briefings</code>
-  <span style="background-color:mistyrose;">outdated</span> Data on the MOD RF briefings has been collected from various sources, including Telegram, VK and YouTube. Some of the data is cleaned and JSONified, but only to a certain point.</li>
+  <mark>outdated</mark> Data on the MOD RF briefings has been collected from various sources, including Telegram, VK and YouTube. Some of the data is cleaned and JSONified, but only to a certain point.</li>
 <li><code>tryvoga_alerts</code>
-  <span style="background-color:mistyrose;">outdated</span> Data on the air-raid alerts in localities of Ukraine. Obtained by parsing Telegram channel.</li>
+  <mark>outdated</mark> Data on the air-raid alerts in localities of Ukraine. Obtained by parsing Telegram channel.</li>
+<li>TBD</li>
 </ul>
 <h2 id="data">Data</h2>
 <p><code>data</code> schema contains data-heavy entities, namely:</p>
@@ -587,6 +594,7 @@
 <li><code>telegram_channels_stats</code></li>
 <li><code>printed_content</code>. Related to <code>printed</code> in <code>public</code> schema. Contains chapters of books, articles, blog posts.</li>
 <li><code>transcripts</code> &amp; <code>transcribed_content</code>. Table <code>transcripts</code> contains basic info on the transcribing jobs completed by <code>transfactory</code> (related to various tables in <code>public</code> such as <code>smotrim_episodes</code>). Table <code>transcribed_content</code> contains lines from the resulting <code>srt</code> files processed into convenient format (related to <code>transcripts</code>)</li>
+<li>TBD</li>
 </ul>
 <h2 id="using-tables-in-alternative-schemas">Using Tables in Alternative Schemas</h2>
 <p>To allow using an additional schema called <code>schemaname</code>, the following steps must be complete:</p>
@@ -595,34 +603,18 @@
 <p>Create schema <code>schemaname</code>;</p>
 </li>
 <li>
-<p>Add <code>schemaname</code> to <code>Exposed schemas</code> and <code>Extra search paths</code> fields in <code>Settings</code> → <code>API</code> (dashboard);</p>
-</li>
-<li>
 <p>Run these 2 queries:</p>
 </li>
 </ol>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">,</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">schemaname</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">postgres</span><span class="p">,</span><span class="w"> </span><span class="n">authenticated</span><span class="p">,</span><span class="w"> </span><span class="n">service_role</span><span class="p">,</span><span class="w"> </span><span class="n">dashboard_user</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">USAGE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">schemaname</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">postgres</span><span class="p">,</span><span class="w"> </span><span class="n">authenticated</span><span class="p">,</span><span class="w"> </span><span class="n">service_role</span><span class="p">,</span><span class="w"> </span><span class="n">dashboard_user</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">,</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">schemaname</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="n">db_role</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">USAGE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">schemaname</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="n">db_role</span><span class="o">&gt;</span><span class="p">;</span>
 </span></code></pre></div>
-<p>When these are done, <code>schemaname</code> can be used in the following manner.</p>
-<h2 id="moving-table-to-another-schema">Moving table to another schema</h2>
+<p>where <code>&lt;db_role&gt;</code> is the name of the database user you wish to enable the usage for.</p>
+<h3 id="moving-table-to-another-schema">Moving table to another schema</h3>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tablename</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="n">schemaname</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="connecting-with-and-without-schema-indication">Connecting with and without schema indication</h2>
-<p>This is a regular connection function, which will use <code>public</code> schema by default.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>def connect_supabase(url = os.getenv(&quot;SUPABASE_URL&quot;), key = os.getenv(&quot;SUPABASE_KEY&quot;)):
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    return supabase.create_client(url, key, options)
-</span></code></pre></div>
-<p>This is a version of the same function with an additional argument <code>schema</code> that defaults to <code>public</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>def connect_supabase(url = os.getenv(&quot;SUPABASE_URL&quot;), key = os.getenv(&quot;SUPABASE_KEY&quot;), schema = &quot;public&quot;):
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    from supabase.lib.client_options import ClientOptions
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    options = ClientOptions()
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    options.schema = schema
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    return supabase.create_client(url, key, options)
-</span></code></pre></div>
-<p>Use it like so (given that credentials exist as environment variables):</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">connect</span> <span class="o">=</span> <span class="n">connect_supabase</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="s2">&quot;schemaname&quot;</span><span class="p">)</span>
-</span></code></pre></div>
+<h3 id="querying-data-in-other-schemas">Querying data in other schemas</h3>
+<p>TBD</p>
 
 
 

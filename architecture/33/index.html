@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-33-private-docker-registry" class="md-skip">
           Skip to content
         </a>
       
@@ -479,6 +479,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See Also
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -492,15 +551,17 @@
                   
 
 
-<h1 id="context">Context</h1>
+<h1 id="adr-33-private-docker-registry">🗸 ADR-33. Private Docker Registry</h1>
+<h2 id="context">Context</h2>
 <p>It is more than possible to use DockerHub for exchanging Docker images, but it doesn't feel secure, since the data can be, in theory, available to random people, even if the repo is private. On the other hand, setting up private registry is as simple as running a regular docker <code>compose</code> application. </p>
-<h1 id="decision">Decision</h1>
+<h2 id="decision">Decision</h2>
 <ul>
-<li>Registry was set up on the <mark>Horsey</mark> server at port 50000, and secured behind HTTPS at <code>registry.subjective.agency</code>. </li>
+<li>Registry was set up on the Horsey server at port 50000, and secured behind HTTPS at <code>registry.subjective.agency</code>. </li>
 </ul>
-<p>:::info
-Without a dedicated domain for the registry, one would have to add its address to <code>insecure-registries</code> key in <code>/etc/docker/daemon.json</code>, but because the registry is accessible via https, there is no need.
-:::</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Without a dedicated domain for the registry, one would have to add its address to <code>insecure-registries</code> key in <code>/etc/docker/daemon.json</code>, but because the registry is accessible via https, there is no need.</p>
+</div>
 <ul>
 <li>Registry was set up as a system service, with the service file at <code>/etc/systemd/system/docker-registry.service</code>.</li>
 <li>Data directory is <code>/mnt/docker/registry</code>
@@ -513,11 +574,11 @@ Without a dedicated domain for the registry, one would have to add its address t
 </ul>
 <h3 id="see-also">See Also</h3>
 <ul>
-<li><a href="https://docs.subjective.agency/iMkbRlcATaeGRStT50Z0kQ">Private Docker Registry Auth</a></li>
+<li><a href="../../infra/private_docker_registry_auth/">Private Docker Registry Auth</a></li>
 </ul>
-<h1 id="status">Status</h1>
-<p><mark>Active</mark></p>
-<h1 id="consequences">Consequences</h1>
+<h2 id="status">Status</h2>
+<p>Currently (Nov 27, 2024) only smaller images can be stored in the registry; larger ones fail to push with <code>Cloudflare entity too large</code> exception, which is why private repository on Docker Hub is used for those. This issue should be fixed at some point.</p>
+<h2 id="consequences">Consequences</h2>
 <p>Only a few minor things need to change when using private registry; namely, you need to indicate the domain when pushing and pulling; and you need to authorize with the repository in order to work with it.</p>
 
 
