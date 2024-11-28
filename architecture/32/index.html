@@ -9,22 +9,18 @@
       
       
       
-        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../architecture/">
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
-        <title>Applications - Wapaganda Project Docs</title>
+        <title>ADR-32 Database Backup with PgBackRest - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -43,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#application-registry" class="md-skip">
+        <a href="#adr-32-database-backup-with-pgbackrest" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Applications
+              ADR-32 Database Backup with PgBackRest
             
           </span>
         </div>
@@ -172,7 +168,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -187,11 +183,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../apps/" class="md-tabs__link">
         
   
     
@@ -208,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../architecture/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -225,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -244,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -279,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -297,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,30 +308,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Applications
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -346,44 +320,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure-of-an-applicaiton-registry-record-arr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Structure of an Applicaiton Registry Record (ARR)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applications
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -395,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -415,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -550,18 +486,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure-of-an-applicaiton-registry-record-arr" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
-      Structure of an Applicaiton Registry Record (ARR)
+      Context
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applications" class="md-nav__link">
+  <a href="#decision" class="md-nav__link">
     <span class="md-ellipsis">
-      Applications
+      Decision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
     </span>
   </a>
   
@@ -582,54 +536,12 @@
                   
 
 
-<h1 id="application-registry">Application Registry</h1>
-<div class="admonition info">
-<p class="admonition-title"> </p>
-<p>This is a comprehensive list of internal applications used in the Wapaganda project</p>
-</div>
-<h2 id="structure-of-an-applicaiton-registry-record-arr">Structure of an Applicaiton Registry Record (ARR)</h2>
-<div class="admonition info">
-<p class="admonition-title"> </p>
-<p>Application Registry concept (and, correspondingly, ARRs) are inspired by Architecture Decision Records (ADRs)</p>
-</div>
-<p>Application Registry Record is a document that describes an application that constitutes a part of a larger project. Each such document must contain 4 sections:</p>
-<ol>
-<li><strong>General</strong>
-    In this section, describe general purpose and point of the application. This is a place to share broader context if necessary.</li>
-<li><strong>Code</strong>
-    In this section, describe relevant repositories/modules, any nuances related to the code implementation.</li>
-<li><strong>Entities</strong>
-    In this section, describe what entities are involved, and how they are connected.</li>
-<li><strong>Flow Diagram</strong>
-    In this section, put flow diagram that describes how the application works. It could be an image, but recommended approach is Mermaid, where either <code>flow</code> or <code>block</code> diagram types could be used. (Note that <code>block</code> type is in beta, and isn't supported on some platforms)</li>
-<li><strong>History</strong>
-    This optional section is reserved for any notes that make sense in context but aren't necessarily relevant anymore.</li>
-</ol>
-<h2 id="applications">Applications</h2>
-<ul>
-<li><a href="1/">ARR-1: Ave Media</a></li>
-<li><a href="2/">ARR-2: Periodicals</a></li>
-<li><a href="3/">ARR-3: Transfactory</a></li>
-<li><a href="4/">ARR-4: Tgram</a></li>
-<li><a href="14/">ARR-14: Web</a><ul>
-<li>Database Search was, at some point, a separate application.</li>
-</ul>
-</li>
-<li><a href="5/">ARR-5: SyncManager</a><ul>
-<li><a href="7/">ARR-7: Relevance service</a></li>
-<li><a href="6/">ARR-6: Queue service</a></li>
-<li><a href="8/">ARR-8: Smart Adder</a></li>
-<li><a href="9/">ARR-9: TheorySync</a></li>
-<li><a href="apps.10.md">ARR-10: Voiceprint Saver</a></li>
-<li>ad hoc</li>
-</ul>
-</li>
-<li><a href="11/">ARR-11: Transsuply &amp; Transsuply2</a></li>
-<li><a href="12/">ARR-12: Cooperation</a></li>
-<li><a href="13/">ARR-13: EntryBot</a></li>
-<li><a href="15/">ARR-15: Internal Review</a></li>
-<li><a href="16/">ARR-16: Voice Collection</a></li>
-</ul>
+<h1 id="adr-32-database-backup-with-pgbackrest">ADR-32 Database Backup with PgBackRest</h1>
+<h2 id="context">Context</h2>
+<h2 id="decision">Decision</h2>
+<h2 id="status">Status</h2>
+<p>Active.</p>
+<h2 id="consequences">Consequences</h2>
 
 
 
@@ -661,44 +573,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Home
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: ADRs">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                ADRs
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -722,10 +596,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

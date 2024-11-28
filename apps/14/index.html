@@ -9,22 +9,18 @@
       
       
       
-        <link rel="prev" href="../apps/">
       
       
-        <link rel="next" href="../infra/">
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
-        <title>Architecture Decision Records - Wapaganda Project Docs</title>
+        <title>ARR-14 Web - Wapaganda Project Docs</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -43,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#architecture-decision-records" class="md-skip">
+        <a href="#arr-14-web" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-header__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture Decision Records
+              ARR-14 Web
             
           </span>
         </div>
@@ -172,7 +168,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -189,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../apps/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -204,11 +200,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
         
   
     
@@ -225,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../infra/" class="md-tabs__link">
+      <a href="../../infra/" class="md-tabs__link">
         
   
     
@@ -244,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../db/" class="md-tabs__link">
+        <a href="../../db/" class="md-tabs__link">
           
   
     
@@ -279,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
+    <a href="../.." title="Wapaganda Project Docs" class="md-nav__button md-logo" aria-label="Wapaganda Project Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -297,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -317,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apps/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -334,30 +328,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ADRs
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,71 +340,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about-adrs" class="md-nav__link">
-    <span class="md-ellipsis">
-      About ADRs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#legend" class="md-nav__link">
-    <span class="md-ellipsis">
-      Legend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accepted-active-adrs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Accepted &amp; Active ADRs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-progress-under-revision-planned" class="md-nav__link">
-    <span class="md-ellipsis">
-      In Progress | Under Revision | Planned
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#abandoned-rejected-deprecated" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abandoned | Rejected | Deprecated
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -442,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../infra/" class="md-nav__link">
+      <a href="../../infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -508,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/new_table_checklist/" class="md-nav__link">
+      <a href="../../db/new_table_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -577,45 +486,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-adrs" class="md-nav__link">
+  <a href="#general" class="md-nav__link">
     <span class="md-ellipsis">
-      About ADRs
+      General
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#legend" class="md-nav__link">
+  <a href="#code" class="md-nav__link">
     <span class="md-ellipsis">
-      Legend
+      Code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#accepted-active-adrs" class="md-nav__link">
+  <a href="#entities" class="md-nav__link">
     <span class="md-ellipsis">
-      Accepted &amp; Active ADRs
+      Entities
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#in-progress-under-revision-planned" class="md-nav__link">
+  <a href="#flow-diagram" class="md-nav__link">
     <span class="md-ellipsis">
-      In Progress | Under Revision | Planned
+      Flow Diagram
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#abandoned-rejected-deprecated" class="md-nav__link">
+  <a href="#history" class="md-nav__link">
     <span class="md-ellipsis">
-      Abandoned | Rejected | Deprecated
+      History
     </span>
   </a>
   
@@ -636,111 +545,18 @@
                   
 
 
-<h1 id="architecture-decision-records">Architecture Decision Records</h1>
-<h2 id="about-adrs">About ADRs</h2>
-<p><strong>Architecture Decision Record</strong> is a document that describes a particular decision or solution related to the fundamental functionality of the product. Each such document must contain 4 sections:</p>
-<ol>
-<li>
-<p><strong>Context</strong>
-   In this section, describe the relevant circumstances, be they of technical or general nature, to answer the question why the change is/was necessary.</p>
-</li>
-<li>
-<p><strong>Decision</strong>
-   In this section, describe what was implemented, and how. Be as specific as possible: this should be a comprehensive statement of a technical solution.</p>
-</li>
-<li>
-<p><strong>Status</strong>
-   This should be just a single word or expression indicating current status of the document. Possible values: <code>accepted</code>, <code>in discussion</code>, <code>succeeded by</code>.</p>
-</li>
-<li>
-<p><strong>Consequences</strong>
-   In this section, describe briefly expected or actualized consequences of the decision. Negative consequences should be described in detail; if there are no negative ones, this should be mentioned.</p>
-</li>
-</ol>
-<p>Aside from this 4-section structure, the shape of the information remains up to the author.</p>
-<h2 id="legend">Legend</h2>
-<p>These symbols should be used in the title of an ADR document as a quick indication of its status.</p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>∞</td>
-<td>Cooking (in progress, in discussion)</td>
-</tr>
-<tr>
-<td>🗶≽</td>
-<td>Deprecated in favor of other ADR</td>
-</tr>
-<tr>
-<td>🗶</td>
-<td>Deprecated</td>
-</tr>
-<tr>
-<td>🗸</td>
-<td>Accepted (active)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="accepted-active-adrs">Accepted &amp; Active ADRs</h2>
-<ol>
-<li><a href="27/">ADR-27</a> describes current structure of the project.</li>
-<li><a href="25/">ADR-25</a> describes Infisical-based secrets management within the project.</li>
-<li><a href="10/">ADR-10</a> describes the standard of personal images handling.</li>
-<li><a href="17/">ADR-17</a> describes nuances of the ISCO-08 adoption.</li>
-<li><a href="19/">ADR-19</a> describes nuances of a classification approach to organizations.</li>
-<li><a href="21/">ADR-21</a> describes automatic provenance mechanism.</li>
-<li><a href="22/">ADR-22</a> describes implementation of the custom database type.</li>
-<li><a href="23/">ADR-23</a> describes general approach to maintaining the project in 3 languages.</li>
-<li><a href="18/">ADR-18</a> describes JavaScript coding standards.</li>
-<li><a href="30/">ADR-30</a> describes approach and implementation of the website's <code>Theory</code> section.</li>
-<li><a href="24/">ADR-24</a> addresses nuances of subprojects' dockerization in <code>polylith</code> architecture.</li>
-<li><a href="31/">ADR-31</a> describes centralized logging with Logfire.</li>
-<li><a href="33/">ADR-33</a> describes nuances of the private Docker repository setup.</li>
-</ol>
-<h2 id="in-progress-under-revision-planned">In Progress | Under Revision | Planned</h2>
-<ol>
-<li><a href="20/">ADR-20</a> describes technical details of the Ruskymir Creed implementation.</li>
-<li><a href="7/">ADR-7</a> would describe detailed view for an instance of a media episode.</li>
-<li><a href="8/">ADR-8</a> would describe the mechanism of automatic mark-up of transcribed texts.</li>
-<li><a href="13/">ADR-13</a> would describe theory and reasoning for the general approach to media segments.</li>
-<li><a href="14/">ADR-14</a> describes approach to handling printed data, such as books and articles.</li>
-<li><a href="29/">ADR-29</a> would accumulate nuances related to non-DB data storage.</li>
-<li><a href="32/">ADR-32</a> would describe the set up and process for backing up the database with <code>pgbackrest</code>.</li>
-</ol>
-<h2 id="abandoned-rejected-deprecated">Abandoned | Rejected | Deprecated</h2>
-<ol>
-<li><a href="28/">ADR-28</a> describes the previous approach to backing up database, one based on JSON structured export.</li>
-<li><a href="1/">ADR-1</a> describes the original set up of the project. Superseded with <strong>ADR-12</strong>.</li>
-<li><a href="12/">ADR-12</a> describes 2nd stage in the project's evolution. Superseded with <strong>ADR-27</strong>.</li>
-<li><a href="5/">ADR-5</a> Deprecated due to removal of MongoDB from the stack.</li>
-<li><a href="11/">ADR-11</a> was about database summary stats. Rejected because not ADR material (moved elsewhere).</li>
-<li><a href="15/">ADR-15</a> was an attempt to collect common terms. Rejected because not ADR material (moved elsewhere).</li>
-<li><a href="2/">ADR-2</a> Used to describe how secrets are managed with the use of Doppler. Superseded with <strong>ADR-25</strong>.</li>
-<li><a href="6/">ADR-6</a> aimed to describe approach to transcripts, but got outdated before it was finished. Superseded with <strong>ADR-26</strong>.</li>
-<li><a href="3/">ADR-3</a> attempted to impose a desired git flow on the project. Rejected.</li>
-<li><a href="9/">ADR-9</a> aimed to describe localization approach, but got outdated before it was finished. Superseded with <strong>ADR-23</strong>.</li>
-<li><a href="4/">ADR-4</a> describes the web project's Django-based REST API. This was deprecated in favor of the new FastAPI-based backend.</li>
-<li><a href="16/">ADR-16</a> would've described the point and approach behind the public <code>Theory</code> section, but got outdated before it was finished. Superseded with <strong>ADR-30</strong>.</li>
-<li>ADR-26 was dedicated to <strong>Transfactory</strong> application before Application registry was introduced.</li>
-<li>ADR-36 was dedicated to <strong>Periodicals</strong> application before Application registry was introduced.</li>
-<li>ADR-37 was dedicated to <strong>Tgram</strong> application before Application registry was introduced.</li>
-<li>ADR-38 was dedicated to <strong>Ave Media</strong> application before Application registry was introduced.</li>
-</ol>
+<h1 id="arr-14-web">ARR-14 Web</h1>
+<h2 id="general">General</h2>
+<h2 id="code">Code</h2>
+<h2 id="entities">Entities</h2>
+<h2 id="flow-diagram">Flow Diagram</h2>
+<h2 id="history">History</h2>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -766,44 +582,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../apps/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Applications">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Applications
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../infra/" class="md-footer__link md-footer__link--next" aria-label="Next: Infrastructure">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Infrastructure
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -827,10 +605,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
