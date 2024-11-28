@@ -539,11 +539,26 @@
 <h1 id="arr-3-transfactory">ARR-3: Transfactory</h1>
 <h2 id="general">General</h2>
 <p>Transfactory is an app that transforms massive amounts of video/audio files into text using OpenAI's Whisper. It operates in conjunction with Transsuply around a special database table which serves as a queue: the supply app adds new jobs to it for the factory to pick up.</p>
-<p>The necessity for update is due to change in the principal alogrithm: where the old one used official Whisper model with no optimization, the new one uses WhisperX, a highly optimized version that offers a significant increase in processing speed, as well as improved output.</p>
+<p>The necessity for update is due to change in the principal algorithm: where the old one used official Whisper model with no optimization, the new one uses WhisperX, a highly optimized version that offers a significant increase in processing speed, as well as improved output.</p>
+<p>See also <a href="../11/">Transsuply docs</a>.</p>
 <h2 id="code">Code</h2>
-<p>TBD</p>
+<ul>
+<li><code>bases/w/database</code></li>
+<li><code>bases/w/storage</code></li>
+<li><code>bases/w/config</code></li>
+<li><code>bases/w/transfactory_common</code></li>
+<li><code>components/w/trans_fast_factory</code></li>
+</ul>
 <h2 id="entities">Entities</h2>
-<p>TBD</p>
+<ul>
+<li><code>Transcript</code> mirrors <code>data.transcripts</code> DB table</li>
+<li><code>TranscribedLine</code> mirrors <code>data.transcribed_content2</code> DB table</li>
+<li><code>TransfactoryAnomaly</code> mirrors <code>service.transfactory_anomalies</code> table</li>
+<li><code>Prabyss</code> mirrors <code>service.prabyss</code> DB table</li>
+<li><code>FactoryJob</code> mirrors <code>service.factory_jobs_run_details</code> DB table</li>
+<li><code>TransfactoryNode</code> mirrors <code>enums.transfactory_nodes</code> DB table</li>
+<li><code>VoiceprintTemp</code> mirrors <code>service.voiceprint_temp</code> DB table</li>
+</ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
 <pre class="mermaid"><code>flowchart TB
     classDef exit_red fill:#cd0d3b

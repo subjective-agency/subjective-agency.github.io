@@ -16,7 +16,7 @@
     
     
       
-        <title>ARR-4: Tgram - Wapaganda Project Docs</title>
+        <title>ARR-9 SyncManager ::: Theory Sync - Wapaganda Project Docs</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arr-4-tgram" class="md-skip">
+        <a href="#arr-9-syncmanager-theory-sync" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ARR-4: Tgram
+              ARR-9 SyncManager ::: Theory Sync
             
           </span>
         </div>
@@ -492,39 +492,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="General">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#resolving-empty-channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resolving empty channels
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scanning-for-updates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scanning for updates
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#known-issues-and-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Known issues and limitations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -554,6 +521,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      History
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -569,111 +545,18 @@
                   
 
 
-<h1 id="arr-4-tgram">ARR-4: Tgram</h1>
+<h1 id="arr-9-syncmanager-theory-sync">ARR-9 SyncManager ::: Theory Sync</h1>
 <h2 id="general">General</h2>
-<p><strong>Tgram</strong> application periodically scans a collection of Telegram channels for updates and persists them to the database. Secondary function of the application is resolution of new channels.</p>
-<h3 id="resolving-empty-channels">Resolving empty channels</h3>
-<p>Normally, new channels are added to the database with just <code>handle</code> attribute, and therefore require fetching additional data from TelegramAPI and Telemetr.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Telemetr is a platform that collects Telegram channels' statistics. Their API allows for a limited number of requests over a month (1000), which is more than sufficient for resolution, but not enough for consistent data collection.</p>
-</div>
-<p>The process of channel resolution first queries Telegram API for channel's details, and also collects channel's first published message (which is usually a technical message about channel creation). Then Telemetr API is queried; the data is combined into a db object and persisted <em>with a quirk</em>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <em>quirk</em> has to do with Telemetr IDs and inconsistencies in how they are stored in the db. This is mainly a historical artifact that would be fully deprecated in one of future versions. It doesn't effect the flow. See the <code>fetch</code> part of the flow diagram below.</p>
-</div>
-<h3 id="scanning-for-updates">Scanning for updates</h3>
-<p>Scanning process get the least updated channel from the db, and fetches 200 messages using Telegram API counting from the max known message id for this channel. Then messages are filtered, converted and persisted; channel parameters are updated correspondingly.</p>
-<h3 id="known-issues-and-limitations">Known issues and limitations</h3>
-<p>Telegram imposes limits on the API usage, which are dynamic and not strictly predictable. In practice, you get a <code>FLOODWAIT</code> exception after making a certain number of requests over a certain period of time. The exception would contain the amount of seconds you need to wait before making another request - this can be used to put the application to sleep until then.</p>
 <h2 id="code">Code</h2>
-<ul>
-<li><code>bases/w/database</code></li>
-<li><code>bases/w/telegram</code></li>
-<li><code>bases/w/config</code></li>
-<li><code>components/w/telegram_scanner</code></li>
-</ul>
 <h2 id="entities">Entities</h2>
-<ul>
-<li><code>TgMessage</code> model mirrors <code>data.telegram_messages</code> DB table.</li>
-<li><code>TelegramChannel</code> model mirrors <code>public.telegram_channels</code> DB table.</li>
-</ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
-<pre class="mermaid"><code>flowchart TD
-    subgraph floodwait [FLOODWAIT]
-        flood0(Elevate FloodWait exception)
-        flood1(Set 'endpoint_disabled' to TRUE)
-        flood2(Read number of seconds from the exception meta)
-        flood3(Run 're_enable_endpoint_after_delay')
-        enable_endpoints(Set 'endpoint_disabled' to FALSE)
-        wait(Wait amount of time required by Telegram API)
-        flood0 --&gt; flood1 --&gt; flood2 --&gt; flood3 --&gt; wait --&gt; enable_endpoints
-    end
-    subgraph init [Initialize service]
-    direction LR
-        step21(Create Pyrogram client)
-        step22(Create database client)
-        step23(Start the Telegram service)
-        step21 --- step22 --- step23
-    end
-    subgraph process [ ]
-        step31(Fetch most outdated channel from DB)
-        step32(Read ID of the latest channel message, or set to 1)
-        step33(Define range of messages IDs to fetch)
-        step34(Use Telegram API to fetch the messages)
-        step35(Filter out messages with 'empty' = True)
-        step36(Parse the messages into db objects)
-        step37(Save the orig ID of the most recent of the new messages)
-
-        step31 --&gt; step32 --&gt; step33 --&gt; step34 --&gt; step35 --&gt; step36 --&gt; step37
-    end
-    subgraph resolve [ ]
-        step41(Fetch unresolved channel from DB)
-        step42(Fetch channel data from Telegram API)
-        step43(Fetch channel's 1st message from Telegram API)
-        step44(Query Telemetr for channel data)
-        step45(Create instance of TgChannelResolve)
-        step46(Set status DEFUNCT on all channels with this TelemetrID)
-        step47(Update record with this handle and status ACTIVE with data collected)
-        subgraph fetch_channel_data [ ]
-            step42 --- step43 --- step44
-        end
-        step41 --&gt; fetch_channel_data --&gt; step45 --&gt; step46 --&gt; step47
-    end
-    subgraph persist [ ]
-        persist1(Persist the messages)
-        persist2(Update channel with 'last_scanned_on' and 'last_known_msg_id')
-        persist1 --- persist2
-    end
-
-trigger_update(Trigger update endpoint)
-trigger_resolve(Trigger resolve endpoint)
-check_disabled(Read 'endpoint_disabled')
-no_updates(Update channel with 'last_scanned_on')
-mark_dead(Mark channel as dead)
-resolved(Consider channel to be resolved)
-
-trigger_update --&gt; check_disabled -- wait if needed --&gt; init -- Run update --&gt; process
-process -- Updates not found --&gt; no_updates
-process -- Updates found --&gt; persist
-process -- UsernameInvalid\nUsernameNotOccupied --&gt; mark_dead
-process --&gt; floodwait
-
-trigger_resolve --&gt; check_disabled
-init -- Run resolve --&gt; resolve --&gt; resolved
-resolve -- UsernameInvalid\nUsernameNotOccupied --&gt; mark_dead
-resolve --&gt; floodwait
-</code></pre>
+<h2 id="history">History</h2>
 
 
 
 
 
 
-
-  
-  
 
 
 

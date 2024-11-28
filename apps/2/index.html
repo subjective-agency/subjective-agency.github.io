@@ -504,9 +504,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#entities-websites" class="md-nav__link">
+  <a href="#entities" class="md-nav__link">
     <span class="md-ellipsis">
-      Entities -- Websites
+      Entities
     </span>
   </a>
   
@@ -566,9 +566,17 @@
 <p>The application operates over <code>Website</code>s (represented by <code>websites</code> table in the DB), referred to as <code>sources</code> in the application.</p>
 <p>There are 2 major parts to the flow: Fetcher and Scanner. Both are implemented as base classes from which source-specific child classes derive. In this context, adding a new source would mean defining both <code>scanner</code> and <code>fetcher</code> implementations with source-specific details.</p>
 <h2 id="code">Code</h2>
-<p>TBD</p>
-<h2 id="entities-websites">Entities -- Websites</h2>
-<p>TBD</p>
+<ul>
+<li><code>bases/w/webparse</code></li>
+<li><code>bases/w/database</code></li>
+<li><code>bases/w/config</code></li>
+<li><code>components/w/periodicals</code></li>
+</ul>
+<h2 id="entities">Entities</h2>
+<ul>
+<li><code>Webpage</code> mirrors <code>data.text_media</code> DB table;</li>
+<li><code>Website</code> mirrors <code>public.websites</code> DB table</li>
+</ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
 <h3 id="scanner">Scanner</h3>
 <p>Scanner is responsible for collecting new items from 'category' pages. </p>
