@@ -16,7 +16,7 @@
     
     
       
-        <title>ARR-7 SyncManager ::: Relevance Service - Wapaganda Project Docs</title>
+        <title>ARR-7: SyncManager ::: Relevance Service - Wapaganda Project Docs</title>
       
     
     
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ARR-7 SyncManager ::: Relevance Service
+              ARR-7: SyncManager ::: Relevance Service
             
           </span>
         </div>
@@ -545,11 +545,62 @@
                   
 
 
-<h1 id="arr-7-syncmanager-relevance-service">ARR-7 SyncManager ::: Relevance Service</h1>
+<h1 id="arr-7-syncmanager-relevance-service">ARR-7: SyncManager ::: Relevance Service</h1>
 <h2 id="general">General</h2>
+<p>The purpose of the Relevance service is to identify the relevance of an item to the project’s area of research. This is necessary, because alongside media items that are propaganda in nature there are published a tremendous amount of media that are not, and distinguishing between them is not always a trivial task.</p>
+<p>The current implementation leverages the power of AI: the relevance is detected by making calls to OpenAI’s API with a task and a collection of data attributes.</p>
 <h2 id="code">Code</h2>
+<p>In the <code>sync_management</code> base, logic for the service is contained in <code>relevance.py</code>. <a href="https://mirascope.com/learn/">Mirascope</a> library is used for interaction with the AI models.</p>
+<p>The main class is <code>RelevanceService</code>, which does most of the work, but there are several tools defined outside of it:</p>
+<ul>
+<li>The list of <code>relevant_topics</code> against which each particular item’s attributes would be matched;</li>
+<li>Functions <code>classify_article_relevance</code>, <code>classify_episode_relevance</code>, <code>classify_target_relevance</code>: they are very similar, and represent mostly a prompt template.</li>
+<li><code>@with_logfire</code> decorator is a Mirascope feature that allows additional information to be logged to Logfire, including approximate cost of the API call.</li>
+</ul>
 <h2 id="entities">Entities</h2>
+<ul>
+<li><code>Webpage</code> mirrors <code>data.text_media</code> DB table;</li>
+<li><code>MediaEpisode</code> is a parent class for all <code>episode</code>-level models, including <code>YoutubeVid</code>, <code>SmotrimEpisode</code>, <code>RutubeVid</code> etc., each mirroring corresponding table in the DB (all in <code>public</code> schema);</li>
+<li><code>MediaTarget</code> is a parent class for all <code>target</code>-level models, including <code>YoutubeChannel</code>, <code>SmotrimBrand</code>, <code>RutubeChannel</code> etc., each mirroring corresponding table in the DB (all in <code>public</code> schema);</li>
+<li><code>QueueJob</code> mirrors <code>service.queue</code> DB table.</li>
+</ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
+<pre class="mermaid"><code>flowchart TB
+    classDef exit_red fill:#cd0d3b
+    subgraph init [ ]
+        init1(Initialize with DB session and level attr)
+        fetch_job(Fetch new job from the Queue table)
+        exit_if_no_job(Exit)
+        fetch_entity(Fetch entity featured in the queue record)
+        mark_in_progress(Mark queue job with in progress status)
+        init1 --&gt; fetch_job --&gt; fetch_entity --&gt; mark_in_progress
+        fetch_job -- if no job found --&gt; exit_if_no_job:::exit_red
+    end
+    subgraph detect_article [Detect for text article]
+        call_article_rel(Call classify_article_relevance function)
+    end
+    subgraph detect_target [Detect for media targer]
+        call_target_rel(Call classify_target_relevance function)
+    end
+    subgraph detect_episode [Detect for media episode]
+    direction TB
+        detect_from_segment(Attempt to detect relevance&lt;br&gt;from segment)
+        call_ep_rel(Call classify_episode_relevance function)
+        detect_from_segment -- if not detected --&gt; call_ep_rel
+    end
+
+    update_queue_job(Add metadata to the queue job)
+    add_queue_job_to_sess(Add queue job to DB session)
+    set_rel_status(Set relevance status)
+    add_item_to_sess(Add item to DB session)
+    add_job_details(Add AI job details)
+    commit(Commit updates to the DB)
+
+    init --&gt; detect_episode &amp; detect_target &amp; detect_article
+    call_ep_rel &amp; call_article_rel &amp; call_target_rel --&gt; set_rel_status --&gt; add_item_to_sess  --&gt; commit
+    set_rel_status --&gt; update_queue_job --&gt; add_queue_job_to_sess --&gt; commit
+    set_rel_status -- if not from segment --- add_job_details --- add_queue_job_to_sess
+    detect_from_segment --&gt; set_rel_status</code></pre>
 <h2 id="history">History</h2>
 
 

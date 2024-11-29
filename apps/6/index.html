@@ -16,7 +16,7 @@
     
     
       
-        <title>ARR-6 SyncManager ::: Queue Service - Wapaganda Project Docs</title>
+        <title>ARR-6: SyncManager ::: Queue Service - Wapaganda Project Docs</title>
       
     
     
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ARR-6 SyncManager ::: Queue Service
+              ARR-6: SyncManager ::: Queue Service
             
           </span>
         </div>
@@ -545,17 +545,52 @@
                   
 
 
-<h1 id="arr-6-syncmanager-queue-service">ARR-6 SyncManager ::: Queue Service</h1>
+<h1 id="arr-6-syncmanager-queue-service">ARR-6: SyncManager ::: Queue Service</h1>
 <h2 id="general">General</h2>
 <p>Queue service is meant to periodically scan certain DB tables looking for incomplete jobs and schedule them for other services to pick up.</p>
-<p>Queue service supplies following other services:</p>
+<p>Queue service supplies following applications:</p>
 <ul>
-<li>Relevance service. Targets (channels), episodes (videos) and articles are collected to define their relevance.</li>
-<li>Transsuply2. Media episodes are collected to be downloaded for Transfactory.</li>
+<li><a href="../7/">Relevance service</a>. Targets (channels), episodes (videos) and articles are collected to define their relevance.</li>
+<li><a href="../11/">Transsuply2</a>. Media episodes are collected to be downloaded, and then passed over to <a href="../3/">Transfactory</a>.</li>
+<li>Voiceprint Matching service. <mark>still in development</mark></li>
 </ul>
 <h2 id="code">Code</h2>
+<p>In the <code>sync_management</code> base, logic for the service is contained in <code>queue.py</code>.</p>
 <h2 id="entities">Entities</h2>
+<ul>
+<li><code>Webpage</code> mirrors <code>data.text_media</code> DB table;</li>
+<li><code>MediaEpisode</code> is a parent class for all <code>episode</code>-level models, including <code>YoutubeVid</code>, <code>SmotrimEpisode</code>, <code>RutubeVid</code> etc., each mirroring corresponding table in the DB (all in <code>public</code> schema);</li>
+<li><code>MediaTarget</code> is a parent class for all <code>target</code>-level models, including <code>YoutubeChannel</code>, <code>SmotrimBrand</code>, <code>RutubeChannel</code> etc., each mirroring corresponding table in the DB (all in <code>public</code> schema);</li>
+<li><code>VoiceprintTemp</code> mirrors <code>service.voiceprint_temp</code> DB table;</li>
+<li><code>QueueJob</code> mirrors <code>service.queue</code> DB table.</li>
+</ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
+<pre class="mermaid"><code>flowchart TD
+    init(Initialize with a DB session&lt;br&gt;and predefined sets of enabled tables)
+    commit(Commit created objects to the DB)
+    subgraph schedule_download_jobs [Schedule download jobs]
+        collect_download(Collect 100 records from each&lt;br&gt;media episode table enabled for downloading)
+    end
+    subgraph check_and_add [ ]
+        check(Check if record already&lt;br&gt;exists in the `queue` table)
+        create_job(Create new job)
+        check --&gt; create_job
+    end
+    subgraph schedule_episode_relevance_jobs [Schedule episode relevance jobs]
+        collect_ep_relevance(Collect 100 records from each&lt;br&gt;episode table enabled for relevance service)
+    end
+    subgraph schedule_target_relevance_jobs [Schedule target relevance jobs]
+        collect_target_relevance(Collect 100 records from each&lt;br&gt;target table enabled for relevance service)
+    end
+    subgraph schedule_article_relevance_jobs [Schedule article relevance jobs]
+        collect_article_relevance(Collect 100 records from&lt;br&gt;the text_media table)
+    end
+    subgraph schedule_voiceprint_jobs [Schedule voiceprint matching jobs]
+        collect_voicepr(Collect 100 records from&lt;br&gt;voiceprint_temp table)
+    end
+
+    init --&gt; schedule_download_jobs &amp; schedule_episode_relevance_jobs &amp; schedule_target_relevance_jobs &amp; schedule_article_relevance_jobs &amp; schedule_voiceprint_jobs
+    collect_download &amp; collect_ep_relevance &amp; collect_target_relevance &amp; collect_article_relevance &amp; collect_voicepr --&gt; check_and_add --&gt; commit</code></pre>
 <h2 id="history">History</h2>
 
 
