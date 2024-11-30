@@ -16,7 +16,7 @@
     
     
       
-        <title>∞ ADR-13. Media Segments Primer - Wapaganda Project Docs</title>
+        <title>Media Entities - Wapaganda Project Docs</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adr-13-media-segments-primer" class="md-skip">
+        <a href="#media-entities" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ∞ ADR-13. Media Segments Primer
+              Media Entities
             
           </span>
         </div>
@@ -494,51 +494,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
+  <a href="#media-platforms" class="md-nav__link">
     <span class="md-ellipsis">
-      Context
+      Media Platforms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
+  <a href="#media-targets" class="md-nav__link">
     <span class="md-ellipsis">
-      Decision
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Decision">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#relevant-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      Relevant Services
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
-    <span class="md-ellipsis">
-      Status
+      Media Targets
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
+  <a href="#media-episodes" class="md-nav__link">
     <span class="md-ellipsis">
-      Consequences
+      Media Episodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media-segments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Segments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media-episodes-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Episodes Clusters
     </span>
   </a>
   
@@ -559,89 +553,69 @@
                   
 
 
-<h1 id="adr-13-media-segments-primer">∞ ADR-13. Media Segments Primer</h1>
-<p>Parent to <a href="../6/">ADR-6: Transcripts</a>, <a href="../7/">ADR-7: Media Episodes Interface</a>, <a href="../8/">ADR-8: Transcript Mark-Up</a></p>
-<h2 id="context">Context</h2>
-<p>The domain of producing media is extremely versatile, with a number of major platforms available for our users of interest, each of which has its own specific peculiarities and requires a custom approach. Here is a non-exhaustive list of specific challenges:</p>
+<h1 id="media-entities">Media Entities</h1>
+<h2 id="media-platforms">Media Platforms</h2>
+<dl>
+<dt><code>Media Platform</code></dt>
+<dd>
+<p>Media platform is an online service that allows a subset of its users to publish media items such as videos or audios for public access. </p>
+</dd>
+</dl>
+<p>In the database, platforms are represented with <code>enums.media_platforms</code> table.</p>
+<h2 id="media-targets">Media Targets</h2>
+<dl>
+<dt><code>Media target</code></dt>
+<dd>
+<p>Media target, in the context of the system, is a generic term for a platform-dependent account entity, such as <code>channel</code> on YouTube, RuTube etc., or <code>brand</code> on Smotrim.ru. </p>
+</dd>
+</dl>
+<p>In the database, targets are represented with platform-specific tables, such as <code>youtube_channels</code>, <code>smotrim_brands</code> or <code>rutube_channels</code>.</p>
+<p>There are several distinct types of media targets:</p>
 <ul>
-<li>A media episode could be published to arbitrary number of media platforms, and to arbitrary number of targets (channels), and not just by its producer but by anybody;</li>
-<li>A media episode could be published to the same platform any number of times, and with non-matching attributes;</li>
-<li>Apart from the content itself, a media episode may not have any identifying attributes at all;</li>
-<li>A media episode may contain other episodes or fragments thereof;</li>
-<li>While there is a certain pattern to the reposting dynamics, there is a significant element of random there, too;</li>
-<li>Some media segments are not explicitly defined by their producers. Some media segments are tied to the personalities of their producers rather than an organization;</li>
-<li>Not all existing media segments are identified; new media segments should be expected to appear in the future.</li>
+<li><code>simple</code>: this is a target that maps to exactly 1 media segment;</li>
+<li><code>mini-media</code>: this is a target that maps to a sub-selection of media segments, i.e. an episode published in this target may belong to any of them;</li>
+<li><code>platform-mirror</code>: same as <code>mini-media</code> but there is an associated standalone media platform which serves as a source of truth;</li>
+<li><code>repost-dumpster</code>: this is a target that would re-post randomly, without a system with regards to the selection of media episodes, or scheduling;</li>
+<li>...</li>
 </ul>
-<p>These things and others make it difficult to achieve the following:</p>
+<h2 id="media-episodes">Media Episodes</h2>
+<dl>
+<dt><code>Media episode</code></dt>
+<dd>
+<p>Media episode is a specific media item, a video or an audio, published on a media platform, under a media target, for public access. </p>
+</dd>
+</dl>
+<p>In the database, media episodes are collected into platform-specific tables, such as <code>youtube_vids</code>, <code>smotrim_episodes</code>, <code>komso_episodes</code>, or <code>rutube_vids</code>.</p>
+<h2 id="media-segments">Media Segments</h2>
+<p>Platforms, targets and episodes are organized into similarly structured hierarchies. </p>
+<dl>
+<dt><code>Media segment</code></dt>
+<dd>
+<p>Media segment is a distinct series of media episodes that could be published across multiple platforms and targets while retaining sequence within the series. </p>
+</dd>
+</dl>
+<p>Since numerous platforms and targets could be involved, the implementation should provide a layer of abstraction on top of it to allow cross-platform matching. In the database, media segments are collected in <code>media_segments</code> table, and connect to the platform hierarchies on the episode level via <code>segment_id</code> attribute.</p>
+<p>There are several distinct types of media segments:</p>
 <ul>
-<li>Create a comprehensive roster of media segments;</li>
-<li>Create a mechanism for attributing a media episode to a media segment;</li>
-<li>Create a mechanism for matching media episodes to identify cross-platform duplicates/re-posts and join them into media clusters.</li>
+<li><code>named</code> is the most common type, and represents a sequence of episodes produced by a certain team, and intentionally designed to share common attributes.</li>
+<li><code>ephemeral</code> segment is a segment that is not explicitly defined by its producers. This is a tricky one, because parameters that are used for attributing an episode to such segment must be defined by us, and this kind of situation always has a room for error.</li>
+<li>...</li>
 </ul>
-<h2 id="decision">Decision</h2>
-<ul>
-<li>Maintain the open roster of media segments. Update the roster periodically with new segments;</li>
-<li>Maintain mapping of targets to segments. Use this mapping to match episodes to segments (this won’t be relevant for all targets);</li>
-<li>Entities and their relationships. For details, see <a href="../13_addendum1/">here</a>.</li>
-</ul>
-<pre class="mermaid"><code>erDiagram
-    PLATFORM {
-        string URL
-        _target_ targets
-        _episode_ episodes
-    }
-    ORGANIZATION {
-        string name
-        _segment_ segments
-        _target_ targets
-        _people_ employees
-    }
-    TARGET {
-        string URL
-        _episode_ episodes
-    }
-    EPISODE {
-        date aired_on
-        _target_ target
-        _platform_ platform
-        _segment_ segment
-        _cluster_ cluster
-        _fragment_ fragments
-    }
-    CLUSTER
-    SEGMENT {
-        string name
-        _target_ targets
-        _episode_ episodes
-    }
-    FRAGMENT
-
-    ORGANIZATION ||--|{ TARGET : owns
-    ORGANIZATION ||--|{ SEGMENT : owns
-    CLUSTER ||--|{ EPISODE : contains
-    SEGMENT ||--|{ EPISODE : contains
-    PLATFORM ||--|{ TARGET : hosts
-    TARGET }|--|{ EPISODE : publishes
-    TARGET }|--|{ SEGMENT : features
-    EPISODE }|--|{ FRAGMENT : contains</code></pre>
-<h3 id="relevant-services">Relevant Services</h3>
-<ul>
-<li>New media episodes are added to the DB by the <a href="../../apps/1/">Ave Media</a> application;</li>
-<li>Clustering service is <mark>under development</mark>;</li>
-<li>Segment matching service is <mark>under development</mark>.</li>
-</ul>
-<h2 id="status">Status</h2>
-<p>Cooking</p>
-<h2 id="consequences">Consequences</h2>
+<h2 id="media-episodes-clusters">Media Episodes Clusters</h2>
+<dl>
+<dt><code>Media Episode Cluster</code></dt>
+<dd>
+<p>Media episode cluster is a set of media episodes that were published on different platforms on different occasions but are the same episode in essence.</p>
+</dd>
+</dl>
+<p>Clusters are a different layer of abstraction required to account for duplicates across platforms and targets without dismissing them. We don't want to dismiss them because, in the context of the project, non-technical duplicates (i.e. those that occur in the result of a unintended technical error) still work to increase the propaganda coverage. In the database, clusters of media episodes are collected into the <code>media_episodes_clusters</code> table, and connect  to the platform hierarchies on the episode level via <code>cluster_id</code> attribute.</p>
+<p>When first added, a media episode is not assigned to any cluster (i.e. has <code>cluster_id</code> = <code>NULL</code>)</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
