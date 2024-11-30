@@ -514,7 +514,7 @@
         <li class="md-nav__item">
   <a href="#update-bash-config" class="md-nav__link">
     <span class="md-ellipsis">
-      Update bash Config
+      Update bash config
     </span>
   </a>
   
@@ -538,7 +538,7 @@
 <h1 id="relations-data-prewarming">Relations Data Prewarming</h1>
 <p>Prewarming refers to the process of loading certain relation into either OS cache or database buffer. The best practice is to perform prewarming on server start up. To this end, following setup was implemented.</p>
 <h2 id="starter-script">Starter script</h2>
-<p><code>bash</code> script was created at <code>/var/soft/prewarm_db.sh</code> with following content (and make sure it's executable):</p>
+<p><code>bash</code> script was created at <code>/opt/prewarm/prewarm_db.sh</code> with following content:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">DB_NAME</span><span class="o">=</span><span class="s2">&quot;wapadb&quot;</span>
@@ -604,7 +604,7 @@
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_prewarm</span><span class="p">(</span><span class="s1">&#39;idx_transcribed_line_text&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;os&#39;</span><span class="p">);</span>
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_prewarm</span><span class="p">(</span><span class="s1">&#39;service.media_queue&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;os&#39;</span><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="update-bash-config">Update <code>bash</code> Config</h2>
+<h2 id="update-bash-config">Update <code>bash</code> config</h2>
 <p>Following function was added to the <code>~/.bashrc</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">function</span><span class="w"> </span>systemctl<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;restart&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;postgresql&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
