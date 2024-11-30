@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-29-storage" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -542,8 +544,7 @@
                   
 
 
-  <h1>∞ ADR-29. Storage</h1>
-
+<h1 id="adr-29-storage">∞ ADR-29. Storage</h1>
 <h2 id="context">Context</h2>
 <p>The project requires storage in order to exchange media files, store assets, etc. For the first period of its existense, we used Supabase, which offered 100Gb of storage in addition to the database hosting service "for free". When we dropped Supabase, Minio-operated storage was set up on the same Hetzner server that hosts the database. This document describes the current implementation.</p>
 <h2 id="decision">Decision</h2>

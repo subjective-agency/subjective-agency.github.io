@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-1-wapaganda-origin-initial-structure-1" class="md-skip">
           Skip to content
         </a>
       
@@ -487,6 +487,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -500,7 +544,8 @@
                   
 
 
-<h1 id="context">Context</h1>
+<h1 id="adr-1-wapaganda-origin-initial-structure-1">🗶≽ ADR-1. Wapaganda Origin &amp; [Initial] Structure [1]</h1>
+<h2 id="context">Context</h2>
 <p>A long and tedious conflict between Russia and Ukraine broke into an acute phase on February 24, 2022, when Russia started the invasion of Ukraine from several directions at the same time.</p>
 <p>Simultaneously (perhaps, even prior to the event), the machine of Russian propaganda significantly ramped up its activity. Political talk shows, already abundant in the Russian media space, became prevalent, almost pushing out the entertaining content entirely.</p>
 <p>The Russian propaganda machine is a loose amalgamation of media outlets (TV channels, radio stations, internet platforms, Telegram channels) and personalities, who apply effort at spreading, re-affirming, maintaining and developing the narratives invented by a small circle of most exclusive people, including Vladimir Putin, Sergey Lavrov, Ramzan Kadyrov, Dmitry Kiselyov, Margarita Simonyan and Vladimir Solovyov. This system is fueled by massive financial allocations, and counts over one thousand willing participants (registered as of the moment of me writing this).</p>
@@ -511,14 +556,14 @@
 <li>Everyone who bears a share of this responsibility must be held accountable at some point;</li>
 <li>To make sure it's even possible, every bit of useful information relevant to every person responsible must be collected and stored in a way that would make the retrieval and usage of this information as simple for researchers and investigators as possible.</li>
 </ul>
-<h1 id="decision">Decision</h1>
+<h2 id="decision">Decision</h2>
 <p>A <strong>database</strong> was created to capture all the relevant data. It was decided to use relational model, and specifically PostgreSQL database engine for the advanced features it offers (such as <code>full text search</code>).</p>
 <p><strong><a href="https://app.supabase.com">Supabase</a></strong> was selected to host the database. It's a relatively new service that is an alternative to Firebase, is build around PostgreSQL DB, and offers a range of advanced features and services (including in-built AWS Storage).</p>
 <p>To provide a publicly accessible interface for the data collected, a service <strong>application</strong> was created in Python using the <code>web2py</code> framework. (<a href="http://www.web2py.com/books/default/chapter/29/01/introduction">web2py book</a>)</p>
 <p>The application is hosted on <strong><a href="https://railway.app">Railway</a></strong> (<a href="https://docs.railway.app/">Railway documentation</a>).</p>
-<h1 id="status">Status</h1>
-<p><strong>Succeeded</strong> by DVE-A-52.</p>
-<h1 id="consequences">Consequences</h1>
+<h2 id="status">Status</h2>
+<p>Outdated.</p>
+<h2 id="consequences">Consequences</h2>
 <p>Due to Supabase being quite new, their Python wrapper does not have all the functionality of the general library, the general library itself is being actively developed, and the documentation is far from ideal. This may cause delays in solving certain kinds of problems.</p>
 <p>Web2py architecture, although very efficient, somewhat limits the selection of tools that could be used in the project (for example, adding <code>Poetry</code> (dependency management tool) proved to be too much of a nuisance).</p>
 

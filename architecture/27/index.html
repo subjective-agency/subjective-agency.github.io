@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-27-wapaganda-structure-3" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -509,15 +511,6 @@
   
     <nav class="md-nav" aria-label="Decision">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#git-repositories" class="md-nav__link">
@@ -562,39 +555,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Network & Hosting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hetzner-principal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hetzner Principal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hetzner-horsey" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hetzner Horsey
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#railway" class="md-nav__link">
-    <span class="md-ellipsis">
-      Railway
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -635,95 +595,31 @@
                   
 
 
-  <h1>∞ ADR-27. Wapaganda Structure [3]</h1>
-
+<h1 id="adr-27-wapaganda-structure-3">∞ ADR-27. Wapaganda Structure [3]</h1>
 <h2 id="context">Context</h2>
-<p>:::info
-Previous version of the system is described in <a href="https://docs.subjective.agency/DOXy1wXMSp6P4iZzFIL1Ng">ADR-12</a>.
-:::</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previous version of the system is described in <a href="../12/">ADR-12</a>.</p>
+</div>
 <p>This document describes the structure of the W project.</p>
 <h2 id="decision">Decision</h2>
-<h3 id="diagram">Diagram</h3>
-<p>TBD</p>
 <h3 id="git-repositories">Git repositories</h3>
 <p>All repositories here are hosted under Subjective Agency organization on GitHub.</p>
 <ul>
 <li><code>wapatools</code>. Primary repository, home for all applications except <code>web</code>.</li>
 <li><code>wapaganda_frontend</code>. React-based frontend for the <code>web</code> application.</li>
-<li><code>whisperX</code>. Fork required in order for WhisperX to run properly (support for <code>transfactory</code> application).</li>
 </ul>
 <h3 id="database">Database</h3>
-<p>There are 2 PostgreSQL instances set up for the project on different servers, <code>prod</code> and <code>dev</code>.</p>
-<p>Production database has tables distributed across following schemas:</p>
-<ul>
-<li>public;</li>
-<li>service;</li>
-<li>enums;</li>
-<li>data.</li>
-</ul>
-<p>There are several external tables synchronized to the database, all of them in <code>service</code> schema:</p>
-<ul>
-<li><code>provenance</code>. Primary table for the data provenance mechanism. See <a href="https://docs.subjective.agency/ey5oJkwZSdeYzzR3pCotbw">ADR-21</a> for details;</li>
-<li><del><code>logs</code></del>. The log system that required this table was deprecated in favor of Logfire. See <a href="https://docs.subjective.agency/ZnqjIut4Q2aALn8ZAdraug">ADR-31</a> for details;</li>
-<li><code>memo</code> and <code>memo_relation</code> are required to support the <code>theory</code> subsystem. See <a href="https://docs.subjective.agency/5L0o2prCSWSZmn6yFnbv3w">ADR-30</a> for details.</li>
-</ul>
-<p>Custom <code>TripleLang</code> type was created for the project. See <a href="https://docs.subjective.agency/Gqzy5kUQSpai-WyxzgUJXA">ADR-22</a> for details.</p>
-<p>Dev database is maintained in sync with the prod with the help of Snaplet. See [ADR-32] for details.</p>
+<p>There are 2 PostgreSQL instances set up for the project on different servers, <code>prod</code> and <code>dev</code>. See <a href="../../db/">Database Guide</a> for details.</p>
 <h3 id="internal-applications">Internal Applications</h3>
-<p>All internal applications are Docker-based. Latest version of images can be found in our private repository at <code>registry.subjective.agency</code>.</p>
-<ul>
-<li><strong>Backup</strong>. Regularly exports project's database to JSON files. Works in 2 modes: incremental creates daily dumps of only new or updated rows; full creates weekly dumps of all relevant tables.</li>
-<li><strong>Transfactory</strong>. Takes audiofiles as input and returns structured text (and metadata) as output.</li>
-<li><strong>Transsuply</strong>. Pre-processing and registration of new jobs for Transfactory. TBD.</li>
-<li><strong>Periodicals</strong>. Scans text-based media, news agencies etc for relevant updates, and collects them. TBD</li>
-<li><strong>Ave Media</strong>. Scans audio and video-based media such as Smotrim.ru, Youtube.com etc. for relevant updates, and collects them. TBD</li>
-<li><strong>Tgram</strong>. Scans target Telegram channels using official API, and collects data and statistics. TBD</li>
-<li><strong>Printed</strong>. TBD</li>
-<li><strong>Web</strong>. Provides a public view on the existing data.</li>
-<li><strong>Entry Bot</strong>. Telegram bot that serves as input channel for new data.</li>
-<li><strong>SyncManager</strong>. General-purpose application for misc backgrounds sync tasks, and handles requests forwarded from the <strong>Entry Bot</strong>.</li>
-</ul>
+<p>All internal applications are Docker-based. Latest version of images can be found in our private registry at <code>registry.subjective.agency</code> or in the private repository on Docker Hub. See <a href="../../apps/">Apps</a> for details.</p>
 <h3 id="supporting-applications-integrations">Supporting Applications &amp; Integrations</h3>
-<ul>
-<li><strong>Infisical</strong>. Used to communicate secrets to applications. See <a href="https://docs.subjective.agency/FsfiU5_XTwuAWmkCXINeIw">ADR-25</a> for details.</li>
-<li><strong>Authentik</strong>. Used for authentication and authorization in other tools.</li>
-<li><strong>Memos</strong>. Notes-taking application. Used in the <code>theory</code> flow. </li>
-<li><strong>HedgeDoc</strong>. Hosts documentation of the project.</li>
-<li><strong><del>Youtrack</del></strong>. Used to be a ticket-tracker of the project, where also documentation was stored. Docs were moved away to HedgeDoc. Ticket-tracker has not been restored for now, for lack of need.</li>
-<li><strong>Bytebase</strong>. Operational interface on top of the databases. Allows to explore the database via a rather convenient interface, as well as to run update and insert queries of all kinds: either in admin mode, or through a ticket-creation flow.</li>
-<li>Ofelia. TBD</li>
-<li>dbmate. TBD</li>
-</ul>
+<p>A number of 3rd party applications and services are employed for various facets of the projects. See <a href="../../infra/">Infrastructure</a> for details.</p>
 <h3 id="network-hosting">Network &amp; Hosting</h3>
-<p>Domain <code>subjective.agency</code> is hosted on <code>domain.com</code> and managed via Cloudflare. Mailservice is managed via <code>namecheap.com</code>. Secondary domain <code>subjective.place</code> is hosted directly on Cloudflare.</p>
-<h4 id="hetzner-principal">Hetzner Principal</h4>
-<p><strong>Hetzner Principal</strong> server hosts:</p>
-<ul>
-<li>dev database,</li>
-<li>Infisical,</li>
-<li>Authentik,</li>
-<li>Hedgedoc,</li>
-<li>Bytebase,</li>
-<li>Memos.</li>
-</ul>
-<h4 id="hetzner-horsey">Hetzner Horsey</h4>
-<p><strong>Hetzner Horsey</strong> server hosts:</p>
-<ul>
-<li>production database, </li>
-<li>Caddy as reverse proxy server, </li>
-<li>Garage-operated storage (100 Gb), and </li>
-<li>all the internal applications, except <code>Web</code>.</li>
-</ul>
-<h4 id="railway">Railway</h4>
-<p><strong>Railway</strong> hosts:</p>
-<ul>
-<li>FastAPI-based backend, and </li>
-<li>React-based frontend </li>
-</ul>
-<p>Together they constitue <mark>Web</mark> internal application. </p>
-<p>Railway is also used for test deployment of new internal applications.</p>
+<p>Domain <code>subjective.agency</code> is hosted on <code>domain.com</code> and managed via Cloudflare. Mailservice is managed via <code>namecheap.com</code>. Secondary domain <code>subjective.place</code> is hosted directly on Cloudflare. </p>
+<p>Applications are running either on Hetzner-based servers, or in Railway. See <a href="../../infra/">Infrastructure</a> for details.</p>
 <h2 id="status">Status</h2>
-<p>Active</p>
+<p>In progress</p>
 <h2 id="consequences">Consequences</h2>
 
 

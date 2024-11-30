@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-2-secrets-management-with-doppler-1" class="md-skip">
           Skip to content
         </a>
       
@@ -487,6 +487,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequence
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -500,15 +544,16 @@
                   
 
 
-<h1 id="context">Context</h1>
+<h1 id="adr-2-secrets-management-with-doppler-1">🗶≽ ADR-2. Secrets Management with Doppler [1]</h1>
+<h2 id="context">Context</h2>
 <p>Security is always quite a concern these days, and it is particularly important because the project may become a subject of interest from unfriendly people. As one measure to enhance security, a secrets management solution is to be introduced into the project setup.</p>
-<h1 id="decision">Decision</h1>
+<h2 id="decision">Decision</h2>
 <p>Doppler.com is an established service provider, with existing integrations with GitHub Actions, Supabase, etc., and exceptionally nice tech support, according to whom integration with Railway would be planned as soon as they release their API (some time in the next couple of months). UPD: Integration with Railway has, indeed, been released, and worked fine ever since.</p>
 <p>Account was opened on a free tier, and necessary integrations were set up with GitHub, Railway and PyCharm.</p>
-<h1 id="status">Status</h1>
+<h2 id="status">Status</h2>
 <p>Accepted</p>
-<h1 id="consequence">Consequence</h1>
-<p>It might be a pain if there's ever a need to switch to a different service provider. See DVE-A-5</p>
+<h2 id="consequence">Consequence</h2>
+<p>It might be a pain if there's ever a need to switch to a different service provider.</p>
 
 
 

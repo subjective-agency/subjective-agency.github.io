@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-19-taxonomies-organization-types" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -542,8 +544,7 @@
                   
 
 
-  <h1>🗸 ADR-19. Taxonomies. Organization Types</h1>
-
+<h1 id="adr-19-taxonomies-organization-types">🗸 ADR-19. Taxonomies. Organization Types</h1>
 <h2 id="context">Context</h2>
 <p><code>Organization</code> is one of the major entities of the project. The initial way of clustering the organizations on record was implemented with the <code>organization_type</code> table, which included 33 types derived from available data. This, of course, soon proved to be suboptimal, as it wasn't properly reflecting the actual situation.</p>
 <h2 id="decision">Decision</h2>
@@ -552,12 +553,12 @@
 <p>The overall structure is hierarchical with following nuances:</p>
 <ul>
 <li>Top-level types are as abstract as possible. The <code>term</code> includes word <code>organizations</code>, for example, <code>Advertising and market research organizations</code> or <code>Delivery organizations</code>.</li>
-<li>Type's place in the hierarchy is reflected in the length of the code, adding 2 characters per level. In effect, top-level concepts have the shortest codes ( <code>A1</code>, <code>D5</code>, etc), where the letter comes from the type's name, and digit is a consequtive number of top-level types for that letter. Subsequent levels are coded with digits only.</li>
+<li>Type's place in the hierarchy is reflected in the length of the code, adding 2 characters per level. In effect, top-level concepts have the shortest codes ( <code>A1</code>, <code>D5</code>, etc), where the letter comes from the type's name, and digit is a consecutive number of top-level types for that letter. Subsequent levels are coded with digits only.</li>
 <li><em>This implies a restriction on the number of top-level types that could be added - no more than 9 per letter. Admittedly, this is quite a lot (top-level types are hard to miss, and max we have currently is <code>S7</code>, with the other letter being significantly less occupied), but this is still a drawback.</em></li>
 <li>There is a special top-level catch-all category, <code>Other organizations</code> with code <code>O0</code> and no subtypes.</li>
 <li>Every level starting with 2nd may optionally have an <code>Other</code> category, which should be indicated with <code>00</code> level code. For example, <code>Criminal organizations</code> type has code <code>C2</code> with a number of subtypes ( <code>Gangs</code> is <code>C201</code>, etc.) and a dedicated catch-all type <code>Other criminal organizations</code> with code <code>C200</code>.</li>
 <li>Initial placement of types/subtypes is largely alphabetical, but the new ones should be added strictly at the end of a relevant category with no regard for the alphabet.</li>
-<li>Codes can be used to figure out the relationships between types, but <code>closure</code> table provides a better way of doing it. Consult DVE-A-78 for information on how to work with closure tables.</li>
+<li>Codes can be used to figure out the relationships between types, but <code>closure</code> table provides a better way of doing it.</li>
 </ul>
 <p>New types should not be added into the <code>taxonomy</code> table manually, because closure relationships won't be registered then. Use script <code>orgs_taxonomy_append</code> in the <code>taxo</code> module of <code>wapatools</code> repo to do it properly.</p>
 <h2 id="status">Status</h2>

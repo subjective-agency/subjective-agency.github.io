@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-12-wapaganda-structure-2" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -590,8 +592,7 @@
                   
 
 
-  <h1>🗶≽ ADR-12. Wapaganda Structure [2]</h1>
-
+<h1 id="adr-12-wapaganda-structure-2">🗶≽ ADR-12. Wapaganda Structure [2]</h1>
 <h2 id="context">Context</h2>
 <p>DVE-A-2 describes the structure of the project as it was conceived, and that should now be referred to as <code>v0</code>. Current document succeeds it, and describes the structure of Wapaganda <code>v1</code>, which is being developed by @atatatko.</p>
 <h2 id="decision">Decision</h2>
@@ -604,7 +605,7 @@
 <h3 id="backend_1">Backend</h3>
 <p>As of mid-April 2023, the backend could be considered a stable beta, REST API core is already created and tested, which reduces further development to adding new endpoints and new types of requests. However, any changes in database schema require significant work on backend side, so release could be possible only when we have a more or less stable schema.</p>
 <h3 id="frontend_1">Frontend</h3>
-<p>As of mid-April 2023, frontend Single-Page Application (SPA) is a solid alpha, with partially implemented design and localization, and fully implemented caching, searching tools and HTTP client. Frontend does not depend much on any database schema changes. The core of <a href="https://subjective.youtrack.cloud/articles/DVE-A-17/REST-API-protocol-supaword-application">REST API protocol</a> is already implemented.</p>
+<p>As of mid-April 2023, frontend Single-Page Application (SPA) is a solid alpha, with partially implemented design and localization, and fully implemented caching, searching tools and HTTP client. Frontend does not depend much on any database schema changes. The core of REST API protocol is already implemented.</p>
 <h2 id="consequences">Consequences</h2>
 <p>Relying on Django and React is beneficial in the sense that both frameworks are thriving ecosystems, so solving a specific issue would take less time on average and would be relatively simpler. We should keep in mind, however, that both Django and React have vulnerabilities and limitations, which are applicable to the W project.</p>
 

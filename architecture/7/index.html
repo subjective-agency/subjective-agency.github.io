@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-7-media-episodes-interface" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -542,15 +544,14 @@
                   
 
 
-  <h1>∞ ADR-7. Media Episodes Interface</h1>
-
+<h1 id="adr-7-media-episodes-interface">∞ ADR-7. Media Episodes Interface</h1>
 <h2 id="context">Context</h2>
-<p>Wapaganda DB contains data that is currently not used in the project, or access to it is limited. One such cluster is the media episodes data, including dates (limited availability), metadata (limited availability), participants (work in progress) and <a href="https://subjective.youtrack.cloud/articles/DVE-A-27/ADR-6-Transcripts">transcripts produced by Whisper.</a> The project will benefit from unlocking this data and making it as accessible to the user as possible.</p>
+<p>Wapaganda DB contains data that is currently not used in the project, or access to it is limited. One such cluster is the media episodes data, including dates (limited availability), metadata (limited availability), participants (work in progress) and <a href="../6/">transcripts produced by Whisper.</a> The project will benefit from unlocking this data and making it as accessible to the user as possible.</p>
 <h2 id="decision">Decision</h2>
 <p>In addition to the <code>people</code> interface, a parallel interface for the media episodes should be developed. On the highest level, this should be a list of available <code>media segments</code>.</p>
 <p>A level deeper - a list of all existing episode per segment (may or may not be limited by dates - for example, to show only starting with Feb 24). For each episode in the list, a list of participants should be available on this level, along with a date, duration and a link to the <code>episode page</code>.</p>
 <p>Another level deeper is an <code>episode page</code>, which contains the same basic data plus possible additional data, and a CTA to the <code>transcript page</code>.</p>
-<p><code>transcript page</code> should be a separate thing to enable future <code>mark-up</code> <a href="https://subjective.youtrack.cloud/articles/DVE-A-30/ADR-8-Transcript-Mark-Up">development</a>.</p>
+<p><code>transcript page</code> should be a separate thing to enable future <code>mark-up</code> <a href="../8/">development</a>.</p>
 <h2 id="status">Status</h2>
 <p>Cooking.</p>
 <h2 id="consequences">Consequences</h2>

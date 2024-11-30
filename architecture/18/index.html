@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-18-javascript-coding-standards" class="md-skip">
           Skip to content
         </a>
       
@@ -487,6 +487,203 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      File content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-content_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      File content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsdoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSDoc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -500,23 +697,24 @@
                   
 
 
-<h1 id="context">Context</h1>
+<h1 id="adr-18-javascript-coding-standards">🗸 ADR-18. JavaScript Coding Standards</h1>
+<h2 id="context">Context</h2>
 <p>This set of rules is a meaningful subset of Google's and Mozilla's coding standards.<span style="color:darkorange;"></span></p>
-<h1 id="decision">Decision</h1>
+<h2 id="decision">Decision</h2>
 <p>In order to keep codebase clean and organized, the following rules are suggested as a general guideline.</p>
-<h2 id="files"><strong>Files</strong></h2>
-<h3 id="file-structure"><strong>File structure</strong></h3>
+<h3 id="files"><strong>Files</strong></h3>
+<h4 id="file-structure"><strong>File structure</strong></h4>
 <ul>
 <li>Use <code>src</code> folder for source files;</li>
 <li>Use <code>test</code> folder for test files;</li>
 <li>Use <code>src/js</code> folder for JS files;</li>
 <li>Use <code>src/css</code> folder for CSS files.</li>
 </ul>
-<h3 id="file-content"><strong>File content</strong></h3>
+<h4 id="file-content"><strong>File content</strong></h4>
 <ul>
 <li>Use UTF-8 encoding for all files.</li>
 </ul>
-<h3 id="import"><strong>Import</strong></h3>
+<h4 id="import"><strong>Import</strong></h4>
 <ul>
 <li>Use following order for import statements:</li>
 <li>import statements for React components;</li>
@@ -533,7 +731,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;../directory/file.js&#39;</span><span class="p">;</span>
 </span></code></pre></div>
 * Technically, ECMAScript specification allows import cycles between ES modules, but <span style="color:red;"> </span><span style="color:red;"><strong>don't do it</strong></span><span style="color:red;"> </span>.</p>
-<h3 id="export"><strong>Export</strong></h3>
+<h4 id="export"><strong>Export</strong></h4>
 <ul>
 <li>Use <strong>named exports</strong> everywhere. The <code>export</code> keyword can be applied to a declaration, or used in the <code>export {name};</code> syntax:</li>
 </ul>
@@ -560,8 +758,8 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="c1">// ...</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="file-content_1"><strong>File content</strong></h2>
-<h3 id="naming"><strong>Naming</strong></h3>
+<h3 id="file-content_1"><strong>File content</strong></h3>
+<h4 id="naming"><strong>Naming</strong></h4>
 <ul>
 <li>Use <code>FileName.js</code> notation for JS files, <code>file-name.css</code> and <code>file-name.html</code> for CSS and HTML files</li>
 <li>Use <code>variableName</code> notation for JS variables and functions</li>
@@ -584,7 +782,7 @@
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nx">referrerUrl</span><span class="w">         </span><span class="c1">// Ditto for &quot;URL&quot;.</span>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nx">customerId</span><span class="w">          </span><span class="c1">// &quot;Id&quot; is both ubiquitous and unlikely to be misunderstood.</span>
 </span></code></pre></div>
-<h3 id="formatting"><strong>Formatting</strong></h3>
+<h4 id="formatting"><strong>Formatting</strong></h4>
 <ul>
 <li>Use clang-format. The JavaScript community has invested effort to make sure <code>clang-format</code> "does the right thing" on JavaScript files. <code>clang-format</code> has integration with several popular editors.</li>
 <li>Braces are required for all control structures (i.e. <code>if</code>, <code>else</code>, <code>for</code>, <code>do</code>, <code>while</code>, as well as any others), even if the body contains only a single statement. The first statement of a non-empty block must begin on its own line.</li>
@@ -617,7 +815,7 @@
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>const bb = 2;
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>const ccc = 3;
 </span></code></pre></div>
-<h3 id="variables"><strong>Variables</strong></h3>
+<h4 id="variables"><strong>Variables</strong></h4>
 <ul>
 <li>Use <code>const</code> for all of your references by default</li>
 <li>Use <code>let</code> if needed</li>
@@ -636,7 +834,7 @@
 <li>Declared when needed, initialized as soon as possible</li>
 <li>Local variables are not habitually declared at the start of their containing block or block-like construct. Instead, local variables are declared close to the point they are first used (within reason), to minimize their scope.</li>
 </ul>
-<h3 id="arrays"><strong>Arrays</strong></h3>
+<h4 id="arrays"><strong>Arrays</strong></h4>
 <ul>
 <li>Do not use the variadic Array constructor. The constructor is error-prone if arguments are added or removed. Use a literal instead.</li>
 </ul>
@@ -662,7 +860,7 @@
 </ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>const a1 = new Array(foo.length);
 </span></code></pre></div>
-<h3 id="objects"><strong>Objects</strong></h3>
+<h4 id="objects"><strong>Objects</strong></h4>
 <ul>
 <li>Do not mix quoted and unquoted keys</li>
 <li>Object literals may represent either structs (with unquoted keys and/or symbols) or dictionaries (with quoted and/or computed keys). Do not mix these key types in a single object literal.</li>
@@ -691,7 +889,7 @@
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nx">FAHRENHEIT</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;fahrenheit&#39;</span><span class="p">,</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">};</span>
 </span></code></pre></div>
-<h3 id="strings"><strong>Strings</strong></h3>
+<h4 id="strings"><strong>Strings</strong></h4>
 <ul>
 <li>Use single quotes for strings</li>
 <li>Use template strings instead of concatenation</li>
@@ -721,7 +919,7 @@
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="s1">&#39;contain long stretches of spaces since the &#39;</span><span class="w"> </span><span class="o">+</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="s1">&#39;continued lines are indented.&#39;</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="functions"><strong>Functions</strong></h3>
+<h4 id="functions"><strong>Functions</strong></h4>
 <ul>
 <li><code>Parameter name</code> comments should be used whenever the value and method name do not sufficiently convey the meaning, and refactoring the method to be clearer is infeasible. Preferred format: 1) before the value, 2) includes <code>=</code> sign:</li>
 </ul>
@@ -743,7 +941,7 @@
 <li>Default parameters are supported but discouraged</li>
 <li>Optional parameters are permitted using the <code>=</code> operator in the parameter list. Optional parameters must include spaces on both sides of the<code>=</code> operator, be named exactly like required parameters (i.e., not prefixed with <code>opt_</code>), use the <code>= suffix</code> in their JSDoc type, come after required parameters, and not use initializers that produce observable side effects. All optional parameters for concrete functions must have default values, even if that value is undefined. In contrast to concrete functions, abstract and interface methods must omit default parameter values.</li>
 </ul>
-<h3 id="classes"><strong>Classes</strong></h3>
+<h4 id="classes"><strong>Classes</strong></h4>
 <ul>
 <li>Type names are typically nouns or noun phrases. For example, <code>Request</code>, <code>ImmutableList</code>, or <code>VisibilityMode</code></li>
 <li>Interface names may sometimes be adjectives or adjective phrases instead (for example, <code>Readable</code>)</li>
@@ -787,7 +985,7 @@
 </span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="jsdoc"><strong>JSDoc</strong></h2>
+<h3 id="jsdoc"><strong>JSDoc</strong></h3>
 <ul>
 <li>JSDoc is used on all classes, fields, and methods.</li>
 </ul>
@@ -913,9 +1111,9 @@
 </span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="kd">const</span><span class="w"> </span><span class="cm">/** !Array&lt;!Book&gt; */</span><span class="w"> </span><span class="nx">books</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 </span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="kd">const</span><span class="w"> </span><span class="cm">/** !Promise&lt;!Response&gt; */</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 </span></code></pre></div>
-<h1 id="status">Status</h1>
+<h2 id="status">Status</h2>
 <p>Accepted.</p>
-<h1 id="consequences">Consequences</h1>
+<h2 id="consequences">Consequences</h2>
 <p>Hopefully, better JavaScript code.</p>
 
 

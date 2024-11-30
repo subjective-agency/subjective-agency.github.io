@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-24-polylith-projects-dockerization" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -614,8 +616,7 @@
                   
 
 
-  <h1>🗸 ADR-24. Polylith Projects & Dockerization</h1>
-
+<h1 id="adr-24-polylith-projects-dockerization">🗸 ADR-24. Polylith Projects &amp; Dockerization</h1>
 <h2 id="context">Context</h2>
 <p>Primary project's repository, <code>wapatools</code>, is a shared monorepo that follows the polylith structure. This structure is not directly consistent with the Docker approach, and requires certain additional steps.</p>
 <h2 id="decision">Decision</h2>
@@ -632,23 +633,18 @@
 <li>Modify <code>Dockerfile</code> with the new <code>wheel</code>'s name.
    This solution relies on that the name of the <code>wheel</code> file is located on a specific line in the Dockerfile;</li>
 </ol>
-<p>:::warning
-   With services that are supposed to run on <strong>Railway</strong>, the process stops here. Railway can build their own docker images, thank you very much.
-   :::</p>
-<p>:::info
-   The rest of the steps are only required for services that are supposed to run on our own infrastructure.
-   :::
+<p>!!! warning
+    With services that are supposed to run on <strong>Railway</strong>, the process stops here. Railway can build their own docker images, thank you very much.</p>
+<p>!!! info
+    The rest of the steps are only required for services that are supposed to run on our own infrastructure.
 7. Build Docker image;
 8. Tag new image;
 9. Push new image to Docker Hub or private repository.</p>
 <h4 id="dockerfile">Dockerfile</h4>
-<p>:::info
-Dockerfile is almost the same for both deployment cases. The 2 main differences are:</p>
-<ul>
-<li>You should install Infisical CLI in non-Railway Dockerfile;</li>
-<li>When copying wheel file, in Railway one should start in the repository's root, and in self-hosted case - in the project's root.
-:::</li>
-</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Dockerfile is almost the same for both deployment cases. The 2 main differences are: 1) You should install Infisical CLI in non-Railway Dockerfile; 2) When copying wheel file, in Railway one should start in the repository's root, and in self-hosted case - in the project's root.</p>
+</div>
 <p>Project's Dockerfile must be composed with these things in mind:</p>
 <ul>
 <li>Index of the line on which the name of the <code>wheel</code> is defined must be aligned with the builder. If using a template, no changes are necessary;</li>
@@ -672,11 +668,12 @@ Dockerfile is almost the same for both deployment cases. The 2 main differences 
 <li>Select <code>development</code> branch or whatever may be the case.</li>
 <li>In the <code>build</code> section, set <code>Watch Paths</code> to <code>projects/{project_name}</code>.</li>
 <li>In the <code>deploy</code> section, set <code>Custom Start Command</code> to <code>python {primary_component_name}/core.py</code></li>
-<li>Set <code>Region</code> to anywhere in Europe, <code>Runtime</code> to <code>V2</code>, and <code>Replicas</code> to 1.
-:::warning
-At this point Railway would likely attempt to deploy, but fail for lack of secrets.
-:::</li>
+<li>Set <code>Region</code> to anywhere in Europe, <code>Runtime</code> to <code>V2</code>, and <code>Replicas</code> to 1.</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this point Railway would likely attempt to deploy, but fail for lack of secrets.</p>
+</div>
 </li>
 <li>Set up integration with Infisical, then re-deploy.</li>
 </ol>

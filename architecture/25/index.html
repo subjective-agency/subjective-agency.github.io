@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-25-secrets-management-with-infisical" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -590,10 +592,9 @@
                   
 
 
-  <h1>🗸 ADR-25. Secrets Management with Infisical</h1>
-
+<h1 id="adr-25-secrets-management-with-infisical">🗸 ADR-25. Secrets Management with Infisical</h1>
 <h2 id="context">Context</h2>
-<p>This document succeeds and replaces ADR-2. It describes the integration of self-hosted <a href="https://infisical.com/docs/self-hosting/overview">Infisical</a> instance as the primary tool for communicating sensitive data to the applications.</p>
+<p>This document succeeds and replaces <a href="../2/">ADR-2</a>. It describes the integration of self-hosted <a href="https://infisical.com/docs/self-hosting/overview">Infisical</a> instance as the primary tool for communicating sensitive data to the applications.</p>
 <h2 id="decision">Decision</h2>
 <p>Infisical is a feature-rich open-source secrets management platform with well-detailed documentation.</p>
 <p>Wapaganda instance is hosted on a Hetzner server with <code>docker compose</code>. It is accessible on port <code>50789</code> at <code>principal</code>'s IP address; its HTTPS host is https://asdfghjkl.subjective.agency (reverse proxied with Caddy). </p>
@@ -625,9 +626,10 @@
 <h4 id="local-apps">Local apps</h4>
 <p>If a locally-running application needs to be integrated with Infisical, you must have the CLI installed in the corresponding system; and launch the app in the previously described manner, by prefixing the start command with <code>infisical run --</code>.</p>
 <p>Instead of tokens, you authorize the application by explicitly logging in (run <code>infisical login</code> and follow the flow). This login is persisted for some period of time (about a week), after which you'd have to re-login. </p>
-<p>:::danger
-It has been noticed that if a Redis container exits for whatever reason, Infisical instance won't be operational, but instead of failing, it would be urging you to re-login.
-:::</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It has been noticed that if a Redis container exits for whatever reason, Infisical instance won't be operational, but instead of failing, it would be urging you to re-login.</p>
+</div>
 <h2 id="status">Status</h2>
 <p>Active</p>
 <h2 id="consequences">Consequences</h2>

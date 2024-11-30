@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-9-wapaganda-localization-1" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -505,15 +507,6 @@
   <a href="#data-layer" class="md-nav__link">
     <span class="md-ellipsis">
       Data Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#website-components-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Website Components Layer
     </span>
   </a>
   
@@ -566,8 +559,7 @@
                   
 
 
-  <h1>🗶≽ ADR-9. Wapaganda Localization [1]</h1>
-
+<h1 id="adr-9-wapaganda-localization-1">🗶≽ ADR-9. Wapaganda Localization [1]</h1>
 <h2 id="context">Context</h2>
 <p>Given the origins and the nature of the project, 3 languages need to be available for the end user: Ukrainian (primary), English (to make it accessible to as many researchers as possible) and Russian (because most of the source material is in Russian).</p>
 <p>Localization in all 3 languages must be supported on 2 levels:</p>
@@ -582,8 +574,6 @@
 <li>Single column of <code>JSONB</code> type, holding a dictionary with structure <code>{"en": "eng_version", "ru": "ru_version", "uk": "uk_version"}</code></li>
 </ol>
 <p><strong>NOTE:</strong> While infrastructure is almost guaranteed, the data pieces themselves may be (in fact, quite likely to be) missing in various combinations.</p>
-<h3 id="website-components-layer">Website Components Layer</h3>
-<p><strong>See</strong> <a href="https://subjective.youtrack.cloud/articles/DVE-A-34">DVE-A-34</a>.</p>
 <h2 id="decision">Decision</h2>
 <ul>
 <li>Identify localization options given that accepted frontend framework is React (DVE-83)</li>

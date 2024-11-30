@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-21-data-provenance" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -593,8 +595,7 @@
                   
 
 
-  <h1>🗸 ADR-21. Data Provenance</h1>
-
+<h1 id="adr-21-data-provenance">🗸 ADR-21. Data Provenance</h1>
 <h2 id="context">Context</h2>
 <p>In the context of data management, provenance refers to the <strong>metadata that describes the origin and processing history of a dataset</strong>. It is helpful for establishing the reliability and trustworthiness of the data. This is something that should've been introduced from the beginning, but better late than never.</p>
 <h2 id="decision">Decision</h2>
@@ -759,7 +760,6 @@
 </table>
 <p>They were not removed, because nothing should be removed from the <code>provenance</code> table.</p>
 <h2 id="status">Status</h2>
-<p>The complete list of tables for which provenance will be enabled can be found in DVE-266 <a href="https://subjective.youtrack.cloud/issue/DVE-266/Set-up-provenance-triggers-for-all-relevant-tables-except-People">https://subjective.youtrack.cloud/issue/</a></p>
 <p>As of the moment of submitting this, triggers are set up for <code>people</code> and <code>organizations</code> tables in the <code>public</code> schema of the master DB.</p>
 <h2 id="consequences">Consequences</h2>
 <p>Provenance mechanism is for the people to trust the project data a little bit more.</p>

@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-30-theory" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -647,8 +649,7 @@
                   
 
 
-  <h1>🗸 ADR-30. Theory</h1>
-
+<h1 id="adr-30-theory">🗸 ADR-30. Theory</h1>
 <h2 id="context">Context</h2>
 <p>Website's <mark>Theory</mark> section is intended to serve as a window into the supporting materials related to the purpose of the project. These are: current-time articles and blog posts written by either friends of Ukraine or relatively objective observers (subtype <code>companions</code>); a special tiny collection of particularly enlightening texts written by the Russian propaganda actors (subtype <code>copium</code>); my own theoretical reasonings (subtype <code>core</code>); and a multitude of notes on various research subjects, from the so-called geopolitics to linguistic nuances of Russian language.</p>
 <p>The initial body of <em>companion</em> and <em>copium</em> texts was translated from Russian into English for the <mark>Dum Vita Est</mark> blog, and, in April 2023, translated from Russian into Ukrainian using <code>openai/gpt-3.5</code>.</p>
@@ -711,7 +712,7 @@ In case a newly saved memo is a part of a sequence (e.g. yet another observation
 <h4 id="synchronization">Synchronization</h4>
 <p>Synchronization is set up as 2 routes in the FastAPI web application (under <code>theory</code> tag): <code>theory/sync</code> and <code>theory/update_sequences</code>. Both are background processes to be run at schedule.</p>
 <p>The primary <code>sync</code> process collects new <code>memos</code>, uses python markdown libraries to properly parse it, and converts it into a DB object (<code>theory2</code>). </p>
-<p><code>Frontmatter</code> fields listed explicitly in <a href="https://docs.subjective.agency/#Frontmatter">this section</a> would be parsed into proper columns, everything else would be merged into a JSON structure and saved in <code>additional</code> field, with the exception of <code>sequence</code> tag, which indicates first note in a new sequence, --- in this case, a new <code>sequence</code> object would be created.</p>
+<p><code>Frontmatter</code> fields would be parsed into proper columns, everything else would be merged into a JSON structure and saved in <code>additional</code> field, with the exception of <code>sequence</code> tag, which indicates first note in a new sequence, --- in this case, a new <code>sequence</code> object would be created.</p>
 <p>Tags would be parsed; they will be mapped to the note, and all new ones would be inserted into the <code>theory_tags</code> table. </p>
 <p>The secondary sync process (<code>update_sequences</code>) iterates over the known sequences (i.e. present in the <code>theory_sequences</code> table), finds an <code>edge</code> note, and checks if there is a previously non-existent relationship there.</p>
 <h2 id="status">Status</h2>

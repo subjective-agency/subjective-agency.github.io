@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context" class="md-skip">
+        <a href="#adr-23-wapaganda-localization-2" class="md-skip">
           Skip to content
         </a>
       
@@ -484,6 +484,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -566,19 +568,18 @@
                   
 
 
-  <h1>🗸 ADR-23. Wapaganda Localization [2]</h1>
-
+<h1 id="adr-23-wapaganda-localization-2">🗸 ADR-23. Wapaganda Localization [2]</h1>
 <h2 id="context">Context</h2>
-<p>This document succeeds and replaces ADR-9 DVE-A-33, and describes approach to maintaining the website in 3 languages (En, Ru, Uk).</p>
+<p>This document succeeds and replaces <a href="../9/">ADR-9</a>, and describes approach to maintaining the website in 3 languages (En, Ru, Uk).</p>
 <h2 id="decision">Decision</h2>
 <h3 id="data">Data</h3>
-<p>Composite database type <code>triple_lang</code> was created to hold values that are either translatable or transcriptable; it has 3 <code>TEXT</code> fields corresponding the the 3 supported languages. Type adaptation was implemented for both Django and FastAPI-based backends. See more in DVE-A-120.</p>
+<p>Composite database type <code>triple_lang</code> was created to hold values that are either translatable or transcriptable; it has 3 <code>TEXT</code> fields corresponding the the 3 supported languages. Type adaptation was implemented for both Django and FastAPI-based backends.</p>
 <h3 id="frontend">Frontend</h3>
 <p>Website components are translated using native React tools (<code>useTranslation</code> function), with file <code>i18n.js</code> containing translatable options in <code>resources</code> constant.</p>
 <h2 id="status">Status</h2>
 <p>Accepted</p>
 <h2 id="consequences">Consequences</h2>
-<p><code>triple_lang</code> type allows for more reliable and manageable approach to handling multilang data, both retrival and update. On the other hand, frontend keeping all text in a single file would make it hard to manage as the volume of content grows. TODO: Research possible options.</p>
+<p><code>triple_lang</code> type allows for more reliable and manageable approach to handling multilang data, both retrival and update. On the other hand, frontend keeping all text in a single file would make it hard to manage as the volume of content grows.</p>
 
 
 
