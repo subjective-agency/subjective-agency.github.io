@@ -527,6 +527,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Flow Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transsuply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transsuply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transsuply2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transsuply2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -555,9 +579,121 @@
 
 <h1 id="arr-11-transsuply-transsuply2">∞ ARR-11: Transsuply &amp; Transsuply2</h1>
 <h2 id="general">General</h2>
+<p>Transsuply is application which purpose is to supply the <a href="../3/">Transfactory</a> with audio files to be transcribed. The first generation (<code>Transsuply</code>) is supposed to be started periodically, and works over a local directory with media already downloaded and processed. The second (<code>Transsuply2</code>), is meant to run constantly; it picks up downloading jobs from the <code>queue</code> table, downloads the media, extracts audio if required, and then proceeds to upload it to the storage same as in the original flow.</p>
 <h2 id="code">Code</h2>
 <h2 id="entities">Entities</h2>
 <h2 id="flow-diagram">Flow Diagram</h2>
+<h3 id="transsuply">Transsuply</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef exit_red fill:#cd0d3b
+    service_init(Initialize TranssuplyService)
+
+    subgraph job_init [Assign attributes]
+    direction TB
+        job_minio(Minio client) &amp; job_session(DB session) &amp; job_config(Application config) &amp; job_file_path(Path to file) &amp; job_bucket(Storage bucket name) &amp; job_model(Model to be used in transcription) &amp; job_trim(Needs trimming?) &amp; job_dir_path(Source directory) -.- assign_attrs(Assign attributes) --&gt; job_split_file_parts(Extract additional pieces) -.- job_original_name(Original name) &amp; job_ext(Extention) &amp; job_media_table(Media table name) &amp; job_lang(Language) 
+        job_split_file_parts -.- detect_content_type -- if not skip --&gt; slugify_name(Slugify name) --- create_prabyss_record
+    end
+
+    subgraph detect_content_type [Detect content type]
+    direction LR
+        mimetypes(Use mimetypes.guess_type)
+        setting1(Set video = True and audio = False)
+        setting2(Set video = False and audio = True)
+        check_extention(Check if extention is .processed)
+        set_skip(Set skip = True)
+        mimetypes -- if video --&gt; setting1
+        mimetypes -- if audio --&gt; setting2
+        mimetypes -- if something else --&gt; check_extention -- if yes --&gt; set_skip:::exit_red
+    end
+
+    subgraph create_prabyss_record [Get additional data]
+        fetch_extra_data(Fetch extra data from the DB)
+        exit_if_no_extra_data(((Exit)))
+        shape_rec(Create Prabyss rec)
+        commit_rec(Commit record to the DB)
+        refresh_rec(Refresh new record)
+        fetch_extra_data -- if no data --&gt; exit_if_no_extra_data:::exit_red
+        fetch_extra_data --&gt; shape_rec --&gt; commit_rec --&gt; refresh_rec
+    end
+
+    subgraph process_file [Process file]
+    direction TB
+        extract_audio(Extract audio)
+        trim_silence(Trim silence)
+        upload_file(Upload file to storage)
+        job_init -- if not skip --&gt; shape_pipeline(Decide sequence of actions) -- if video --&gt; extract_audio -- if need to trim silence --&gt; trim_silence --&gt; upload_file --&gt; rename_file(Append .processed to file name)
+    end
+
+    subgraph service_run [Run]
+        read_files(Read files) -- for each file --&gt; process_file
+    end
+
+    init_minio(Minio client) &amp; init_session(DB session) &amp; init_config(Application config) &amp; init_source_dir(Directory with files) &amp; init_bucket(Storage bucket name) &amp; init_model(Model to be used in transcription) -.- service_init --&gt; service_run</code></pre>
+<h3 id="transsuply2">Transsuply2</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef exit_red fill:#cd0d3b
+    trigger_run_endpoint(Trigger run API endpoint)
+
+    subgraph init_donwloader [Init downloader]
+        dw_detect_lang(Detect language)
+        dw_slugify_name(Slugify name)
+        dw_shape_paths(Shape additional paths)
+        dw_temp_dir(Temp dir) &amp; dw_media_item(Media item) &amp; dw_ytb_stuff(Youtube token and PO token) -.- dw_assign_attrs(Assign attributes) --&gt; dw_detect_lang --&gt; dw_slugify_name --&gt; dw_shape_paths
+        dw_assign_attrs -- if Youtube --&gt; set_ytb_dl(Enable Youtube client) --&gt; set_auvid(Set is_audio = True and is_video = False)
+    end
+
+    subgraph service_init [Init service]
+        fetch_job(Fetch new job)
+        update_job_start_time(Update job's start time)
+        fetch_media_item(Fetch media episode record)
+        exit_if_no_job(((Exit)))
+
+        init_garage(Garage client) &amp; init_backblaze(Backblaze client) &amp; init_session(DB session) &amp; init_temp_dir(Temp dir) &amp;    init_ytb_stuff(Youtube cookie and PO token) -.-assign_attrs(Assign attributes) --&gt; fetch_job -- if no job found --&gt; exit_if_no_job:::exit_red
+        init_backblaze -.- init_backblaze_bucket(+bucket)
+        init_garage -.- init_garage_bucket(+bucket)
+        fetch_job --- update_job_start_time 
+        fetch_job --&gt; fetch_media_item --&gt; init_donwloader
+    end
+
+    subgraph download_extract [Download]
+        download(Download)
+        extract_audio(Extract audio)
+        measure_duration(Measure duration)
+        download -- if video --&gt; extract_audio 
+        download --&gt; measure_duration
+    end
+
+    subgraph run_supply [ ]
+        mark_ytb_channel_dead(Set is_defunct = True&lt;br&gt;on Youtube channel)
+        mark_all_vids_removed(Mark all videos of channel as removed)
+        set_status_removed1(Set job status to channel_removed)
+        mark_ytb_vid_removed(Set is_alive = False&lt;br&gt;on Youtube video)
+        set_status_removed2(Set job status to video_removed)
+        mark_ytb_vid_private(Set is_private = True&lt;br&gt;on Youtube video)
+        set_status_private(Set job status to video_private)
+        mark_rtb_vid_removed(Set is_alive = False&lt;br&gt;on Rutube video)
+        set_complete_date(Update job's completion timestamp)
+        set_complete_date2(Update job's completion timestamp)
+        persist_job(Save updated job to the database)
+        upload_to_backblaze(Upload file to Backblaze)
+        upload_to_prabyss(Upload file to internal&lt;br&gt;s3 storage)
+        create_prabyss_record(Create new record&lt;br&gt;in the Prabyss table)
+        set_status_complete(Set job status to completed)
+        set_was_downloaded(Set was_downloaded = True on media item)
+        add_to_sess(Add job and media item to database session)
+        commit_updates(Persist updates to the database)
+        clean_up(Remove files from temp dir)
+
+        download_extract --&gt; upload_to_backblaze &amp; upload_to_prabyss &amp; create_prabyss_record --&gt; set_status_complete --&gt; set_was_downloaded --&gt; set_complete_date --&gt; add_to_sess --&gt; commit_updates --&gt; clean_up
+        download_extract -- if Youtube acc was terminated --&gt; mark_ytb_channel_dead --&gt; mark_all_vids_removed --&gt; set_status_removed1
+        download_extract -- if Youtube vid was removed --&gt; mark_ytb_vid_removed --&gt; set_status_removed2
+        download_extract -- if Youtube vid is private --&gt; mark_ytb_vid_private --&gt; set_status_private
+        download_extract -- if Rutube vid was removed --&gt; mark_rtb_vid_removed --&gt; set_status_removed2
+        set_status_removed1 &amp; set_status_removed2 &amp; set_status_private --&gt; set_complete_date2 --&gt; persist_job
+        upload_to_prabyss -.- create_prabyss_record
+    end
+
+    trigger_run_endpoint --&gt; service_init --&gt; download_extract</code></pre>
 <h2 id="history">History</h2>
 
 

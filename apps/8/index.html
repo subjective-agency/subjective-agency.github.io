@@ -555,8 +555,25 @@
 
 <h1 id="arr-8-syncmanager-smart-adder">∞ ARR-8: SyncManager ::: Smart Adder</h1>
 <h2 id="general">General</h2>
+<p>SmartAdder is a collection of endpoints that accept various kinds of data to be inserted into the database, or uploaded to storage.</p>
 <h2 id="code">Code</h2>
+<p>In the <code>sync_management</code> base, logic for the service is contained in:</p>
+<ul>
+<li><code>smart_adder.py</code> for <code>/add</code> telegram route. Here, <code>SmartAdder</code> is the working class; it handles simple entities, which only require a single attribute to be provided by the user. Specifically, enabled entities:</li>
+<li>Youtube channels;</li>
+<li>Telegram channels</li>
+<li>Rutube channels;</li>
+<li><code>voiceprint.py</code> for <code>/voice</code> telegram route. Here, <code>VoiceprintExtractor</code> is responsible for processing raw voice data (utterances).</li>
+</ul>
 <h2 id="entities">Entities</h2>
+<ul>
+<li><code>YoutubeChannel</code></li>
+<li><code>TelegramChannel</code></li>
+<li><code>RutubeChannel</code></li>
+<li><code>Utterance</code> (<mark>TBD</mark>)</li>
+<li><code>VoiceprintTemp</code></li>
+<li><code>QueueJob</code></li>
+</ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
 <h2 id="history">History</h2>
 

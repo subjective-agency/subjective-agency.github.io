@@ -578,7 +578,7 @@
     subgraph init [ ]
         init1(Initialize with DB session and level attr)
         fetch_job(Fetch new job from the Queue table)
-        exit_if_no_job(Exit)
+        exit_if_no_job(((Exit)))
         fetch_entity(Fetch entity featured in the queue record)
         mark_in_progress(Mark queue job with in progress status)
         init1 --&gt; fetch_job --&gt; fetch_entity --&gt; mark_in_progress

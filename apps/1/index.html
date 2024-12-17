@@ -512,9 +512,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#entities-media-platforms" class="md-nav__link">
+  <a href="#entities" class="md-nav__link">
     <span class="md-ellipsis">
-      Entities -- Media Platforms
+      Entities
     </span>
   </a>
   
@@ -566,7 +566,7 @@
 <li><code>components/w/ave_media</code></li>
 </ul>
 <p>Source-specific implementations are located at <code>bases/w/media/platforms</code>. File <code>platform_service</code> contains base classes <code>MediaPlatform</code> and <code>MediaTarget</code>, which are parents to platform-specific implementations in correspondingly named files in the same directory.</p>
-<h2 id="entities-media-platforms">Entities -- Media Platforms</h2>
+<h2 id="entities">Entities</h2>
 <table>
 <thead>
 <tr>
@@ -647,7 +647,8 @@
 </table>
 <h2 id="flow-diagram">Flow Diagram</h2>
 <pre class="mermaid"><code>flowchart TD
-    quit_on_resolve(Quit)
+    classDef exit_red fill:#cd0d3b
+    quit_on_resolve(((Exit)))
     is_target_resolved(Is target resolved?)
 
     subgraph collect_targets [Collect and init targets]
@@ -751,7 +752,7 @@
         fetch_target_updates(Collect target's updates)
 
         is_target_resolved -- no --&gt; resolve_target -- if resolved --&gt; fetch_target_updates -- YouTube --&gt; fetch_ytb_updates
-        mark_dead --&gt; quit_on_resolve
+        mark_dead --&gt; quit_on_resolve:::exit_red
         is_target_resolved -- yes --&gt; fetch_target_updates -- Smotrim --&gt; fetch_smotrim_updates
         fetch_target_updates -- Rutube --&gt; fetch_rutube_updates
     end

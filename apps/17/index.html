@@ -16,7 +16,7 @@
     
     
       
-        <title>🗸 ARR-3: Transfactory - Wapaganda Project Docs</title>
+        <title>∞ ARR-17: Researcher - Wapaganda Project Docs</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arr-3-transfactory" class="md-skip">
+        <a href="#arr-17-researcher" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🗸 ARR-3: Transfactory
+              ∞ ARR-17: Researcher
             
           </span>
         </div>
@@ -529,6 +529,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      History
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -544,162 +553,50 @@
                   
 
 
-<h1 id="arr-3-transfactory">🗸 ARR-3: Transfactory</h1>
+<h1 id="arr-17-researcher">∞ ARR-17: Researcher</h1>
 <h2 id="general">General</h2>
-<p>Transfactory is an app that transforms massive amounts of video/audio files into text using OpenAI's Whisper. It operates in conjunction with Transsuply around a special database table which serves as a queue: the supply app adds new jobs to it for the factory to pick up.</p>
-<p>The necessity for update is due to change in the principal algorithm: where the old one used official Whisper model with no optimization, the new one uses WhisperX, a highly optimized version that offers a significant increase in processing speed, as well as improved output.</p>
-<p>See also <a href="../11/">Transsuply docs</a>.</p>
+<p>Researcher is an application that utilizes various AI flows to obtain from the web, analyze and structure additional information pertinent to the personalities and organizations relevant to the project.</p>
 <h2 id="code">Code</h2>
-<ul>
-<li><code>bases/w/database</code></li>
-<li><code>bases/w/storage</code></li>
-<li><code>bases/w/config</code></li>
-<li><code>bases/w/transfactory_common</code></li>
-<li><code>components/w/trans_fast_factory</code></li>
-</ul>
+<p>TBD</p>
 <h2 id="entities">Entities</h2>
-<ul>
-<li><code>Transcript</code> mirrors <code>data.transcripts</code> DB table</li>
-<li><code>TranscribedLine</code> mirrors <code>data.transcribed_content2</code> DB table</li>
-<li><code>TransfactoryAnomaly</code> mirrors <code>service.transfactory_anomalies</code> table</li>
-<li><code>Prabyss</code> mirrors <code>service.prabyss</code> DB table</li>
-<li><code>FactoryJob</code> mirrors <code>service.factory_jobs_run_details</code> DB table</li>
-<li><code>TransfactoryNode</code> mirrors <code>enums.transfactory_nodes</code> DB table</li>
-<li><code>VoiceprintTemp</code> mirrors <code>service.voiceprint_temp</code> DB table</li>
-</ul>
+<p>TBD</p>
 <h2 id="flow-diagram">Flow Diagram</h2>
-<pre class="mermaid"><code>flowchart TB
-    classDef exit_red fill:#cd0d3b
-    subgraph check_lines [Check for existing lines]
-        check_transcribed(Check if transcription exists)
-        set_need_transcription(Set 'need_transcription' to False)
-        check_translated(Check if translation exists)
-        set_need_translation(Set 'need_translation' to False)
-        check_transcribed -- if exists --&gt; set_need_transcription
-        check_translated -- if exists --&gt; set_need_translation
-    end
+<p>Flow</p>
+<ul>
+<li>2 types of job: new &amp; update</li>
+<li>if new</li>
+<li>perform web search (100 results?) -- search tool</li>
+<li>save all results to the db (raw) -- tables <code>service.research_ppl</code> &amp; <code>service.research_orgs</code></li>
+<li>analyze each result for relevance, update db correspondingly</li>
+<li>perform auto analysis &amp; summarization of relevant results</li>
+<li>save results of analysis and summary</li>
+<li>if update:</li>
+<li>fetch already existing raw results (URLs)</li>
+<li>perform web search, filter out previously save results.</li>
+<li>for new items, do above, add all new results</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    trigger_endpoint(Trigger main endpoint)
+    fetch_job(Get new job from the Queue table)
+    exit_if_no_job(Exit)
 
-    subgraph assign_transcript [Get &amp; assign transcript]
-    direction TB
-        check_existence(Check if Transcript for 'path' already exists)
-        get_transcript(Get existing transcript)
-        create_transcript&gt;Create new transcript]
-        assign_transcript_id(Assing transcript ID)
+    subgraph init_service [Init service]
 
-        check_existence -- if found --&gt; get_transcript --&gt; assign_transcript_id
-        check_existence -- if not found --&gt; create_transcript --&gt; assign_transcript_id
-    end
-
-    subgraph assign_initial [ ]
-        assign_db_session(Assign Database session)
-        assign_machine_id(Assign machine ID)
-        assign_trans_settings(Assign transcription settings)
-        assign_storage_client(Assign storage client)
-        assign_auth_settings(Assign internal auth settings)
-        assign_db_session --- assign_machine_id --- assign_trans_settings --- assign_storage_client --- assign_auth_settings
-    end
-
-    subgraph assign_new_job [ ]
-        new_job(Get new job from PRABYSS table)
-        exit_after_new_job(((Exit)))
-        set_in_progress&gt;Set job's status to 'in progress']
-
-        new_job -- if none found --&gt; exit_after_new_job:::exit_red
-        new_job -- if found --&gt; set_in_progress
-    end
-
-    subgraph init_service [Init]
-    direction TB
-        get_machine(Fetch additional Machine's params from DB)
-        hardware_settings(Extract settings related to hardware)
-        decide_translation(Make decision if translation is needed)
-        create_stats(Create FactoryJob object to hold job's stats)
-        exit_on_lines_check(((Exit)))
-        create_engine(Create WhisperX engine)
-
-        assign_initial --&gt; get_machine --&gt; hardware_settings --&gt; create_engine
-        assign_initial --&gt; assign_new_job --&gt; decide_translation --&gt; create_stats --&gt; assign_transcript --&gt; check_lines --&gt; create_engine
-        check_lines -- if both transcription\nand translation exist --&gt; exit_on_lines_check:::exit_red
-    end
-
-    subgraph perform_whisper_job [ ]
-    direction TB
-        load_model(Load model)
-        load_audio(Load audio)
-        run_task(Produce raw Whisper result)
-        align_result(Perform alignment)
-        diarize_result(Diarize result)
-        cleanup_resources(Unload resources and clear the memory)
-        collect_timestamps(Collect timestamps)
-        return_result(Return diarized result and timestamps)
-
-        load_model --&gt; load_audio --&gt; run_task --&gt; align_result --&gt; diarize_result --&gt; cleanup_resources --&gt; collect_timestamps --&gt; return_result
-    end
-
-    subgraph handle_job [ ]
-    direction TB
-        collect_stats(Collect stats)
-        shape_lines(Convert raw output into DB objects)
-        persist_lines&gt;Add converted lines to DB session]
-        scan_anomalies(Scan output for anomalies)
-        persist_anomalies&gt;Add anomalies to DB session]
-
-        perform_whisper_job --&gt; collect_stats --&gt; shape_lines --&gt; persist_lines --&gt; scan_anomalies -- if any found --&gt; persist_anomalies
-    end
-
-    subgraph verify_job_success [ ]
-    direction TB
-        check_(Verify job success)
-        verify_only_transcribed(Check just transcription)
-        verify_transcribed_and_translated(Check transcription and translation)
-        check_ -- if lang = en --&gt; verify_only_transcribed
-        check_ -- if lang != en --&gt; verify_transcribed_and_translated
-    end
-
-    subgraph handle_voiceprints [Handle voiceprints]
-    direction TB
-        ensure_auth(Ensure auth token exists and is valid)
-        extract_raw_speakers(Collect unique speakers from transcription output)
-        extract_speaker_audio(Extract 60 seconds of voice material)
-        make_voiceprint_request&gt;Make request to voiceprint endpoint]
-
-        extract_raw_speakers -- for each --&gt; extract_speaker_audio --&gt; make_voiceprint_request
-        ensure_auth --- make_voiceprint_request
     end
 
     subgraph run [Run]
-    direction TB
-        handle_translation(Handle translation)
-        handle_transcription(Handle transcription)
-        download_audio(Download audio file)
-        measure_file_size(Measure file size)
-        local_cleanup(Do local cleanup)
-        drop_from_remote(Remove audio from remote storage)
-        set_job_completed&gt;Add job to DB session with status 'completed']
-        add_stats_db&gt;Add stats object to DB session]
-        persist_to_db&gt;Persist everything to the database]
-        exit_if_no_lines(((Exit)))
-        exit_after_verify(((Exit)))
-
-        download_audio -.- measure_file_size
-        download_audio -- if need_transcription = True --&gt; handle_transcription -- if need_translation = True --&gt; handle_translation --&gt; local_cleanup --&gt; verify_job_success -- Success --&gt; handle_voiceprints --&gt; set_job_completed --&gt; add_stats_db --&gt; persist_to_db --&gt; drop_from_remote
-        handle_transcription -.- handle_job
-        handle_translation -.- handle_job
-        handle_job -- if no lines produced --&gt; exit_if_no_lines:::exit_red
-        verify_job_success -- Failure --&gt; exit_after_verify:::exit_red
 
     end
 
-init_service --&gt; run</code></pre>
+    trigger_endpoint --&gt; fetch_job -- if not found --&gt; exit_if_no_job
+    fetch_job --&gt; init_service --&gt; run</code></pre>
+<h2 id="history">History</h2>
 
 
 
 
 
 
-
-  
-  
 
 
 

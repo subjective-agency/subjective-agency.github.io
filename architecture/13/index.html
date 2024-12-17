@@ -513,6 +513,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#entities-and-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entities and Relationships
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#relevant-services" class="md-nav__link">
     <span class="md-ellipsis">
       Relevant Services
@@ -580,10 +589,46 @@
 </ul>
 <h2 id="decision">Decision</h2>
 <ul>
-<li>Maintain the open roster of media segments. Update the roster periodically with new segments;</li>
-<li>Maintain mapping of targets to segments. Use this mapping to match episodes to segments (this won’t be relevant for all targets);</li>
-<li>Entities and their relationships. For details, see <a href="../13_addendum1/">here</a>.</li>
+<li>Connect the organizations hierarchy to the media segments hierarchy so that every media segment has at least 1 parent organization. If no explicit organization exists for a segment, and no existing organization can be tied to the segment, a special kind of organization must be created specifically to hold this segment. If a segment is personality-based, this organization should serve as a connecting layer between person and segment.</li>
+<li>Maintain open roster of media segments. Update the roster periodically with new segments;</li>
+<li>Matching strategy 1:</li>
+<li>Maintain 1-to-1 mapping of targets and segments.</li>
+<li>
+<p>Technically, targets for which this strategy would be relevant, are no different from those handled by strategy 2, except that they are tied to exactly 1 media segment. This strategy is a circumvention to avoid wasting resources.</p>
+</li>
+<li>
+<p>Matching strategy 2:</p>
+</li>
+<li>Maintain 1-to-many mapping of organizations to targets. Targets are <em>owned</em> by organization.</li>
+<li>Maintain 1-to-many mapping of organizations to segments. Segments are <em>owned</em> by organization.</li>
+<li>Taken together, these 2 mappings result in many-to-many mapping between segments and targets, which is then used for actual matching.</li>
+<li>
+<p>This is the primary strategy that is expected to deal with at least 50% of targets.</p>
+</li>
+<li>
+<p>Matching strategy 3:</p>
+</li>
+<li>...</li>
+<li>
+<p>This is the <em>fallback</em> strategy, for targets that can be resolved by 1st or 2nd.</p>
+</li>
+<li></li>
+<li>Review segments flow: </li>
+<li>add column <code>relevance_status</code></li>
+<li>investigate if segment is still active or not (update <code>is_defunct</code> correspondingly)</li>
+<li>if <code>parent_org_id</code> is present, create query to insert record into <code>orgs2msegments</code></li>
+<li>if any of the <code>smotrim_id</code>, <code>komso_id</code>, <code>rutube_id</code>, <code>youtube_id</code> or <code>ntv_id</code> are present, find the DB id of the corresponding target and create query to insert record into <code>orgs2mtargets</code>;</li>
+<li>review value of <code>relevant</code> column and update <code>relevance_status</code> correspondingly</li>
+<li>after all segments are reviewed: drop columns <code>parent_org_id</code>, <code>smotrim_id</code>, <code>rutube_id</code>, <code>ntv_id</code>, <code>komso_id</code>, <code>relevant</code>, <code>cluster</code>, <code>is_always_relevant</code></li>
+<li>Review targets flow. For each target</li>
+<li>Make sure it is tied to at least 1 organization. </li>
+<li>If organization does not exist, create it (+relation) -- flow for adding organizations (should return ID)</li>
+<li>Identify segments that could be featured on this target. Add segments if needed.  -- flow for adding media segments (should return ID) -- Create or update mapping org to segment</li>
+<li>Decide if target could be tied to exactly 1 segment via the <code>media_segment_id</code> field</li>
+<li></li>
 </ul>
+<h3 id="entities-and-relationships">Entities and Relationships</h3>
+<p>For details, see <a href="../13_addendum1/">here</a>.</p>
 <pre class="mermaid"><code>erDiagram
     PLATFORM {
         string URL
@@ -631,7 +676,7 @@
 <li>Segment matching service is <mark>under development</mark>.</li>
 </ul>
 <h2 id="status">Status</h2>
-<p>Cooking</p>
+<p>In progress</p>
 <h2 id="consequences">Consequences</h2>
 
 
