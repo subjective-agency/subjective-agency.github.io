@@ -521,11 +521,98 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flow-diagram" class="md-nav__link">
+  <a href="#flow-diagrams" class="md-nav__link">
     <span class="md-ellipsis">
-      Flow Diagram
+      Flow Diagrams
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Flow Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#people" class="md-nav__link">
+    <span class="md-ellipsis">
+      People
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#person" class="md-nav__link">
+    <span class="md-ellipsis">
+      Person
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#people-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      People filters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orgs-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orgs filters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -555,10 +642,225 @@
 
 <h1 id="arr-14-web">∞ ARR-14: Web</h1>
 <h2 id="general">General</h2>
+<p>Web is the API that supports the project website. Current (3rd) version is using FastAPI framework. </p>
 <h2 id="code">Code</h2>
+<ul>
+<li><code>bases/w/backend_web</code></li>
+<li><code>bases/w/auth</code></li>
+<li><code>bases/w/storage</code></li>
+<li><code>bases/w/database</code></li>
+<li><code>bases/w/config</code></li>
+<li><code>components/w/web</code></li>
+</ul>
 <h2 id="entities">Entities</h2>
-<h2 id="flow-diagram">Flow Diagram</h2>
+<ul>
+<li><code>Person</code></li>
+<li><code>Organization</code></li>
+<li><code>TheoryItem</code></li>
+</ul>
+<h2 id="flow-diagrams">Flow Diagrams</h2>
+<h3 id="people">People</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init People service]
+    direction LR
+        init_db_session(Database session) -.- init_storage_client(Storage client)
+    end
+
+    subgraph apply_filters [Apply filters to dataset]
+    direction LR
+        apply_age(Age)
+        apply_alive(Alive or not)
+        apply_sex(Gender)
+        apply_flags(Nationality)
+        apply_expertise(Expertise)
+        apply_groups(Custom groups)
+
+        apply_age --&gt; apply_alive --&gt; apply_sex --&gt; apply_flags --&gt; apply_expertise --&gt; apply_groups
+    end
+
+    endpoint(Trigger people endpoint)
+    get_ppl(Fetch all relevant patients)
+    apply_sorting(Apply sorting to dataset)
+    paginate(Paginate dataset)
+    fetch_pics(Fetch thumb URLs for requested page)
+    combine(Merge thumbs URLs into response)
+    return((Return&lt;br&gt;requested&lt;br&gt;page)):::success
+
+    endpoint --&gt; init_service --&gt; get_ppl --&gt; apply_filters --&gt; apply_sorting --&gt; paginate --&gt; fetch_pics --&gt; combine --&gt; return</code></pre>
+<h3 id="person">Person</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init People service]
+    direction LR
+        init_db_session(Database session) -.- init_storage_client(Storage client)
+    end
+
+    subgraph extend_with_photo [Expand]
+    direction LR
+        fetch_additional(Additional data&lt;br&gt;from DB)
+        get_pic(Presigned&lt;br&gt;picture URL)
+        shape_airtime(Shape airtime dataset)
+
+        fetch_additional --- get_pic
+        fetch_additional --&gt; shape_airtime
+    end
+
+    endpoint(Trigger people endpoint)
+    get_person(Fetch person from the DB)
+    return((Return&lt;br&gt;requested&lt;br&gt;page)):::success
+
+    endpoint --&gt; init_service --&gt; get_person --&gt; extend_with_photo --&gt; return</code></pre>
+<h3 id="organizations">Organizations</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init Orgs service]
+    direction LR
+        init_db_session(Database session)
+    end
+
+    endpoint(Trigger organizations endpoint)
+    get_orgs(Get all organizations from the DB)
+    apply_sorting(Apply sorting to dataset)
+    paginate(Paginate dataset)
+    return((Return&lt;br&gt;requested&lt;br&gt;page)):::success
+
+    endpoint --&gt; init_service --&gt; get_orgs --&gt; apply_sorting --&gt; paginate --&gt; return</code></pre>
+<h3 id="organization">Organization</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init Orgs service]
+    direction LR
+        init_db_session(Database session)
+    end
+
+    endpoint(Trigger organizations endpoint)
+    get_org(Fetch organization from the DB)
+    return((Return&lt;br&gt;requested&lt;br&gt;page)):::success
+
+    endpoint --&gt; init_service --&gt; get_org --&gt; return</code></pre>
+<h3 id="theory">Theory</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init Theory service]
+    direction LR
+        init_db_session(Database session)
+    end
+
+
+    subgraph sequence [Sequence]
+        get_sequences(Fetch all sequences)
+        get_sequence_for_display(Get sequence for display)
+        get_sequence_data(Fetch relevant notes)
+
+        get_sequence_for_display --&gt; get_sequence_data
+    end
+
+    subgraph apply_filters [Apply filters to notes dataset]
+        filter_date(Date)
+    end
+
+    subgraph identify_secondary [Collect adjacent &amp; sibling tags]
+    direction LR
+        extract_adjacent(Extract other tags from&lt;br&gt;notes dataset ~ adjacent) -.- fetch_sibling(Fetch other tags of&lt;br&gt;the same parent ~ siblings)
+    end
+
+    subgraph tag [Tag]
+        get_tag_for_display(Get tag for display)
+        get_tag_data(Fetch relevant notes)
+        get_tags(Fetch all tags)
+
+        get_tag_for_display --&gt; get_tag_data --&gt; identify_secondary
+        get_tags --&gt; identify_secondary
+    end
+
+    endpoint(Trigger Theory endpoint)
+    apply_sorting(Apply sorting to notes dataset)
+    paginate(Paginate notes dataset)
+    shape_additional(Shape object with additional data)
+    return((Return&lt;br&gt;requested&lt;br&gt;page)):::success
+
+    endpoint --&gt; init_service -- if sequence_id --&gt; sequence
+    init_service -- if no sequence_id --&gt; tag
+    sequence &amp; tag --&gt; apply_filters --&gt; apply_sorting --&gt; paginate --&gt; shape_additional --&gt; return</code></pre>
+<h3 id="markdown">Markdown</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init WebsiteAuxiliary service]
+    direction LR
+        init_db_session(Database session) -.- init_storage_client(Storage client) -.- create_static(Set list of&lt;br&gt;languages)
+    end
+
+    endpoint(Trigger txt endpoint)
+    get_urls(Get presigned URLs to MD files)
+    return((Return&lt;br&gt;URLs)):::success
+
+    endpoint --&gt; init_service --&gt; get_urls --&gt; return</code></pre>
+<h3 id="people-filters">People filters</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init Filters service]
+    direction LR
+        init_db_session(Database session)
+        create_static(Create base filters&lt;br&gt;from static values)
+
+        init_db_session -.- create_static
+    end
+
+    endpoint(Trigger filters endpoint)
+    get_bundles(Fetch bundles from the DB)
+    return((Return&lt;br&gt;combined&lt;br&gt;filters)):::success
+
+    endpoint --&gt; init_service --&gt; get_bundles --&gt; return</code></pre>
+<h3 id="orgs-filters">Orgs filters</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+    classDef indev fill:#b45f06
+
+    subgraph init_service [Init Filters service]
+    direction LR
+        create_static(Create base filters&lt;br&gt;from static values)
+    end
+
+    dev(In development):::indev
+    endpoint(Trigger filters endpoint)
+    get_org_types(Fetch org types from the DB)
+    return((Return&lt;br&gt;combined&lt;br&gt;filters)):::success
+
+    dev -.- endpoint --&gt; init_service --&gt; get_org_types --&gt; return</code></pre>
+<h3 id="search">Search</h3>
+<pre class="mermaid"><code>flowchart TD
+    classDef success fill:#376622
+
+    subgraph init_service [Init Search service]
+    direction LR
+        init_db_session(Database session) -.- init_static(Set list of allowed entities)
+    end
+
+    subgraph lookup [Perform lookup]
+        set_entities(Decide which entities to search in)
+        lookup_basic(Do basic lookup)
+        lookup_expand(Expand initial lookup&lt;br&gt;with additional data)
+
+        set_entities -- for each entity --&gt; lookup_basic -- for each result --&gt; lookup_expand
+    end
+
+    endpoint(Trigger Search endpoint)
+    return((Return&lt;br&gt;combined&lt;br&gt;results)):::success
+
+    endpoint --&gt; init_service --&gt; lookup --&gt; return</code></pre>
 <h2 id="history">History</h2>
+<ul>
+<li>First version was using Web2Py framework (August-October 2022)</li>
+<li>Second version was using Django framework (October 2022 - September 2024)</li>
+</ul>
 
 
 

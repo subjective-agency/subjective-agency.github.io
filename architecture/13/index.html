@@ -571,7 +571,7 @@
 <h1 id="adr-13-media-segments-primer">∞ ADR-13. Media Segments Primer</h1>
 <p>Parent to <a href="../6/">ADR-6: Transcripts</a>, <a href="../7/">ADR-7: Media Episodes Interface</a>, <a href="../8/">ADR-8: Transcript Mark-Up</a></p>
 <h2 id="context">Context</h2>
-<p>The domain of producing media is extremely versatile, with a number of major platforms available for our users of interest, each of which has its own specific peculiarities and requires a custom approach. Here is a non-exhaustive list of specific challenges:</p>
+<p>The domain of media production is extremely versatile, with a number of major platforms available for our users of interest, each of which has its own specific peculiarities and requires a custom approach. Here is a non-exhaustive list of specific challenges:</p>
 <ul>
 <li>A media episode could be published to arbitrary number of media platforms, and to arbitrary number of targets (channels), and not just by its producer but by anybody;</li>
 <li>A media episode could be published to the same platform any number of times, and with non-matching attributes;</li>
@@ -593,32 +593,20 @@
 <li>Maintain open roster of media segments. Update the roster periodically with new segments;</li>
 <li>Matching strategy 1:</li>
 <li>Maintain 1-to-1 mapping of targets and segments.</li>
-<li>
-<p>Technically, targets for which this strategy would be relevant, are no different from those handled by strategy 2, except that they are tied to exactly 1 media segment. This strategy is a circumvention to avoid wasting resources.</p>
-</li>
-<li>
-<p>Matching strategy 2:</p>
-</li>
-<li>Maintain 1-to-many mapping of organizations to targets. Targets are <em>owned</em> by organization.</li>
-<li>Maintain 1-to-many mapping of organizations to segments. Segments are <em>owned</em> by organization.</li>
+<li>Technically, targets for which this strategy would be relevant, are no different from those handled by strategy 2, except that they are tied to exactly 1 media segment. This strategy is a circumvention to avoid wasting resources.</li>
+<li>Matching strategy 2:</li>
+<li>Maintain 1-to-many mapping of organizations to targets. Targets are <em>owned</em> by organizations.</li>
+<li>Maintain 1-to-many mapping of organizations to segments. Segments are <em>owned</em> by organizations.</li>
 <li>Taken together, these 2 mappings result in many-to-many mapping between segments and targets, which is then used for actual matching.</li>
-<li>
-<p>This is the primary strategy that is expected to deal with at least 50% of targets.</p>
-</li>
-<li>
-<p>Matching strategy 3:</p>
-</li>
+<li>This is the primary strategy that is expected to deal with at least 50% of targets.</li>
+<li>Matching strategy 3:</li>
 <li>...</li>
-<li>
-<p>This is the <em>fallback</em> strategy, for targets that can be resolved by 1st or 2nd.</p>
-</li>
+<li>This is the <em>fallback</em> strategy, for targets that can’t be resolved by 1st or 2nd.</li>
 <li></li>
 <li>Review segments flow: </li>
-<li>add column <code>relevance_status</code></li>
 <li>investigate if segment is still active or not (update <code>is_defunct</code> correspondingly)</li>
 <li>if <code>parent_org_id</code> is present, create query to insert record into <code>orgs2msegments</code></li>
 <li>if any of the <code>smotrim_id</code>, <code>komso_id</code>, <code>rutube_id</code>, <code>youtube_id</code> or <code>ntv_id</code> are present, find the DB id of the corresponding target and create query to insert record into <code>orgs2mtargets</code>;</li>
-<li>review value of <code>relevant</code> column and update <code>relevance_status</code> correspondingly</li>
 <li>after all segments are reviewed: drop columns <code>parent_org_id</code>, <code>smotrim_id</code>, <code>rutube_id</code>, <code>ntv_id</code>, <code>komso_id</code>, <code>relevant</code>, <code>cluster</code>, <code>is_always_relevant</code></li>
 <li>Review targets flow. For each target</li>
 <li>Make sure it is tied to at least 1 organization. </li>
