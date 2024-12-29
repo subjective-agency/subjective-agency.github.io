@@ -16,7 +16,7 @@
     
     
       
-        <title>🗸 ARR-2: Periodicals - Wapaganda Project Docs</title>
+        <title>ARR-18: Auth - Wapaganda Project Docs</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arr-2-periodicals" class="md-skip">
+        <a href="#arr-18-auth" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🗸 ARR-2: Periodicals
+              ARR-18: Auth
             
           </span>
         </div>
@@ -521,28 +521,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flow-diagram" class="md-nav__link">
+  <a href="#flow-diagrams" class="md-nav__link">
     <span class="md-ellipsis">
-      Flow Diagram
+      Flow Diagrams
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Flow Diagram">
+    <nav class="md-nav" aria-label="Flow Diagrams">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scanner" class="md-nav__link">
+  <a href="#login" class="md-nav__link">
     <span class="md-ellipsis">
-      Scanner
+      Login
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fetcher" class="md-nav__link">
+  <a href="#logout" class="md-nav__link">
     <span class="md-ellipsis">
-      Fetcher
+      Logout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorize
     </span>
   </a>
   
@@ -550,6 +559,39 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sequence Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      History
+    </span>
+  </a>
   
 </li>
       
@@ -568,137 +610,107 @@
                   
 
 
-<h1 id="arr-2-periodicals">🗸 ARR-2: Periodicals</h1>
+<h1 id="arr-18-auth">ARR-18: Auth</h1>
 <h2 id="general">General</h2>
-<p>Periodicals is a data collector application that specifically targets websites of news outlets like newspapers, magazines, etc.</p>
-<p>The application operates over <code>Website</code>s (represented by <code>websites</code> table in the DB), referred to as <code>sources</code> in the application.</p>
-<p>There are 2 major parts to the flow: Fetcher and Scanner. Both are implemented as base classes from which source-specific child classes derive. In this context, adding a new source would mean defining both <code>scanner</code> and <code>fetcher</code> implementations with source-specific details.</p>
+<p><code>Auth</code> application provides authentication mechanism for protected endpoints in various project application, including Web, Cooperation, Addition and others.</p>
 <h2 id="code">Code</h2>
 <ul>
-<li><code>bases/w/webparse</code></li>
+<li><code>bases/w/auth</code></li>
 <li><code>bases/w/database</code></li>
 <li><code>bases/w/config</code></li>
-<li><code>components/w/periodicals</code></li>
+<li><code>components/w/base_auth</code></li>
 </ul>
 <h2 id="entities">Entities</h2>
 <ul>
-<li><code>Webpage</code> mirrors <code>data.text_media</code> DB table;</li>
-<li><code>Website</code> mirrors <code>public.websites</code> DB table</li>
+<li><code>User</code></li>
 </ul>
-<h2 id="flow-diagram">Flow Diagram</h2>
-<h3 id="scanner">Scanner</h3>
-<p>Scanner is responsible for collecting new items from 'category' pages. </p>
+<h2 id="flow-diagrams">Flow Diagrams</h2>
+<h3 id="login">Login</h3>
 <pre class="mermaid"><code>flowchart TD
-    subgraph init_update [Initialize update service]
+    subgraph authenticate [Authenticate]
+        fetch_user(Fetch user from the DB)
+        verify_password(Verify password)
+        fetch_user --&gt; verify_password
+    end
+
+    subgraph set_cookie [Set cookie on the Response]
     direction TB
-        get_target(Fetch source to scan)
-        get_target --&gt; scanner_init
+        cookie_all(Set common params)
+        cookie_token(key='access_token')
+        cookie_value(value= generated token)
+        cookie_httponly(httponly=True)
+        cookie_path(path='/')
+        cookie_secure(secure=True)
+        cookie_samesite(samesite= from config)
+        cookie_maxage(maxage= from config)
+
+        cookie_wapaweb(domain = 'subjective.agency')
+        cookie_wapaweb_dev(domain = 'localhost')
+        cookie_no_domain(Do not add domain param)
+
+        cookie_token &amp; cookie_value &amp; cookie_httponly &amp; cookie_path &amp; cookie_secure &amp; cookie_samesite &amp; cookie_maxage -.- cookie_all -- if user is wapaweb --&gt; cookie_wapaweb
+        cookie_all -- if user is wapaweb_dev --&gt; cookie_wapaweb_dev
+        cookie_all -- for all others --&gt; cookie_no_domain
     end
 
-    subgraph scanner_init [Create scanner]
-        scanner_init_common --&gt; scanner_init_source
-    end
+    fail_if_user_not_found(Raise 401)
+    set_expire_time(Set expiration time)
+    create_token(Generate token)
+    shape_login_response(Create Response object)
+    set_header_website(Set Access-Control-Allow-Origin&lt;br&gt;header to 'https://wapaganda.subjective.agency')
+    set_header_dev(Set Access-Control-Allow-Origin&lt;br&gt;header to 'http://localhost:8000',&lt;br&gt;'http://localhost:11000')
+    return_login_response(Return response)
+    login_endpoint(Trigger login endpoint)
 
-    subgraph scanner_init_common [Common init - Non-Async]
-        init1(Call init with website object and DB session)
-        set_url1(Set 'base_url')
-        set_url2(Set 'api_url' and 'use_api' = True)
-
-        init1 --&gt; set_url1
-        init1 -- if api is an option --&gt; set_url2
-    end
-
-    subgraph scanner_init_source [Source-specific init - Async]
-        get_latest(Fetch source's latest item)
-        define_crawl_schema(Define JSON schema specific&lt;br&gt;for the source)
-        define_crawl_strategy(Create crawl strategy based on defined schema)
-        note_source_init(1)
-
-        get_latest -- for some sources --&gt; define_crawl_schema --&gt; define_crawl_strategy
-        get_latest -- for all --- note_source_init
-    end
-
-    subgraph parse_items [Create ScannedItem]
-        get_title(Title)
-        get_excerpt(Excerpt)
-        get_date(Publish date)
-        get_author(Authors data)
-        get_url(URL)
-        get_additional(Additional data)
-
-        get_title --- get_excerpt --- get_date --- get_author --- get_url --- get_additional
-    end
-
-    subgraph persist_upd [Check and persist]
-        check_item(Check for presence in the DB)
-        add_item(Add to the database)
-
-        check_item -- if not present --&gt; add_item
-    end
-
-    subgraph run_upd [Run Update]
-    direction TB
-        fetch_crawl4ai(Fetch new items with crawl4ai)
-        fetch_api(Fetch new items via API with niquests)
-
-        convert2pages(Create new Webpage objects)
-        dedupe(Drop duplicates from final list)
-
-        fetch_crawl4ai -- each item --&gt; parse_items
-        fetch_api -- each item --&gt; parse_items
-        parse_items --&gt; convert2pages --&gt; dedupe -- for each item --&gt; persist_upd
-    end
-
-call_update(Trigger 'update' endpoint) --&gt; init_update --&gt; run_upd --&gt; commit(Commit updates to the database)</code></pre>
-<h3 id="fetcher">Fetcher</h3>
-<p>Fetcher is responsible for getting content of relevant articles (which is missing from the 'category' pages most of the time).</p>
+    login_endpoint --&gt; authenticate --&gt; set_expire_time --&gt; create_token --&gt; shape_login_response -- if user is wapaweb --&gt; set_header_website --&gt; set_cookie --&gt; return_login_response
+    shape_login_response -- if user is wapaweb_dev --&gt; set_header_dev --&gt; set_cookie
+    authenticate -- if user not found --&gt; fail_if_user_not_found</code></pre>
+<h3 id="logout">Logout</h3>
 <pre class="mermaid"><code>flowchart TD
-    subgraph create_fetcher [Create the fetcher]
-    direction LR
-        init_fetcher(Initialize fetcher with&lt;br&gt;Webpage and DB session)
-        define_strategy(Define extraction strategy for crawl4ai)
-        init_fetcher --&gt; define_strategy
-    end
+    logout_endpoint(Trigger logout endpoint) --&gt; shape_logout_response(Create Response object) --&gt; remove_cookie(Delete cookie with value = access_token) --&gt; return_logout_response(Return response)</code></pre>
+<h3 id="authorize">Authorize</h3>
+<pre class="mermaid"><code>flowchart TD
+    check_token(Extract token from the cookie)
+    raise_if_no_token(Raise 401)
+    decode_token(Decode token using secret&lt;br&gt;key and algorithm)
+    extract_username(Extract username from the payload)
+    raise_if_no_username(Raise 401)
+    fetch_user2(Fetch user from the DB)
+    raise_if_no_user(Raise 401)
+    auth_endpoint(Trigger authorize endpoint)
+    check_user(Check if user is active)
+    raise_if_deactivated(Raise 400)
+    return_authorized(Return user object)
 
-    subgraph init_fetch [Init fetcher service]
-    direction LR
-        assign_session(Call init with DB session -- Non-Async)
-        get_page(Get page for update -- Async)
-
-        assign_session --&gt; get_page
-    end
-
-    subgraph parse_page [Extrac]
-    direction TB
-        page_content(Content from fit_markdown)
-        page_meta(Metadata)
-        page_media(Media items)
-        page_link(Links)
-        page_extracted(Load extracted pieces)
-        page_accomodate(Accomodate extracted pieces&lt;br&gt;source-specific)
-
-        page_content --- page_meta --- page_media --- page_link --&gt; page_extracted --&gt; page_accomodate
-    end
-
-    subgraph resolve_page [Run fetch]
-        fetch_page(Fetch page)
-        if_404_on_fetch(Set is_deleted = True)
-        create_fetcher --&gt; fetch_page --&gt; parse_page
-        fetch_page -- if response code = 404 --&gt; if_404_on_fetch
-    end
-
-
-call_fetch(Trigger 'fetch' endpoint) --&gt; init_fetch --&gt; resolve_page --&gt; commit(Commit updates to the database)
+    auth_endpoint --&gt; check_token --&gt; decode_token --&gt; extract_username --&gt; fetch_user2 --&gt; check_user --&gt; return_authorized
+    check_token -- if no token found --&gt; raise_if_no_token
+    extract_username -- if no username in payload --&gt; raise_if_no_username
+    fetch_user2 -- if no user found --&gt; raise_if_no_user
+    check_user -- if deactivated --&gt; raise_if_deactivated
 </code></pre>
+<h2 id="sequence-diagrams">Sequence Diagrams</h2>
+<h3 id="production">Production</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant F as frontend&lt;br&gt;wapaganda.subjective.agency
+    participant A as auth&lt;br&gt;a.subjective.agency
+    participant B as backend&lt;br&gt;b.subjective.agency
+    F-&gt;&gt;A: login request
+    Note right of F: with username &amp; password&lt;br&gt;in the request body
+    A-&gt;&gt;F: response with added cookie
+    Note left of A: domain = subjective.agency
+    F-&gt;&gt;B: request to any endpoint
+    Note right of F: token is still in the cookie
+    B-&gt;&gt;A: token verification request
+    A-&gt;&gt;B: confirmation response
+    B-&gt;&gt;F: serve content
+</code></pre>
+<h2 id="history">History</h2>
 
 
 
 
 
 
-
-  
-  
 
 
 

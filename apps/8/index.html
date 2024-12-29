@@ -575,6 +575,36 @@
 <li><code>QueueJob</code></li>
 </ul>
 <h2 id="flow-diagram">Flow Diagram</h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph current_user [Get current user]
+        extract_token(Extract token from&lt;br&gt;cookie of the request)
+        collect_config(Load auth config)
+        call_authorize(Send POST request to&lt;br&gt;/authorize endpoint)
+        return_user(Return User object)
+        raise_if_not_200(Raise)
+
+        extract_token --- collect_config --&gt; call_authorize --&gt; return_user
+        call_authorize -- if not 200 --&gt; raise_if_not_200
+    end
+
+    subgraph init_service [Init service]
+    direction LR
+        init_db_sesson(DB session) --- init_ytb_key(Youtube API key)
+    end
+
+    subgraph add [ ]
+    direction TB
+        add_tg(Add Telegram channel)
+        add_youtube(Add Youtube channel)
+        add_rutube(Add Rutube channel)
+    end
+
+    endpoint(Trigger /add_a_thing endpoint)
+    success(Return OK)
+    raise_if_not_unique(Return non-unique warning)
+
+    endpoint --&gt; current_user --&gt; init_service --&gt; add --&gt; success
+    add -- if not unique --&gt; raise_if_not_unique</code></pre>
 <h2 id="history">History</h2>
 
 
