@@ -513,6 +513,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git-repositories" class="md-nav__link">
     <span class="md-ellipsis">
       Git repositories
@@ -603,6 +612,23 @@
 </div>
 <p>This document describes the structure of the W project.</p>
 <h2 id="decision">Decision</h2>
+<h3 id="high-level">High-Level</h3>
+<pre class="mermaid"><code>architecture-beta
+    service left_disk(disk)[Disk]
+    service top_disk(disk)[Disk]
+    service bottom_disk(disk)[Disk]
+    service top_gateway(internet)[Gateway]
+    service bottom_gateway(internet)[Gateway]
+    junction junctionCenter
+    junction junctionRight
+
+    left_disk:R -- L:junctionCenter
+    top_disk:B -- T:junctionCenter
+    bottom_disk:T -- B:junctionCenter
+    junctionCenter:R -- L:junctionRight
+    top_gateway:B -- T:junctionRight
+    bottom_gateway:T -- B:junctionRight
+</code></pre>
 <h3 id="git-repositories">Git repositories</h3>
 <p>All repositories here are hosted under Subjective Agency organization on GitHub.</p>
 <ul>
@@ -620,7 +646,7 @@
 <p>Domain <code>subjective.agency</code> is hosted on <code>domain.com</code> and managed via Cloudflare. Mailservice is managed via <code>namecheap.com</code>. Secondary domain <code>subjective.place</code> is hosted directly on Cloudflare. </p>
 <p>Applications are running either on Hetzner-based servers, or in Railway. See <a href="../../infra/">Infrastructure</a> for details.</p>
 <h2 id="status">Status</h2>
-<p>In progress</p>
+<p>Never-ending evolution</p>
 <h2 id="consequences">Consequences</h2>
 
 
